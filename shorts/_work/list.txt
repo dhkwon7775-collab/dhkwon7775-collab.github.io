@@ -1,0 +1,7 @@
+file 'C:\Users\User\OneDrive\바탕 화면\새로운 시작\shorts\_work\v0.wav'
+file 'C:\Users\User\OneDrive\바탕 화면\새로운 시작\shorts\_work\v1.wav'
+file 'C:\Users\User\OneDrive\바탕 화면\새로운 시작\shorts\_work\v2.wav'
+file 'C:\Users\User\OneDrive\바탕 화면\새로운 시작\shorts\_work\v3.wav'
+file 'C:\Users\User\OneDrive\바탕 화면\새로운 시작\shorts\_work\v4.wav'
+file 'C:\Users\User\OneDrive\바탕 화면\새로운 시작\shorts\_work\v5.wav'
+file 'C:\Users\User\OneDrive\바탕 화면\새로운 시작\shorts\_work\v6.wav'
