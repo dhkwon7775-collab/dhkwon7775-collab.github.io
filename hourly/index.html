@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 알바 월급·주휴수당 계산기 | 최저시급 10,320원 기준</title>
+<meta name="description" content="시급, 하루 근무시간, 주 근무일만 넣으면 주휴수당과 주급, 월급을 바로 계산해요. 2026년 최저시급 10,320원 기준, 3.3% 세금과 4대보험 공제도 반영돼요.">
+<meta property="og:title" content="2026 알바 월급·주휴수당 계산기">
+<meta property="og:description" content="시급과 근무시간만 넣으면 주휴수당과 월급을 바로 계산해요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dhkwon7775-collab.github.io/hourly/">
+<link rel="canonical" href="https://dhkwon7775-collab.github.io/hourly/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --text: #191f28;
+    --sub: #6b7684;
+    --line: #e5e8eb;
+    --accent: #3182f6;
+    --accent-soft: #e8f3ff;
+    --minus: #f04452;
+    --seg: #f2f4f6;
+    --warn-bg: #fff4e5;
+    --warn: #b25e09;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101113;
+      --card: #1b1d21;
+      --text: #f2f4f6;
+      --sub: #9aa3ad;
+      --line: #2c2f35;
+      --accent: #4c9bff;
+      --accent-soft: #1a2a40;
+      --minus: #ff6b76;
+      --seg: #24272c;
+      --warn-bg: #3a2a12;
+      --warn: #ffb35c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; letter-spacing: -0.02em; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 20px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"] {
+    width: 100%;
+    font: inherit;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 12px 64px 12px 14px;
+    border: 2px solid var(--line);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text);
+    outline: none;
+  }
+  input:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button, .stepper button {
+    font: inherit; font-size: 13px; font-weight: 600;
+    border: 0; border-radius: 8px; padding: 6px 10px;
+    background: var(--accent-soft); color: var(--accent); cursor: pointer;
+  }
+  .stepper { display: flex; align-items: center; gap: 10px; height: 54px; }
+  .stepper button { width: 36px; height: 36px; font-size: 18px; padding: 0; }
+  .stepper output { font-size: 20px; font-weight: 700; min-width: 40px; text-align: center; }
+  .seg { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--seg); border-radius: 12px; padding: 4px; gap: 4px; }
+  .seg button {
+    font: inherit; font-size: 14px; font-weight: 600;
+    border: 0; border-radius: 9px; padding: 10px 4px;
+    background: transparent; color: var(--sub); cursor: pointer;
+  }
+  .seg button[aria-pressed="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; margin: 2px 0 4px; color: var(--accent); }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 20px; }
+  .warn { background: var(--warn-bg); color: var(--warn); border-radius: 12px; padding: 12px 14px; font-size: 14px; margin: 0 0 16px; display: none; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  td { padding: 10px 0; border-top: 1px solid var(--line); }
+  td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  td.m { color: var(--minus); }
+  tr.total td { font-weight: 700; }
+  tr.group td { color: var(--sub); font-size: 13px; padding-top: 18px; border-top: 0; }
+  h2 { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq summary { cursor: pointer; font-weight: 600; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  .others a { display: block; padding: 12px 0; color: var(--text); text-decoration: none; font-weight: 600; border-top: 1px solid var(--line); }
+  .others a:first-of-type { border-top: 0; }
+  .others a span { color: var(--sub); font-weight: 400; font-size: 14px; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+</style>
+</head>
+<body>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>알바 월급·주휴수당 계산기</h1>
+  <p class="lead">2026년 최저시급 10,320원 기준 · 시급과 근무시간만 넣으면 주휴수당과 월급을 계산해요.</p>
+
+  <section class="card">
+    <div class="field">
+      <label for="wage">시급</label>
+      <div class="input-wrap">
+        <input id="wage" type="text" inputmode="numeric" value="10,320" autocomplete="off">
+        <span class="unit">원</span>
+      </div>
+      <div class="quick">
+        <button type="button" data-wage="10320">2026 최저시급</button>
+        <button type="button" data-wage="11000">11,000원</button>
+        <button type="button" data-wage="12000">12,000원</button>
+        <button type="button" data-wage="15000">15,000원</button>
+      </div>
+    </div>
+
+    <div class="row2">
+      <div class="field">
+        <label for="hours">하루 근무시간</label>
+        <div class="input-wrap">
+          <input id="hours" type="text" inputmode="decimal" value="8" autocomplete="off">
+          <span class="unit">시간</span>
+        </div>
+        <div class="hint">휴게시간은 빼고 넣어요.</div>
+      </div>
+      <div class="field">
+        <label>주 근무일수</label>
+        <div class="stepper" data-target="days" data-min="1" data-max="7">
+          <button type="button" data-d="-1" aria-label="줄이기">−</button>
+          <output id="days">5</output>
+          <button type="button" data-d="1" aria-label="늘리기">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="label">공제 방식</span>
+      <div class="seg" role="group" aria-label="공제 방식">
+        <button type="button" data-deduct="none" aria-pressed="false">공제 없음</button>
+        <button type="button" data-deduct="biz" aria-pressed="true">3.3%</button>
+        <button type="button" data-deduct="ins" aria-pressed="false">4대보험</button>
+      </div>
+      <div class="hint" id="deductHint"></div>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="warn" id="warn"></p>
+    <p class="result-head" id="netHead">예상 월급</p>
+    <p class="big" id="net">0원</p>
+    <p class="sub-line" id="subLine"></p>
+    <table>
+      <tbody id="rows"></tbody>
+    </table>
+  </section>
+
+  <section class="card faq">
+    <h2>자주 묻는 질문</h2>
+    <details>
+      <summary>주휴수당은 누가 받을 수 있나요?</summary>
+      <p>일주일에 15시간 이상 일하고, 정해진 근무일에 모두 출근했다면 받을 수 있어요. 아르바이트, 계약직 상관없이 받을 수 있는 법정 수당이에요.</p>
+    </details>
+    <details>
+      <summary>주휴수당은 어떻게 계산하나요?</summary>
+      <p>(1주 근무시간 ÷ 40) × 8시간 × 시급이에요. 주 40시간 이상 일해도 최대 8시간분까지만 줘요. 예를 들어 시급 10,320원으로 주 20시간 일하면 20÷40×8×10,320 = 41,280원이에요.</p>
+    </details>
+    <details>
+      <summary>월급은 왜 4주가 아니라 4.345주로 계산하나요?</summary>
+      <p>한 달은 평균 30.4일이라 4주보다 조금 길어요. 1년 365일 ÷ 7일 ÷ 12개월 = 약 4.345주로 계산하는 게 정확해요. 최저임금 월 환산액(209시간)도 이 방식으로 나온 거예요.</p>
+    </details>
+    <details>
+      <summary>3.3%와 4대보험은 뭐가 다른가요?</summary>
+      <p>3.3%는 사업소득세(3%)와 지방소득세(0.3%)를 떼는 방식이에요. 4대보험은 국민연금·건강보험·고용보험 등을 떼는 방식으로, 보통 월 60시간 이상 일하면 가입 대상이에요. 4대보험에 가입하면 실업급여를 받을 수 있어요.</p>
+    </details>
+    <details>
+      <summary>2026년 최저 월급은 얼마인가요?</summary>
+      <p>주 40시간 일하면 주휴시간을 포함해 월 209시간으로 계산해서 10,320원 × 209시간 = 2,156,880원이에요.</p>
+    </details>
+  </section>
+
+  <section class="card others">
+    <h2>다른 계산기</h2>
+    <a href="../salary/">💰 연봉 실수령액 계산기 <span>· 4대보험·세금 빼고 매달 받는 돈</span></a>
+    <a href="../severance/">🧾 퇴직금 계산기 <span>· 1년 이상 일했다면 알바도 받을 수 있어요</span></a>
+    <a href="../loan/">🏦 대출 이자 계산기 <span>· 매달 갚을 돈과 총이자, 상환 방식별 비교</span></a>
+  </section>
+
+  <footer>계산 결과는 참고용이며, 연장·야간·휴일 수당은 포함하지 않아요.</footer>
+</main>
+
+<script>
+// ===== 2026년 기준 (매년 이 부분만 확인해서 바꾸면 돼요) =====
+const MIN_WAGE = 10320;          // 2026년 최저시급
+const WEEKS_PER_MONTH = 365 / 7 / 12; // 약 4.345주
+const INS = { pension: 0.0475, health: 0.03595, care: 0.1314, employ: 0.009 };
+
+const $ = (id) => document.getElementById(id);
+const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
+const parse = (s) => Number(String(s).replace(/[^0-9]/g, "")) || 0;
+const floor10 = (n) => Math.floor(n / 10) * 10;
+const hrs = (n) => (Math.round(n * 10) / 10).toLocaleString("ko-KR") + "시간";
+
+const DEDUCT_HINT = {
+  none: "세금이나 보험료를 떼지 않은 금액이에요.",
+  biz: "사업소득세 3% + 지방소득세 0.3%를 떼요. 아르바이트에서 많이 쓰는 방식이에요.",
+  ins: "국민연금·건강보험·장기요양·고용보험을 떼요. 소득세는 금액이 작아 대부분 0원이라 빼고 계산했어요.",
+};
+let deduct = "biz";
+
+function calc(wage, dailyHours, days) {
+  const weekHours = dailyHours * days;
+  const eligible = weekHours >= 15;
+  const holidayHours = eligible ? (Math.min(weekHours, 40) / 40) * 8 : 0;
+  const weekBase = Math.round(weekHours * wage);
+  const weekHoliday = Math.round(holidayHours * wage);
+  // 월 환산 시간은 정부 방식처럼 시간 단위로 반올림 (주 40시간 → 209시간)
+  const monthHours = Math.round((weekHours + holidayHours) * WEEKS_PER_MONTH);
+  const monthGross = Math.round(monthHours * wage);
+
+  let items = [];
+  if (deduct === "biz") {
+    const income = floor10(monthGross * 0.03);
+    items = [["사업소득세 (3%)", income], ["지방소득세 (0.3%)", floor10(income * 0.1)]];
+  } else if (deduct === "ins") {
+    const health = floor10(monthGross * INS.health);
+    items = [
+      ["국민연금", floor10(monthGross * INS.pension)],
+      ["건강보험", health],
+      ["장기요양보험", floor10(health * INS.care)],
+      ["고용보험", floor10(monthGross * INS.employ)],
+    ];
+  }
+  const totalDeduct = items.reduce((s, [, v]) => s + v, 0);
+  return { weekHours, eligible, holidayHours, weekBase, weekHoliday, monthHours, monthGross, items, totalDeduct, net: monthGross - totalDeduct };
+}
+
+function render() {
+  const wage = parse($("wage").value);
+  const dailyHours = Math.min(24, Number(String($("hours").value).replace(/[^0-9.]/g, "")) || 0);
+  const days = Number($("days").value);
+  $("deductHint").textContent = DEDUCT_HINT[deduct];
+
+  const r = calc(wage, dailyHours, days);
+
+  const warn = $("warn");
+  let msg = "";
+  if (wage > 0 && wage < MIN_WAGE) msg = `시급이 2026년 최저시급(${MIN_WAGE.toLocaleString()}원)보다 낮아요. 최저임금보다 적게 주는 건 법 위반이에요.`;
+  else if (r.weekHours > 0 && !r.eligible) msg = `주 ${hrs(r.weekHours)} 근무라 주휴수당 대상이 아니에요. (주 15시간 이상이어야 받을 수 있어요)`;
+  warn.textContent = msg;
+  warn.style.display = msg ? "block" : "none";
+
+  $("netHead").textContent = deduct === "none" ? "예상 월급" : "예상 월급 (공제 후)";
+  $("net").textContent = won(r.net);
+  $("subLine").textContent = `주 ${hrs(r.weekHours)} 근무 · 주휴수당 포함 월 약 ${hrs(r.monthHours)}`;
+
+  const deductRows = r.items.map(([n, v]) => `<tr><td>${n}</td><td class="m">−${won(v)}</td></tr>`).join("");
+  $("rows").innerHTML = `
+    <tr class="group"><td colspan="2">일주일</td></tr>
+    <tr><td>근무 급여 (${hrs(r.weekHours)})</td><td>${won(r.weekBase)}</td></tr>
+    <tr><td>주휴수당 (${hrs(r.holidayHours)})</td><td>${won(r.weekHoliday)}</td></tr>
+    <tr class="total"><td>주급</td><td>${won(r.weekBase + r.weekHoliday)}</td></tr>
+    <tr class="group"><td colspan="2">한 달 (평균 4.345주)</td></tr>
+    <tr><td>월급 (세전)</td><td>${won(r.monthGross)}</td></tr>
+    ${deductRows}
+    <tr class="total"><td>월 실수령액</td><td>${won(r.net)}</td></tr>`;
+}
+
+// 입력 처리
+$("wage").addEventListener("input", (e) => {
+  const n = parse(e.target.value);
+  e.target.value = n ? n.toLocaleString("ko-KR") : "";
+  render();
+});
+$("hours").addEventListener("input", (e) => {
+  e.target.value = e.target.value.replace(/[^0-9.]/g, "").replace(/(\..*)\./g, "$1");
+  render();
+});
+document.querySelectorAll("[data-wage]").forEach((b) =>
+  b.addEventListener("click", () => {
+    $("wage").value = Number(b.dataset.wage).toLocaleString("ko-KR");
+    render();
+  })
+);
+document.querySelectorAll(".stepper").forEach((s) => {
+  const out = $(s.dataset.target);
+  s.querySelectorAll("button").forEach((b) =>
+    b.addEventListener("click", () => {
+      const v = Number(out.value) + Number(b.dataset.d);
+      out.value = Math.min(Number(s.dataset.max), Math.max(Number(s.dataset.min), v));
+      render();
+    })
+  );
+});
+document.querySelectorAll("[data-deduct]").forEach((b) =>
+  b.addEventListener("click", () => {
+    deduct = b.dataset.deduct;
+    document.querySelectorAll("[data-deduct]").forEach((x) => x.setAttribute("aria-pressed", x === b));
+    render();
+  })
+);
+
+render();
+</script>
+</body>
+</html>
