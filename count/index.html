@@ -239,7 +239,8 @@ function count(raw) {
   const words = (text.trim().match(/\S+/g) || []).length;
   const lines = text ? text.split("\n").length : 0;
   const paragraphs = text.split(/\n\s*\n/).filter((p) => p.trim()).length;
-  const sentences = (text.match(/[^.!?。？！\n]+[.!?。？！]+/g) || []).length;
+  // 마침표·물음표·느낌표나 줄바꿈으로 끝나는 덩어리를 문장으로 셈 (마지막 문장은 마침표가 없어도 셈)
+  const sentences = text.split(/[.!?。？！]+|\n+/).filter((s) => s.trim()).length;
   const hangul = (text.match(/[가-힣]/g) || []).length;
   return { withSpace, noBreak, noSpace, bytes2, bytesUtf8, words, lines, paragraphs, sentences, hangul };
 }
