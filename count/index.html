@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>글자수 세기 | 공백 포함·제외, 바이트, 자기소개서 글자수 계산</title>
+<meta name="description" content="자기소개서, 리포트 글자수를 바로 세어 드려요. 공백 포함·공백 제외 글자수, 바이트, 단어 수, 원고지 매수까지. 입력한 글은 내 브라우저에만 저장되고 외부로 전송되지 않아요.">
+<meta property="og:title" content="글자수 세기">
+<meta property="og:description" content="자기소개서 글자수, 공백 포함·제외, 바이트를 바로 세어 드려요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dhkwon7775-collab.github.io/count/">
+<link rel="canonical" href="https://dhkwon7775-collab.github.io/count/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --card: #ffffff;
+    --text: #191f28;
+    --sub: #6b7684;
+    --line: #e5e8eb;
+    --accent: #3182f6;
+    --accent-soft: #e8f3ff;
+    --seg: #f2f4f6;
+    --over: #f04452;
+    --ok: #12b886;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101113;
+      --card: #1b1d21;
+      --text: #f2f4f6;
+      --sub: #9aa3ad;
+      --line: #2c2f35;
+      --accent: #4c9bff;
+      --accent-soft: #1a2a40;
+      --seg: #24272c;
+      --over: #ff6b76;
+      --ok: #38d9a9;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; letter-spacing: -0.02em; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 20px; margin-bottom: 16px; }
+  .sticky { position: sticky; top: 0; z-index: 5; box-shadow: 0 4px 16px rgba(0,0,0,.06); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  @media (max-width: 480px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat { background: var(--seg); border-radius: 12px; padding: 10px 12px; }
+  .stat span { display: block; font-size: 12px; color: var(--sub); }
+  .stat b { font-size: 22px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat.main { background: var(--accent-soft); }
+  .stat.main b, .stat.main span { color: var(--accent); }
+  .goal { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 14px; }
+  .goal label { color: var(--sub); white-space: nowrap; }
+  .goal input {
+    width: 96px; font: inherit; font-weight: 700; font-size: 15px;
+    padding: 6px 10px; border: 2px solid var(--line); border-radius: 8px;
+    background: transparent; color: var(--text); outline: none; text-align: right;
+  }
+  .goal input:focus { border-color: var(--accent); }
+  .goal select {
+    font: inherit; font-size: 14px; padding: 6px 8px; border: 2px solid var(--line); border-radius: 8px;
+    background: transparent; color: var(--text); cursor: pointer;
+  }
+  .goal select option { color: #191f28; }
+  .progress { flex: 1; height: 10px; background: var(--seg); border-radius: 5px; overflow: hidden; }
+  .progress span { display: block; height: 100%; background: var(--accent); border-radius: 5px; }
+  .progress.over span { background: var(--over); }
+  .goal-text { font-size: 13px; color: var(--sub); margin-top: 6px; min-height: 20px; }
+  .goal-text.over { color: var(--over); font-weight: 600; }
+  .goal-text.ok { color: var(--ok); font-weight: 600; }
+  textarea {
+    width: 100%;
+    min-height: 320px;
+    resize: vertical;
+    font: inherit;
+    font-size: 16px;
+    line-height: 1.8;
+    padding: 16px;
+    border: 2px solid var(--line);
+    border-radius: 14px;
+    background: transparent;
+    color: var(--text);
+    outline: none;
+  }
+  textarea:focus { border-color: var(--accent); }
+  .tools { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tools button {
+    font: inherit; font-size: 13px; font-weight: 600;
+    border: 0; border-radius: 8px; padding: 8px 12px;
+    background: var(--seg); color: var(--text); cursor: pointer;
+  }
+  .tools button.primary { background: var(--accent); color: #fff; }
+  .tools button.danger { color: var(--over); }
+  .saved { font-size: 12px; color: var(--sub); margin-top: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  td { padding: 10px 0; border-top: 1px solid var(--line); }
+  td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  tr:first-child td { border-top: 0; }
+  h2 { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq summary { cursor: pointer; font-weight: 600; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  .others a { display: block; padding: 12px 0; color: var(--text); text-decoration: none; font-weight: 600; border-top: 1px solid var(--line); }
+  .others a:first-of-type { border-top: 0; }
+  .others a span { color: var(--sub); font-weight: 400; font-size: 14px; }
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #191f28; color: #fff; padding: 10px 16px; border-radius: 10px; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+  .toast.show { opacity: 1; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+</style>
+</head>
+<body>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>글자수 세기</h1>
+  <p class="lead">자기소개서, 리포트 글자수를 바로 세어 드려요. 입력한 글은 내 브라우저에만 저장돼요.</p>
+
+  <section class="card sticky" aria-live="polite">
+    <div class="stats">
+      <div class="stat main"><span>공백 포함</span><b id="withSpace">0</b></div>
+      <div class="stat"><span>공백 제외</span><b id="noSpace">0</b></div>
+      <div class="stat"><span>바이트 (한글 2)</span><b id="bytes2">0</b></div>
+      <div class="stat"><span>단어</span><b id="words">0</b></div>
+    </div>
+    <div class="goal">
+      <label for="goal">목표</label>
+      <input id="goal" type="text" inputmode="numeric" value="1,000" autocomplete="off" aria-label="목표 글자수">
+      <select id="goalBase" aria-label="목표 기준">
+        <option value="withSpace">공백 포함</option>
+        <option value="noSpace">공백 제외</option>
+        <option value="bytes2">바이트</option>
+      </select>
+      <div class="progress" id="progress"><span id="bar" style="width:0%"></span></div>
+    </div>
+    <div class="goal-text" id="goalText"></div>
+  </section>
+
+  <section class="card">
+    <label for="text" style="display:block;font-size:14px;font-weight:600;margin-bottom:8px">내용</label>
+    <textarea id="text" placeholder="여기에 글을 붙여넣거나 입력하세요." spellcheck="false"></textarea>
+    <div class="tools">
+      <button type="button" class="primary" id="copyBtn">전체 복사</button>
+      <button type="button" id="trimSpaces">연속 공백 정리</button>
+      <button type="button" id="removeBreaks">줄바꿈 없애기</button>
+      <button type="button" id="removeSpaces">공백 모두 없애기</button>
+      <button type="button" class="danger" id="clearBtn">지우기</button>
+    </div>
+    <div class="saved" id="saved">입력한 내용은 이 기기 브라우저에 자동 저장돼요. 서버로 전송되지 않아요.</div>
+  </section>
+
+  <section class="card">
+    <h2>자세한 정보</h2>
+    <table>
+      <tbody id="rows"></tbody>
+    </table>
+  </section>
+
+  <section class="card faq">
+    <h2>자주 묻는 질문</h2>
+    <details>
+      <summary>자기소개서는 공백 포함인가요, 제외인가요?</summary>
+      <p>대부분의 채용 사이트는 공백 포함 글자수를 기준으로 해요. 다만 회사마다 다를 수 있으니 지원서에 적힌 안내를 꼭 확인하세요. 기준이 바이트(Byte)라면 바이트 값을 보세요.</p>
+    </details>
+    <details>
+      <summary>바이트는 어떻게 세나요?</summary>
+      <p>예전 방식(EUC-KR)은 한글 1자를 2바이트, 영어·숫자·공백을 1바이트로 세요. 요즘 웹 방식(UTF-8)은 한글을 3바이트로 세요. 채용 사이트에서 "한글 2바이트"라고 안내하는 경우가 많아서 위쪽에는 2바이트 기준을 보여 드리고, 아래 표에 UTF-8 기준도 함께 보여 드려요.</p>
+    </details>
+    <details>
+      <summary>줄바꿈(엔터)도 글자수에 들어가나요?</summary>
+      <p>이 계산기의 공백 포함 글자수는 줄바꿈을 1자로 세요. 사이트에 따라 줄바꿈을 세지 않거나 2자로 세는 곳도 있어서, 아래 표에 "줄바꿈 제외" 글자수도 함께 보여 드려요.</p>
+    </details>
+    <details>
+      <summary>입력한 글이 저장되거나 유출되지 않나요?</summary>
+      <p>글자수 계산은 모두 내 기기의 브라우저 안에서 이뤄지고, 입력한 글은 어떤 서버로도 전송되지 않아요. 다시 들어왔을 때 이어 쓸 수 있도록 이 기기 브라우저에만 저장되며, "지우기"를 누르면 함께 삭제돼요.</p>
+    </details>
+    <details>
+      <summary>원고지 매수는 어떻게 계산하나요?</summary>
+      <p>200자 원고지 기준으로 공백 포함 글자수를 200으로 나눈 대략적인 값이에요. 실제 원고지는 문단 첫 칸 띄우기 등의 규칙이 있어서 조금 더 많이 나올 수 있어요.</p>
+    </details>
+  </section>
+
+  <section class="card others">
+    <h2>다른 계산기</h2>
+    <a href="../salary/">💰 연봉 실수령액 계산기 <span>· 4대보험·세금 빼고 매달 받는 돈</span></a>
+    <a href="../dday/">📅 D-day·전역일 계산기 <span>· 남은 날, 100일 기념일, 전역일과 복무율</span></a>
+    <a href="../age/">🎂 만 나이 계산기 <span>· 생년월일로 만 나이·다음 생일 D-day</span></a>
+    <a href="../hourly/">⏰ 알바 월급·주휴수당 계산기 <span>· 시급과 근무시간으로 주휴수당·월급 계산</span></a>
+    <a href="../leave/">🌴 연차 계산기 <span>· 입사일로 연차 개수·연차수당 계산</span></a>
+    <a href="../severance/">🧾 퇴직금 계산기 <span>· 입사일·퇴사일·월급으로 퇴직금과 세금 계산</span></a>
+    <a href="../unemployment/">📋 실업급여 계산기 <span>· 퇴사 후 받는 실업급여 금액과 기간</span></a>
+    <a href="../loan/">🏦 대출 이자 계산기 <span>· 매달 갚을 돈과 총이자, 상환 방식별 비교</span></a>
+  </section>
+
+  <footer>입력한 내용은 외부로 전송되지 않아요.</footer>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const STORE_KEY = "count-text";
+const n = (v) => v.toLocaleString("ko-KR");
+const parse = (s) => Number(String(s).replace(/[^0-9]/g, "")) || 0;
+
+// 이모지·조합 문자도 1자로 세기 (지원 안 되는 브라우저는 코드 포인트 기준)
+const segmenter = typeof Intl !== "undefined" && Intl.Segmenter ? new Intl.Segmenter("ko", { granularity: "grapheme" }) : null;
+function charCount(s) {
+  if (!s) return 0;
+  if (segmenter) { let c = 0; for (const _ of segmenter.segment(s)) c++; return c; }
+  return [...s].length;
+}
+
+function count(raw) {
+  const text = raw.replace(/\r\n/g, "\n");
+  const withSpace = charCount(text);
+  const noBreak = charCount(text.replace(/\n/g, ""));
+  const noSpace = charCount(text.replace(/\s/g, ""));
+  let bytes2 = 0;
+  for (const ch of text) bytes2 += ch.charCodeAt(0) <= 0x7f ? 1 : 2;
+  const bytesUtf8 = new TextEncoder().encode(text).length;
+  const words = (text.trim().match(/\S+/g) || []).length;
+  const lines = text ? text.split("\n").length : 0;
+  const paragraphs = text.split(/\n\s*\n/).filter((p) => p.trim()).length;
+  const sentences = (text.match(/[^.!?。？！\n]+[.!?。？！]+/g) || []).length;
+  const hangul = (text.match(/[가-힣]/g) || []).length;
+  return { withSpace, noBreak, noSpace, bytes2, bytesUtf8, words, lines, paragraphs, sentences, hangul };
+}
+
+function render() {
+  const c = count($("text").value);
+  $("withSpace").textContent = n(c.withSpace);
+  $("noSpace").textContent = n(c.noSpace);
+  $("bytes2").textContent = n(c.bytes2);
+  $("words").textContent = n(c.words);
+
+  // 목표 진행
+  const goal = parse($("goal").value);
+  const base = $("goalBase").value;
+  const cur = c[base];
+  const unit = base === "bytes2" ? "바이트" : "자";
+  const pct = goal ? Math.min(100, (cur / goal) * 100) : 0;
+  $("bar").style.width = pct + "%";
+  const over = goal && cur > goal;
+  $("progress").classList.toggle("over", !!over);
+  const gt = $("goalText");
+  gt.className = "goal-text" + (over ? " over" : goal && cur >= goal * 0.9 ? " ok" : "");
+  gt.textContent = !goal ? "" :
+    over ? `목표보다 ${n(cur - goal)}${unit} 많아요. 줄여 주세요.` :
+    `${n(cur)} / ${n(goal)}${unit} (${Math.floor((cur / goal) * 100)}%) · ${n(goal - cur)}${unit} 남았어요`;
+
+  const minutes = c.withSpace / 500;
+  $("rows").innerHTML = `
+    <tr><td>공백 포함 (줄바꿈 제외)</td><td>${n(c.noBreak)}자</td></tr>
+    <tr><td>한글 글자 수</td><td>${n(c.hangul)}자</td></tr>
+    <tr><td>바이트 (UTF-8, 한글 3바이트)</td><td>${n(c.bytesUtf8)}바이트</td></tr>
+    <tr><td>문장 수</td><td>${n(c.sentences)}개</td></tr>
+    <tr><td>문단 수</td><td>${n(c.paragraphs)}개</td></tr>
+    <tr><td>줄 수</td><td>${n(c.lines)}줄</td></tr>
+    <tr><td>원고지 (200자 기준)</td><td>약 ${(c.withSpace / 200).toFixed(1)}매</td></tr>
+    <tr><td>읽는 시간</td><td>약 ${minutes < 1 ? Math.ceil(minutes * 60) + "초" : Math.round(minutes) + "분"}</td></tr>`;
+}
+
+// 자동 저장 (브라우저에만, 실패해도 계산은 정상 동작)
+let saveTimer;
+function save() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    try { localStorage.setItem(STORE_KEY, $("text").value); } catch (e) {}
+  }, 400);
+}
+function load() {
+  try { const v = localStorage.getItem(STORE_KEY); if (v) $("text").value = v; } catch (e) {}
+  try { const g = localStorage.getItem("count-goal"); if (g) $("goal").value = g; } catch (e) {}
+  try { const b = localStorage.getItem("count-base"); if (b) $("goalBase").value = b; } catch (e) {}
+}
+
+function toast(msg) {
+  const t = $("toast");
+  t.textContent = msg; t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 1500);
+}
+
+function setText(v) {
+  $("text").value = v;
+  render(); save();
+}
+
+$("text").addEventListener("input", () => { render(); save(); });
+$("goal").addEventListener("input", (e) => {
+  const v = parse(e.target.value);
+  e.target.value = v ? n(v) : "";
+  try { localStorage.setItem("count-goal", e.target.value); } catch (er) {}
+  render();
+});
+$("goalBase").addEventListener("change", (e) => {
+  try { localStorage.setItem("count-base", e.target.value); } catch (er) {}
+  render();
+});
+$("copyBtn").addEventListener("click", async () => {
+  const v = $("text").value;
+  if (!v) return toast("복사할 내용이 없어요");
+  try { await navigator.clipboard.writeText(v); toast("복사했어요"); }
+  catch (e) { $("text").select(); document.execCommand("copy"); toast("복사했어요"); }
+});
+$("trimSpaces").addEventListener("click", () => {
+  setText($("text").value.replace(/[ \t]+/g, " ").replace(/ *\n */g, "\n").trim());
+  toast("연속 공백을 정리했어요");
+});
+$("removeBreaks").addEventListener("click", () => {
+  setText($("text").value.replace(/\s*\n+\s*/g, " ").trim());
+  toast("줄바꿈을 없앴어요");
+});
+$("removeSpaces").addEventListener("click", () => {
+  setText($("text").value.replace(/[ \t]/g, ""));
+  toast("공백을 모두 없앴어요");
+});
+$("clearBtn").addEventListener("click", () => {
+  if ($("text").value && !confirm("입력한 내용을 모두 지울까요?")) return;
+  setText("");
+  try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+});
+
+load();
+render();
+</script>
+</body>
+</html>
