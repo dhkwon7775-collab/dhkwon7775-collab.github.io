@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#3182f6">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<title>연차 계산법 총정리: 1년 미만 11일, 1년 되면 15일, 연차수당까지</title>
+<meta name="description" content="입사 1년 미만은 매달 1일씩 최대 11일, 1년이 되면 15일, 이후 2년마다 1일씩 늘어 최대 25일이에요. 근속연수별 연차표, 연차수당 계산법, 사용 촉진과 퇴사 시 정산까지 정리했어요.">
+<meta property="og:title" content="연차 계산법 총정리: 1년 미만 11일, 1년 되면 15일, 연차수당까지">
+<meta property="og:description" content="입사 1년 미만은 매달 1일씩 최대 11일, 1년이 되면 15일, 이후 2년마다 1일씩 늘어 최대 25일이에요. 근속연수별 연차표, 연차수당 계산법, 사용 촉진과 퇴사 시 정산까지 정리했어요.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dhkwon7775-collab.github.io/guide/annual-leave-guide/">
+<meta property="og:image" content="https://dhkwon7775-collab.github.io/assets/og/leave.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://dhkwon7775-collab.github.io/guide/annual-leave-guide/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "연차 계산법 총정리: 1년 미만 11일, 1년 되면 15일, 연차수당까지", "description": "입사 1년 미만은 매달 1일씩 최대 11일, 1년이 되면 15일, 이후 2년마다 1일씩 늘어 최대 25일이에요. 근속연수별 연차표, 연차수당 계산법, 사용 촉진과 퇴사 시 정산까지 정리했어요.", "datePublished": "2026-10-22", "dateModified": "2026-10-22", "image": "https://dhkwon7775-collab.github.io/assets/og/leave.png", "mainEntityOfPage": "https://dhkwon7775-collab.github.io/guide/annual-leave-guide/", "author": {"@type": "Organization", "name": "생활 계산기 모음"}, "publisher": {"@type": "Organization", "name": "생활 계산기 모음"}}</script>
+<style>
+  :root { --bg:#f5f6f8; --card:#fff; --text:#191f28; --sub:#6b7684; --line:#e5e8eb; --accent:#3182f6; --accent-soft:#e8f3ff; --seg:#f2f4f6; --warn-bg:#fff4e5; --warn:#b25e09; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#101113; --card:#1b1d21; --text:#f2f4f6; --sub:#9aa3ad; --line:#2c2f35; --accent:#4c9bff; --accent-soft:#1a2a40; --seg:#24272c; --warn-bg:#3a2a12; --warn:#ffb35c; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:"Pretendard",-apple-system,"Malgun Gothic",sans-serif; line-height:1.8; -webkit-font-smoothing:antialiased; }
+  main { max-width:720px; margin:0 auto; padding:32px 16px 64px; }
+  .crumb { font-size:14px; color:var(--sub); text-decoration:none; }
+  h1 { font-size:28px; line-height:1.35; margin:10px 0 8px; letter-spacing:-0.02em; }
+  .meta { color:var(--sub); font-size:14px; margin:0 0 24px; }
+  article { background:var(--card); border-radius:20px; padding:28px 22px; }
+  article h2 { font-size:21px; margin:36px 0 12px; letter-spacing:-0.01em; }
+  article h2:first-of-type { margin-top:8px; }
+  article h3 { font-size:17px; margin:24px 0 8px; }
+  article p, article li { font-size:16px; }
+  article p { margin:0 0 14px; }
+  article ul, article ol { margin:0 0 14px; padding-left:22px; }
+  article li { margin:4px 0; }
+  .summary { background:var(--accent-soft); border-radius:14px; padding:16px 18px; margin:0 0 8px; }
+  .summary b { color:var(--accent); }
+  .summary ul { margin:6px 0 0; }
+  .note { background:var(--warn-bg); color:var(--warn); border-radius:12px; padding:12px 14px; font-size:14px; margin:14px 0; }
+  table { width:100%; border-collapse:collapse; font-size:15px; margin:8px 0 16px; }
+  th, td { border-bottom:1px solid var(--line); padding:10px 8px; text-align:left; vertical-align:top; }
+  th { background:var(--seg); font-weight:600; font-size:14px; }
+  td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .table-wrap { overflow-x:auto; }
+  .cta { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:16px; padding:18px 20px; margin:24px 0; }
+  .cta b { display:block; font-size:18px; }
+  .cta span { font-size:14px; opacity:.9; }
+  .faq details { border-top:1px solid var(--line); padding:12px 0; }
+  .faq summary { cursor:pointer; font-weight:600; }
+  .faq details p { color:var(--sub); font-size:15px; margin:8px 0 0; }
+  .card { background:var(--card); border-radius:20px; padding:22px 20px; margin-top:16px; }
+  .card h2 { font-size:18px; margin:0 0 8px; }
+  .list a { display:block; padding:12px 0; border-top:1px solid var(--line); color:var(--text); text-decoration:none; font-weight:600; }
+  .list a:first-of-type { border-top:0; }
+  .list a span { display:block; color:var(--sub); font-weight:400; font-size:14px; }
+  .sources { font-size:13px; color:var(--sub); }
+  .sources a { color:var(--sub); }
+  footer { text-align:center; font-size:12px; color:var(--sub); margin-top:24px; }
+  footer a { color:inherit; }
+</style>
+</head>
+<body>
+<main>
+  <a class="crumb" href="/guide/">← 가이드 목록</a>
+  <h1>연차 계산법 총정리: 1년 미만 11일, 1년 되면 15일, 연차수당까지</h1>
+  <p class="meta">생활 계산기 모음 · 2026.10.22 작성</p>
+  <article>
+
+<div class="summary">
+  <b>한눈에 보기</b>
+  <ul>
+    <li>입사 첫해에는 한 달 개근할 때마다 <b>1일씩, 최대 11일</b>이 생겨요.</li>
+    <li>1년을 일하고 출근율이 80% 이상이면 <b>15일</b>이 생겨요.</li>
+    <li>3년차부터 <b>2년마다 1일씩</b> 늘어 최대 <b>25일</b>이에요.</li>
+    <li>못 쓴 연차는 <b>1일 통상임금</b>만큼 연차수당으로 받을 수 있어요.</li>
+  </ul>
+</div>
+
+<h2>연차는 어떻게 생기나요?</h2>
+<p>연차 유급휴가는 근로기준법 제60조에 정해진 권리예요. 상시 근로자가 5명 이상인 사업장에서, 주 15시간 이상 일하는 근로자라면 정규직·계약직 상관없이 받아요.</p>
+<h3>입사 1년 미만: 매달 1일씩</h3>
+<p>입사 후 1년이 되기 전까지는 한 달을 개근할 때마다 1일씩 생겨서 최대 11일을 받아요. 예를 들어 3월 2일에 입사했다면 4월 2일에 1일, 5월 2일에 1일… 이렇게 쌓여요.</p>
+<p>이 연차는 <b>입사일로부터 1년 안에</b> 써야 해요. 1년이 지나면 사라지고, 대신 쓰지 못한 만큼 수당을 받을 수 있어요(회사가 사용 촉진을 하지 않은 경우).</p>
+<h3>입사 1년 이후: 15일부터 시작</h3>
+<p>1년 동안 80% 이상 출근했다면 1년이 되는 날 15일이 생겨요. 그 뒤로는 2년마다 1일씩 더해져요.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>근속 기간</th><th class="num">연차</th></tr></thead>
+  <tbody>
+    <tr><td>1년 미만</td><td class="num">매달 1일 (최대 11일)</td></tr>
+    <tr><td>1년 · 2년</td><td class="num">15일</td></tr>
+    <tr><td>3년 · 4년</td><td class="num">16일</td></tr>
+    <tr><td>5년 · 6년</td><td class="num">17일</td></tr>
+    <tr><td>10년</td><td class="num">19일</td></tr>
+    <tr><td>15년</td><td class="num">22일</td></tr>
+    <tr><td>21년 이상</td><td class="num">25일 (최대)</td></tr>
+  </tbody>
+</table></div>
+<p>입사 후 첫 2년 동안 받는 연차는 첫해 11일과 1년이 되는 날 생기는 15일을 합쳐 <b>최대 26일</b>이에요.</p>
+<h3>출근율이 80% 미만이면?</h3>
+<p>1년 출근율이 80%가 안 되면 15일은 생기지 않고, 그해에 개근한 달마다 1일씩만 받아요. 출산휴가, 육아휴직, 업무상 부상으로 쉰 기간은 출근한 것으로 봐요.</p>
+<a class="cta" href="/leave/"><b>연차 계산기 →</b><span>입사일만 넣으면 내 연차 개수와 다음 연차 날짜 확인</span></a>
+
+<h2>연차수당은 얼마일까?</h2>
+<p>연차를 다 쓰지 못하면 남은 일수만큼 돈으로 받을 수 있어요.</p>
+<p><b>연차수당 = 남은 연차 일수 × 1일 통상임금</b></p>
+<p>1일 통상임금은 보통 <b>월 통상임금 ÷ 209시간 × 8시간</b>으로 구해요. 통상임금은 기본급과 매달 고정으로 받는 수당을 더한 금액이에요.</p>
+<ul>
+  <li>월 통상임금 300만 원 → 1일 통상임금 약 114,833원</li>
+  <li>남은 연차 10일 → 연차수당 약 <b>1,148,330원</b></li>
+</ul>
+
+<h3>연차수당을 못 받는 경우: 연차 사용 촉진</h3>
+<p>회사가 법에 정한 절차대로 연차 사용을 권했는데도 쓰지 않았다면 수당을 주지 않아도 돼요(근로기준법 제61조).</p>
+<ol>
+  <li>연차 사용 기간이 끝나기 <b>6개월 전</b>에 회사가 남은 일수를 알려 주고 사용 시기를 정하라고 서면으로 요청</li>
+  <li>근로자가 10일 안에 사용 시기를 정하지 않으면, 끝나기 <b>2개월 전</b>까지 회사가 사용 날짜를 정해서 서면으로 통보</li>
+</ol>
+<p>이 절차가 서면으로 제대로 이뤄지지 않았다면 연차수당을 청구할 수 있어요. 입사 1년 미만 연차는 각각 3개월 전, 1개월 전 기준이에요.</p>
+
+<h2>퇴사할 때 남은 연차는?</h2>
+<ul>
+  <li>퇴사하면 남은 연차는 모두 연차수당으로 정산받을 수 있어요.</li>
+  <li>남은 연차를 퇴사 전에 몰아서 쓰는 것도 가능해요. 다만 회사와 날짜를 미리 협의하는 게 좋아요.</li>
+  <li>연차수당을 받지 못했다면 <b>3년 안에</b> 청구할 수 있어요.</li>
+</ul>
+
+<h2>자주 생기는 오해</h2>
+<h3>"우리 회사는 1월 1일 기준으로 연차를 줘요"</h3>
+<p>관리 편의상 회계연도(1월 1일) 기준으로 연차를 주는 회사가 많아요. 이것 자체는 괜찮지만, <b>퇴사할 때 입사일 기준으로 계산한 것보다 적게 받았다면</b> 그 차이를 정산해 줘야 해요.</p>
+<h3>"1년 계약직은 26일을 받는다"</h3>
+<p>딱 1년(365일)만 일하고 계약이 끝나면 11일만 받아요. 1년이 지난 다음 날에도 근로관계가 이어져야 15일이 생긴다는 대법원 판결(2021년)이 있어요.</p>
+<h3>"반차는 법에 있다"</h3>
+<p>반차·반반차는 법에 정해진 제도가 아니라 회사 규정이에요. 회사가 허용하면 연차 0.5일로 쓸 수 있어요.</p>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>입사 1년 미만 연차는 몇 개인가요?</summary><p>한 달 개근할 때마다 1일씩 생겨서 최대 11일이에요. 입사일로부터 1년 안에 써야 해요.</p></details><details><summary>5인 미만 회사도 연차가 있나요?</summary><p>아니요. 상시 근로자 5명 미만 사업장은 연차 유급휴가 규정이 적용되지 않아요. 회사 규정으로 따로 주는 경우는 있어요.</p></details><details><summary>연차수당은 언제 받나요?</summary><p>보통 연차 사용 기간이 끝난 다음 달 월급과 함께 받아요. 퇴사할 때는 퇴직금과 함께 정산받는 경우가 많아요.</p></details></div>
+    
+  </article>
+  <section class="card list"><h2>다른 가이드</h2><a href="/guide/insurance-rates-2026/">2026년 4대보험 요율 총정리<span>2026년 국민연금 9.5%, 건강보험 7.19%, 장기요양 13.14%, 고용보험 1.8%. 근로자 부…</span></a><a href="/guide/unemployment-benefit-2026/">2026년 실업급여 조건·금액·신청 방법<span>2026년 실업급여 하루 상한 68,100원, 하한 66,048원. 받을 수 있는 조건 3가지, 받는 기…</span></a><a href="/guide/severance-pay-guide/">퇴직금 계산 방법 총정리<span>퇴직금은 1일 평균임금 × 30일 × 재직일수/365로 계산해요. 평균임금 구하는 법, 상여금·연차수당 …</span></a><a href="/guide/minimum-wage-2026/">2026년 최저임금·주휴수당 총정리<span>2026년 최저시급은 10,320원, 월 환산 2,156,880원이에요. 주휴수당 받는 조건과 계산법, …</span></a><a href="/guide/year-end-tax-2026/">2026년 연말정산 달라지는 점과 환급 늘리는 법<span>2026년 귀속 연말정산에서 바뀌는 점(자녀 카드 공제 한도, 예체능 학원비, 배우자 월세 공제)과 12…</span></a><a href="/guide/loan-repayment-guide/">대출 상환 방식 비교 (원리금균등·원금균등·만기일시)<span>같은 1억 원을 빌려도 상환 방식에 따라 이자가 6,700만 원에서 1억 3,500만 원까지 차이 나요.…</span></a><a href="/guide/korean-age-guide/">만 나이 계산법과 만 나이 통일법<span>2023년 6월 28일부터 법과 행정에서는 만 나이를 써요. 만 나이 계산하는 법, 연 나이·세는 나이와…</span></a><a href="/guide/cover-letter-length-guide/">자기소개서 글자수 기준과 분량 맞추는 법<span>자기소개서 글자수는 대부분 공백 포함 기준이에요. 공백 포함·제외, 바이트(한글 2바이트·3바이트) 차이…</span></a></section>
+  <footer>글의 내용은 작성일 기준이며, 법령 개정에 따라 달라질 수 있어요.<br><a href="/about/">사이트 소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com">문의</a></footer>
+</main>
+</body>
+</html>

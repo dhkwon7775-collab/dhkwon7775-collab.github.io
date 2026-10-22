@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#3182f6">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<title>원리금균등 vs 원금균등 vs 만기일시: 대출 상환 방식별 이자 차이 비교</title>
+<meta name="description" content="같은 1억 원을 빌려도 상환 방식에 따라 이자가 6,700만 원에서 1억 3,500만 원까지 차이 나요. 원리금균등, 원금균등, 만기일시의 차이와 나에게 맞는 방식 고르는 법을 정리했어요.">
+<meta property="og:title" content="원리금균등 vs 원금균등 vs 만기일시: 대출 상환 방식별 이자 차이 비교">
+<meta property="og:description" content="같은 1억 원을 빌려도 상환 방식에 따라 이자가 6,700만 원에서 1억 3,500만 원까지 차이 나요. 원리금균등, 원금균등, 만기일시의 차이와 나에게 맞는 방식 고르는 법을 정리했어요.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dhkwon7775-collab.github.io/guide/loan-repayment-guide/">
+<meta property="og:image" content="https://dhkwon7775-collab.github.io/assets/og/loan.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://dhkwon7775-collab.github.io/guide/loan-repayment-guide/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "원리금균등 vs 원금균등 vs 만기일시: 대출 상환 방식별 이자 차이 비교", "description": "같은 1억 원을 빌려도 상환 방식에 따라 이자가 6,700만 원에서 1억 3,500만 원까지 차이 나요. 원리금균등, 원금균등, 만기일시의 차이와 나에게 맞는 방식 고르는 법을 정리했어요.", "datePublished": "2026-10-22", "dateModified": "2026-10-22", "image": "https://dhkwon7775-collab.github.io/assets/og/loan.png", "mainEntityOfPage": "https://dhkwon7775-collab.github.io/guide/loan-repayment-guide/", "author": {"@type": "Organization", "name": "생활 계산기 모음"}, "publisher": {"@type": "Organization", "name": "생활 계산기 모음"}}</script>
+<style>
+  :root { --bg:#f5f6f8; --card:#fff; --text:#191f28; --sub:#6b7684; --line:#e5e8eb; --accent:#3182f6; --accent-soft:#e8f3ff; --seg:#f2f4f6; --warn-bg:#fff4e5; --warn:#b25e09; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#101113; --card:#1b1d21; --text:#f2f4f6; --sub:#9aa3ad; --line:#2c2f35; --accent:#4c9bff; --accent-soft:#1a2a40; --seg:#24272c; --warn-bg:#3a2a12; --warn:#ffb35c; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:"Pretendard",-apple-system,"Malgun Gothic",sans-serif; line-height:1.8; -webkit-font-smoothing:antialiased; }
+  main { max-width:720px; margin:0 auto; padding:32px 16px 64px; }
+  .crumb { font-size:14px; color:var(--sub); text-decoration:none; }
+  h1 { font-size:28px; line-height:1.35; margin:10px 0 8px; letter-spacing:-0.02em; }
+  .meta { color:var(--sub); font-size:14px; margin:0 0 24px; }
+  article { background:var(--card); border-radius:20px; padding:28px 22px; }
+  article h2 { font-size:21px; margin:36px 0 12px; letter-spacing:-0.01em; }
+  article h2:first-of-type { margin-top:8px; }
+  article h3 { font-size:17px; margin:24px 0 8px; }
+  article p, article li { font-size:16px; }
+  article p { margin:0 0 14px; }
+  article ul, article ol { margin:0 0 14px; padding-left:22px; }
+  article li { margin:4px 0; }
+  .summary { background:var(--accent-soft); border-radius:14px; padding:16px 18px; margin:0 0 8px; }
+  .summary b { color:var(--accent); }
+  .summary ul { margin:6px 0 0; }
+  .note { background:var(--warn-bg); color:var(--warn); border-radius:12px; padding:12px 14px; font-size:14px; margin:14px 0; }
+  table { width:100%; border-collapse:collapse; font-size:15px; margin:8px 0 16px; }
+  th, td { border-bottom:1px solid var(--line); padding:10px 8px; text-align:left; vertical-align:top; }
+  th { background:var(--seg); font-weight:600; font-size:14px; }
+  td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .table-wrap { overflow-x:auto; }
+  .cta { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:16px; padding:18px 20px; margin:24px 0; }
+  .cta b { display:block; font-size:18px; }
+  .cta span { font-size:14px; opacity:.9; }
+  .faq details { border-top:1px solid var(--line); padding:12px 0; }
+  .faq summary { cursor:pointer; font-weight:600; }
+  .faq details p { color:var(--sub); font-size:15px; margin:8px 0 0; }
+  .card { background:var(--card); border-radius:20px; padding:22px 20px; margin-top:16px; }
+  .card h2 { font-size:18px; margin:0 0 8px; }
+  .list a { display:block; padding:12px 0; border-top:1px solid var(--line); color:var(--text); text-decoration:none; font-weight:600; }
+  .list a:first-of-type { border-top:0; }
+  .list a span { display:block; color:var(--sub); font-weight:400; font-size:14px; }
+  .sources { font-size:13px; color:var(--sub); }
+  .sources a { color:var(--sub); }
+  footer { text-align:center; font-size:12px; color:var(--sub); margin-top:24px; }
+  footer a { color:inherit; }
+</style>
+</head>
+<body>
+<main>
+  <a class="crumb" href="/guide/">← 가이드 목록</a>
+  <h1>원리금균등 vs 원금균등 vs 만기일시: 대출 상환 방식별 이자 차이 비교</h1>
+  <p class="meta">생활 계산기 모음 · 2026.10.22 작성</p>
+  <article>
+
+<div class="summary">
+  <b>한눈에 보기</b>
+  <ul>
+    <li><b>원리금균등:</b> 매달 같은 금액을 갚아요. 계획 세우기 쉬워요.</li>
+    <li><b>원금균등:</b> 처음에 많이 내고 점점 줄어요. <b>총이자가 가장 적어요.</b></li>
+    <li><b>만기일시:</b> 이자만 내다가 마지막에 원금을 갚아요. <b>총이자가 가장 많아요.</b></li>
+    <li>1억 원, 연 4.5%, 30년이면 총이자가 약 <b>6,769만 원 ~ 1억 3,500만 원</b>까지 차이 나요.</li>
+  </ul>
+</div>
+
+<h2>세 가지 상환 방식</h2>
+<h3>원리금균등 상환</h3>
+<p>원금과 이자를 합친 금액이 매달 똑같아요. 처음에는 이자 비중이 크고 원금은 조금씩 줄다가, 갈수록 원금 비중이 커져요. 매달 나가는 돈이 같아서 생활비 계획을 세우기 쉬워요. 주택담보대출에서 가장 많이 써요.</p>
+<h3>원금균등 상환</h3>
+<p>매달 갚는 원금이 같고, 남은 원금에 대한 이자를 더해서 내요. 원금이 빨리 줄어서 이자가 적게 붙고, 매달 내는 돈도 점점 줄어요. 대신 처음 몇 년의 부담이 가장 커요.</p>
+<h3>만기일시 상환</h3>
+<p>대출 기간 동안 이자만 내고, 만기에 원금을 한꺼번에 갚아요. 매달 부담은 가장 적지만 원금이 그대로라 이자가 가장 많이 붙어요. 신용대출, 마이너스통장, 전세자금대출에서 주로 써요.</p>
+
+<h2>1억 원을 빌리면 얼마나 차이 날까?</h2>
+<p>연 4.5% 고정금리, 30년(360개월) 기준으로 계산했어요.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>방식</th><th class="num">첫 달 상환금</th><th class="num">총이자</th></tr></thead>
+  <tbody>
+    <tr><td>원리금균등</td><td class="num">506,685원 (매달 같음)</td><td class="num">약 8,241만 원</td></tr>
+    <tr><td>원금균등</td><td class="num">652,778원 (점점 줄어듦)</td><td class="num">약 6,769만 원</td></tr>
+    <tr><td>만기일시</td><td class="num">375,000원 (이자만)</td><td class="num">1억 3,500만 원</td></tr>
+  </tbody>
+</table></div>
+<p>원금균등은 원리금균등보다 이자를 <b>약 1,470만 원</b> 덜 내지만, 첫 달에 14만 원 넘게 더 내야 해요.</p>
+<a class="cta" href="/loan/"><b>대출 이자 계산기 →</b><span>내 대출 조건으로 방식별 월 상환금과 총이자 비교</span></a>
+
+<h2>나에게 맞는 방식은?</h2>
+<div class="table-wrap"><table>
+  <thead><tr><th>이런 사람에게</th><th>추천 방식</th></tr></thead>
+  <tbody>
+    <tr><td>월급이 일정하고 매달 같은 금액이 편한 사람</td><td>원리금균등</td></tr>
+    <tr><td>지금 여유가 있고 총이자를 줄이고 싶은 사람</td><td>원금균등</td></tr>
+    <tr><td>몇 년 안에 목돈이 생겨 한 번에 갚을 계획인 사람</td><td>만기일시</td></tr>
+    <tr><td>2년 계약 전세처럼 기간이 짧은 대출</td><td>만기일시</td></tr>
+  </tbody>
+</table></div>
+
+<h2>꼭 알아야 할 것</h2>
+<h3>금리 1%p 차이가 얼마나 클까?</h3>
+<p>1억 원을 30년 원리금균등으로 빌릴 때 금리가 4.5%면 총이자는 약 8,241만 원, 3.5%면 약 6,166만 원이에요. 금리 1%p 차이로 이자가 <b>약 2,070만 원</b> 달라져요. 대출 전에 여러 은행 금리를 비교해 보세요.</p>
+<h3>거치 기간은 신중하게</h3>
+<p>거치 기간은 처음 몇 년 동안 이자만 내는 기간이에요. 당장은 편하지만 원금을 갚는 기간이 짧아져서 나중에 매달 내는 돈이 커지고, 총이자도 늘어나요. 1억 원, 4.5%, 30년 원금균등에 거치 1년을 넣으면 총이자가 약 225만 원 늘어요.</p>
+<h3>중도상환수수료</h3>
+<p>대출을 받고 보통 3년 안에 미리 갚으면 남은 기간에 따라 중도상환수수료가 붙어요. 목돈이 생기면 먼저 수수료와 아낄 이자를 비교해 보세요.</p>
+<h3>DSR(총부채원리금상환비율)</h3>
+<p>은행은 1년 동안 갚는 모든 대출의 원리금이 연소득에서 차지하는 비율(DSR)로 대출 한도를 정해요. 같은 금액이라도 상환 방식과 기간에 따라 DSR이 달라져서 한도가 바뀔 수 있어요.</p>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>원리금균등과 원금균등 중 뭐가 유리한가요?</summary><p>총이자만 보면 원금균등이 항상 적어요. 하지만 처음 몇 년 부담이 크기 때문에, 초기 상환 여력이 있다면 원금균등, 매달 일정한 금액이 편하다면 원리금균등이 좋아요.</p></details><details><summary>중간에 상환 방식을 바꿀 수 있나요?</summary><p>은행과 상품에 따라 달라요. 대부분 대출 실행 후에는 바꾸기 어렵고, 바꾸려면 대환대출(갈아타기)을 해야 하는 경우가 많아요.</p></details><details><summary>만기일시 상환은 언제 쓰나요?</summary><p>전세자금대출처럼 기간이 짧거나, 만기에 목돈이 들어올 계획이 있을 때 써요. 매달 부담은 적지만 총이자는 가장 많아요.</p></details></div>
+    
+  </article>
+  <section class="card list"><h2>다른 가이드</h2><a href="/guide/insurance-rates-2026/">2026년 4대보험 요율 총정리<span>2026년 국민연금 9.5%, 건강보험 7.19%, 장기요양 13.14%, 고용보험 1.8%. 근로자 부…</span></a><a href="/guide/unemployment-benefit-2026/">2026년 실업급여 조건·금액·신청 방법<span>2026년 실업급여 하루 상한 68,100원, 하한 66,048원. 받을 수 있는 조건 3가지, 받는 기…</span></a><a href="/guide/severance-pay-guide/">퇴직금 계산 방법 총정리<span>퇴직금은 1일 평균임금 × 30일 × 재직일수/365로 계산해요. 평균임금 구하는 법, 상여금·연차수당 …</span></a><a href="/guide/minimum-wage-2026/">2026년 최저임금·주휴수당 총정리<span>2026년 최저시급은 10,320원, 월 환산 2,156,880원이에요. 주휴수당 받는 조건과 계산법, …</span></a><a href="/guide/year-end-tax-2026/">2026년 연말정산 달라지는 점과 환급 늘리는 법<span>2026년 귀속 연말정산에서 바뀌는 점(자녀 카드 공제 한도, 예체능 학원비, 배우자 월세 공제)과 12…</span></a><a href="/guide/annual-leave-guide/">연차 계산법과 연차수당 총정리<span>입사 1년 미만은 매달 1일씩 최대 11일, 1년이 되면 15일, 이후 2년마다 1일씩 늘어 최대 25일…</span></a><a href="/guide/korean-age-guide/">만 나이 계산법과 만 나이 통일법<span>2023년 6월 28일부터 법과 행정에서는 만 나이를 써요. 만 나이 계산하는 법, 연 나이·세는 나이와…</span></a><a href="/guide/cover-letter-length-guide/">자기소개서 글자수 기준과 분량 맞추는 법<span>자기소개서 글자수는 대부분 공백 포함 기준이에요. 공백 포함·제외, 바이트(한글 2바이트·3바이트) 차이…</span></a></section>
+  <footer>글의 내용은 작성일 기준이며, 법령 개정에 따라 달라질 수 있어요.<br><a href="/about/">사이트 소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com">문의</a></footer>
+</main>
+</body>
+</html>
