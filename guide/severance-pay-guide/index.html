@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#3182f6">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<title>퇴직금 계산 방법 총정리: 평균임금 구하는 법부터 세금, 받는 날짜까지</title>
+<meta name="description" content="퇴직금은 1일 평균임금 × 30일 × 재직일수/365로 계산해요. 평균임금 구하는 법, 상여금·연차수당 넣는 법, 퇴직소득세, 14일 지급 기한과 IRP까지 예시로 정리했어요.">
+<meta property="og:title" content="퇴직금 계산 방법 총정리: 평균임금 구하는 법부터 세금, 받는 날짜까지">
+<meta property="og:description" content="퇴직금은 1일 평균임금 × 30일 × 재직일수/365로 계산해요. 평균임금 구하는 법, 상여금·연차수당 넣는 법, 퇴직소득세, 14일 지급 기한과 IRP까지 예시로 정리했어요.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dhkwon7775-collab.github.io/guide/severance-pay-guide/">
+<meta property="og:image" content="https://dhkwon7775-collab.github.io/assets/og/severance.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://dhkwon7775-collab.github.io/guide/severance-pay-guide/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "퇴직금 계산 방법 총정리: 평균임금 구하는 법부터 세금, 받는 날짜까지", "description": "퇴직금은 1일 평균임금 × 30일 × 재직일수/365로 계산해요. 평균임금 구하는 법, 상여금·연차수당 넣는 법, 퇴직소득세, 14일 지급 기한과 IRP까지 예시로 정리했어요.", "datePublished": "2026-10-22", "dateModified": "2026-10-22", "image": "https://dhkwon7775-collab.github.io/assets/og/severance.png", "mainEntityOfPage": "https://dhkwon7775-collab.github.io/guide/severance-pay-guide/", "author": {"@type": "Organization", "name": "생활 계산기 모음"}, "publisher": {"@type": "Organization", "name": "생활 계산기 모음"}}</script>
+<style>
+  :root { --bg:#f5f6f8; --card:#fff; --text:#191f28; --sub:#6b7684; --line:#e5e8eb; --accent:#3182f6; --accent-soft:#e8f3ff; --seg:#f2f4f6; --warn-bg:#fff4e5; --warn:#b25e09; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#101113; --card:#1b1d21; --text:#f2f4f6; --sub:#9aa3ad; --line:#2c2f35; --accent:#4c9bff; --accent-soft:#1a2a40; --seg:#24272c; --warn-bg:#3a2a12; --warn:#ffb35c; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:"Pretendard",-apple-system,"Malgun Gothic",sans-serif; line-height:1.8; -webkit-font-smoothing:antialiased; }
+  main { max-width:720px; margin:0 auto; padding:32px 16px 64px; }
+  .crumb { font-size:14px; color:var(--sub); text-decoration:none; }
+  h1 { font-size:28px; line-height:1.35; margin:10px 0 8px; letter-spacing:-0.02em; }
+  .meta { color:var(--sub); font-size:14px; margin:0 0 24px; }
+  article { background:var(--card); border-radius:20px; padding:28px 22px; }
+  article h2 { font-size:21px; margin:36px 0 12px; letter-spacing:-0.01em; }
+  article h2:first-of-type { margin-top:8px; }
+  article h3 { font-size:17px; margin:24px 0 8px; }
+  article p, article li { font-size:16px; }
+  article p { margin:0 0 14px; }
+  article ul, article ol { margin:0 0 14px; padding-left:22px; }
+  article li { margin:4px 0; }
+  .summary { background:var(--accent-soft); border-radius:14px; padding:16px 18px; margin:0 0 8px; }
+  .summary b { color:var(--accent); }
+  .summary ul { margin:6px 0 0; }
+  .note { background:var(--warn-bg); color:var(--warn); border-radius:12px; padding:12px 14px; font-size:14px; margin:14px 0; }
+  table { width:100%; border-collapse:collapse; font-size:15px; margin:8px 0 16px; }
+  th, td { border-bottom:1px solid var(--line); padding:10px 8px; text-align:left; vertical-align:top; }
+  th { background:var(--seg); font-weight:600; font-size:14px; }
+  td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .table-wrap { overflow-x:auto; }
+  .cta { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:16px; padding:18px 20px; margin:24px 0; }
+  .cta b { display:block; font-size:18px; }
+  .cta span { font-size:14px; opacity:.9; }
+  .faq details { border-top:1px solid var(--line); padding:12px 0; }
+  .faq summary { cursor:pointer; font-weight:600; }
+  .faq details p { color:var(--sub); font-size:15px; margin:8px 0 0; }
+  .card { background:var(--card); border-radius:20px; padding:22px 20px; margin-top:16px; }
+  .card h2 { font-size:18px; margin:0 0 8px; }
+  .list a { display:block; padding:12px 0; border-top:1px solid var(--line); color:var(--text); text-decoration:none; font-weight:600; }
+  .list a:first-of-type { border-top:0; }
+  .list a span { display:block; color:var(--sub); font-weight:400; font-size:14px; }
+  .sources { font-size:13px; color:var(--sub); }
+  .sources a { color:var(--sub); }
+  footer { text-align:center; font-size:12px; color:var(--sub); margin-top:24px; }
+  footer a { color:inherit; }
+</style>
+</head>
+<body>
+<main>
+  <a class="crumb" href="/guide/">← 가이드 목록</a>
+  <h1>퇴직금 계산 방법 총정리: 평균임금 구하는 법부터 세금, 받는 날짜까지</h1>
+  <p class="meta">생활 계산기 모음 · 2026.10.22 작성</p>
+  <article>
+
+<div class="summary">
+  <b>한눈에 보기</b>
+  <ul>
+    <li>한 회사에서 <b>1년 이상</b>, 주 <b>15시간 이상</b> 일했다면 정규직·계약직·알바 모두 받아요.</li>
+    <li>퇴직금 = <b>1일 평균임금 × 30일 × (재직일수 ÷ 365)</b></li>
+    <li>회사는 퇴사 후 <b>14일 안에</b> 줘야 해요.</li>
+    <li>월 300만 원으로 3년 일했다면 세전 <b>약 881만 원</b>이에요.</li>
+  </ul>
+</div>
+
+<h2>퇴직금을 받을 수 있는 조건</h2>
+<ul>
+  <li><b>계속 근로 1년 이상:</b> 같은 회사에서 끊김 없이 1년 이상 일해야 해요.</li>
+  <li><b>4주 평균 주 15시간 이상:</b> 일주일에 평균 15시간 이상 일한 근로자여야 해요.</li>
+  <li><b>근로자일 것:</b> 이름이 "프리랜서"여도 실제로 회사의 지휘·감독을 받으며 일했다면 근로자로 인정될 수 있어요.</li>
+</ul>
+<p>5인 미만 사업장도 퇴직금은 똑같이 줘야 해요.</p>
+
+<h2>퇴직금 계산 공식</h2>
+<p><b>퇴직금 = 1일 평균임금 × 30일 × (재직일수 ÷ 365)</b></p>
+<p>쉽게 말해 "1년 일할 때마다 한 달 치 평균 월급"을 받는 구조예요.</p>
+
+<h3>1일 평균임금 구하는 법</h3>
+<p>1일 평균임금은 <b>퇴사일 이전 3개월 동안 받은 임금 총액 ÷ 그 3개월의 날짜 수(89~92일)</b>예요.</p>
+<ul>
+  <li><b>임금 총액:</b> 기본급과 고정 수당, 식대, 연장·야간 수당 등 세전 금액을 모두 더해요.</li>
+  <li><b>상여금:</b> 퇴사 전 1년 동안 받은 상여금 × 3/12을 더해요.</li>
+  <li><b>연차수당:</b> 퇴사 전 1년 동안 받은 연차수당 × 3/12을 더해요.</li>
+</ul>
+<p>이렇게 구한 평균임금이 통상임금보다 적으면 통상임금으로 계산해요. 퇴사 직전 3개월에 휴직 등으로 월급이 적었던 사람이 손해 보지 않게 하기 위해서예요.</p>
+
+<h3>퇴사일은 마지막 근무일 다음 날</h3>
+<p>예를 들어 10월 31일까지 일했다면 퇴사일은 11월 1일이에요. 재직일수와 평균임금 기간 모두 이 날짜를 기준으로 세요.</p>
+
+<h2>계산 예시</h2>
+<p>2023년 10월 21일에 입사해서 2026년 10월 20일까지 일하고(퇴사일 10월 21일), 월급이 300만 원이었던 경우예요.</p>
+<div class="table-wrap"><table>
+  <tbody>
+    <tr><td>재직일수</td><td class="num">1,096일 (윤년 포함 3년)</td></tr>
+    <tr><td>평균임금 기간</td><td class="num">7월 21일 ~ 10월 20일 (92일)</td></tr>
+    <tr><td>3개월 임금 총액</td><td class="num">9,000,000원</td></tr>
+    <tr><td>1일 평균임금</td><td class="num">9,000,000 ÷ 92 = 97,826원</td></tr>
+    <tr><td>퇴직금 (세전)</td><td class="num">97,826 × 30 × 1,096/365 ≈ 8,812,388원</td></tr>
+    <tr><td>퇴직소득세 + 지방소득세</td><td class="num">약 100,630원</td></tr>
+    <tr><td><b>실제 받는 돈</b></td><td class="num"><b>약 8,711,758원</b></td></tr>
+  </tbody>
+</table></div>
+<a class="cta" href="/severance/"><b>퇴직금 계산기 →</b><span>입사일·퇴사일·월급만 넣으면 세후 퇴직금까지 계산</span></a>
+
+<h2>퇴직금에 붙는 세금 (퇴직소득세)</h2>
+<p>퇴직금에는 일반 월급과 다른 <b>퇴직소득세</b>가 붙어요. 오래 일할수록 공제가 커지는 구조라 세금 부담은 크지 않은 편이에요.</p>
+<ul>
+  <li><b>근속연수공제:</b> 5년 이하는 1년에 100만 원씩, 6~10년은 500만 원 + 1년에 200만 원씩 등 오래 일할수록 많이 빼 줘요.</li>
+  <li><b>환산급여공제:</b> 퇴직금을 12개월 치로 바꾼 금액에서 다시 큰 공제를 해 줘요.</li>
+  <li>지방소득세는 퇴직소득세의 10%예요.</li>
+</ul>
+<p>퇴직금을 <b>IRP(개인형 퇴직연금) 계좌</b>로 받아서 55세 이후 연금으로 나눠 받으면 퇴직소득세를 30~40% 줄일 수 있어요.</p>
+
+<h2>퇴직금은 언제, 어떻게 받나요?</h2>
+<ul>
+  <li><b>지급 기한:</b> 퇴사일로부터 14일 안에 줘야 해요. 당사자끼리 합의하면 늦출 수 있어요.</li>
+  <li><b>지연 이자:</b> 14일이 지나도 안 주면 연 20%의 지연 이자를 청구할 수 있어요.</li>
+  <li><b>IRP로 지급:</b> 원칙적으로 퇴직금은 본인 명의의 IRP 계좌로 들어가요. 55세 이후 퇴직 등 일부 경우만 일반 통장으로 받을 수 있어요. IRP에 들어간 돈은 해지하면 바로 꺼낼 수 있어요.</li>
+  <li><b>안 줄 때:</b> 고용노동부(국번 없이 1350)에 진정을 넣을 수 있어요.</li>
+</ul>
+
+<h2>퇴직금을 손해 보지 않으려면</h2>
+<ul>
+  <li><b>퇴사 직전 3개월 월급이 중요해요:</b> 이 기간에 연장 근무가 많았다면 평균임금이 올라가요. 반대로 무급 휴직 직후 퇴사하면 불리할 수 있어요.</li>
+  <li><b>1년에서 하루라도 모자라면 0원:</b> 1년 계약직이라면 마지막 날까지 근무하고, 퇴사일이 입사 1년 뒤 같은 날 이후인지 확인하세요.</li>
+  <li><b>연차수당도 포함:</b> 못 쓴 연차를 돈으로 받았다면 평균임금 계산에 들어가요.</li>
+</ul>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>아르바이트도 퇴직금을 받을 수 있나요?</summary><p>네. 같은 곳에서 1년 이상, 4주 평균 주 15시간 이상 일했다면 아르바이트도 퇴직금을 받아요. 5인 미만 사업장도 마찬가지예요.</p></details><details><summary>퇴직금은 월급의 몇 배인가요?</summary><p>대략 1년 일할 때마다 한 달 치 평균 월급이에요. 3년 일했으면 약 3개월 치, 10년 일했으면 약 10개월 치예요.</p></details><details><summary>1년 계약직은 퇴직금을 받을 수 있나요?</summary><p>1년을 꽉 채워 일했다면 받을 수 있어요. 예를 들어 1월 1일에 입사했다면 다음 해 12월 31일까지 일해야 해요.</p></details></div>
+    
+  </article>
+  <section class="card list"><h2>다른 가이드</h2><a href="/guide/insurance-rates-2026/">2026년 4대보험 요율 총정리<span>2026년 국민연금 9.5%, 건강보험 7.19%, 장기요양 13.14%, 고용보험 1.8%. 근로자 부…</span></a><a href="/guide/unemployment-benefit-2026/">2026년 실업급여 조건·금액·신청 방법<span>2026년 실업급여 하루 상한 68,100원, 하한 66,048원. 받을 수 있는 조건 3가지, 받는 기…</span></a><a href="/guide/minimum-wage-2026/">2026년 최저임금·주휴수당 총정리<span>2026년 최저시급은 10,320원, 월 환산 2,156,880원이에요. 주휴수당 받는 조건과 계산법, …</span></a><a href="/guide/year-end-tax-2026/">2026년 연말정산 달라지는 점과 환급 늘리는 법<span>2026년 귀속 연말정산에서 바뀌는 점(자녀 카드 공제 한도, 예체능 학원비, 배우자 월세 공제)과 12…</span></a></section>
+  <footer>글의 내용은 작성일 기준이며, 법령 개정에 따라 달라질 수 있어요.<br><a href="/about/">사이트 소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com">문의</a></footer>
+</main>
+</body>
+</html>
