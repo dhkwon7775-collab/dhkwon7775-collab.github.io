@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/rent.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<title>전월세 전환 계산기 | 전세→월세, 월세→전세, 전환율 계산 (법정 전환율 반영)</title>
+<meta name="description" content="전세를 월세로 바꾸면 월세가 얼마인지, 월세를 전세로 환산하면 얼마인지, 집주인이 제시한 전환율이 법정 상한(기준금리+2%p)을 넘는지 바로 계산해요. 전세대출 이자와 월세 비교도 돼요.">
+<meta property="og:title" content="전월세 전환 계산기">
+<meta property="og:description" content="전세↔월세 전환 금액과 전환율, 법정 상한을 바로 계산해요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/rent/">
+<link rel="canonical" href="https://dohyun.co.kr/rent/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 20px; font-size: 15px; }
+  .tabs { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .tabs button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .field { margin-bottom: 16px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"] { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 44px 11px 13px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; }
+  input:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .hint { font-size: 12.5px; color: var(--sub); margin-top: 4px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .quick button { font: inherit; font-size: 13px; font-weight: 600; border: 0; border-radius: 999px; padding: 6px 11px; background: var(--seg); color: var(--text); cursor: pointer; }
+  .quick button:hover { background: var(--accent-soft); color: var(--accent); }
+  [hidden] { display: none !important; }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; margin: 2px 0 4px; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 16px; }
+  .flag { border-radius: 12px; padding: 12px 14px; font-size: 14px; margin: 0 0 14px; }
+  .flag.ok { background: color-mix(in srgb, var(--plus) 12%, transparent); color: var(--plus); }
+  .flag.over { background: color-mix(in srgb, var(--minus) 12%, transparent); color: var(--minus); }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  td { padding: 9px 0; border-top: 1px solid var(--line); }
+  td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.total td { font-weight: 700; }
+  tr.group td { color: var(--sub); font-size: 13px; padding-top: 16px; border-top: 0; font-weight: 600; }
+  h2.sec { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq summary { cursor: pointer; font-weight: 600; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  .others a { display: block; padding: 12px 0; color: var(--text); text-decoration: none; font-weight: 600; border-top: 1px solid var(--line); }
+  .others a:first-of-type { border-top: 0; }
+  .others a span { color: var(--sub); font-weight: 400; font-size: 14px; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+</style>
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/">가이드</a></nav>
+  </div>
+</header>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>전월세 전환 계산기</h1>
+  <p class="lead">전세를 월세로, 월세를 전세로 바꾸면 얼마인지 계산하고, 전환율이 법정 상한을 넘는지 알려드려요.</p>
+
+  <div class="tabs" role="tablist">
+    <button type="button" role="tab" data-tab="toMonthly" aria-selected="true">전세 → 월세</button>
+    <button type="button" role="tab" data-tab="toJeonse" aria-selected="false">월세 → 전세</button>
+    <button type="button" role="tab" data-tab="rate" aria-selected="false">전환율 확인</button>
+  </div>
+
+  <section class="card">
+    <div class="field" data-show="toMonthly rate">
+      <label for="jeonse">전세 보증금</label>
+      <div class="input-wrap"><input id="jeonse" type="text" inputmode="numeric" value="300,000,000" data-money><span class="unit">원</span></div>
+      <div class="hint" id="jeonseKor"></div>
+    </div>
+    <div class="field">
+      <label for="deposit" id="depositLabel">바꾼 뒤 보증금</label>
+      <div class="input-wrap"><input id="deposit" type="text" inputmode="numeric" value="100,000,000" data-money><span class="unit">원</span></div>
+      <div class="hint" id="depositKor"></div>
+    </div>
+    <div class="field" data-show="toJeonse rate">
+      <label for="monthly">월세</label>
+      <div class="input-wrap"><input id="monthly" type="text" inputmode="numeric" value="800,000" data-money><span class="unit">원</span></div>
+    </div>
+    <div class="field" data-show="toMonthly toJeonse">
+      <label for="convRate">전환율 (연)</label>
+      <div class="input-wrap"><input id="convRate" type="text" inputmode="decimal" value="5" autocomplete="off"><span class="unit">%</span></div>
+      <div class="quick">
+        <button type="button" data-rate="legal" id="legalBtn">법정 상한</button>
+        <button type="button" data-rate="4">4%</button>
+        <button type="button" data-rate="5.5">5.5%</button>
+        <button type="button" data-rate="6">6%</button>
+      </div>
+      <div class="hint" id="rateHint"></div>
+    </div>
+    <div class="field">
+      <label for="loanRate">비교용 전세대출 금리 (연)</label>
+      <div class="input-wrap"><input id="loanRate" type="text" inputmode="decimal" value="4" autocomplete="off"><span class="unit">%</span></div>
+      <div class="hint">월세 대신 대출을 받아 전세로 살면 매달 이자가 얼마인지 비교해요.</div>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head" id="head"></p>
+    <p class="big" id="big"></p>
+    <p class="sub-line" id="subLine"></p>
+    <p class="flag" id="flag" hidden></p>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <section class="card faq">
+    <h2 class="sec">자주 묻는 질문</h2>
+    <details>
+      <summary>전월세 전환율이 뭔가요?</summary>
+      <p>전세 보증금 일부를 월세로 바꿀 때 쓰는 연 이자율이에요. 예를 들어 보증금 1억 원을 월세로 바꾸고 전환율이 5%라면, 1억 × 5% ÷ 12 = 매달 약 41만 7천 원이에요.</p>
+    </details>
+    <details>
+      <summary>법정 전환율 상한은 얼마인가요?</summary>
+      <p>주택임대차보호법에 따라 연 10%와 "한국은행 기준금리 + 2%p" 중 낮은 값이에요. 2026년 10월 22일 기준금리가 3.00%라서 상한은 5.0%예요. 기준금리가 바뀌면 상한도 같이 바뀌어요.</p>
+    </details>
+    <details>
+      <summary>새 계약에도 법정 상한이 적용되나요?</summary>
+      <p>법정 상한은 살고 있는 집의 계약 기간 중이나 계약을 갱신하면서 전세를 월세로 바꿀 때 적용돼요. 새 집과 처음 맺는 계약은 시장 시세에 따라 정해져서 상한이 적용되지 않아요.</p>
+    </details>
+    <details>
+      <summary>상한보다 높게 월세를 받았다면?</summary>
+      <p>계약 중 전환이었다면 상한을 넘는 부분은 효력이 없어서 돌려달라고 할 수 있어요. 대한법률구조공단(132)이나 주택임대차분쟁조정위원회에 상담할 수 있어요.</p>
+    </details>
+    <details>
+      <summary>전세와 월세 중 뭐가 유리한가요?</summary>
+      <p>전환율과 전세대출 금리를 비교하면 감이 와요. 전세대출 금리가 전환율보다 낮으면 대출을 받아 전세로 사는 쪽이 매달 돈이 덜 나가요. 다만 전세는 보증금을 돌려받지 못할 위험이 있어서 전세보증보험 가입 여부도 함께 따져야 해요.</p>
+    </details>
+  </section>
+
+  <section class="card others">
+    <h2 class="sec">다른 계산기</h2>
+    <a href="../loan/">🏦 대출 이자 계산기 <span>· 매달 갚을 돈과 총이자, 상환 방식별 비교</span></a>
+    <a href="../subscription/">🏠 청약 가점 계산기 <span>· 무주택기간·부양가족·통장 84점 만점</span></a>
+    <a href="../area/">📐 평수 계산기 <span>· 평 ↔ ㎡, 아파트 평형</span></a>
+  </section>
+
+  <footer>계산 결과는 참고용이에요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
+</main>
+
+<script>
+// ===== 기준금리 (바뀌면 이 두 줄만 고치면 돼요) =====
+const BASE_RATE = 3.0;            // 한국은행 기준금리 (%)
+const BASE_DATE = "2026년 10월 22일";
+const LEGAL = Math.min(10, BASE_RATE + 2); // 법정 전환율 상한 (%)
+
+const $ = (id) => document.getElementById(id);
+const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
+const parse = (s) => Number(String(s).replace(/[^0-9]/g, "")) || 0;
+const pct = (s) => Number(String(s).replace(/[^0-9.]/g, "")) || 0;
+const fmtPct = (n) => (Math.round(n * 100) / 100).toLocaleString("ko-KR") + "%";
+function korUnit(n) {
+  if (n <= 0) return "";
+  const eok = Math.floor(n / 1e8), man = Math.floor((n % 1e8) / 1e4);
+  return ((eok ? eok + "억 " : "") + (man ? man.toLocaleString() + "만 " : "")).trim() + " 원";
+}
+
+let tab = "toMonthly";
+
+function render() {
+  document.querySelectorAll("[data-show]").forEach((el) => (el.hidden = !el.dataset.show.split(" ").includes(tab)));
+  $("depositLabel").textContent = tab === "toMonthly" ? "바꾼 뒤 보증금" : "월세 보증금";
+  $("rateHint").textContent = `법정 상한 ${fmtPct(LEGAL)} (기준금리 ${fmtPct(BASE_RATE)} + 2%p, ${BASE_DATE} 기준)`;
+  $("legalBtn").textContent = `법정 상한 ${fmtPct(LEGAL)}`;
+  $("jeonseKor").textContent = korUnit(parse($("jeonse").value));
+  $("depositKor").textContent = korUnit(parse($("deposit").value));
+
+  const J = parse($("jeonse").value), D = parse($("deposit").value), M = parse($("monthly").value);
+  const r = pct($("convRate").value) / 100, loan = pct($("loanRate").value) / 100;
+  const flag = $("flag");
+  const showFlag = (ok, msg) => { flag.hidden = false; flag.className = "flag " + (ok ? "ok" : "over"); flag.textContent = msg; };
+  flag.hidden = true;
+
+  if (tab === "toMonthly") {
+    const gap = Math.max(0, J - D);
+    const monthly = (gap * r) / 12;
+    const loanInterest = (gap * loan) / 12;
+    $("head").textContent = "바꾼 뒤 월세";
+    $("big").textContent = won(monthly);
+    $("subLine").textContent = `보증금 ${korUnit(D) || "0원"} / 월세 ${won(monthly)} · 전환율 ${fmtPct(r * 100)}`;
+    if (r * 100 > LEGAL) showFlag(false, `전환율 ${fmtPct(r * 100)}는 법정 상한 ${fmtPct(LEGAL)}보다 높아요. 계약 중 전환이나 갱신이라면 월세는 최대 ${won((gap * LEGAL) / 100 / 12)}까지예요.`);
+    else showFlag(true, `법정 상한(${fmtPct(LEGAL)}) 안이에요.`);
+    $("rows").innerHTML = `
+      <tr><td>전세 보증금</td><td>${won(J)}</td></tr>
+      <tr><td>바꾼 뒤 보증금</td><td>${won(D)}</td></tr>
+      <tr><td>월세로 바꾸는 금액</td><td>${won(gap)}</td></tr>
+      <tr class="total"><td>월세 (× ${fmtPct(r * 100)} ÷ 12)</td><td>${won(monthly)}</td></tr>
+      <tr><td>1년 월세 합계</td><td>${won(monthly * 12)}</td></tr>
+      <tr class="group"><td colspan="2">대출 받아 전세로 산다면 (금리 ${fmtPct(loan * 100)})</td></tr>
+      <tr><td>매달 대출 이자</td><td>${won(loanInterest)}</td></tr>
+      <tr class="total"><td>${monthly > loanInterest ? "전세가 매달" : "월세가 매달"}</td><td>${won(Math.abs(monthly - loanInterest))} 덜 나가요</td></tr>`;
+  } else if (tab === "toJeonse") {
+    const jeonse = r > 0 ? D + (M * 12) / r : 0;
+    const gap = Math.max(0, jeonse - D);
+    const loanInterest = (gap * loan) / 12;
+    $("head").textContent = "전세로 환산하면";
+    $("big").textContent = r > 0 ? won(jeonse) : "-";
+    $("subLine").textContent = r > 0 ? `${korUnit(jeonse)} · 전환율 ${fmtPct(r * 100)}` : "전환율을 넣어 주세요.";
+    $("rows").innerHTML = `
+      <tr><td>월세 보증금</td><td>${won(D)}</td></tr>
+      <tr><td>월세 × 12</td><td>${won(M * 12)}</td></tr>
+      <tr><td>월세를 보증금으로 (÷ ${fmtPct(r * 100)})</td><td>${won(gap)}</td></tr>
+      <tr class="total"><td>전세 환산 보증금</td><td>${won(jeonse)}</td></tr>
+      <tr class="group"><td colspan="2">그만큼 대출 받아 전세로 산다면 (금리 ${fmtPct(loan * 100)})</td></tr>
+      <tr><td>매달 대출 이자</td><td>${won(loanInterest)}</td></tr>
+      <tr class="total"><td>${M > loanInterest ? "전세가 매달" : "월세가 매달"}</td><td>${won(Math.abs(M - loanInterest))} 덜 나가요</td></tr>`;
+  } else {
+    const gap = J - D;
+    const rate = gap > 0 ? ((M * 12) / gap) * 100 : 0;
+    $("head").textContent = "실제 전환율";
+    $("big").textContent = gap > 0 ? fmtPct(rate) : "-";
+    $("subLine").textContent = gap > 0 ? `보증금 ${korUnit(gap)}을 월세 ${won(M)}으로 바꾼 셈이에요.` : "전세 보증금이 월세 보증금보다 커야 해요.";
+    if (gap > 0) {
+      if (rate > LEGAL) showFlag(false, `법정 상한 ${fmtPct(LEGAL)}보다 높아요. 계약 중 전환이나 갱신이라면 월세는 최대 ${won((gap * LEGAL) / 100 / 12)}까지예요.`);
+      else showFlag(true, `법정 상한(${fmtPct(LEGAL)}) 안이에요.`);
+    }
+    $("rows").innerHTML = gap > 0 ? `
+      <tr><td>전세 보증금</td><td>${won(J)}</td></tr>
+      <tr><td>월세 보증금</td><td>${won(D)}</td></tr>
+      <tr><td>월세로 바뀐 보증금</td><td>${won(gap)}</td></tr>
+      <tr><td>1년 월세</td><td>${won(M * 12)}</td></tr>
+      <tr class="total"><td>전환율 (1년 월세 ÷ 바뀐 보증금)</td><td>${fmtPct(rate)}</td></tr>
+      <tr><td>법정 상한일 때 월세</td><td>${won((gap * LEGAL) / 100 / 12)}</td></tr>` : "";
+  }
+}
+
+// 탭
+document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => {
+  tab = b.dataset.tab;
+  document.querySelectorAll("[data-tab]").forEach((x) => x.setAttribute("aria-selected", x === b));
+  render();
+}));
+// 입력
+document.querySelectorAll("[data-money]").forEach((el) => el.addEventListener("input", (e) => {
+  const n = parse(e.target.value);
+  e.target.value = n ? n.toLocaleString("ko-KR") : "";
+  render();
+}));
+["convRate", "loanRate"].forEach((id) => $(id).addEventListener("input", (e) => {
+  e.target.value = e.target.value.replace(/[^0-9.]/g, "").replace(/(\..*)\./g, "$1");
+  render();
+}));
+document.querySelectorAll("[data-rate]").forEach((b) => b.addEventListener("click", () => {
+  $("convRate").value = b.dataset.rate === "legal" ? String(LEGAL) : b.dataset.rate;
+  render();
+}));
+
+$("convRate").value = String(LEGAL);
+render();
+</script>
+<script src="/assets/share.js" defer></script>
+</body>
+</html>
