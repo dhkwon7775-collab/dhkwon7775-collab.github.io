@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/subscription.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<title>청약 가점 계산기 | 무주택기간·부양가족·청약통장 84점 만점 계산</title>
+<meta name="description" content="생년월일, 혼인일, 부양가족 수, 청약통장 가입일만 넣으면 아파트 청약 가점을 84점 만점으로 바로 계산해요. 배우자 통장 기간 합산(최대 3점)도 반영돼요.">
+<meta property="og:title" content="청약 가점 계산기">
+<meta property="og:description" content="무주택기간·부양가족·청약통장으로 내 청약 가점을 84점 만점으로 계산해요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/subscription/">
+<link rel="canonical" href="https://dohyun.co.kr/subscription/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  .card > h2 { font-size: 17px; margin: 0 0 4px; }
+  .card > h2 + .hint { margin: 0 0 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .field { margin-bottom: 16px; }
+  .field:last-child { margin-bottom: 0; }
+  input[type="date"] { width: 100%; font: inherit; font-size: 18px; font-weight: 700; padding: 10px 12px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; color-scheme: light dark; }
+  input:focus { border-color: var(--accent); }
+  .hint { font-size: 12.5px; color: var(--sub); margin-top: 4px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 420px) { .row2 { grid-template-columns: 1fr; } }
+  .check { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; cursor: pointer; margin-bottom: 10px; }
+  .check input { width: 18px; height: 18px; accent-color: var(--accent); }
+  .stepper { display: flex; align-items: center; gap: 10px; }
+  .stepper button { font: inherit; font-size: 18px; font-weight: 600; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 8px; background: var(--accent-soft); color: var(--accent); cursor: pointer; }
+  .stepper output { font-size: 20px; font-weight: 700; min-width: 40px; text-align: center; }
+  [hidden] { display: none !important; }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 44px; font-weight: 800; margin: 0 0 4px; }
+  .big small { font-size: 22px; color: var(--sub); font-weight: 700; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 18px; }
+  .parts { display: grid; gap: 14px; margin-bottom: 8px; }
+  .part-top { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 6px; }
+  .part-top b { font-variant-numeric: tabular-nums; }
+  .part-top span { color: var(--sub); }
+  .meter { height: 10px; background: var(--seg); border-radius: 5px; overflow: hidden; }
+  .meter span { display: block; height: 100%; background: var(--accent); border-radius: 5px; transition: width .25s ease; }
+  .meter.total span { background: var(--text); }
+  .detail { font-size: 12.5px; color: var(--sub); margin-top: 4px; }
+  .note { background: var(--seg); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: var(--sub); margin-top: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 6px; border-top: 1px solid var(--line); text-align: left; }
+  th { color: var(--sub); font-weight: 600; font-size: 13px; border-top: 0; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  h2.sec { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq summary { cursor: pointer; font-weight: 600; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  .others a { display: block; padding: 12px 0; color: var(--text); text-decoration: none; font-weight: 600; border-top: 1px solid var(--line); }
+  .others a:first-of-type { border-top: 0; }
+  .others a span { color: var(--sub); font-weight: 400; font-size: 14px; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+</style>
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/">가이드</a></nav>
+  </div>
+</header>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>청약 가점 계산기</h1>
+  <p class="lead">무주택기간, 부양가족, 청약통장 기간으로 내 청약 가점을 84점 만점으로 계산해요.</p>
+
+  <section class="card">
+    <h2>무주택기간</h2>
+    <p class="hint">최대 32점 · 만 30세(그 전에 결혼했다면 혼인신고일)부터 세요.</p>
+    <div class="row2">
+      <div class="field">
+        <label for="birth">생년월일</label>
+        <input id="birth" type="date" value="1990-05-01">
+      </div>
+      <div class="field">
+        <label for="ref">기준일 (모집공고일)</label>
+        <input id="ref" type="date">
+      </div>
+    </div>
+    <label class="check"><input type="checkbox" id="married"> 혼인신고를 했어요</label>
+    <div class="field" id="marriedField" hidden>
+      <label for="marry">혼인신고일</label>
+      <input id="marry" type="date" value="2020-06-01">
+    </div>
+    <label class="check"><input type="checkbox" id="owned"> 집을 가졌다가 판 적이 있어요 (본인·배우자)</label>
+    <div class="field" id="ownedField" hidden>
+      <label for="sold">마지막으로 집을 판 날</label>
+      <input id="sold" type="date" value="2022-01-01">
+      <div class="hint">그날부터 다시 무주택기간을 세요. 지금 집이 있다면 무주택기간 점수는 0점이에요.</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>부양가족</h2>
+    <p class="hint">최대 35점 · 본인은 빼고 세요.</p>
+    <div class="field">
+      <div class="stepper" data-target="family" data-min="0" data-max="10">
+        <button type="button" data-d="-1" aria-label="줄이기">−</button>
+        <output id="family">2</output>
+        <button type="button" data-d="1" aria-label="늘리기">+</button>
+        <span class="hint" style="margin:0">명</span>
+      </div>
+      <div class="hint">배우자, 미혼 자녀, 3년 이상 같은 주민등록표에 있는 부모님·조부모님(배우자 쪽 포함)을 세요.</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>청약통장</h2>
+    <p class="hint">최대 17점 · 주택청약종합저축 가입일 기준이에요.</p>
+    <div class="field">
+      <label for="joined">내 통장 가입일</label>
+      <input id="joined" type="date" value="2015-03-01">
+    </div>
+    <label class="check"><input type="checkbox" id="spouseAcc"> 배우자도 청약통장이 있어요</label>
+    <div class="field" id="spouseField" hidden>
+      <label for="spouseJoined">배우자 통장 가입일</label>
+      <input id="spouseJoined" type="date" value="2018-01-01">
+      <div class="hint">배우자 가입기간의 절반을 더해 줘요. 최대 3점까지만 늘어나요.</div>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head">내 청약 가점</p>
+    <p class="big" id="total">0<small> / 84점</small></p>
+    <p class="sub-line" id="subLine"></p>
+    <div class="parts">
+      <div>
+        <div class="part-top"><span>무주택기간</span><b id="p1">0 / 32점</b></div>
+        <div class="meter"><span id="m1"></span></div>
+        <div class="detail" id="d1"></div>
+      </div>
+      <div>
+        <div class="part-top"><span>부양가족</span><b id="p2">0 / 35점</b></div>
+        <div class="meter"><span id="m2"></span></div>
+        <div class="detail" id="d2"></div>
+      </div>
+      <div>
+        <div class="part-top"><span>청약통장 가입기간</span><b id="p3">0 / 17점</b></div>
+        <div class="meter"><span id="m3"></span></div>
+        <div class="detail" id="d3"></div>
+      </div>
+    </div>
+    <p class="note">청약홈 자가진단과 모집공고의 자격 요건(세대주 여부, 거주 지역, 재당첨 제한 등)도 꼭 확인하세요. 이 계산은 가점만 다뤄요.</p>
+  </section>
+
+  <section class="card">
+    <h2 class="sec">청약 가점 점수표</h2>
+    <table>
+      <thead><tr><th>무주택기간</th><th class="num">점수</th><th>부양가족</th><th class="num">점수</th></tr></thead>
+      <tbody>
+        <tr><td>1년 미만</td><td class="num">2</td><td>0명</td><td class="num">5</td></tr>
+        <tr><td>1~2년</td><td class="num">4</td><td>1명</td><td class="num">10</td></tr>
+        <tr><td>5~6년</td><td class="num">12</td><td>2명</td><td class="num">15</td></tr>
+        <tr><td>10~11년</td><td class="num">22</td><td>3명</td><td class="num">20</td></tr>
+        <tr><td>14~15년</td><td class="num">30</td><td>4명</td><td class="num">25</td></tr>
+        <tr><td>15년 이상</td><td class="num">32</td><td>6명 이상</td><td class="num">35</td></tr>
+      </tbody>
+    </table>
+    <p class="hint" style="margin-top:10px">무주택기간은 1년마다 2점, 부양가족은 1명마다 5점, 청약통장은 6개월 미만 1점·1년 미만 2점에서 1년마다 1점씩 올라 15년 이상 17점이에요.</p>
+  </section>
+
+  <section class="card faq">
+    <h2 class="sec">자주 묻는 질문</h2>
+    <details>
+      <summary>무주택기간은 언제부터 세나요?</summary>
+      <p>만 30세가 된 날부터 세요. 만 30세 전에 혼인신고를 했다면 혼인신고일부터 세요. 만 30세 전이고 미혼이면 무주택기간 점수는 0점이에요. 집을 가졌다가 팔았다면 판 날부터 다시 세요.</p>
+    </details>
+    <details>
+      <summary>부양가족에는 누가 들어가나요?</summary>
+      <p>같은 주민등록표에 있는 배우자와 미혼 자녀, 그리고 3년 이상 같은 주민등록표에 있는 직계존속(부모님, 조부모님, 배우자 부모님)이에요. 만 30세 이상 미혼 자녀는 1년 이상 같은 주민등록표에 있어야 해요. 본인은 세지 않아요.</p>
+    </details>
+    <details>
+      <summary>배우자 청약통장도 점수에 들어가나요?</summary>
+      <p>네. 배우자 청약통장 가입기간의 50%를 더해 줘요. 다만 늘어나는 점수는 최대 3점이고, 합쳐도 17점을 넘을 수 없어요.</p>
+    </details>
+    <details>
+      <summary>작은 집을 가지고 있어도 무주택인가요?</summary>
+      <p>민영주택 청약에서는 전용면적과 공시가격이 일정 기준 이하인 소형·저가주택 1채는 무주택으로 보는 경우가 있어요. 기준은 모집공고와 청약홈에서 확인하세요.</p>
+    </details>
+    <details>
+      <summary>가점제는 어떤 청약에 쓰이나요?</summary>
+      <p>민영주택 일반공급에서 가점이 높은 사람부터 당첨자를 정하는 방식이에요. 주택 크기와 지역에 따라 가점제와 추첨제 비율이 달라요. 공공분양이나 특별공급은 다른 기준으로 뽑아요.</p>
+    </details>
+  </section>
+
+  <section class="card others">
+    <h2 class="sec">다른 계산기</h2>
+    <a href="../loan/">🏦 대출 이자 계산기 <span>· 매달 갚을 돈과 총이자, 상환 방식별 비교</span></a>
+    <a href="../area/">📐 평수 계산기 <span>· 평 ↔ ㎡, 아파트 평형</span></a>
+    <a href="../salary/">💰 연봉 실수령액 계산기 <span>· 4대보험·세금 빼고 매달 받는 돈</span></a>
+    <a href="../age/">🎂 만 나이 계산기 <span>· 생년월일로 만 나이·다음 생일 D-day</span></a>
+  </section>
+
+  <footer>계산 결과는 참고용이며, 실제 청약 자격과 점수는 청약홈과 모집공고로 확인하세요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+
+function toDate(s) {
+  if (!s) return null;
+  const [y, m, d] = s.split("-").map(Number);
+  if (!y || !m || !d) return null;
+  return new Date(Date.UTC(y, m - 1, d));
+}
+const iso = (d) => d.toISOString().slice(0, 10);
+const fmt = (d) => `${d.getUTCFullYear()}.${d.getUTCMonth() + 1}.${d.getUTCDate()}`;
+function addYears(d, n) {
+  const y = d.getUTCFullYear() + n, m = d.getUTCMonth();
+  const last = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+  return new Date(Date.UTC(y, m, Math.min(d.getUTCDate(), last)));
+}
+// 두 날짜 사이의 꽉 찬 개월 수
+function fullMonths(a, b) {
+  if (!a || !b || b < a) return 0;
+  let m = (b.getUTCFullYear() - a.getUTCFullYear()) * 12 + (b.getUTCMonth() - a.getUTCMonth());
+  if (b.getUTCDate() < a.getUTCDate()) m--;
+  return Math.max(0, m);
+}
+const ym = (months) => {
+  const y = Math.floor(months / 12), m = months % 12;
+  return (y ? `${y}년 ` : "") + `${m}개월`;
+};
+
+// 점수표 (주택공급에 관한 규칙 별표1)
+const homelessScore = (months) => Math.min(32, 2 + 2 * Math.floor(months / 12));
+const familyScore = (n) => Math.min(35, 5 + 5 * n);
+function accountScore(months) {
+  if (months < 6) return 1;
+  if (months < 12) return 2;
+  return Math.min(17, 2 + Math.floor(months / 12));
+}
+
+function render() {
+  const ref = toDate($("ref").value);
+  const birth = toDate($("birth").value);
+  const married = $("married").checked;
+  const owned = $("owned").checked;
+  $("marriedField").hidden = !married;
+  $("ownedField").hidden = !owned;
+  $("spouseField").hidden = !$("spouseAcc").checked;
+
+  // 1. 무주택기간
+  let s1 = 0, d1 = "";
+  if (!birth || !ref) d1 = "생년월일과 기준일을 넣어 주세요.";
+  else {
+    const age30 = addYears(birth, 30);
+    const marry = married ? toDate($("marry").value) : null;
+    let start = marry && marry < age30 ? marry : age30;
+    const sold = owned ? toDate($("sold").value) : null;
+    if (sold && sold > start) start = sold;
+    if (start > ref) {
+      d1 = marry || sold ? `무주택기간이 아직 시작되지 않았어요 (시작일 ${fmt(start)})` : `만 30세 미만·미혼이라 0점이에요 (${fmt(age30)}부터 세요)`;
+    } else {
+      const months = fullMonths(start, ref);
+      s1 = homelessScore(months);
+      d1 = `${fmt(start)}부터 ${ym(months)}`;
+    }
+  }
+
+  // 2. 부양가족
+  const fam = Number($("family").value);
+  const s2 = familyScore(fam);
+  const d2 = `본인 제외 ${fam}명`;
+
+  // 3. 청약통장 (배우자 기간 50% 합산, 최대 3점)
+  const joined = toDate($("joined").value);
+  const myMonths = fullMonths(joined, ref);
+  const mine = joined && ref && joined <= ref ? accountScore(myMonths) : 0;
+  let s3 = mine, d3 = joined ? `내 통장 ${ym(myMonths)}` : "가입일을 넣어 주세요.";
+  if ($("spouseAcc").checked && mine) {
+    const sp = fullMonths(toDate($("spouseJoined").value), ref);
+    const combined = accountScore(myMonths + Math.floor(sp / 2));
+    const extra = Math.min(3, Math.max(0, combined - mine));
+    s3 = Math.min(17, mine + extra);
+    d3 += ` + 배우자 ${ym(sp)}의 절반 → +${extra}점`;
+  }
+
+  const total = s1 + s2 + s3;
+  $("total").innerHTML = `${total}<small> / 84점</small>`;
+  $("subLine").textContent = `무주택 ${s1} + 부양가족 ${s2} + 통장 ${s3}`;
+  [[s1, 32, "1", d1], [s2, 35, "2", d2], [s3, 17, "3", d3]].forEach(([s, max, i, d]) => {
+    $("p" + i).textContent = `${s} / ${max}점`;
+    $("m" + i).style.width = (s / max) * 100 + "%";
+    $("d" + i).textContent = d;
+  });
+}
+
+// 기본 기준일: 오늘
+(function () {
+  const n = new Date();
+  $("ref").value = iso(new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate())));
+})();
+
+["birth", "ref", "marry", "sold", "joined", "spouseJoined"].forEach((id) => $(id).addEventListener("input", render));
+["married", "owned", "spouseAcc"].forEach((id) => $(id).addEventListener("change", render));
+document.querySelectorAll(".stepper").forEach((s) => {
+  const out = $(s.dataset.target);
+  s.querySelectorAll("button").forEach((b) =>
+    b.addEventListener("click", () => {
+      out.value = Math.min(Number(s.dataset.max), Math.max(Number(s.dataset.min), Number(out.value) + Number(b.dataset.d)));
+      render();
+    })
+  );
+});
+render();
+</script>
+<script src="/assets/share.js" defer></script>
+</body>
+</html>
