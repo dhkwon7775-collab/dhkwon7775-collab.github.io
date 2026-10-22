@@ -153,6 +153,21 @@ input[type="text"]:focus, input[type="date"]:focus, select:focus, textarea:focus
 }
 .share-toast.show { opacity: 1; transform: translate(-50%, 0); }
 
+/* 이어서 계산해 보세요 */
+.next-calc h2 { font-size: 17px; margin: 0 0 6px; }
+.next-list a { display: flex; align-items: center; gap: 12px; padding: 12px 2px; color: var(--text); text-decoration: none; }
+.next-list a + a { border-top: 1px solid var(--line); }
+.next-list a:hover b { color: var(--accent); }
+.next-list .ico { flex: none; width: 38px; height: 38px; border-radius: 11px; background: var(--seg); display: grid; place-items: center; font-size: 19px; }
+.next-list .t { flex: 1; min-width: 0; }
+.next-list .t b { display: block; font-size: 15.5px; letter-spacing: -0.02em; }
+.next-list .t span { display: block; font-size: 13px; color: var(--sub); }
+.next-list .chev { color: var(--sub); font-size: 20px; line-height: 1; }
+
+/* 계산 기준 표시 */
+.verified { display: flex; align-items: flex-start; gap: 6px; font-size: 13px; color: var(--sub); background: var(--seg); border-radius: 10px; padding: 8px 12px; margin: -12px 0 20px; }
+.verified::before { content: "✓"; color: var(--plus); font-weight: 800; }
+
 /* 키보드 이동 시 포커스 표시 */
 a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
   outline: 2px solid var(--focus);
