@@ -1,0 +1,126 @@
+/* 사이트 공통 디자인: 각 페이지의 기본 스타일 뒤에 불러와서 색·글꼴·상단 메뉴를 통일해요 */
+
+:root {
+  --bg: #f2f4f7;
+  --card: #ffffff;
+  --text: #16213a;
+  --sub: #5d6778;
+  --line: #e4e8ee;
+  --accent: #2563eb;
+  --accent-strong: #1d4fd8;
+  --accent-soft: #eaf1fe;
+  --seg: #eef1f5;
+  --minus: #e0464e;
+  --plus: #0f9d6b;
+  --focus: #2563eb;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e1218;
+    --card: #171c24;
+    --text: #e9edf3;
+    --sub: #98a2b3;
+    --line: #262d38;
+    --accent: #5b8cff;
+    --accent-strong: #7aa2ff;
+    --accent-soft: #1a2640;
+    --seg: #1f2530;
+    --minus: #ff7077;
+    --plus: #3fd39a;
+    --focus: #7aa2ff;
+  }
+}
+
+body {
+  font-feature-settings: "tnum" 1;
+  letter-spacing: -0.005em;
+  text-rendering: optimizeLegibility;
+  /* 한글이 단어 중간에서 줄바꿈되지 않게 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 상단 메뉴 */
+.site-head {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.site-head .in {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.site-head .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  margin-right: auto;
+}
+.site-head .logo svg { width: 26px; height: 26px; display: block; }
+.site-head nav { display: flex; gap: 4px; }
+.site-head nav a {
+  color: var(--sub);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+.site-head nav a:hover { color: var(--text); background: var(--seg); }
+.site-head nav a[aria-current="page"] { color: var(--accent); }
+
+/* 계산기 페이지에서 상단 메뉴가 있으면 이전 '← 모음' 링크는 숨김 */
+.site-head ~ main .crumb { display: none; }
+.site-head ~ main { padding-top: 24px; }
+/* 글자수 세기의 고정 숫자판이 상단 메뉴 아래에 붙도록 */
+.site-head ~ main .sticky { top: 64px; }
+
+/* 제목과 결과 숫자 */
+main h1 { font-weight: 800; letter-spacing: -0.03em; }
+.big {
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums;
+}
+.big.pay { color: var(--minus); }
+.result-head { font-weight: 600; }
+
+/* 카드: 그림자 없이 얇은 테두리로 정돈 */
+.card, article {
+  border: 1px solid var(--line);
+}
+
+/* 입력칸 */
+input[type="text"], input[type="date"], select, textarea {
+  background: var(--card) !important;
+  border-width: 1.5px !important;
+  transition: border-color .15s, box-shadow .15s;
+}
+input[type="text"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+/* 키보드 이동 시 포커스 표시 */
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
