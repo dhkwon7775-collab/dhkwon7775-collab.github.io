@@ -21,8 +21,8 @@
 <meta property="og:site_name" content="생활 계산기 모음">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<title>2026 연봉 실수령액 계산기 | 4대보험·소득세 자동 계산</title>
-<meta name="description" content="2026년 기준 연봉 실수령액 계산기. 연봉을 입력하면 국민연금, 건강보험, 장기요양, 고용보험, 소득세, 지방소득세를 빼고 매달 받는 금액을 바로 알려드려요.">
+<title>2026 연봉 실수령액 계산기 | 실수령액으로 연봉 역산까지</title>
+<meta name="description" content="2026년 기준 연봉 실수령액 계산기. 연봉을 넣으면 4대보험·소득세를 빼고 매달 받는 금액을, 반대로 월 실수령액을 넣으면 내 연봉이 얼마인지 거꾸로 계산해 드려요.">
 <meta property="og:title" content="2026 연봉 실수령액 계산기">
 <meta property="og:description" content="연봉 입력하면 월 실수령액과 공제 내역을 바로 계산해 드려요.">
 <meta property="og:type" content="website">
@@ -102,6 +102,10 @@
   .stepper { display: flex; align-items: center; gap: 10px; }
   .stepper button { width: 36px; height: 36px; font-size: 18px; padding: 0; }
   .stepper output { font-size: 18px; font-weight: 700; min-width: 40px; text-align: center; }
+  .modes { display: grid; grid-template-columns: 1fr 1fr; background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .modes button { font: inherit; font-size: 15px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .modes button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  [hidden] { display: none !important; }
   .result-head { font-size: 14px; color: var(--sub); margin: 0; }
   .big { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; margin: 2px 0 4px; color: var(--accent); }
   .yearly { color: var(--sub); font-size: 14px; margin: 0 0 20px; }
@@ -136,8 +140,28 @@
   <p class="lead">2026년 기준 · 4대보험과 세금을 빼고 매달 통장에 들어오는 돈을 계산해요.</p>
   <p class="verified">2026년 10월 기준 확인 · 국민연금 4.75%, 건강보험 3.595%, 장기요양 13.14%, 고용보험 0.9% 반영</p>
 
+  <div class="modes" role="tablist" aria-label="계산 방향">
+    <button type="button" role="tab" data-tab="forward" aria-selected="true">연봉 → 실수령액</button>
+    <button type="button" role="tab" data-tab="reverse" aria-selected="false">실수령액 → 연봉</button>
+  </div>
+
   <section class="card">
-    <div class="field">
+    <div class="field" id="netField" hidden>
+      <label for="netTarget">매달 통장에 들어오는 월급 (실수령액)</label>
+      <div class="input-wrap">
+        <input id="netTarget" type="text" inputmode="numeric" value="3,000,000" autocomplete="off">
+        <span class="unit">원</span>
+      </div>
+      <div class="hint">급여명세서의 "실지급액"을 넣으면 연봉이 얼마인지 거꾸로 계산해요.</div>
+      <div class="quick">
+        <button type="button" data-net="2500000">250만</button>
+        <button type="button" data-net="3000000">300만</button>
+        <button type="button" data-net="3500000">350만</button>
+        <button type="button" data-net="4000000">400만</button>
+        <button type="button" data-net="5000000">500만</button>
+      </div>
+    </div>
+    <div class="field" id="salaryField">
       <label for="salary">연봉</label>
       <div class="input-wrap">
         <input id="salary" type="text" inputmode="numeric" value="40,000,000" autocomplete="off">
@@ -181,7 +205,7 @@
   </section>
 
   <section class="card" aria-live="polite">
-    <p class="result-head">월 예상 실수령액</p>
+    <p class="result-head" id="resultHead">월 예상 실수령액</p>
     <p class="big" id="net">0원</p>
     <p class="yearly" id="netYear"></p>
     <div class="bar" id="bar"></div>
@@ -199,6 +223,10 @@
     <details>
       <summary>실수령액이 실제 월급과 조금 달라요.</summary>
       <p>회사는 국세청 '근로소득 간이세액표'로 소득세를 떼요. 이 계산기는 같은 원리의 연간 공식으로 계산해서 몇천 원 정도 차이가 날 수 있어요. 또 상여금, 수당, 회사별 공제(노조비 등)는 반영하지 않아요.</p>
+    </details>
+    <details>
+      <summary>월급(실수령액)으로 연봉을 알 수 있나요?</summary>
+      <p>네. 위쪽에서 "실수령액 → 연봉"을 누르고 통장에 들어오는 월급을 넣으면, 그 금액이 나오려면 연봉이 얼마여야 하는지 거꾸로 계산해요. 같은 월급이라도 부양가족 수와 비과세액에 따라 연봉이 달라지니 함께 맞춰 주세요. 상여금이 따로 있다면 그만큼 연봉이 더 높아요.</p>
     </details>
     <details>
       <summary>비과세액은 무엇인가요?</summary>
@@ -334,17 +362,49 @@ const COLORS = {
   care: "#20c997", employ: "#845ef7", incomeTax: "#f04452", localTax: "#ff8787",
 };
 
+let mode = "forward"; // forward: 연봉 → 실수령액, reverse: 실수령액 → 연봉
+
+// 실수령액이 target이 되는 연봉 찾기 (연봉이 오르면 실수령액도 오르므로 이분 탐색)
+function solveSalary(target, opts) {
+  if (target <= 0) return 0;
+  let lo = 0, hi = 3e9;
+  for (let i = 0; i < 60; i++) {
+    const mid = (lo + hi) / 2;
+    if (calc({ salary: mid, ...opts }).net < target) lo = mid; else hi = mid;
+  }
+  return hi;
+}
+
 function render() {
-  const salary = parse($("salary").value);
-  const r = calc({
-    salary,
+  const opts = {
     nontaxMonthly: parse($("nontax").value),
     family: Number($("family").value),
     kids: Number($("kids").value),
-  });
+  };
+  $("netField").hidden = mode !== "reverse";
+  $("salaryField").hidden = mode === "reverse";
+
+  let target = 0;
+  if (mode === "reverse") {
+    target = parse($("netTarget").value);
+    const found = solveSalary(target, opts);
+    // 만 원 단위로 반올림해서 연봉 칸에도 넣어 둠 (아래 상세 내역과 다른 계산기 연결에 쓰여요)
+    $("salary").value = Math.round(found / 1e4) * 1e4 ? (Math.round(found / 1e4) * 1e4).toLocaleString("ko-KR") : "";
+  }
+
+  const salary = parse($("salary").value);
+  const r = calc({ salary, ...opts });
   $("salaryKor").textContent = korUnit(salary);
-  $("net").textContent = won(Math.max(0, r.net));
-  $("netYear").textContent = `연간 약 ${won(Math.max(0, r.net) * 12)} · 월 공제액 ${won(r.deductions)}`;
+
+  if (mode === "reverse") {
+    $("resultHead").textContent = `월 ${won(target)}을 받으려면 필요한 연봉`;
+    $("net").textContent = target ? `약 ${korUnit(salary)}` : "0원";
+    $("netYear").textContent = `세전 월급 ${won(r.monthly)} · 이 연봉의 실수령액 ${won(Math.max(0, r.net))} · 월 공제액 ${won(r.deductions)}`;
+  } else {
+    $("resultHead").textContent = "월 예상 실수령액";
+    $("net").textContent = won(Math.max(0, r.net));
+    $("netYear").textContent = `연간 약 ${won(Math.max(0, r.net) * 12)} · 월 공제액 ${won(r.deductions)}`;
+  }
 
   const items = [
     ["국민연금", "pension"], ["건강보험", "health"], ["장기요양보험", "care"],
@@ -363,8 +423,28 @@ function render() {
     .join("");
 }
 
+// 계산 방향 바꾸기
+document.querySelectorAll("[data-tab]").forEach((b) =>
+  b.addEventListener("click", () => {
+    mode = b.dataset.tab;
+    document.querySelectorAll("[data-tab]").forEach((x) => x.setAttribute("aria-selected", x === b));
+    if (mode === "reverse") {
+      // 지금 연봉의 실수령액을 출발점으로 넣어 줌
+      const cur = calc({ salary: parse($("salary").value), nontaxMonthly: parse($("nontax").value), family: Number($("family").value), kids: Number($("kids").value) });
+      if (cur.net > 0) $("netTarget").value = (Math.round(cur.net / 1e4) * 1e4).toLocaleString("ko-KR");
+    }
+    render();
+  })
+);
+document.querySelectorAll("[data-net]").forEach((b) =>
+  b.addEventListener("click", () => {
+    $("netTarget").value = Number(b.dataset.net).toLocaleString("ko-KR");
+    render();
+  })
+);
+
 // 입력 처리: 숫자에 쉼표 자동 넣기
-for (const id of ["salary", "nontax"]) {
+for (const id of ["salary", "nontax", "netTarget"]) {
   $(id).addEventListener("input", (e) => {
     const n = parse(e.target.value);
     e.target.value = n ? n.toLocaleString("ko-KR") : "";
