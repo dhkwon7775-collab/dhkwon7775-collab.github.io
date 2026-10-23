@@ -124,7 +124,7 @@
   .note { font-size: 12px; color: var(--sub); }
   footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
 </style>
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v=20261023a">
 </head>
 <body>
 <header class="site-head">
@@ -214,9 +214,13 @@
     </table>
   </section>
 
-  <a class="card" href="/guide/insurance-rates-2026/" style="display:block;text-decoration:none;color:inherit"><span style="font-size:13px;color:var(--sub)">📖 함께 읽으면 좋은 가이드</span><b style="display:block;font-size:16px;margin-top:2px;color:var(--accent)">2026년 4대보험 요율 총정리 →</b></a>
-
-  <a class="card" href="/guide/salary-table-2026/" style="display:block;text-decoration:none;color:inherit"><span style="font-size:13px;color:var(--sub)">📖 함께 읽으면 좋은 가이드</span><b style="display:block;font-size:16px;margin-top:2px;color:var(--accent)">2026 연봉 실수령액 표 →</b></a>
+  <section class="card guide-links">
+    <h2>함께 읽으면 좋은 가이드</h2>
+    <div class="link-list">
+      <a href="/guide/insurance-rates-2026/">2026년 4대보험 요율 총정리</a>
+      <a href="/guide/salary-table-2026/">2026 연봉 실수령액 표</a>
+    </div>
+  </section>
 
   <section class="card">
     <h2>자주 묻는 질문</h2>
@@ -243,17 +247,22 @@
     <p class="note" id="ratesNote"></p>
   </section>
 
-  <section class="card">
+  <section class="card more-calcs">
     <h2>다른 계산기</h2>
-    <a href="../severance/" style="display:block;padding:12px 0;color:inherit;text-decoration:none;font-weight:600">🧾 퇴직금 계산기 <span style="color:var(--sub);font-weight:400;font-size:14px">· 입사일·퇴사일·월급으로 퇴직금과 세금 계산</span></a>
-    <a href="../loan/" style="display:block;padding:12px 0;border-top:1px solid var(--line);color:inherit;text-decoration:none;font-weight:600">🏦 대출 이자 계산기 <span style="color:var(--sub);font-weight:400;font-size:14px">· 매달 갚을 돈과 총이자, 상환 방식별 비교</span></a>
-    <a href="../hourly/" style="display:block;padding:12px 0;border-top:1px solid var(--line);color:inherit;text-decoration:none;font-weight:600">⏰ 알바 월급·주휴수당 계산기 <span style="color:var(--sub);font-weight:400;font-size:14px">· 시급과 근무시간으로 주휴수당·월급 계산</span></a>
-    <a href="../unemployment/" style="display:block;padding:12px 0;border-top:1px solid var(--line);color:inherit;text-decoration:none;font-weight:600">📋 실업급여 계산기 <span style="color:var(--sub);font-weight:400;font-size:14px">· 퇴사 후 받는 실업급여 금액과 기간</span></a>
-    <a href="../age/" style="display:block;padding:12px 0;border-top:1px solid var(--line);color:inherit;text-decoration:none;font-weight:600">🎂 만 나이 계산기 <span style="color:var(--sub);font-weight:400;font-size:14px">· 생년월일로 만 나이·다음 생일 D-day</span></a>
-    <a href="../leave/" style="display:block;padding:12px 0;border-top:1px solid var(--line);color:inherit;text-decoration:none;font-weight:600">🌴 연차 계산기 <span style="color:var(--sub);font-weight:400;font-size:14px">· 입사일로 연차 개수·연차수당 계산</span></a>
-    <a href="../dday/" style="display:block;padding:12px 0;border-top:1px solid var(--line);color:inherit;text-decoration:none;font-weight:600">📅 D-day·전역일 계산기 <span style="color:var(--sub);font-weight:400;font-size:14px">· 남은 날, 100일 기념일, 전역일과 복무율</span></a>
-    <a href="../count/" style="display:block;padding:12px 0;border-top:1px solid var(--line);color:inherit;text-decoration:none;font-weight:600">✍️ 글자수 세기 <span style="color:var(--sub);font-weight:400;font-size:14px">· 자기소개서 글자수, 공백 포함·제외, 바이트</span></a>
-    <a href="../yearend/" style="display:block;padding:12px 0;border-top:1px solid var(--line);color:inherit;text-decoration:none;font-weight:600">💸 연말정산 계산기 <span style="color:var(--sub);font-weight:400;font-size:14px">· 2026년 귀속 환급액 미리 계산</span></a>
+    <nav class="calc-grid" aria-label="다른 계산기">
+      <a href="/hourly/"><span class="ico" aria-hidden="true">⏰</span>알바 월급</a>
+      <a href="/yearend/"><span class="ico" aria-hidden="true">💸</span>연말정산</a>
+      <a href="/leave/"><span class="ico" aria-hidden="true">🌴</span>연차</a>
+      <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
+      <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/subscription/"><span class="ico" aria-hidden="true">🏠</span>청약 가점</a>
+      <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
+      <a href="/rent/"><span class="ico" aria-hidden="true">🔑</span>전월세 전환</a>
+      <a href="/area/"><span class="ico" aria-hidden="true">📐</span>평수</a>
+      <a href="/age/"><span class="ico" aria-hidden="true">🎂</span>만 나이</a>
+      <a href="/dday/"><span class="ico" aria-hidden="true">📅</span>D-day·전역일</a>
+      <a href="/count/"><span class="ico" aria-hidden="true">📝</span>글자수 세기</a>
+    </nav>
   </section>
 
   <footer>계산 결과는 참고용이며, 실제 급여와 차이가 있을 수 있어요.<br><a href="../about/" style="color:inherit">사이트 소개</a> · <a href="../privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
@@ -357,9 +366,10 @@ function calc({ salary, nontaxMonthly, family, kids }) {
   return { monthly, pension, health, care, employ, incomeTax, localTax, deductions, net: monthly - deductions };
 }
 
+// 실수령액은 진한 파랑, 4대보험은 차분한 청록·남색 계열, 세금은 부드러운 빨강 계열
 const COLORS = {
-  net: "var(--accent)", pension: "#f59f00", health: "#12b886",
-  care: "#20c997", employ: "#845ef7", incomeTax: "#f04452", localTax: "#ff8787",
+  net: "var(--accent)", pension: "#7c9cd6", health: "#4fa7a0",
+  care: "#86c7bf", employ: "#a294d9", incomeTax: "#e07a7e", localTax: "#f0aeb0",
 };
 
 let mode = "forward"; // forward: 연봉 → 실수령액, reverse: 실수령액 → 연봉
@@ -475,7 +485,7 @@ $("ratesNote").textContent =
 
 render();
 </script>
-<script src="/assets/share.js" defer></script>
-<script src="/assets/next.js" defer></script>
+<script src="/assets/share.js?v=20261023a" defer></script>
+<script src="/assets/next.js?v=20261023a" defer></script>
 </body>
 </html>

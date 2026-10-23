@@ -75,7 +75,7 @@
   .others a span { color: var(--sub); font-weight: 400; font-size: 14px; }
   footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
 </style>
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v=20261023a">
 </head>
 <body>
 <header class="site-head">
@@ -161,11 +161,22 @@
     </details>
   </section>
 
-  <section class="card others">
-    <h2 class="sec">다른 계산기</h2>
-    <a href="../loan/">🏦 대출 이자 계산기 <span>· 매달 갚을 돈과 총이자, 상환 방식별 비교</span></a>
-    <a href="../subscription/">🏠 청약 가점 계산기 <span>· 무주택기간·부양가족·통장 84점 만점</span></a>
-    <a href="../area/">📐 평수 계산기 <span>· 평 ↔ ㎡, 아파트 평형</span></a>
+  <section class="card more-calcs">
+    <h2>다른 계산기</h2>
+    <nav class="calc-grid" aria-label="다른 계산기">
+      <a href="/salary/"><span class="ico" aria-hidden="true">💰</span>연봉 실수령액</a>
+      <a href="/hourly/"><span class="ico" aria-hidden="true">⏰</span>알바 월급</a>
+      <a href="/yearend/"><span class="ico" aria-hidden="true">💸</span>연말정산</a>
+      <a href="/leave/"><span class="ico" aria-hidden="true">🌴</span>연차</a>
+      <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
+      <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/subscription/"><span class="ico" aria-hidden="true">🏠</span>청약 가점</a>
+      <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
+      <a href="/area/"><span class="ico" aria-hidden="true">📐</span>평수</a>
+      <a href="/age/"><span class="ico" aria-hidden="true">🎂</span>만 나이</a>
+      <a href="/dday/"><span class="ico" aria-hidden="true">📅</span>D-day·전역일</a>
+      <a href="/count/"><span class="ico" aria-hidden="true">📝</span>글자수 세기</a>
+    </nav>
   </section>
 
   <footer>계산 결과는 참고용이에요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
@@ -281,7 +292,7 @@ document.querySelectorAll("[data-rate]").forEach((b) => b.addEventListener("clic
 $("convRate").value = String(LEGAL);
 render();
 </script>
-<script src="/assets/share.js" defer></script>
-<script src="/assets/next.js" defer></script>
+<script src="/assets/share.js?v=20261023a" defer></script>
+<script src="/assets/next.js?v=20261023a" defer></script>
 </body>
 </html>
