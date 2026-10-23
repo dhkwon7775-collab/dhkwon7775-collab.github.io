@@ -44,36 +44,9 @@
   .hero h1 { font-size: clamp(30px, 7vw, 44px); line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.04em; }
   .hero p { color: var(--sub); font-size: 17px; margin: 0; }
 
-  /* 미니 계산기 */
-  .demo { background: var(--card); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; }
-  .demo-in { padding: 22px 22px 18px; }
-  .demo label { display: block; font-size: 14px; font-weight: 600; color: var(--sub); margin-bottom: 8px; }
-  .demo .field { position: relative; }
-  .demo input {
-    width: 100%; font: inherit; font-size: 26px; font-weight: 800; letter-spacing: -0.03em;
-    padding: 12px 52px 12px 16px; border: 1.5px solid var(--line); border-radius: 14px;
-    background: var(--card); color: var(--text); outline: none; font-variant-numeric: tabular-nums;
-  }
-  .demo input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
-  .demo .unit { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 700; font-size: 18px; }
-  .demo .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-  .demo .chips button { font: inherit; font-size: 13px; font-weight: 600; border: 0; border-radius: 999px; padding: 6px 12px; background: var(--seg); color: var(--text); cursor: pointer; }
-  .demo .chips button:hover { background: var(--accent-soft); color: var(--accent); }
-  .demo-out { background: var(--seg); padding: 18px 22px 20px; border-top: 1px solid var(--line); }
-  .demo-out .k { font-size: 14px; color: var(--sub); font-weight: 600; }
-  .demo-out .v { font-size: clamp(34px, 9vw, 46px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.15; margin: 2px 0 10px; font-variant-numeric: tabular-nums; }
-  .demo-out .v small { font-size: .5em; font-weight: 700; margin-left: 2px; }
-  .split { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--line); }
-  .split span { display: block; height: 100%; transition: width .25s ease; }
-  .split .net { background: var(--accent); }
-  .split .ded { background: var(--minus); opacity: .75; }
-  .legend { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--sub); margin-top: 8px; }
-  .legend b { color: var(--text); font-weight: 700; }
-  .demo-out a { display: inline-block; margin-top: 14px; font-weight: 700; font-size: 15px; color: var(--accent); text-decoration: none; }
-  .demo-out a:hover { text-decoration: underline; }
-
   /* 계산기 목록 */
   .sec { margin-top: 48px; }
+  .hero + .sec { margin-top: 4px; }
   .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
   .sec h2 { font-size: 22px; margin: 0; letter-spacing: -0.03em; }
   .sec-head a { font-size: 14px; font-weight: 600; color: var(--sub); text-decoration: none; }
@@ -124,29 +97,6 @@
     <p>월급, 퇴사, 세금처럼 복잡한 계산을 무료로, 가입 없이.</p>
   </section>
 
-  <section class="demo" aria-label="연봉 실수령액 바로 계산">
-    <div class="demo-in">
-      <label for="demoSalary">연봉을 넣어 보세요</label>
-      <div class="field">
-        <input id="demoSalary" type="text" inputmode="numeric" value="40,000,000" autocomplete="off">
-        <span class="unit">원</span>
-      </div>
-      <div class="chips">
-        <button type="button" data-v="30000000">3천만</button>
-        <button type="button" data-v="40000000">4천만</button>
-        <button type="button" data-v="50000000">5천만</button>
-        <button type="button" data-v="70000000">7천만</button>
-        <button type="button" data-v="100000000">1억</button>
-      </div>
-    </div>
-    <div class="demo-out" aria-live="polite">
-      <div class="k">매달 통장에 들어오는 돈</div>
-      <div class="v" id="demoNet">0<small>원</small></div>
-      <div class="split" aria-hidden="true"><span class="net" id="barNet"></span><span class="ded" id="barDed"></span></div>
-      <div class="legend"><span>실수령 <b id="pctNet">0%</b></span><span>4대보험·세금 <b id="demoDed">0원</b></span></div>
-      <a href="/salary/">부양가족·비과세까지 넣어 자세히 계산하기</a>
-    </div>
-  </section>
 
   <section class="sec" id="tools">
     <div class="sec-head"><h2>계산기</h2></div>
@@ -212,71 +162,7 @@
 </main>
 
 <script>
-// ===== 미니 연봉 계산기 (연봉 계산기와 같은 2026년 기준, 1인·식대 20만 원 비과세) =====
-const R = { pension: 0.0475, pensionMax: 6590000, pensionMin: 410000, health: 0.03595, care: 0.1314, employ: 0.009 };
 const $ = (id) => document.getElementById(id);
-const parse = (s) => Number(String(s).replace(/[^0-9]/g, "")) || 0;
-const floor10 = (n) => Math.floor(n / 10) * 10;
-
-function earnedDeduction(g) {
-  let d;
-  if (g <= 5e6) d = g * 0.7;
-  else if (g <= 15e6) d = 3.5e6 + (g - 5e6) * 0.4;
-  else if (g <= 45e6) d = 7.5e6 + (g - 15e6) * 0.15;
-  else if (g <= 1e8) d = 12e6 + (g - 45e6) * 0.05;
-  else d = 14.75e6 + (g - 1e8) * 0.02;
-  return Math.min(d, 2e7);
-}
-function baseTax(t) {
-  const B = [[14e6, .06, 0], [50e6, .15, 1.26e6], [88e6, .24, 5.76e6], [150e6, .35, 15.44e6],
-    [300e6, .38, 19.94e6], [500e6, .40, 25.94e6], [1e9, .42, 35.94e6], [Infinity, .45, 65.94e6]];
-  if (t <= 0) return 0;
-  for (const [l, r, m] of B) if (t <= l) return t * r - m;
-}
-function earnedCredit(tax, g) {
-  const c = tax <= 1.3e6 ? tax * 0.55 : 715000 + (tax - 1.3e6) * 0.3;
-  let cap;
-  if (g <= 33e6) cap = 740000;
-  else if (g <= 70e6) cap = Math.max(740000 - (g - 33e6) * 0.008, 660000);
-  else if (g <= 120e6) cap = Math.max(660000 - (g - 70e6) * 0.5, 500000);
-  else cap = Math.max(500000 - (g - 120e6) * 0.5, 200000);
-  return Math.min(c, cap);
-}
-function net(salary) {
-  const monthly = salary / 12;
-  const taxable = Math.max(0, monthly - Math.min(200000, monthly));
-  const pension = taxable > 0 ? floor10(Math.min(Math.max(taxable, R.pensionMin), R.pensionMax) * R.pension) : 0;
-  const health = floor10(taxable * R.health);
-  const care = floor10(health * R.care);
-  const employ = floor10(taxable * R.employ);
-  const gross = taxable * 12;
-  const base = Math.max(0, gross - earnedDeduction(gross) - 1.5e6 - pension * 12 - (health + care + employ) * 12);
-  const tax = baseTax(base);
-  const income = floor10(Math.max(0, tax - earnedCredit(tax, gross) - 130000) / 12);
-  const local = floor10(income * 0.1);
-  const ded = pension + health + care + employ + income + local;
-  return { monthly, ded, net: Math.max(0, monthly - ded) };
-}
-function render() {
-  const s = parse($("demoSalary").value);
-  const r = net(s);
-  $("demoNet").innerHTML = Math.round(r.net).toLocaleString("ko-KR") + "<small>원</small>";
-  $("demoDed").textContent = Math.round(r.ded).toLocaleString("ko-KR") + "원";
-  const p = r.monthly ? (r.net / r.monthly) * 100 : 0;
-  $("pctNet").textContent = Math.round(p) + "%";
-  $("barNet").style.width = p + "%";
-  $("barDed").style.width = (r.monthly ? 100 - p : 0) + "%";
-}
-$("demoSalary").addEventListener("input", (e) => {
-  const n = parse(e.target.value);
-  e.target.value = n ? n.toLocaleString("ko-KR") : "";
-  render();
-});
-document.querySelectorAll("[data-v]").forEach((b) => b.addEventListener("click", () => {
-  $("demoSalary").value = Number(b.dataset.v).toLocaleString("ko-KR");
-  render();
-}));
-render();
 
 // ===== 계산기 찾기 =====
 $("q").addEventListener("input", (e) => {
