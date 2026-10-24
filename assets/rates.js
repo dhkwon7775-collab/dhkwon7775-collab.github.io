@@ -3,7 +3,7 @@
    → 이 파일 하나만 고치면 연봉·알바·연말정산·퇴직금·실업급여·전월세 계산기에 모두 반영돼요.
 
    언제 확인할까요?
-   - 매년 1월: minWage(최저시급), insurance(4대보험), unemployment.dailyMax(실업급여 상한), incomeTax·yearend(세법)
+   - 매년 1월: minWage(최저시급), insurance(4대보험), unemployment.dailyMax(실업급여 상한), parentalLeave(육아휴직 급여), incomeTax·yearend(세법)
    - 매년 7월: insurance.pensionMax / pensionMin (국민연금 기준소득월액 상한·하한)
    - 한국은행 기준금리 발표 때: rent.baseRate, rent.baseRateDate
    - 확인을 마치면 checkedAt(기준 확인 날짜)도 바꿔요.
@@ -121,6 +121,17 @@
         [300000000, 61700000, 0.45, 100000000],
         [null, 151700000, 0.35, 300000000]
       ]
+    },
+
+    "parentalLeave": {
+      "tiers": [
+        [3, 1.0, 2500000],
+        [6, 1.0, 2000000],
+        [null, 0.8, 1600000]
+      ],
+      "min": 700000,
+      "sixSixCaps": [2000000, 2500000, 3000000, 3500000, 4000000, 4500000],
+      "maxMonths": 18
     },
 
     "rent": {

@@ -34,6 +34,13 @@
         ["/leave/", "🌴", "남은 연차·연차수당", "같은 입사일로 계산", { start: val("start"), ref: val("end"), wage: w }],
       ];
     },
+    "/parental/": () => {
+      const w = money("wage");
+      return [
+        ["/salary/", "💰", "평소 월급 실수령액", `통상임금 ${won(w)} 기준 연봉으로 계산`, { salary: w * 12, nontax: 0 }],
+        ["/dday/", "📅", "복직일 D-day", "휴직 기간이 끝나는 날까지 남은 날", null],
+      ];
+    },
     "/unemployment/": () => {
       const w = money("wage");
       return [["/severance/", "🧾", "퇴직금", `월급 ${won(w)}으로 계산`, { wage: w }]];
