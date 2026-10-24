@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2563eb">
+<title>Jeonse to Wolse Calculator | Korea Deposit to Monthly Rent Conversion</title>
+<meta name="description" content="Convert a Korean jeonse deposit into monthly rent (wolse) and back, and check whether a landlord's conversion rate exceeds the legal cap (Bank of Korea base rate + 2%p).">
+<meta property="og:title" content="Jeonse to Wolse Calculator | Korea Deposit to Monthly Rent Conversion">
+<meta property="og:description" content="Convert a Korean jeonse deposit into monthly rent (wolse) and back, and check whether a landlord's conversion rate exceeds the legal cap (Bank of Korea base rate + 2%p).">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/en/rent/">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/en-rent.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Korea Calculators">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://dohyun.co.kr/en/rent/">
+<link rel="alternate" hreflang="ko" href="https://dohyun.co.kr/rent/">
+<link rel="alternate" hreflang="en" href="https://dohyun.co.kr/en/rent/">
+<link rel="alternate" hreflang="x-default" href="https://dohyun.co.kr/rent/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Segoe UI", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"] { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; color-scheme: light dark; }
+  .input-wrap input[type="text"] { padding-right: 56px; }
+  .input-wrap.pre input[type="text"] { padding-left: 34px; padding-right: 14px; }
+  input:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .pre .unit { left: 14px; right: auto; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 420px) { .row2 { grid-template-columns: 1fr; } }
+  .stepper { display: flex; align-items: center; gap: 10px; }
+  .stepper output { font-size: 18px; font-weight: 700; min-width: 40px; text-align: center; }
+  .modes { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .modes button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .modes button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  details.more { border-top: 1px solid var(--line); padding-top: 16px; margin-top: 4px; }
+  details.more summary { font-weight: 600; font-size: 14px; color: var(--accent); }
+  details.more .field:first-of-type { margin-top: 16px; }
+  [hidden] { display: none !important; }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; letter-spacing: -0.03em; margin: 2px 0 4px; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 18px; }
+  .warn, .flag { border-radius: 12px; padding: 12px 14px; font-size: 14px; margin: 0 0 14px; }
+  .warn { background: color-mix(in srgb, #f59f00 14%, transparent); color: #b25e09; display: none; }
+  .flag.ok { background: color-mix(in srgb, var(--plus) 12%, transparent); color: var(--plus); }
+  .flag.over { background: color-mix(in srgb, var(--minus) 12%, transparent); color: var(--minus); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 19px; letter-spacing: -0.02em; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  .bar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; margin: 4px 0 18px; background: var(--line); }
+  .bar span { display: block; height: 100%; }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  td, th { padding: 9px 0; border-top: 1px solid var(--line); text-align: left; }
+  td:last-child, th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  td.m { color: var(--minus); }
+  tr.total td { font-weight: 700; }
+  tr.group td { color: var(--sub); font-size: 13px; padding-top: 16px; border-top: 0; font-weight: 600; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; line-height: 1.9; }
+  footer a { color: inherit; }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261024a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/en/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>Korea Calc</a>
+    <nav><a href="/en/#tools">Calculators</a></nav>
+    <span class="lang"><a href="/rent/" hreflang="ko" lang="ko">한국어</a><a href="/en/rent/" aria-current="true">EN</a></span>
+  </div>
+</header>
+<main>
+  <h1>Jeonse ↔ Wolse Calculator</h1>
+  <p class="lead">Korea's unique rental system lets you trade a bigger deposit for lower monthly rent. Convert between them and check the legal conversion cap.</p>
+  <p class="verified">Checked October 22, 2026 · Bank of Korea base rate 3.00%, legal conversion cap 5.0%</p>
+
+  <div class="modes" role="tablist" style="--n:3">
+    <button type="button" role="tab" data-tab="toMonthly" aria-selected="true">Jeonse → Wolse</button>
+    <button type="button" role="tab" data-tab="toJeonse" aria-selected="false">Wolse → Jeonse</button>
+    <button type="button" role="tab" data-tab="rate" aria-selected="false">Check rate</button>
+  </div>
+  <section class="card">
+    <div data-show="toMonthly rate"><div class="field"><label for="jeonse">Jeonse deposit</label><div class="input-wrap pre"><span class="unit">₩</span><input id="jeonse" type="text" inputmode="numeric" value="300,000,000" autocomplete="off"></div></div></div>
+    <div><div class="field"><label for="deposit">Deposit after conversion</label><div class="input-wrap pre"><span class="unit">₩</span><input id="deposit" type="text" inputmode="numeric" value="100,000,000" autocomplete="off"></div></div></div>
+    <div data-show="toJeonse rate"><div class="field"><label for="monthly">Monthly rent</label><div class="input-wrap pre"><span class="unit">₩</span><input id="monthly" type="text" inputmode="numeric" value="800,000" autocomplete="off"></div></div></div>
+    <div class="field" data-show="toMonthly toJeonse">
+      <label for="convRate">Conversion rate (per year)</label>
+      <div class="input-wrap"><input id="convRate" type="text" inputmode="decimal" value="5" autocomplete="off"><span class="unit">%</span></div>
+      <div class="hint" id="rateHint"></div>
+    </div>
+    <div class="field">
+      <label for="loanRate">Jeonse loan interest rate for comparison</label>
+      <div class="input-wrap"><input id="loanRate" type="text" inputmode="decimal" value="4" autocomplete="off"><span class="unit">%</span></div>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head" id="head"></p>
+    <p class="big" id="big"></p>
+    <p class="sub-line" id="subLine"></p>
+    <p class="flag" id="flag" hidden></p>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <section class="card faq">
+    <h2>FAQ</h2>
+    <details><summary>What is jeonse?</summary><p>Jeonse is a Korean lease where you pay a large lump-sum deposit (often 50–80% of the home's value) and no monthly rent. The full deposit is returned when you move out. Wolse is the familiar monthly-rent lease with a smaller deposit.</p></details><details><summary>What is the legal conversion cap?</summary><p>Under Korea's Housing Lease Protection Act, when part of a jeonse deposit is converted to monthly rent during a lease or at renewal, the yearly rate cannot exceed the lower of 10% or the Bank of Korea base rate + 2 percentage points. New leases are not covered.</p></details><details><summary>Is jeonse safe for foreigners?</summary><p>Jeonse involves a large sum, so check the property's registry for mortgages, get a fixed date (확정일자) on your contract, and consider jeonse deposit insurance from HUG or SGI before paying.</p></details>
+  </section>
+  <footer>Results are estimates for reference only. Check with your employer or the relevant Korean agency for official figures.<br>
+  <a href="/about/" lang="ko">About (Korean)</a> · <a href="/privacy/" lang="ko">Privacy policy (Korean)</a> · <a href="mailto:kdh7775@kakao.com">Contact</a></footer>
+</main>
+<script src="/assets/rates.js?v=20261023b"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+const won = (n) => "\u20a9" + Math.round(n).toLocaleString("en-US");
+const parse = (s) => Number(String(s).replace(/[^0-9]/g, "")) || 0;
+const floor10 = (n) => Math.floor(n / 10) * 10;
+// 40,000,000 → "₩40 million"
+function words(n) {
+  if (n >= 1e9) return "\u20a9" + +(n / 1e9).toFixed(2) + " billion";
+  if (n >= 1e6) return "\u20a9" + +(n / 1e6).toFixed(2) + " million";
+  return won(n);
+}
+function money(id, cb) {
+  $(id).addEventListener("input", (e) => {
+    const n = parse(e.target.value);
+    e.target.value = n ? n.toLocaleString("en-US") : "";
+    cb();
+  });
+}
+function steppers(cb) {
+  document.querySelectorAll(".stepper").forEach((s) => {
+    const out = $(s.dataset.target);
+    s.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+      out.value = Math.min(Number(s.dataset.max), Math.max(Number(s.dataset.min), Number(out.value) + Number(b.dataset.d)));
+      cb();
+    }));
+  });
+}
+function tabs(cb) {
+  document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => {
+    document.querySelectorAll("[data-tab]").forEach((x) => x.setAttribute("aria-selected", x === b));
+    cb(b.dataset.tab);
+  }));
+}
+
+
+const BASE_RATE = KR.R.rent.baseRate;
+const LEGAL = KR.legalConversionCap();
+const pct = (s) => Number(String(s).replace(/[^0-9.]/g, "")) || 0;
+const fmtPct = (n) => (Math.round(n * 100) / 100).toLocaleString("en-US") + "%";
+let tab = "toMonthly";
+// 한국어 전월세 계산기와 같은 계산
+function render() {
+  document.querySelectorAll("[data-show]").forEach((el) => (el.hidden = !el.dataset.show.split(" ").includes(tab)));
+  $("rateHint").textContent = `Legal cap ${fmtPct(LEGAL)} (base rate ${fmtPct(BASE_RATE)} + ${KR.R.rent.capAdd}%p, as of ${KR.R.rent.baseRateDate})`;
+  const J = parse($("jeonse").value), D = parse($("deposit").value), M = parse($("monthly").value);
+  const r = pct($("convRate").value) / 100, loan = pct($("loanRate").value) / 100;
+  const flag = $("flag");
+  const showFlag = (ok, m) => { flag.hidden = false; flag.className = "flag " + (ok ? "ok" : "over"); flag.textContent = m; };
+  flag.hidden = true;
+  const cheaper = (rent, interest) => rent > interest ? `Borrowing for jeonse costs ${won(rent - interest)} less per month` : `Monthly rent costs ${won(interest - rent)} less per month`;
+  if (tab === "toMonthly") {
+    const gap = Math.max(0, J - D), monthly = (gap * r) / 12, li = (gap * loan) / 12;
+    $("head").textContent = "Monthly rent after conversion"; $("big").textContent = won(monthly);
+    $("subLine").textContent = `Deposit ${words(D)} + ${won(monthly)} a month · rate ${fmtPct(r * 100)}`;
+    if (r * 100 > LEGAL) showFlag(false, `${fmtPct(r * 100)} is above the legal cap of ${fmtPct(LEGAL)}. For a conversion during a lease or at renewal, rent can be at most ${won((gap * LEGAL) / 100 / 12)}.`);
+    else showFlag(true, `Within the legal cap (${fmtPct(LEGAL)}).`);
+    $("rows").innerHTML = `<tr><td>Jeonse deposit</td><td>${won(J)}</td></tr><tr><td>New deposit</td><td>${won(D)}</td></tr>
+      <tr><td>Amount converted</td><td>${won(gap)}</td></tr><tr class="total"><td>Monthly rent (× ${fmtPct(r * 100)} ÷ 12)</td><td>${won(monthly)}</td></tr>
+      <tr><td>Rent per year</td><td>${won(monthly * 12)}</td></tr>
+      <tr class="group"><td colspan="2">If you borrowed for jeonse instead (${fmtPct(loan * 100)})</td></tr>
+      <tr><td>Monthly loan interest</td><td>${won(li)}</td></tr><tr class="total"><td colspan="2" style="text-align:left">${cheaper(monthly, li)}</td></tr>`;
+  } else if (tab === "toJeonse") {
+    const jeonse = r > 0 ? D + (M * 12) / r : 0, gap = Math.max(0, jeonse - D), li = (gap * loan) / 12;
+    $("head").textContent = "Equivalent jeonse deposit"; $("big").textContent = r > 0 ? won(jeonse) : "-";
+    $("subLine").textContent = r > 0 ? `${words(jeonse)} · rate ${fmtPct(r * 100)}` : "Enter a conversion rate.";
+    $("rows").innerHTML = `<tr><td>Deposit</td><td>${won(D)}</td></tr><tr><td>Rent × 12</td><td>${won(M * 12)}</td></tr>
+      <tr><td>Rent as deposit (÷ ${fmtPct(r * 100)})</td><td>${won(gap)}</td></tr><tr class="total"><td>Equivalent jeonse</td><td>${won(jeonse)}</td></tr>
+      <tr class="group"><td colspan="2">If you borrowed the difference (${fmtPct(loan * 100)})</td></tr>
+      <tr><td>Monthly loan interest</td><td>${won(li)}</td></tr><tr class="total"><td colspan="2" style="text-align:left">${cheaper(M, li)}</td></tr>`;
+  } else {
+    const gap = J - D, rate = gap > 0 ? ((M * 12) / gap) * 100 : 0;
+    $("head").textContent = "Actual conversion rate"; $("big").textContent = gap > 0 ? fmtPct(rate) : "-";
+    $("subLine").textContent = gap > 0 ? `${words(gap)} of deposit turned into ${won(M)} a month.` : "The jeonse deposit must be larger than the new deposit.";
+    if (gap > 0) { if (rate > LEGAL) showFlag(false, `Above the legal cap of ${fmtPct(LEGAL)}. During a lease or at renewal, rent can be at most ${won((gap * LEGAL) / 100 / 12)}.`); else showFlag(true, `Within the legal cap (${fmtPct(LEGAL)}).`); }
+    $("rows").innerHTML = gap > 0 ? `<tr><td>Jeonse deposit</td><td>${won(J)}</td></tr><tr><td>New deposit</td><td>${won(D)}</td></tr>
+      <tr><td>Rent per year</td><td>${won(M * 12)}</td></tr><tr class="total"><td>Conversion rate</td><td>${fmtPct(rate)}</td></tr>
+      <tr><td>Rent at the legal cap</td><td>${won((gap * LEGAL) / 100 / 12)}</td></tr>` : "";
+  }
+}
+tabs((t) => { tab = t; render(); });
+["jeonse", "deposit", "monthly"].forEach((id) => money(id, render));
+["convRate", "loanRate"].forEach((id) => $(id).addEventListener("input", (e) => { e.target.value = e.target.value.replace(/[^0-9.]/g, "").replace(/(\..*)\./g, "$1"); render(); }));
+$("convRate").value = String(LEGAL);
+render();
+
+</script>
+<script src="/assets/share.js?v=20261024a" defer></script>
+</body>
+</html>

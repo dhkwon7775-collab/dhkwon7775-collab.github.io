@@ -4,6 +4,12 @@
   const result = main && main.querySelector('[aria-live="polite"]');
   if (!main || !result) return;
 
+  // 영어 페이지(<html lang="en">)에서는 영어 문구를 써요
+  const EN = (document.documentElement.lang || "").startsWith("en");
+  const T = EN
+    ? { btn: "Share result", copied: "Link copied. Paste it into any chat or message.", prompt: "Copy this link to share" }
+    : { btn: "결과 공유하기", copied: "결과 링크를 복사했어요. 카톡이나 메시지에 붙여넣으세요.", prompt: "이 링크를 복사해서 보내세요" };
+
   // 공유할 입력칸: id가 있는 입력·선택·체크박스, 그리고 +/- 버튼의 숫자
   const fields = () => [
     ...main.querySelectorAll("input[id]:not([type=search]), select[id]"),
@@ -49,7 +55,7 @@
         el.checked = v === "1";
         el.dispatchEvent(new Event("change", { bubbles: true }));
       } else {
-        el.value = /^\d+$/.test(v) && el.inputMode === "numeric" ? Number(v).toLocaleString("ko-KR") : v;
+        el.value = /^\d+$/.test(v) && el.inputMode === "numeric" ? Number(v).toLocaleString(EN ? "en-US" : "ko-KR") : v;
         el.dispatchEvent(new Event(el.tagName === "SELECT" ? "change" : "input", { bubbles: true }));
       }
     }
@@ -89,9 +95,9 @@
     }
     try {
       await navigator.clipboard.writeText(`${text}\n${url}`);
-      toast("결과 링크를 복사했어요. 카톡이나 메시지에 붙여넣으세요.");
+      toast(T.copied);
     } catch (e) {
-      window.prompt("이 링크를 복사해서 보내세요", url);
+      window.prompt(T.prompt, url);
     }
   }
 
@@ -99,7 +105,7 @@
   const btn = document.createElement("button");
   btn.type = "button";
   btn.className = "share-btn";
-  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/></svg>결과 공유하기';
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/></svg>' + T.btn;
   btn.addEventListener("click", share);
   result.appendChild(btn);
 

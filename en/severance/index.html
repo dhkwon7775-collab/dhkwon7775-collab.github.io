@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2563eb">
+<title>Korea Severance Pay Calculator 2026 | Retirement Pay & Tax</title>
+<meta name="description" content="Calculate statutory severance pay (퇴직금) in Korea from your start date, last day and monthly wage, including retirement income tax and your net payout.">
+<meta property="og:title" content="Korea Severance Pay Calculator 2026 | Retirement Pay & Tax">
+<meta property="og:description" content="Calculate statutory severance pay (퇴직금) in Korea from your start date, last day and monthly wage, including retirement income tax and your net payout.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/en/severance/">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/en-severance.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Korea Calculators">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://dohyun.co.kr/en/severance/">
+<link rel="alternate" hreflang="ko" href="https://dohyun.co.kr/severance/">
+<link rel="alternate" hreflang="en" href="https://dohyun.co.kr/en/severance/">
+<link rel="alternate" hreflang="x-default" href="https://dohyun.co.kr/severance/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Segoe UI", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"] { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; color-scheme: light dark; }
+  .input-wrap input[type="text"] { padding-right: 56px; }
+  .input-wrap.pre input[type="text"] { padding-left: 34px; padding-right: 14px; }
+  input:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .pre .unit { left: 14px; right: auto; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 420px) { .row2 { grid-template-columns: 1fr; } }
+  .stepper { display: flex; align-items: center; gap: 10px; }
+  .stepper output { font-size: 18px; font-weight: 700; min-width: 40px; text-align: center; }
+  .modes { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .modes button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .modes button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  details.more { border-top: 1px solid var(--line); padding-top: 16px; margin-top: 4px; }
+  details.more summary { font-weight: 600; font-size: 14px; color: var(--accent); }
+  details.more .field:first-of-type { margin-top: 16px; }
+  [hidden] { display: none !important; }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; letter-spacing: -0.03em; margin: 2px 0 4px; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 18px; }
+  .warn, .flag { border-radius: 12px; padding: 12px 14px; font-size: 14px; margin: 0 0 14px; }
+  .warn { background: color-mix(in srgb, #f59f00 14%, transparent); color: #b25e09; display: none; }
+  .flag.ok { background: color-mix(in srgb, var(--plus) 12%, transparent); color: var(--plus); }
+  .flag.over { background: color-mix(in srgb, var(--minus) 12%, transparent); color: var(--minus); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 19px; letter-spacing: -0.02em; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  .bar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; margin: 4px 0 18px; background: var(--line); }
+  .bar span { display: block; height: 100%; }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  td, th { padding: 9px 0; border-top: 1px solid var(--line); text-align: left; }
+  td:last-child, th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  td.m { color: var(--minus); }
+  tr.total td { font-weight: 700; }
+  tr.group td { color: var(--sub); font-size: 13px; padding-top: 16px; border-top: 0; font-weight: 600; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; line-height: 1.9; }
+  footer a { color: inherit; }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261024a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/en/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>Korea Calc</a>
+    <nav><a href="/en/#tools">Calculators</a></nav>
+    <span class="lang"><a href="/severance/" hreflang="ko" lang="ko">한국어</a><a href="/en/severance/" aria-current="true">EN</a></span>
+  </div>
+</header>
+<main>
+  <h1>Korea Severance Pay Calculator</h1>
+  <p class="lead">If you have worked at least one year, Korean law requires your employer to pay severance. Enter your dates and wage to estimate it.</p>
+  <p class="verified">Checked October 2026 · Employee Retirement Benefit Security Act and retirement income tax rules</p>
+
+  <section class="card">
+    <div class="row2">
+      <div class="field"><label for="start">Start date</label><input id="start" type="date"></div>
+      <div class="field"><label for="end">Leaving date</label><input id="end" type="date"></div>
+    </div>
+    <div class="hint" style="margin:-8px 0 18px">The leaving date is the day <b>after</b> your last working day.</div>
+    <div class="field"><label for="wage">Monthly wage before tax (average of last 3 months)</label><div class="input-wrap pre"><span class="unit">₩</span><input id="wage" type="text" inputmode="numeric" value="3,000,000" autocomplete="off"></div><div class="hint">Base pay plus allowances such as meals, before any deductions.</div></div>
+    <div class="quick">
+      <button type="button" data-set="2500000">2.5M</button><button type="button" data-set="3000000">3M</button>
+      <button type="button" data-set="4000000">4M</button><button type="button" data-set="5000000">5M</button>
+    </div>
+    <details class="more">
+      <summary>Add bonus / unused leave pay (optional)</summary>
+      <div class="field"><label for="bonus">Bonuses received in the last 12 months</label><div class="input-wrap pre"><span class="unit">₩</span><input id="bonus" type="text" inputmode="numeric" value="0" autocomplete="off"></div></div>
+      <div class="field"><label for="leave">Unused annual leave paid in the last 12 months</label><div class="input-wrap pre"><span class="unit">₩</span><input id="leave" type="text" inputmode="numeric" value="0" autocomplete="off"></div></div>
+    </details>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="warn" id="warn"></p>
+    <p class="result-head">Estimated severance (after tax)</p>
+    <p class="big" id="net">₩0</p>
+    <p class="sub-line" id="subLine"></p>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <section class="card faq">
+    <h2>FAQ</h2>
+    <details><summary>Who is entitled to severance pay in Korea?</summary><p>Any employee — full-time, contract or part-time, Korean or foreign — who has worked for the same employer for at least one year and averaged 15 or more hours a week. Small businesses with fewer than 5 employees must pay it too.</p></details><details><summary>How is it calculated?</summary><p>Average daily wage × 30 days × (days of service ÷ 365). The average daily wage is the total pay of the last three months divided by the number of days in that period. One twelfth of the year's bonuses and leave pay is added for each month in that period.</p></details><details><summary>When must my employer pay?</summary><p>Within 14 days of your leaving date, unless you agree otherwise. After that you can claim 20% annual interest on late payment and file a complaint with the Ministry of Employment and Labor (call 1350).</p></details><details><summary>Is severance taxed?</summary><p>Yes, with retirement income tax, which is much lower than regular income tax because it gives large deductions for each year of service. Local income tax adds 10% of that tax.</p></details>
+  </section>
+  <footer>Results are estimates for reference only. Check with your employer or the relevant Korean agency for official figures.<br>
+  <a href="/about/" lang="ko">About (Korean)</a> · <a href="/privacy/" lang="ko">Privacy policy (Korean)</a> · <a href="mailto:kdh7775@kakao.com">Contact</a></footer>
+</main>
+<script src="/assets/rates.js?v=20261023b"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+const won = (n) => "\u20a9" + Math.round(n).toLocaleString("en-US");
+const parse = (s) => Number(String(s).replace(/[^0-9]/g, "")) || 0;
+const floor10 = (n) => Math.floor(n / 10) * 10;
+// 40,000,000 → "₩40 million"
+function words(n) {
+  if (n >= 1e9) return "\u20a9" + +(n / 1e9).toFixed(2) + " billion";
+  if (n >= 1e6) return "\u20a9" + +(n / 1e6).toFixed(2) + " million";
+  return won(n);
+}
+function money(id, cb) {
+  $(id).addEventListener("input", (e) => {
+    const n = parse(e.target.value);
+    e.target.value = n ? n.toLocaleString("en-US") : "";
+    cb();
+  });
+}
+function steppers(cb) {
+  document.querySelectorAll(".stepper").forEach((s) => {
+    const out = $(s.dataset.target);
+    s.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+      out.value = Math.min(Number(s.dataset.max), Math.max(Number(s.dataset.min), Number(out.value) + Number(b.dataset.d)));
+      cb();
+    }));
+  });
+}
+function tabs(cb) {
+  document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => {
+    document.querySelectorAll("[data-tab]").forEach((x) => x.setAttribute("aria-selected", x === b));
+    cb(b.dataset.tab);
+  }));
+}
+
+
+const DAY = 86400000;
+const { serviceDeduction, convertedDeduction, baseTax } = KR;
+function toDate(s) { if (!s) return null; const [y, m, d] = s.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d)); }
+const iso = (d) => d.toISOString().slice(0, 10);
+const nice = (d) => d.toLocaleDateString("en-US", { timeZone: "UTC", year: "numeric", month: "short", day: "numeric" });
+const daysBetween = (a, b) => Math.round((b - a) / DAY);
+function monthsBefore(d, n) {
+  const y = d.getUTCFullYear(), m = d.getUTCMonth() - n, day = d.getUTCDate();
+  const last = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+  return new Date(Date.UTC(y, m, Math.min(day, last)));
+}
+function serviceSpan(start, end) {
+  let y = end.getUTCFullYear() - start.getUTCFullYear();
+  const at = (n) => { const yy = start.getUTCFullYear() + n, m = start.getUTCMonth(); const last = new Date(Date.UTC(yy, m + 1, 0)).getUTCDate(); return new Date(Date.UTC(yy, m, Math.min(start.getUTCDate(), last))); };
+  while (y > 0 && at(y) > end) y--;
+  return { fullYears: y, restDays: daysBetween(at(y), end) };
+}
+function retirementTax(pay, span) {
+  const years = Math.max(1, span.fullYears + (span.restDays > 0 ? 1 : 0));
+  const afterService = Math.max(0, pay - serviceDeduction(years));
+  const converted = (afterService * 12) / years;
+  const taxBase = Math.max(0, converted - convertedDeduction(converted));
+  const incomeTax = Math.floor((baseTax(taxBase) * years) / 12 / 10) * 10;
+  const localTax = Math.floor((incomeTax * KR.R.incomeTax.localRate) / 10) * 10;
+  return { years, incomeTax, localTax };
+}
+// 한국어 퇴직금 계산기와 같은 계산
+function calc({ start, end, wage, bonus, leave }) {
+  const serviceDays = daysBetween(start, end);
+  const periodStart = monthsBefore(end, 3);
+  const periodDays = daysBetween(periodStart, end);
+  const wages3m = wage * 3;
+  const extra = (bonus + leave) * 3 / 12;
+  const dailyAvg = (wages3m + extra) / periodDays;
+  const pay = Math.floor(dailyAvg * 30 * (serviceDays / 365));
+  const span = serviceSpan(start, end);
+  const tax = retirementTax(pay, span);
+  return { serviceDays, span, periodStart, periodDays, wages3m, extra, dailyAvg, pay, ...tax, net: pay - tax.incomeTax - tax.localTax };
+}
+const spanText = ({ fullYears, restDays }) => [fullYears ? `${fullYears} yr` : "", restDays ? `${restDays} days` : ""].filter(Boolean).join(" ") || "0 days";
+
+function render() {
+  const start = toDate($("start").value), end = toDate($("end").value), warn = $("warn");
+  const show = (m) => { warn.textContent = m; warn.style.display = m ? "block" : "none"; };
+  if (!start || !end || end <= start) { show("The leaving date must be after the start date."); $("net").textContent = "₩0"; $("subLine").textContent = ""; $("rows").innerHTML = ""; return; }
+  const r = calc({ start, end, wage: parse($("wage").value), bonus: parse($("bonus").value), leave: parse($("leave").value) });
+  if (r.span.fullYears < 1) {
+    const oneYear = monthsBefore(start, -12);
+    show(`You worked ${r.serviceDays} days. Statutory severance requires at least one year of service.`);
+    $("net").textContent = "₩0";
+    $("subLine").textContent = `You qualify if your leaving date is on or after ${nice(oneYear)} (${daysBetween(end, oneYear)} days to go).`;
+    $("rows").innerHTML = "";
+    return;
+  }
+  show("");
+  $("net").textContent = won(r.net);
+  $("subLine").textContent = `Service ${spanText(r.span)} (${r.serviceDays.toLocaleString("en-US")} days) · before tax ${won(r.pay)}`;
+  const extraRow = r.extra > 0 ? `<tr><td>Bonus & leave pay (3/12 counted)</td><td>${won(r.extra)}</td></tr>` : "";
+  $("rows").innerHTML = `
+    <tr class="group"><td colspan="2">Average wage</td></tr>
+    <tr><td>Wage period</td><td>${nice(r.periodStart)} – (${r.periodDays} days)</td></tr>
+    <tr><td>Wages in last 3 months</td><td>${won(r.wages3m)}</td></tr>
+    ${extraRow}
+    <tr><td>Average daily wage</td><td>${won(r.dailyAvg)}</td></tr>
+    <tr class="group"><td colspan="2">Severance pay</td></tr>
+    <tr><td>Severance before tax</td><td>${won(r.pay)}</td></tr>
+    <tr><td>Retirement income tax (${r.years} yr basis)</td><td class="m">−${won(r.incomeTax)}</td></tr>
+    <tr><td>Local income tax</td><td class="m">−${won(r.localTax)}</td></tr>
+    <tr class="total"><td>Net severance</td><td>${won(r.net)}</td></tr>`;
+}
+(function () {
+  const n = new Date(), today = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()));
+  $("start").value = iso(new Date(Date.UTC(today.getUTCFullYear() - 3, today.getUTCMonth(), today.getUTCDate())));
+  $("end").value = iso(today);
+})();
+["wage", "bonus", "leave"].forEach((id) => money(id, render));
+["start", "end"].forEach((id) => $(id).addEventListener("input", render));
+document.querySelectorAll("[data-set]").forEach((b) => b.addEventListener("click", () => { $("wage").value = Number(b.dataset.set).toLocaleString("en-US"); render(); }));
+render();
+
+</script>
+<script src="/assets/share.js?v=20261024a" defer></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2563eb">
+<title>Pyeong to m² Converter | Korean Apartment Size Calculator</title>
+<meta name="description" content="Convert pyeong (평) to square meters and back. 1 pyeong is about 3.3058 m². See what 59 m² and 84 m² Korean apartments mean in pyeong.">
+<meta property="og:title" content="Pyeong to m² Converter | Korean Apartment Size Calculator">
+<meta property="og:description" content="Convert pyeong (평) to square meters and back. 1 pyeong is about 3.3058 m². See what 59 m² and 84 m² Korean apartments mean in pyeong.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/en/area/">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/en-area.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Korea Calculators">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://dohyun.co.kr/en/area/">
+<link rel="alternate" hreflang="ko" href="https://dohyun.co.kr/area/">
+<link rel="alternate" hreflang="en" href="https://dohyun.co.kr/en/area/">
+<link rel="alternate" hreflang="x-default" href="https://dohyun.co.kr/area/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Segoe UI", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"] { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; color-scheme: light dark; }
+  .input-wrap input[type="text"] { padding-right: 56px; }
+  .input-wrap.pre input[type="text"] { padding-left: 34px; padding-right: 14px; }
+  input:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .pre .unit { left: 14px; right: auto; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 420px) { .row2 { grid-template-columns: 1fr; } }
+  .stepper { display: flex; align-items: center; gap: 10px; }
+  .stepper output { font-size: 18px; font-weight: 700; min-width: 40px; text-align: center; }
+  .modes { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .modes button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .modes button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  details.more { border-top: 1px solid var(--line); padding-top: 16px; margin-top: 4px; }
+  details.more summary { font-weight: 600; font-size: 14px; color: var(--accent); }
+  details.more .field:first-of-type { margin-top: 16px; }
+  [hidden] { display: none !important; }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; letter-spacing: -0.03em; margin: 2px 0 4px; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 18px; }
+  .warn, .flag { border-radius: 12px; padding: 12px 14px; font-size: 14px; margin: 0 0 14px; }
+  .warn { background: color-mix(in srgb, #f59f00 14%, transparent); color: #b25e09; display: none; }
+  .flag.ok { background: color-mix(in srgb, var(--plus) 12%, transparent); color: var(--plus); }
+  .flag.over { background: color-mix(in srgb, var(--minus) 12%, transparent); color: var(--minus); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 19px; letter-spacing: -0.02em; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  .bar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; margin: 4px 0 18px; background: var(--line); }
+  .bar span { display: block; height: 100%; }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  td, th { padding: 9px 0; border-top: 1px solid var(--line); text-align: left; }
+  td:last-child, th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  td.m { color: var(--minus); }
+  tr.total td { font-weight: 700; }
+  tr.group td { color: var(--sub); font-size: 13px; padding-top: 16px; border-top: 0; font-weight: 600; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; line-height: 1.9; }
+  footer a { color: inherit; }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261024a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/en/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>Korea Calc</a>
+    <nav><a href="/en/#tools">Calculators</a></nav>
+    <span class="lang"><a href="/area/" hreflang="ko" lang="ko">한국어</a><a href="/en/area/" aria-current="true">EN</a></span>
+  </div>
+</header>
+<main>
+  <h1>Pyeong ↔ m² Converter</h1>
+  <p class="lead">Korean real-estate listings still talk in pyeong (평). Type in either box to convert.</p>
+  <p class="verified">1 pyeong = 400/121 m² (about 3.3058 m²)</p>
+
+  <section class="card">
+    <div class="row2">
+      <div class="field"><label for="sqm">Square meters (m²)</label><input id="sqm" type="text" inputmode="decimal" value="84" autocomplete="off"></div>
+      <div class="field"><label for="pyeong">Pyeong (평)</label><input id="pyeong" type="text" inputmode="decimal" value="" autocomplete="off"></div>
+    </div>
+    <div class="quick">
+      <button type="button" data-sqm="59">59 m²</button><button type="button" data-sqm="84">84 m²</button><button type="button" data-sqm="114">114 m²</button>
+      <button type="button" data-py="10">10 py</button><button type="button" data-py="20">20 py</button><button type="button" data-py="30">30 py</button>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head" id="head"></p>
+    <p class="big" id="big"></p>
+    <p class="sub-line" id="subLine"></p>
+    <p class="hint" id="room"></p>
+  </section>
+
+  <section class="card">
+    <h2>Apartment sizes in Korea</h2>
+    <p class="hint" style="margin:0 0 10px">A "34-pyeong" apartment usually refers to the supply area (exclusive area + shared hallways and stairs). The space you actually live in is the exclusive area, so it is smaller.</p>
+    <table>
+      <thead><tr><th>Exclusive area</th><th>Exclusive pyeong</th><th>Commonly called</th></tr></thead>
+      <tbody>
+        <tr><td>59 m²</td><td>≈ 17.8</td><td>24–25 pyeong</td></tr>
+        <tr><td>84 m²</td><td>≈ 25.4</td><td>33–34 pyeong</td></tr>
+        <tr><td>114 m²</td><td>≈ 34.5</td><td>43–45 pyeong</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card faq">
+    <h2>FAQ</h2>
+    <details><summary>How many m² is 1 pyeong?</summary><p>1 pyeong is 400/121 m², about 3.3058 m². To convert m² to pyeong, divide by 3.3058 (or multiply by 0.3025).</p></details><details><summary>Why do listings show both?</summary><p>Since 2007 official documents must use m², but people and many listings still talk in pyeong, so you will often see both.</p></details>
+  </section>
+  <footer>Results are estimates for reference only. Check with your employer or the relevant Korean agency for official figures.<br>
+  <a href="/about/" lang="ko">About (Korean)</a> · <a href="/privacy/" lang="ko">Privacy policy (Korean)</a> · <a href="mailto:kdh7775@kakao.com">Contact</a></footer>
+</main>
+<script src="/assets/rates.js?v=20261023b"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+const won = (n) => "\u20a9" + Math.round(n).toLocaleString("en-US");
+const parse = (s) => Number(String(s).replace(/[^0-9]/g, "")) || 0;
+const floor10 = (n) => Math.floor(n / 10) * 10;
+// 40,000,000 → "₩40 million"
+function words(n) {
+  if (n >= 1e9) return "\u20a9" + +(n / 1e9).toFixed(2) + " billion";
+  if (n >= 1e6) return "\u20a9" + +(n / 1e6).toFixed(2) + " million";
+  return won(n);
+}
+function money(id, cb) {
+  $(id).addEventListener("input", (e) => {
+    const n = parse(e.target.value);
+    e.target.value = n ? n.toLocaleString("en-US") : "";
+    cb();
+  });
+}
+function steppers(cb) {
+  document.querySelectorAll(".stepper").forEach((s) => {
+    const out = $(s.dataset.target);
+    s.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+      out.value = Math.min(Number(s.dataset.max), Math.max(Number(s.dataset.min), Number(out.value) + Number(b.dataset.d)));
+      cb();
+    }));
+  });
+}
+function tabs(cb) {
+  document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => {
+    document.querySelectorAll("[data-tab]").forEach((x) => x.setAttribute("aria-selected", x === b));
+    cb(b.dataset.tab);
+  }));
+}
+
+
+const PER = 400 / 121;
+const num = (s) => Number(String(s).replace(/[^0-9.]/g, "")) || 0;
+const fix = (n, d) => (Math.round(n * 10 ** d) / 10 ** d).toLocaleString("en-US", { maximumFractionDigits: d });
+let last = "sqm";
+function render() {
+  if (last === "sqm") {
+    const m = num($("sqm").value), p = m / PER;
+    $("pyeong").value = m ? String(Math.round(p * 100) / 100) : "";
+    $("head").textContent = `${fix(m, 2)} m² is`; $("big").textContent = `${fix(p, 1)} pyeong`; $("subLine").textContent = `Exactly ${fix(p, 4)} pyeong.`;
+  } else {
+    const p = num($("pyeong").value), m = p * PER;
+    $("sqm").value = p ? String(Math.round(m * 100) / 100) : "";
+    $("head").textContent = `${fix(p, 2)} pyeong is`; $("big").textContent = `${fix(m, 2)} m²`; $("subLine").textContent = `Exactly ${fix(m, 4)} m².`;
+  }
+  const m = num($("sqm").value);
+  const feel = !m ? "" : m < 20 ? "a studio or small officetel" : m < 40 ? "a studio to two-room flat" : m < 60 ? "a two-bedroom apartment or villa" : m < 85 ? "a three-bedroom apartment" : m < 120 ? "a large three- to four-bedroom apartment" : "a very large apartment or house";
+  $("room").textContent = feel ? `As exclusive area, that is roughly ${feel}.` : "";
+}
+$("sqm").addEventListener("input", () => { last = "sqm"; render(); });
+$("pyeong").addEventListener("input", () => { last = "pyeong"; render(); });
+document.querySelectorAll("[data-sqm]").forEach((b) => b.addEventListener("click", () => { $("sqm").value = b.dataset.sqm; last = "sqm"; render(); }));
+document.querySelectorAll("[data-py]").forEach((b) => b.addEventListener("click", () => { $("pyeong").value = b.dataset.py; last = "pyeong"; render(); }));
+render();
+
+</script>
+<script src="/assets/share.js?v=20261024a" defer></script>
+</body>
+</html>
