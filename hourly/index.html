@@ -253,11 +253,14 @@
   <footer>계산 결과는 참고용이며, 연장·야간·휴일 수당은 포함하지 않아요.<br><a href="../about/" style="color:inherit">사이트 소개</a> · <a href="../privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
 </main>
 
+<script src="/assets/rates.js?v=20261023b"></script>
 <script>
-// ===== 2026년 기준 (매년 이 부분만 확인해서 바꾸면 돼요) =====
-const MIN_WAGE = 10320;          // 2026년 최저시급
+// ===== 요율은 /assets/rates.js 한 파일에서 관리해요 =====
+const MIN_WAGE = KR.R.minWage;          // 최저시급
 const WEEKS_PER_MONTH = 365 / 7 / 12; // 약 4.345주
-const INS = { pension: 0.0475, health: 0.03595, care: 0.1314, employ: 0.009 };
+const INS = KR.R.insurance;
+const pctTxt = (v) => +(v * 100).toFixed(2);  // 0.3 → 30 (소수 오차 없이)
+
 
 const $ = (id) => document.getElementById(id);
 const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
@@ -267,7 +270,7 @@ const hrs = (n) => (Math.round(n * 10) / 10).toLocaleString("ko-KR") + "시간";
 
 const DEDUCT_HINT = {
   none: "세금이나 보험료를 떼지 않은 금액이에요.",
-  biz: "사업소득세 3% + 지방소득세 0.3%를 떼요. 아르바이트에서 많이 쓰는 방식이에요.",
+  biz: `사업소득세 ${pctTxt(KR.R.hourly.bizTax)}% + 지방소득세 ${pctTxt(KR.R.hourly.bizTax * KR.R.hourly.bizLocal)}%를 떼요. 아르바이트에서 많이 쓰는 방식이에요.`,
   ins: "국민연금·건강보험·장기요양·고용보험을 떼요. 소득세는 금액이 작아 대부분 0원이라 빼고 계산했어요.",
 };
 let deduct = "biz";
@@ -284,8 +287,8 @@ function calc(wage, dailyHours, days) {
 
   let items = [];
   if (deduct === "biz") {
-    const income = floor10(monthGross * 0.03);
-    items = [["사업소득세 (3%)", income], ["지방소득세 (0.3%)", floor10(income * 0.1)]];
+    const income = floor10(monthGross * KR.R.hourly.bizTax);
+    items = [[`사업소득세 (${pctTxt(KR.R.hourly.bizTax)}%)`, income], [`지방소득세 (${pctTxt(KR.R.hourly.bizTax * KR.R.hourly.bizLocal)}%)`, floor10(income * KR.R.hourly.bizLocal)]];
   } else if (deduct === "ins") {
     const health = floor10(monthGross * INS.health);
     items = [
@@ -309,7 +312,7 @@ function render() {
 
   const warn = $("warn");
   let msg = "";
-  if (wage > 0 && wage < MIN_WAGE) msg = `시급이 2026년 최저시급(${MIN_WAGE.toLocaleString()}원)보다 낮아요. 최저임금보다 적게 주는 건 법 위반이에요.`;
+  if (wage > 0 && wage < MIN_WAGE) msg = `시급이 ${KR.R.year}년 최저시급(${MIN_WAGE.toLocaleString()}원)보다 낮아요. 최저임금보다 적게 주는 건 법 위반이에요.`;
   else if (r.weekHours > 0 && !r.eligible) msg = `주 ${hrs(r.weekHours)} 근무라 주휴수당 대상이 아니에요. (주 15시간 이상이어야 받을 수 있어요)`;
   warn.textContent = msg;
   warn.style.display = msg ? "block" : "none";

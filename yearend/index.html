@@ -308,52 +308,25 @@
   <footer>계산 결과는 참고용이며, 실제 연말정산 결과와 차이가 있을 수 있어요.<br><a href="../about/" style="color:inherit">사이트 소개</a> · <a href="../privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
 </main>
 
+<script src="/assets/rates.js?v=20261023b"></script>
 <script>
-// ===== 2026년 귀속 기준 (매년 이 부분만 확인해서 바꾸면 돼요) =====
+// ===== 요율·세율은 /assets/rates.js 한 파일에서 관리해요 =====
+const KI = KR.R.incomeTax, KY = KR.R.yearend;
 const R = {
-  pension: 0.0475, pensionMax: 6590000, pensionMin: 410000,   // 국민연금 (근로자)
-  health: 0.03595, care: 0.1314, employ: 0.009,                 // 건강·장기요양·고용보험
-  personal: 1500000, elder: 1000000,                            // 인적공제
-  cardRate: { credit: 0.15, debit: 0.30, market: 0.40, transit: 0.40 },
-  cardThreshold: 0.25,
-  childCredit: [0, 250000, 550000], childCreditExtra: 400000,   // 자녀세액공제 (8세 이상)
-  standard: 130000,                                              // 표준세액공제
+  ...KR.R.insurance,                                   // 국민연금·건강·장기요양·고용보험
+  personal: KI.personal, elder: KI.elder,              // 인적공제
+  cardRate: KY.card.rate, cardThreshold: KY.card.threshold,
+  standard: KI.standardCredit,                         // 표준세액공제
 };
+const { earnedDeduction, baseTax, childCredit } = KR;
+const earnedCredit = KR.earnedTaxCredit;
+const pctTxt = (v) => +(v * 100).toFixed(2);  // 0.3 → 30 (소수 오차 없이)
+
 
 const $ = (id) => document.getElementById(id);
 const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
 const parse = (s) => Number(String(s).replace(/[^0-9]/g, "")) || 0;
 const floor10 = (n) => Math.floor(n / 10) * 10;
-
-function earnedDeduction(g) {
-  let d;
-  if (g <= 5e6) d = g * 0.7;
-  else if (g <= 15e6) d = 3.5e6 + (g - 5e6) * 0.4;
-  else if (g <= 45e6) d = 7.5e6 + (g - 15e6) * 0.15;
-  else if (g <= 1e8) d = 12e6 + (g - 45e6) * 0.05;
-  else d = 14.75e6 + (g - 1e8) * 0.02;
-  return Math.min(d, 2e7);
-}
-function baseTax(t) {
-  const B = [[14e6, .06, 0], [50e6, .15, 1.26e6], [88e6, .24, 5.76e6], [150e6, .35, 15.44e6],
-    [300e6, .38, 19.94e6], [500e6, .40, 25.94e6], [1e9, .42, 35.94e6], [Infinity, .45, 65.94e6]];
-  if (t <= 0) return 0;
-  for (const [l, r, m] of B) if (t <= l) return t * r - m;
-}
-function earnedCredit(tax, g) {
-  const c = tax <= 1.3e6 ? tax * 0.55 : 715000 + (tax - 1.3e6) * 0.3;
-  let cap;
-  if (g <= 33e6) cap = 740000;
-  else if (g <= 70e6) cap = Math.max(740000 - (g - 33e6) * 0.008, 660000);
-  else if (g <= 120e6) cap = Math.max(660000 - (g - 70e6) * 0.5, 500000);
-  else cap = Math.max(500000 - (g - 120e6) * 0.5, 200000);
-  return Math.min(c, cap);
-}
-function childCredit(k) {
-  if (k <= 0) return 0;
-  if (k <= 2) return R.childCredit[k];
-  return R.childCredit[2] + (k - 2) * R.childCreditExtra;
-}
 
 // 신용카드 등 소득공제
 function cardDeduction(g, c, kids) {
@@ -366,9 +339,9 @@ function cardDeduction(g, c, kids) {
     if (k === "market" || k === "transit") extra += d; else general += d;
   }
   const total = general + extra;
-  const low = g <= 7e7;
-  const baseLimit = (low ? 3e6 : 2.5e6) + Math.min(kids * (low ? 5e5 : 2.5e5), low ? 1e6 : 5e5); // 2026년부터 자녀 1명당 한도 추가
-  const extraLimit = low ? 3e6 : 2e6;
+  const low = g <= KY.card.incomeLine;
+  const baseLimit = (low ? KY.card.baseLimit.low : KY.card.baseLimit.high) + Math.min(kids * (low ? KY.card.kidLimit.low : KY.card.kidLimit.high), low ? KY.card.kidLimitMax.low : KY.card.kidLimitMax.high); // 2026년부터 자녀 1명당 한도 추가
+  const extraLimit = low ? KY.card.extraLimit.low : KY.card.extraLimit.high;
   const over = Math.max(0, total - baseLimit);
   const ded = Math.min(total, baseLimit) + Math.min(over, extra, extraLimit);
   const spent = c.credit + c.debit + c.market + c.transit;
@@ -389,10 +362,11 @@ function compute(v) {
 
   const income = Math.max(0, g - earnedDeduction(g));
   const personal = R.personal * v.family + R.elder * Math.min(v.elder, v.family);
-  const housing = g <= 7e7 ? 0.4 * Math.min(v.housing, 3e6) : 0;
+  const housing = g <= KY.housing.incomeMax ? KY.housing.rate * Math.min(v.housing, KY.housing.max) : 0;
   const card = cardDeduction(g, v, v.kids);
 
-  const pensionAcct = Math.min(Math.min(v.pension, 6e6) + v.irp, 9e6) * (g <= 5.5e7 ? 0.15 : 0.12);
+  const PA = KY.pensionAccount;
+  const pensionAcct = Math.min(Math.min(v.pension, PA.savingsMax) + v.irp, PA.totalMax) * (g <= PA.incomeLine ? PA.rateLow : PA.rateHigh);
   const child = childCredit(v.kids8);
 
   // 특별공제를 받는 경우 vs 표준세액공제를 받는 경우 중 유리한 쪽
@@ -404,11 +378,11 @@ function compute(v) {
       earned: earnedCredit(tax, g),
       child,
       pensionAcct,
-      insurance: itemized ? Math.min(v.insurance, 1e6) * 0.12 : 0,
-      medical: itemized ? Math.max(0, v.medical - g * 0.03) * 0.15 : 0,
-      education: itemized ? v.education * 0.15 : 0,
-      donation: itemized ? Math.min(v.donation, 1e7) * 0.15 + Math.max(0, v.donation - 1e7) * 0.3 : 0,
-      rent: itemized && g <= 8e7 ? Math.min(v.rent, 1e7) * (g <= 5.5e7 ? 0.17 : 0.15) : 0,
+      insurance: itemized ? Math.min(v.insurance, KY.insurance.max) * KY.insurance.rate : 0,
+      medical: itemized ? Math.max(0, v.medical - g * KY.medical.floorRatio) * KY.medical.rate : 0,
+      education: itemized ? v.education * KY.education.rate : 0,
+      donation: itemized ? Math.min(v.donation, KY.donation.line) * KY.donation.rateLow + Math.max(0, v.donation - KY.donation.line) * KY.donation.rateHigh : 0,
+      rent: itemized && g <= KY.rent.incomeMax ? Math.min(v.rent, KY.rent.max) * (g <= KY.rent.incomeLine ? KY.rent.rateLow : KY.rent.rateHigh) : 0,
       standard: itemized ? 0 : R.standard,
     };
     const creditSum = Object.values(credits).reduce((a, b) => a + b, 0);
@@ -427,7 +401,7 @@ function compute(v) {
     estimated = true;
   }
   const diffTax = prepaid - best.decided;
-  const diffLocal = floor10(prepaid * 0.1) - floor10(best.decided * 0.1);
+  const diffLocal = floor10(prepaid * KI.localRate) - floor10(best.decided * KI.localRate);
   return { g, ins, premiums, income, personal, housing, card, best, prepaid, estimated, diffTax, diffLocal, refund: diffTax + diffLocal };
 }
 
@@ -447,23 +421,23 @@ function render() {
   $("head").textContent = refund >= 0 ? "예상 환급액 (돌려받는 돈)" : "예상 추가 납부액";
   $("big").textContent = won(Math.abs(refund));
   $("big").classList.toggle("pay", refund < 0);
-  $("subLine").textContent = `결정세액 ${won(b.decided * 1.1)} · 이미 낸 세금 ${won(r.prepaid * 1.1)}${r.estimated ? " (추정)" : ""} · 지방소득세 포함`;
+  $("subLine").textContent = `결정세액 ${won(b.decided * (1 + KI.localRate))} · 이미 낸 세금 ${won(r.prepaid * (1 + KI.localRate))}${r.estimated ? " (추정)" : ""} · 지방소득세 포함`;
 
   // 더 돌려받는 팁
   const tips = [];
   const c = r.card;
   if (c.spent < c.threshold) {
-    tips.push(`카드 사용액이 총급여의 25%인 <b>${won(c.threshold)}</b>을 넘어야 공제가 시작돼요. 지금 ${won(c.threshold - c.spent)} 부족해요.`);
-  } else if (v.credit > 0 && c.ded < (v.gross <= 7e7 ? 3e6 : 2.5e6)) {
-    tips.push(`25% 문턱은 넘었어요. 남은 기간에는 <b>체크카드·현금영수증(30%)</b>이 신용카드(15%)보다 공제가 2배예요.`);
+    tips.push(`카드 사용액이 총급여의 ${pctTxt(KY.card.threshold)}%인 <b>${won(c.threshold)}</b>을 넘어야 공제가 시작돼요. 지금 ${won(c.threshold - c.spent)} 부족해요.`);
+  } else if (v.credit > 0 && c.ded < (v.gross <= KY.card.incomeLine ? KY.card.baseLimit.low : KY.card.baseLimit.high)) {
+    tips.push(`${pctTxt(KY.card.threshold)}% 문턱은 넘었어요. 남은 기간에는 <b>체크카드·현금영수증(${pctTxt(KY.card.rate.debit)}%)</b>이 신용카드(${pctTxt(KY.card.rate.credit)}%)보다 공제가 ${+(KY.card.rate.debit / KY.card.rate.credit).toFixed(1)}배예요.`);
   }
-  const room = 9e6 - Math.min(Math.min(v.pension, 6e6) + v.irp, 9e6);
+  const room = KY.pensionAccount.totalMax - Math.min(Math.min(v.pension, KY.pensionAccount.savingsMax) + v.irp, KY.pensionAccount.totalMax);
   if (room > 0 && b.decided > 0) {
     const more = compute({ ...v, irp: v.irp + room });
     const gain = more.refund - refund;
     if (gain > 1000) tips.push(`연금저축·IRP 공제 한도가 <b>${won(room)}</b> 남았어요. 12월 31일까지 채우면 최대 <b>${won(gain)}</b> 더 돌려받아요.`);
   }
-  if (!b.itemized) tips.push("보험료·의료비 등 공제보다 <b>표준세액공제(13만 원)</b>가 더 유리해서 그쪽으로 계산했어요.");
+  if (!b.itemized) tips.push(`보험료·의료비 등 공제보다 <b>표준세액공제(${R.standard / 1e4}만 원)</b>가 더 유리해서 그쪽으로 계산했어요.`);
   if (b.decided === 0 && r.prepaid > 0) tips.push("공제가 충분해서 <b>낼 세금이 0원</b>이에요. 이미 낸 세금을 모두 돌려받아요.");
   $("tips").innerHTML = tips.map((t) => `<div class="tip">💡 ${t}</div>`).join("");
 

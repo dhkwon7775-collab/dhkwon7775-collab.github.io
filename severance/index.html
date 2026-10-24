@@ -251,6 +251,7 @@
   <footer>계산 결과는 참고용이며, 회사의 급여 기준에 따라 실제 금액과 차이가 있을 수 있어요.<br><a href="../about/" style="color:inherit">사이트 소개</a> · <a href="../privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
 </main>
 
+<script src="/assets/rates.js?v=20261023b"></script>
 <script>
 const $ = (id) => document.getElementById(id);
 const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
@@ -273,35 +274,10 @@ function monthsBefore(d, n) {
   return new Date(Date.UTC(y, m, Math.min(day, last)));
 }
 
-// 근속연수공제 (1년 미만 끝수는 1년으로 봄)
-function serviceDeduction(years) {
-  if (years <= 5) return 1e6 * years;
-  if (years <= 10) return 5e6 + 2e6 * (years - 5);
-  if (years <= 20) return 15e6 + 2.5e6 * (years - 10);
-  return 40e6 + 3e6 * (years - 20);
-}
-
-// 환산급여공제
-function convertedDeduction(c) {
-  if (c <= 8e6) return c;
-  if (c <= 70e6) return 8e6 + (c - 8e6) * 0.6;
-  if (c <= 100e6) return 45.2e6 + (c - 70e6) * 0.55;
-  if (c <= 300e6) return 61.7e6 + (c - 100e6) * 0.45;
-  return 151.7e6 + (c - 300e6) * 0.35;
-}
-
-// 종합소득세 기본세율
-function baseTax(t) {
-  const B = [
-    [14e6, 0.06, 0], [50e6, 0.15, 1.26e6], [88e6, 0.24, 5.76e6],
-    [150e6, 0.35, 15.44e6], [300e6, 0.38, 19.94e6], [500e6, 0.40, 25.94e6],
-    [1e9, 0.42, 35.94e6], [Infinity, 0.45, 65.94e6],
-  ];
-  if (t <= 0) return 0;
-  for (const [limit, rate, minus] of B) if (t <= limit) return t * rate - minus;
-}
-
 // 달력 기준 근속 기간: 꽉 찬 연수와 남은 일수 (윤년 반영)
+// 퇴직소득세 표(근속연수공제·환산급여공제)와 세율표는 /assets/rates.js 한 파일에서 관리해요
+const { serviceDeduction, convertedDeduction, baseTax } = KR;
+
 function serviceSpan(start, end) {
   let y = end.getUTCFullYear() - start.getUTCFullYear();
   const at = (n) => {
@@ -320,7 +296,7 @@ function retirementTax(pay, span) {
   const converted = (afterService * 12) / years;
   const taxBase = Math.max(0, converted - convertedDeduction(converted));
   const incomeTax = Math.floor((baseTax(taxBase) * years) / 12 / 10) * 10;
-  const localTax = Math.floor((incomeTax * 0.1) / 10) * 10;
+  const localTax = Math.floor((incomeTax * KR.R.incomeTax.localRate) / 10) * 10;
   return { years, incomeTax, localTax };
 }
 

@@ -268,17 +268,11 @@
   <footer>계산 결과는 참고용이며, 실제 급여와 차이가 있을 수 있어요.<br><a href="../about/" style="color:inherit">사이트 소개</a> · <a href="../privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
 </main>
 
+<script src="/assets/rates.js?v=20261023b"></script>
 <script>
-// ===== 2026년 기준 요율 (매년 이 부분만 확인해서 바꾸면 돼요) =====
-const RATES = {
-  pension: 0.0475,          // 국민연금 근로자 부담 (총 9.5%의 절반)
-  pensionMax: 6590000,      // 국민연금 기준소득월액 상한 (2026.7~2027.6)
-  pensionMin: 410000,       // 국민연금 기준소득월액 하한 (2026.7~2027.6)
-  health: 0.03595,          // 건강보험 근로자 부담 (총 7.19%의 절반)
-  care: 0.1314,             // 장기요양보험 = 건강보험료 × 13.14%
-  employ: 0.009,            // 고용보험 근로자 부담
-  localTax: 0.1,            // 지방소득세 = 소득세 × 10%
-};
+// ===== 요율·세율은 /assets/rates.js 한 파일에서 관리해요 =====
+const RATES = { ...KR.R.insurance, localTax: KR.R.incomeTax.localRate };
+const { earnedDeduction, baseTax, earnedTaxCredit, childCredit } = KR;
 
 const $ = (id) => document.getElementById(id);
 const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
@@ -293,47 +287,6 @@ function korUnit(n) {
   if (eok) s += eok.toLocaleString() + "억 ";
   if (man) s += man.toLocaleString() + "만 ";
   return (s || n.toLocaleString() + " ").trim() + " 원";
-}
-
-// 근로소득공제
-function earnedDeduction(g) {
-  let d;
-  if (g <= 5e6) d = g * 0.7;
-  else if (g <= 15e6) d = 3.5e6 + (g - 5e6) * 0.4;
-  else if (g <= 45e6) d = 7.5e6 + (g - 15e6) * 0.15;
-  else if (g <= 1e8) d = 12e6 + (g - 45e6) * 0.05;
-  else d = 14.75e6 + (g - 1e8) * 0.02;
-  return Math.min(d, 2e7);
-}
-
-// 종합소득세 기본세율
-function baseTax(t) {
-  const B = [
-    [14e6, 0.06, 0], [50e6, 0.15, 1.26e6], [88e6, 0.24, 5.76e6],
-    [150e6, 0.35, 15.44e6], [300e6, 0.38, 19.94e6], [500e6, 0.40, 25.94e6],
-    [1e9, 0.42, 35.94e6], [Infinity, 0.45, 65.94e6],
-  ];
-  if (t <= 0) return 0;
-  for (const [limit, rate, minus] of B) if (t <= limit) return t * rate - minus;
-}
-
-// 근로소득세액공제
-function earnedTaxCredit(tax, g) {
-  const credit = tax <= 1.3e6 ? tax * 0.55 : 715000 + (tax - 1.3e6) * 0.3;
-  let cap;
-  if (g <= 33e6) cap = 740000;
-  else if (g <= 70e6) cap = Math.max(740000 - (g - 33e6) * 0.008, 660000);
-  else if (g <= 120e6) cap = Math.max(660000 - (g - 70e6) * 0.5, 500000);
-  else cap = Math.max(500000 - (g - 120e6) * 0.5, 200000);
-  return Math.min(credit, cap);
-}
-
-// 자녀세액공제 (8~20세)
-function childCredit(k) {
-  if (k <= 0) return 0;
-  if (k === 1) return 250000;
-  if (k === 2) return 550000;
-  return 550000 + (k - 2) * 400000;
 }
 
 function calc({ salary, nontaxMonthly, family, kids }) {
@@ -352,12 +305,12 @@ function calc({ salary, nontaxMonthly, family, kids }) {
   const earnedIncome = gross - earnedDeduction(gross);
   const taxBase = Math.max(
     0,
-    earnedIncome - 1.5e6 * family - pension * 12 - (health + care + employ) * 12
+    earnedIncome - KR.R.incomeTax.personal * family - pension * 12 - (health + care + employ) * 12
   );
   const calculated = baseTax(taxBase);
   const yearTax = Math.max(
     0,
-    calculated - earnedTaxCredit(calculated, gross) - childCredit(kids) - 130000
+    calculated - earnedTaxCredit(calculated, gross) - childCredit(kids) - KR.R.incomeTax.standardCredit
   );
   const incomeTax = floor10(yearTax / 12);
   const localTax = floor10(incomeTax * RATES.localTax);
