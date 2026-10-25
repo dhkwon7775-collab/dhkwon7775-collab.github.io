@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/savings.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<title>예금·적금 이자 계산기 | 세후 만기 수령액 (이자소득세 15.4%)</title>
+<meta name="description" content="예금·적금 금액과 금리, 기간을 넣으면 세후 이자와 만기 수령액을 계산해요. 단리·월복리, 일반과세 15.4%·비과세까지 비교하고, 적금 금리가 예금으로 치면 몇 %인지도 알려 줘요.">
+<meta property="og:title" content="예금·적금 이자 계산기 (세후 만기 수령액)">
+<meta property="og:description" content="금리와 기간을 넣으면 세후 이자와 만기에 받는 돈을 바로 계산해요. 단리·월복리, 15.4%·비과세 비교.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/savings/">
+<link rel="canonical" href="https://dohyun.co.kr/savings/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], select { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 44px 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; }
+  select { font-size: 16px; padding-right: 14px; cursor: pointer; }
+  select option { color: #191f28; }
+  input:focus, select:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stepper { display: flex; align-items: center; gap: 10px; }
+  .stepper output { font-size: 20px; font-weight: 700; min-width: 40px; text-align: center; }
+  .tabs { display: grid; grid-template-columns: repeat(2, 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .tabs button { font: inherit; font-size: 15px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .seg { display: grid; grid-template-columns: repeat(2, 1fr); background: var(--seg); border-radius: 12px; padding: 4px; gap: 4px; }
+  .seg button { font: inherit; font-size: 14px; font-weight: 600; border: 0; border-radius: 9px; padding: 10px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; margin: 2px 0 4px; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 17px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  .bonus { background: color-mix(in srgb, var(--accent) 10%, transparent); color: var(--text); border-radius: 12px; padding: 12px 14px; font-size: 14px; margin: 0 0 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 4px; border-top: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+  th { color: var(--sub); font-weight: 600; font-size: 12.5px; border-top: 0; }
+  th:first-child, td:first-child { text-align: left; }
+  tr.total td { font-weight: 700; border-top: 1.5px solid var(--line); }
+  tr.minus td:last-child { color: var(--minus, #e5484d); }
+  tr.on td { font-weight: 700; color: var(--accent); }
+  h2.sec { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+  @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261024a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/">가이드</a></nav>
+    <span class="lang"><a href="/savings/" aria-current="true">한국어</a><a href="/en/" hreflang="en" lang="en">EN</a></span>
+  </div>
+</header>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>예금·적금 이자 계산기</h1>
+  <p class="lead">금리와 기간을 넣으면 세금을 뗀 실제 이자와 만기에 받는 돈을 계산해요.</p>
+  <p class="verified">2026년 10월 기준 확인 · 이자소득세 15.4%(소득세 14% + 지방소득세 1.4%), 단리·월복리 반영</p>
+
+  <div class="tabs" role="tablist" aria-label="상품 종류">
+    <button type="button" role="tab" data-tab="installment" aria-selected="true">적금 (매달 넣기)</button>
+    <button type="button" role="tab" data-tab="deposit" aria-selected="false">예금 (한 번에 넣기)</button>
+  </div>
+
+  <section class="card">
+    <div class="field" id="fMonthly">
+      <label for="monthly">매달 넣는 돈</label>
+      <div class="input-wrap"><input id="monthly" type="text" inputmode="numeric" value="500,000" autocomplete="off"><span class="unit">원</span></div>
+      <div class="quick">
+        <button type="button" data-set-id="monthly" data-set="100000">10만</button><button type="button" data-set-id="monthly" data-set="300000">30만</button>
+        <button type="button" data-set-id="monthly" data-set="500000">50만</button><button type="button" data-set-id="monthly" data-set="1000000">100만</button>
+        <button type="button" data-set-id="monthly" data-set="700000">70만 (청년도약)</button>
+      </div>
+    </div>
+    <div class="field" id="fPrincipal" hidden>
+      <label for="principal">맡기는 돈</label>
+      <div class="input-wrap"><input id="principal" type="text" inputmode="numeric" value="10,000,000" autocomplete="off"><span class="unit">원</span></div>
+      <div class="quick">
+        <button type="button" data-set-id="principal" data-set="5000000">500만</button><button type="button" data-set-id="principal" data-set="10000000">1,000만</button>
+        <button type="button" data-set-id="principal" data-set="30000000">3,000만</button><button type="button" data-set-id="principal" data-set="50000000">5,000만</button>
+        <button type="button" data-set-id="principal" data-set="100000000">1억</button>
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label for="rate">연 금리 (세전)</label>
+        <div class="input-wrap"><input id="rate" type="text" inputmode="decimal" value="3.5" autocomplete="off"><span class="unit">%</span></div>
+      </div>
+      <div class="field">
+        <span class="label">기간</span>
+        <div class="stepper" data-target="months" data-min="1" data-max="60">
+          <button type="button" data-d="-1" aria-label="줄이기">−</button>
+          <output id="months">12</output>
+          <button type="button" data-d="1" aria-label="늘리기">+</button>
+          <span class="hint" style="margin:0">개월</span>
+        </div>
+      </div>
+    </div>
+    <div class="quick" style="margin:-8px 0 18px">
+      <button type="button" data-months="6">6개월</button><button type="button" data-months="12">1년</button>
+      <button type="button" data-months="24">2년</button><button type="button" data-months="36">3년</button>
+    </div>
+    <div class="field">
+      <span class="label">이자 방식</span>
+      <div class="seg" role="group" aria-label="이자 방식">
+        <button type="button" data-method="simple" aria-pressed="true">단리</button>
+        <button type="button" data-method="compound" aria-pressed="false">월복리</button>
+      </div>
+      <div class="hint">은행 예·적금은 대부분 단리예요. 상품 설명에 '복리'라고 적혀 있을 때만 월복리를 고르세요.</div>
+    </div>
+    <div class="field">
+      <label for="tax">세금</label>
+      <select id="tax">
+        <option value="normal" selected>일반과세 15.4%</option>
+        <option value="coop">조합 예탁금 1.4% (새마을금고·신협·농협 조합원)</option>
+        <option value="free">비과세 0% (비과세종합저축 등)</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head" id="head">만기에 받는 돈 (세후)</p>
+    <p class="big" id="total">0원</p>
+    <p class="sub-line" id="subLine"></p>
+    <div class="stats">
+      <div class="stat"><span>넣은 원금</span><b id="sPrin">0원</b></div>
+      <div class="stat"><span>세후 이자</span><b id="sNet">0원</b></div>
+      <div class="stat"><span>떼는 세금</span><b id="sTax">0원</b></div>
+    </div>
+    <p class="bonus" id="tip"></p>
+    <table>
+      <tbody id="rows"></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2 class="sec">이자는 이렇게 계산해요</h2>
+    <table>
+      <thead><tr><th>구분</th><th style="text-align:left">계산 방법</th></tr></thead>
+      <tbody>
+        <tr><td>예금 단리</td><td style="text-align:left">원금 × 연 금리 × 개월 ÷ 12</td></tr>
+        <tr><td>예금 월복리</td><td style="text-align:left">원금 × {(1 + 연 금리 ÷ 12)<sup>개월</sup> − 1}</td></tr>
+        <tr><td>적금 단리</td><td style="text-align:left">매달 넣은 돈마다 남은 개월만큼 이자 (첫 달 돈은 12개월, 마지막 달 돈은 1개월)</td></tr>
+        <tr><td>적금 월복리</td><td style="text-align:left">매달 넣은 돈마다 남은 개월만큼 복리 이자</td></tr>
+      </tbody>
+    </table>
+    <p class="hint" id="taxNote" style="margin-top:10px"></p>
+  </section>
+
+  <section class="card faq">
+    <h2 class="sec">자주 묻는 질문</h2>
+    <details>
+      <summary>적금 금리가 연 5%인데 왜 이자가 생각보다 적어요?</summary>
+      <p>적금은 매달 나눠 넣어서, 마지막 달에 넣은 돈은 이자를 1개월치만 받아요. 그래서 1년 적금 연 5%는 같은 돈을 처음부터 예금에 넣은 것으로 치면 약 2.7% 수준이에요. 위 결과의 '예금으로 치면' 숫자를 보세요.</p>
+    </details>
+    <details>
+      <summary>이자소득세 15.4%는 어떻게 떼나요?</summary>
+      <p>이자에서 소득세 14%와 지방소득세 1.4%(소득세의 10%)를 떼요. 은행이 만기 때 미리 떼고 주기 때문에 따로 신고할 필요는 없어요. 다만 1년 이자·배당이 2,000만 원을 넘으면 금융소득 종합과세 대상이 돼요.</p>
+    </details>
+    <details>
+      <summary>단리와 월복리는 얼마나 차이 나요?</summary>
+      <p>1~2년 정도의 짧은 기간에는 차이가 크지 않아요. 예를 들어 1,000만 원을 연 3.5%로 1년 맡기면 단리 이자는 35만 원, 월복리 이자는 약 35만 6천 원이에요. 기간이 길수록 차이가 커져요.</p>
+    </details>
+    <details>
+      <summary>조합 예탁금 1.4%는 누가 받을 수 있나요?</summary>
+      <p>새마을금고·신협·지역 농협·수협 같은 상호금융에 조합원(출자금 통장)으로 가입하면, 1인당 3,000만 원까지 이자소득세 없이 농어촌특별세 1.4%만 내요. 혜택 기간과 조건이 바뀔 수 있으니 가입 전에 꼭 확인하세요.</p>
+    </details>
+    <details>
+      <summary>중간에 해지하면 어떻게 되나요?</summary>
+      <p>만기 전에 해지하면 약속한 금리 대신 훨씬 낮은 중도해지 금리가 적용돼요. 이 계산기는 만기까지 유지했을 때 금액이에요.</p>
+    </details>
+  </section>
+
+  <section class="card more-calcs">
+    <h2>다른 계산기</h2>
+    <nav class="calc-grid" aria-label="다른 계산기">
+      <a href="/salary/"><span class="ico" aria-hidden="true">💰</span>연봉 실수령액</a>
+      <a href="/hourly/"><span class="ico" aria-hidden="true">⏰</span>알바 월급</a>
+      <a href="/yearend/"><span class="ico" aria-hidden="true">💸</span>연말정산</a>
+      <a href="/leave/"><span class="ico" aria-hidden="true">🌴</span>연차</a>
+      <a href="/parental/"><span class="ico" aria-hidden="true">👶</span>육아휴직 급여</a>
+      <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
+      <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
+      <a href="/subscription/"><span class="ico" aria-hidden="true">🏠</span>청약 가점</a>
+      <a href="/brokerage/"><span class="ico" aria-hidden="true">🤝</span>복비</a>
+      <a href="/rent/"><span class="ico" aria-hidden="true">🔑</span>전월세 전환</a>
+      <a href="/area/"><span class="ico" aria-hidden="true">📐</span>평수</a>
+      <a href="/age/"><span class="ico" aria-hidden="true">🎂</span>만 나이</a>
+      <a href="/dday/"><span class="ico" aria-hidden="true">📅</span>D-day·전역일</a>
+      <a href="/count/"><span class="ico" aria-hidden="true">📝</span>글자수 세기</a>
+    </nav>
+  </section>
+
+  <footer>계산 결과는 참고용이며, 실제 이자는 상품 약관과 은행의 계산 방식(일할 계산 등)에 따라 조금 다를 수 있어요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
+</main>
+
+<script src="/assets/rates.js?v=20261026a"></script>
+<script>
+// ===== 이자소득세율은 /assets/rates.js 한 파일에서 관리해요 =====
+const TX = KR.R.interestTax;
+const $ = (id) => document.getElementById(id);
+const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
+const parse = (s) => Number(String(s).replace(/[^0-9]/g, "")) || 0;
+const dec = (s) => Number(String(s).replace(/[^0-9.]/g, "")) || 0;
+const floor10 = (n) => Math.floor(n / 10) * 10;
+const pctTxt = (v) => +(v * 100).toFixed(2);
+let tab = "installment", method = "simple";
+
+// 세금: 일반은 소득세 14%(10원 미만 버림) + 지방소득세(소득세의 10%, 10원 미만 버림)
+function taxOf(interest, kind) {
+  if (kind === "free") return { income: 0, local: 0, total: 0 };
+  if (kind === "coop") { const t = floor10(interest * TX.coop); return { income: t, local: 0, total: t }; }
+  const income = floor10(interest * TX.income), local = floor10(income * TX.localRatio);
+  return { income, local, total: income + local };
+}
+
+function calc(kind, amount, ratePct, months, how, taxKind) {
+  const r = ratePct / 100, m = r / 12;
+  let principal, interest;
+  if (kind === "deposit") {
+    principal = amount;
+    interest = how === "compound" ? amount * (Math.pow(1 + m, months) - 1) : amount * r * months / 12;
+  } else {
+    principal = amount * months;
+    if (how === "compound") {
+      interest = 0;
+      for (let k = 1; k <= months; k++) interest += amount * (Math.pow(1 + m, k) - 1);
+    } else interest = amount * m * months * (months + 1) / 2;
+  }
+  interest = Math.floor(interest);
+  const tax = taxOf(interest, taxKind);
+  const net = interest - tax.total;
+  // 같은 이자를 예금(단리)으로 받으려면 필요한 연 금리: 이자 ÷ 원금 ÷ 기간(년)
+  const asDeposit = principal && months ? interest / principal / (months / 12) : 0;
+  return { principal, interest, tax, net, total: principal + net, asDeposit };
+}
+window.calc = calc;
+
+function render() {
+  const amount = parse($(tab === "deposit" ? "principal" : "monthly").value);
+  const rate = dec($("rate").value);
+  const months = Number($("months").value);
+  const taxKind = $("tax").value;
+  const x = calc(tab, amount, rate, months, method, taxKind);
+
+  $("total").textContent = won(x.total);
+  $("subLine").textContent = tab === "deposit"
+    ? `${won(amount)}을 연 ${rate}% ${method === "compound" ? "월복리" : "단리"}로 ${months}개월 맡기면`
+    : `매달 ${won(amount)}씩 ${months}개월, 연 ${rate}% ${method === "compound" ? "월복리" : "단리"}`;
+  $("sPrin").textContent = won(x.principal);
+  $("sNet").textContent = won(x.net);
+  $("sTax").textContent = won(x.tax.total);
+
+  const tip = $("tip");
+  if (tab === "installment" && x.interest > 0) {
+    tip.hidden = false;
+    tip.innerHTML = `적금 연 ${rate}%는 같은 원금을 처음부터 <b>예금에 넣은 것으로 치면 연 약 ${(x.asDeposit * 100).toFixed(2)}%</b>예요. 마지막 달에 넣은 돈은 이자를 1개월치만 받기 때문이에요.`;
+  } else if (tab === "deposit" && x.interest > 0) {
+    tip.hidden = false;
+    tip.innerHTML = `세금을 떼고 나면 실제 수익률은 연 약 <b>${(x.net / x.principal / (months / 12) * 100).toFixed(2)}%</b>예요. 한 달에 평균 ${won(x.net / months)}씩 이자가 붙는 셈이에요.`;
+  } else tip.hidden = true;
+
+  const taxRows = taxKind === "normal"
+    ? `<tr class="minus"><td>이자소득세 (14%)</td><td>−${won(x.tax.income)}</td></tr><tr class="minus"><td>지방소득세 (1.4%)</td><td>−${won(x.tax.local)}</td></tr>`
+    : taxKind === "coop" ? `<tr class="minus"><td>농어촌특별세 (1.4%)</td><td>−${won(x.tax.total)}</td></tr>`
+    : `<tr><td>세금 (비과세)</td><td>0원</td></tr>`;
+  $("rows").innerHTML =
+    `<tr><td>${tab === "deposit" ? "맡긴 원금" : `원금 (${won(amount)} × ${months}개월)`}</td><td>${won(x.principal)}</td></tr>` +
+    `<tr><td>세전 이자</td><td>${won(x.interest)}</td></tr>` + taxRows +
+    `<tr><td>세후 이자</td><td>${won(x.net)}</td></tr>` +
+    `<tr class="total"><td>만기 수령액</td><td>${won(x.total)}</td></tr>`;
+}
+window.render = render;
+
+$("taxNote").textContent = `일반과세는 이자의 ${pctTxt(TX.income)}%(소득세)와 그 ${pctTxt(TX.localRatio)}%(지방소득세)를 떼서 모두 ${pctTxt(TX.income * (1 + TX.localRatio))}%예요. 세금은 10원 미만을 버리고 계산해요.`;
+
+function setTab(t) {
+  tab = t;
+  document.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === t));
+  $("fMonthly").hidden = t !== "installment";
+  $("fPrincipal").hidden = t !== "deposit";
+  render();
+}
+document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
+document.querySelectorAll("[data-method]").forEach((b) => b.addEventListener("click", () => {
+  method = b.dataset.method;
+  document.querySelectorAll("[data-method]").forEach((x) => x.setAttribute("aria-pressed", x === b));
+  render();
+}));
+["monthly", "principal"].forEach((id) => $(id).addEventListener("input", (e) => {
+  const n = parse(e.target.value);
+  e.target.value = n ? n.toLocaleString("ko-KR") : "";
+  render();
+}));
+$("rate").addEventListener("input", (e) => {
+  e.target.value = e.target.value.replace(/[^0-9.]/g, "").replace(/(\..*)\./g, "$1");
+  render();
+});
+$("tax").addEventListener("change", render);
+document.querySelectorAll("[data-set]").forEach((b) => b.addEventListener("click", () => {
+  $(b.dataset.setId).value = Number(b.dataset.set).toLocaleString("ko-KR");
+  render();
+}));
+document.querySelectorAll("[data-months]").forEach((b) => b.addEventListener("click", () => {
+  $("months").value = b.dataset.months;
+  render();
+}));
+document.querySelectorAll(".stepper").forEach((s) => {
+  const out = $(s.dataset.target);
+  s.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+    out.value = Math.min(Number(s.dataset.max), Math.max(Number(s.dataset.min), Number(out.value) + Number(b.dataset.d)));
+    render();
+  }));
+});
+render();
+</script>
+<script src="/assets/share.js?v=20261024a" defer></script>
+<script src="/assets/next.js?v=20261026a" defer></script>
+</body>
+</html>

@@ -6,6 +6,7 @@
    - 매년 1월: minWage(최저시급), insurance(4대보험), unemployment.dailyMax(실업급여 상한), parentalLeave(육아휴직 급여), incomeTax·yearend(세법)
    - 매년 7월: insurance.pensionMax / pensionMin (국민연금 기준소득월액 상한·하한)
    - 한국은행 기준금리 발표 때: rent.baseRate, rent.baseRateDate
+   - 세법 개정 때: interestTax(이자소득세) / 시·도 조례 개정 때: brokerage(중개보수 상한요율)
    - 확인을 마치면 checkedAt(기준 확인 날짜)도 바꿔요.
 
    고친 다음 할 일 (_tools 폴더)
@@ -139,6 +140,37 @@
       "baseRateDate": "2026년 10월 22일",
       "capAdd": 2,
       "capMax": 10
+    },
+
+    "interestTax": {
+      "income": 0.14,
+      "localRatio": 0.1,
+      "coop": 0.014
+    },
+
+    "brokerage": {
+      "sale": [
+        [50000000, 0.006, 250000],
+        [200000000, 0.005, 800000],
+        [900000000, 0.004, null],
+        [1200000000, 0.005, null],
+        [1500000000, 0.006, null],
+        [null, 0.007, null]
+      ],
+      "lease": [
+        [50000000, 0.005, 200000],
+        [100000000, 0.004, 300000],
+        [600000000, 0.003, null],
+        [1200000000, 0.004, null],
+        [1500000000, 0.005, null],
+        [null, 0.006, null]
+      ],
+      "officetel": { "sale": 0.005, "lease": 0.004 },
+      "other": 0.009,
+      "monthlyMul": 100,
+      "monthlyMulLow": 70,
+      "lowLine": 50000000,
+      "vat": 0.1
     }
   }/*JSON-END*/;
 

@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/brokerage.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<title>부동산 중개수수료(복비) 계산기 | 매매·전세·월세 상한요율 2026</title>
+<meta name="description" content="매매가나 전세·월세 보증금을 넣으면 부동산 중개수수료(복비) 최대 금액을 계산해요. 2026년 주택 상한요율표, 월세 환산 방법(×100, ×70), 오피스텔·부가세까지 반영했어요.">
+<meta property="og:title" content="부동산 중개수수료(복비) 계산기">
+<meta property="og:description" content="매매·전세·월세 금액을 넣으면 복비 최대 금액을 바로 계산해요. 상한요율표·월세 환산 반영.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/brokerage/">
+<link rel="canonical" href="https://dohyun.co.kr/brokerage/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], select { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 44px 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; }
+  select { font-size: 16px; padding-right: 14px; cursor: pointer; }
+  select option { color: #191f28; }
+  input:focus, select:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+  .check small { display: block; font-weight: 400; font-size: 13px; color: var(--sub); }
+  .tabs { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .tabs button { font: inherit; font-size: 15px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; margin: 2px 0 4px; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 17px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  .bonus { background: color-mix(in srgb, var(--accent) 10%, transparent); color: var(--text); border-radius: 12px; padding: 12px 14px; font-size: 14px; margin: 0 0 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 4px; border-top: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+  th { color: var(--sub); font-weight: 600; font-size: 12.5px; border-top: 0; }
+  th:first-child, td:first-child { text-align: left; }
+  tr.total td { font-weight: 700; border-top: 1.5px solid var(--line); }
+  tr.on td { font-weight: 700; color: var(--accent); }
+  h2.sec { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+  @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 14px; } }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261024a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/">가이드</a></nav>
+    <span class="lang"><a href="/brokerage/" aria-current="true">한국어</a><a href="/en/" hreflang="en" lang="en">EN</a></span>
+  </div>
+</header>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>부동산 중개수수료(복비) 계산기</h1>
+  <p class="lead">매매가나 보증금·월세를 넣으면 공인중개사에게 낼 중개수수료의 최대 금액을 계산해요.</p>
+  <p class="verified">2026년 10월 기준 확인 · 주택 상한요율(매매 0.4~0.7%, 임대 0.3~0.6%)과 월세 환산(×100, 5천만 원 미만은 ×70) 반영</p>
+
+  <div class="tabs" role="tablist" aria-label="거래 종류">
+    <button type="button" role="tab" data-tab="sale" aria-selected="true">매매</button>
+    <button type="button" role="tab" data-tab="jeonse" aria-selected="false">전세</button>
+    <button type="button" role="tab" data-tab="monthly" aria-selected="false">월세</button>
+  </div>
+
+  <section class="card">
+    <div class="field" id="fPrice">
+      <label for="price" id="priceLabel">매매 가격</label>
+      <div class="input-wrap"><input id="price" type="text" inputmode="numeric" value="500,000,000" autocomplete="off"><span class="unit">원</span></div>
+      <div class="hint" id="priceKo"></div>
+      <div class="quick" id="priceQuick"></div>
+    </div>
+    <div id="fMonthly" hidden>
+      <div class="field">
+        <label for="deposit">보증금</label>
+        <div class="input-wrap"><input id="deposit" type="text" inputmode="numeric" value="10,000,000" autocomplete="off"><span class="unit">원</span></div>
+        <div class="hint" id="depositKo"></div>
+      </div>
+      <div class="field">
+        <label for="rent">월세</label>
+        <div class="input-wrap"><input id="rent" type="text" inputmode="numeric" value="700,000" autocomplete="off"><span class="unit">원</span></div>
+        <div class="quick">
+          <button type="button" data-set-id="rent" data-set="500000">50만</button><button type="button" data-set-id="rent" data-set="700000">70만</button>
+          <button type="button" data-set-id="rent" data-set="1000000">100만</button><button type="button" data-set-id="rent" data-set="1500000">150만</button>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label for="kind">건물 종류</label>
+      <select id="kind">
+        <option value="house" selected>주택 (아파트·빌라·단독주택)</option>
+        <option value="officetel">오피스텔 (전용 85㎡ 이하, 부엌·화장실 있음)</option>
+        <option value="other">그 밖의 건물 (상가·토지·85㎡ 넘는 오피스텔)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="check"><input type="checkbox" id="vat">
+        <span>부가세 10% 포함해서 보기<small>중개사무소가 일반과세자면 중개수수료에 부가세 10%를 더 받을 수 있어요.</small></span>
+      </label>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head" id="head">중개수수료 최대 금액</p>
+    <p class="big" id="total">0원</p>
+    <p class="sub-line" id="subLine"></p>
+    <div class="stats">
+      <div class="stat"><span id="baseLabel">거래금액</span><b id="sBase">0원</b></div>
+      <div class="stat"><span>상한요율</span><b id="sRate">0%</b></div>
+      <div class="stat"><span>한도액</span><b id="sCap">없음</b></div>
+    </div>
+    <p class="bonus" id="tip"></p>
+    <table>
+      <tbody id="rows"></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2 class="sec" id="tableTitle">주택 중개보수 상한요율</h2>
+    <table>
+      <thead><tr><th>거래금액</th><th>상한요율</th><th>한도액</th></tr></thead>
+      <tbody id="rateRows"></tbody>
+    </table>
+    <p class="hint" style="margin-top:10px">요율은 최대한도라서 이보다 낮게 정할 수 있어요. 서울·경기 등 대부분 시·도가 같은 요율을 쓰지만, 계약 전에 지역 조례를 확인하세요.</p>
+  </section>
+
+  <section class="card faq">
+    <h2 class="sec">자주 묻는 질문</h2>
+    <details>
+      <summary>중개수수료는 누가 내나요?</summary>
+      <p>매매는 파는 사람과 사는 사람이, 전세·월세는 집주인과 세입자가 각자 자기 쪽 중개사에게 따로 내요. 이 계산기 금액은 한쪽이 내는 금액이에요.</p>
+    </details>
+    <details>
+      <summary>월세는 거래금액을 어떻게 계산하나요?</summary>
+      <p>보증금 + (월세 × 100)이 거래금액이에요. 이렇게 계산한 금액이 5,000만 원보다 적으면 보증금 + (월세 × 70)으로 다시 계산해요. 예를 들어 보증금 1,000만 원·월세 50만 원이면 1,000만 + 5,000만 = 6,000만 원이에요.</p>
+    </details>
+    <details>
+      <summary>요율대로 꼭 다 내야 하나요?</summary>
+      <p>아니요. 표의 요율은 받을 수 있는 최대한도예요. 계약 전에 중개사와 협의해서 낮출 수 있고, 한도를 넘게 받으면 불법이에요. 금액은 중개 계약서에 적어 두는 게 좋아요.</p>
+    </details>
+    <details>
+      <summary>부가세는 꼭 내야 하나요?</summary>
+      <p>중개사무소가 일반과세자면 중개수수료의 10%를 부가세로 더 받을 수 있어요. 간이과세자는 이보다 적게 받아요. 계약 전에 부가세 포함 금액인지 물어보세요. 현금영수증도 꼭 받으세요.</p>
+    </details>
+    <details>
+      <summary>언제 내나요?</summary>
+      <p>보통 잔금을 치르고 입주하는 날 내요. 계약만 하고 거래가 중개사 잘못으로 취소되면 수수료를 내지 않아도 돼요.</p>
+    </details>
+  </section>
+
+  <section class="card more-calcs">
+    <h2>다른 계산기</h2>
+    <nav class="calc-grid" aria-label="다른 계산기">
+      <a href="/salary/"><span class="ico" aria-hidden="true">💰</span>연봉 실수령액</a>
+      <a href="/hourly/"><span class="ico" aria-hidden="true">⏰</span>알바 월급</a>
+      <a href="/yearend/"><span class="ico" aria-hidden="true">💸</span>연말정산</a>
+      <a href="/leave/"><span class="ico" aria-hidden="true">🌴</span>연차</a>
+      <a href="/parental/"><span class="ico" aria-hidden="true">👶</span>육아휴직 급여</a>
+      <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
+      <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/savings/"><span class="ico" aria-hidden="true">🐷</span>예금·적금 이자</a>
+      <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
+      <a href="/subscription/"><span class="ico" aria-hidden="true">🏠</span>청약 가점</a>
+      <a href="/rent/"><span class="ico" aria-hidden="true">🔑</span>전월세 전환</a>
+      <a href="/area/"><span class="ico" aria-hidden="true">📐</span>평수</a>
+      <a href="/age/"><span class="ico" aria-hidden="true">🎂</span>만 나이</a>
+      <a href="/dday/"><span class="ico" aria-hidden="true">📅</span>D-day·전역일</a>
+      <a href="/count/"><span class="ico" aria-hidden="true">📝</span>글자수 세기</a>
+    </nav>
+  </section>
+
+  <footer>계산 결과는 법정 상한액 기준 참고용이며, 실제 금액은 중개사와의 협의와 지역 조례에 따라 정해져요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
+</main>
+
+<script src="/assets/rates.js?v=20261026a"></script>
+<script>
+// ===== 중개보수 상한요율은 /assets/rates.js 한 파일에서 관리해요 =====
+const B = KR.R.brokerage;
+const $ = (id) => document.getElementById(id);
+const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
+const parse = (s) => Number(String(s).replace(/[^0-9]/g, "")) || 0;
+const pctTxt = (v) => +(v * 100).toFixed(2);
+// 1억 2,500만 원처럼 읽기 쉽게
+const korMoney = (n) => {
+  const eok = Math.floor(n / 1e8), m = Math.floor((n % 1e8) / 1e4);
+  if (!eok && !m) return n ? won(n) : "0원";
+  return ((eok ? eok + "억 " : "") + (m ? m.toLocaleString("ko-KR") + "만 " : "")).trim() + " 원";
+};
+let tab = "sale";
+
+// 거래금액: 매매가 / 전세 보증금 / 보증금 + 월세×100 (5천만 원 미만이면 ×70)
+function baseAmount(t, price, deposit, rent) {
+  if (t !== "monthly") return { base: price, how: "" };
+  const hi = deposit + rent * B.monthlyMul;
+  if (hi >= B.lowLine) return { base: hi, how: `보증금 + 월세 × ${B.monthlyMul}` };
+  return { base: deposit + rent * B.monthlyMulLow, how: `보증금 + 월세 × ${B.monthlyMulLow} (×${B.monthlyMul}이 ${korMoney(B.lowLine)} 미만이라서)` };
+}
+
+function rateFor(t, kind, base) {
+  const isSale = t === "sale";
+  if (kind === "officetel") return { rate: isSale ? B.officetel.sale : B.officetel.lease, cap: null, idx: -1 };
+  if (kind === "other") return { rate: B.other, cap: null, idx: -1 };
+  const table = isSale ? B.sale : B.lease;
+  for (let i = 0; i < table.length; i++) {
+    const [upTo, rate, cap] = table[i];
+    if (upTo === null || base < upTo) return { rate, cap, idx: i };
+  }
+}
+
+function calc(t, kind, price, deposit, rent, withVat) {
+  const { base, how } = baseAmount(t, price, deposit, rent);
+  const { rate, cap, idx } = rateFor(t, kind, base);
+  const raw = Math.floor(base * rate);
+  const fee = cap === null ? raw : Math.min(raw, cap);
+  const vat = withVat ? Math.floor(fee * B.vat) : 0;
+  return { base, how, rate, cap, idx, raw, fee, vat, total: fee + vat };
+}
+window.calc = calc;
+
+function rangeText(table, i) {
+  const lo = i === 0 ? 0 : table[i - 1][0], hi = table[i][0];
+  if (i === 0) return `${korMoney(hi)} 미만`;
+  if (hi === null) return `${korMoney(lo)} 이상`;
+  return `${korMoney(lo).replace(" 원", "")}~${korMoney(hi)} 미만`;
+}
+
+function render() {
+  const price = parse($("price").value), deposit = parse($("deposit").value), rent = parse($("rent").value);
+  const kind = $("kind").value, withVat = $("vat").checked;
+  const x = calc(tab, kind, price, deposit, rent, withVat);
+  const tabName = { sale: "매매", jeonse: "전세", monthly: "월세" }[tab];
+
+  $("total").textContent = won(x.total);
+  $("subLine").textContent = `${tabName} ${korMoney(x.base)} × ${pctTxt(x.rate)}%` +
+    (x.cap !== null && x.raw > x.cap ? ` = ${won(x.raw)} → 한도 ${won(x.cap)}` : "") +
+    (withVat ? " · 부가세 포함" : " · 부가세 별도");
+  $("baseLabel").textContent = tab === "monthly" ? "환산 거래금액" : "거래금액";
+  $("sBase").textContent = korMoney(x.base);
+  $("sRate").textContent = `${pctTxt(x.rate)}%${kind === "other" ? " 이내" : ""}`;
+  $("sCap").textContent = x.cap === null ? "없음" : won(x.cap);
+  $("priceKo").textContent = korMoney(price);
+  $("depositKo").textContent = korMoney(deposit);
+
+  const who = tab === "sale" ? "파는 사람과 사는 사람이" : "집주인과 세입자가";
+  const tip = $("tip");
+  tip.innerHTML = kind === "other"
+    ? `상가·토지 등은 거래금액의 <b>0.9% 이내에서 중개사와 협의</b>해 정해요. 위 금액은 최대치예요.`
+    : `이 금액은 <b>${who} 각자</b> 내는 최대 금액이에요. 요율 안에서 중개사와 협의해 낮출 수 있어요.`;
+
+  let rows = "";
+  if (tab === "monthly") rows += `<tr><td>환산 방법</td><td>${x.how}</td></tr>` +
+    `<tr><td>환산 거래금액</td><td>${won(x.base)}</td></tr>`;
+  else rows += `<tr><td>거래금액</td><td>${won(x.base)}</td></tr>`;
+  rows += `<tr><td>거래금액 × ${pctTxt(x.rate)}%</td><td>${won(x.raw)}</td></tr>`;
+  if (x.cap !== null) rows += `<tr><td>한도액</td><td>${won(x.cap)}</td></tr>`;
+  rows += `<tr><td>중개수수료</td><td>${won(x.fee)}</td></tr>`;
+  if (withVat) rows += `<tr><td>부가세 (10%)</td><td>${won(x.vat)}</td></tr>`;
+  rows += `<tr class="total"><td>최대 금액</td><td>${won(x.total)}</td></tr>`;
+  $("rows").innerHTML = rows;
+
+  // 요율표: 지금 고른 거래 종류, 해당 구간 강조
+  const table = tab === "sale" ? B.sale : B.lease;
+  $("tableTitle").textContent = `주택 중개보수 상한요율 (${tab === "sale" ? "매매·교환" : "전세·월세"})`;
+  $("rateRows").innerHTML = table.map((r, i) =>
+    `<tr class="${kind === "house" && i === x.idx ? "on" : ""}"><td>${rangeText(table, i)}</td><td>${pctTxt(r[1])}%</td><td>${r[2] === null ? "없음" : won(r[2])}</td></tr>`
+  ).join("") +
+    `<tr class="${kind === "officetel" ? "on" : ""}"><td>오피스텔 (85㎡ 이하)</td><td>${pctTxt(tab === "sale" ? B.officetel.sale : B.officetel.lease)}%</td><td>없음</td></tr>` +
+    `<tr class="${kind === "other" ? "on" : ""}"><td>상가·토지 등</td><td>${pctTxt(B.other)}% 이내 협의</td><td>없음</td></tr>`;
+}
+window.render = render;
+
+const QUICK = {
+  sale: [[300000000, "3억"], [500000000, "5억"], [900000000, "9억"], [1200000000, "12억"], [1500000000, "15억"]],
+  jeonse: [[100000000, "1억"], [200000000, "2억"], [300000000, "3억"], [500000000, "5억"], [600000000, "6억"]],
+};
+const DEFAULT = { sale: 500000000, jeonse: 300000000 };
+let priceTab = "sale"; // 가격 칸이 마지막으로 쓰인 탭 (매매·전세)
+function setTab(t, keepValue) {
+  tab = t;
+  document.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === t));
+  $("fPrice").hidden = t === "monthly";
+  $("fMonthly").hidden = t !== "monthly";
+  if (t !== "monthly") {
+    $("priceLabel").textContent = t === "sale" ? "매매 가격" : "전세 보증금";
+    if (!keepValue && priceTab !== t) $("price").value = DEFAULT[t].toLocaleString("ko-KR");
+    priceTab = t;
+    $("priceQuick").innerHTML = QUICK[t].map(([v, n]) => `<button type="button" data-set-id="price" data-set="${v}">${n}</button>`).join("");
+  }
+  render();
+}
+document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
+["price", "deposit", "rent"].forEach((id) => $(id).addEventListener("input", (e) => {
+  const n = parse(e.target.value);
+  e.target.value = n ? n.toLocaleString("ko-KR") : "";
+  render();
+}));
+$("kind").addEventListener("change", render);
+$("vat").addEventListener("change", render);
+// 빠른 입력 버튼 (요율표처럼 새로 그려지는 버튼도 처리)
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-set]");
+  if (!b) return;
+  $(b.dataset.setId).value = Number(b.dataset.set).toLocaleString("ko-KR");
+  render();
+});
+setTab("sale", true);
+</script>
+<script src="/assets/share.js?v=20261024a" defer></script>
+<script src="/assets/next.js?v=20261026a" defer></script>
+</body>
+</html>

@@ -76,7 +76,29 @@
       const gap = tab === "toJeonse" ? (r > 0 ? (M * 12) / r : 0) : Math.max(0, J - D);
       return [
         ["/loan/", "🏦", "전세대출 이자", `${man(gap)}을 연 ${dec("loanRate")}%, 2년 만기일시로 빌리면`, { amount: Math.round(gap), rate: dec("loanRate"), term: 2, termUnit: 12, _method: "bullet" }],
-        ["/subscription/", "🏠", "청약 가점", "내 집 마련 준비, 가점부터 확인", null],
+        ["/brokerage/", "🤝", "중개수수료(복비)", tab === "toJeonse" ? "이 월세 계약의 복비 최대 금액" : `전세 ${man(J)} 계약의 복비`, tab === "toJeonse" ? { deposit: D, rent: M, _tab: "monthly" } : { price: J, _tab: "jeonse" }],
+      ];
+    },
+    "/savings/": () => {
+      const dep = pressed("tab") === "deposit", amt = dep ? money("principal") : money("monthly") * Number(val("months"));
+      return [
+        ["/loan/", "🏦", "대출 이자", amt ? `${man(amt)}을 빌리면 이자는 얼마인지` : "상환 방식별 월 상환금 비교", amt ? { amount: amt } : null],
+        ["/salary/", "💰", "연봉 실수령액", "매달 저축할 수 있는 돈부터 확인", null],
+      ];
+    },
+    "/brokerage/": () => {
+      const tab = pressed("tab") || "sale", P = money("price");
+      if (tab === "sale") return [
+        ["/loan/", "🏦", "주택담보대출 이자", P ? `집값 ${man(P)}의 70%를 빌리면` : "상환 방식별 월 상환금 비교", P ? { amount: Math.round(P * 0.7 / 1e6) * 1e6 } : null],
+        ["/area/", "📐", "평수", "전용 84㎡는 몇 평?", null],
+      ];
+      if (tab === "jeonse") return [
+        ["/rent/", "🔑", "전세를 월세로 바꾸면", `보증금 ${man(P)} 기준`, P ? { jeonse: P } : null],
+        ["/loan/", "🏦", "전세대출 이자", "2년 만기일시 이자 계산", P ? { amount: Math.round(P * 0.8 / 1e6) * 1e6, term: 2, termUnit: 12, _method: "bullet" } : null],
+      ];
+      return [
+        ["/rent/", "🔑", "월세를 전세로 바꾸면", "법정 전환율로 계산", { deposit: money("deposit"), monthly: money("rent"), _tab: "toJeonse" }],
+        ["/area/", "📐", "평수", "전용 84㎡는 몇 평?", null],
       ];
     },
     "/subscription/": () => [
