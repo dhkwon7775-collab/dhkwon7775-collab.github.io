@@ -47,7 +47,6 @@
   input[type="text"], input[type="date"], input[type="time"], select { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 44px 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; }
   input[type="date"], input[type="time"] { padding-right: 14px; font-size: 18px; }
   select { font-size: 16px; padding-right: 14px; cursor: pointer; }
-  select option { color: #191f28; }
   input:focus, select:focus { border-color: var(--accent); }
   .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
   .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
@@ -86,7 +85,7 @@
   [hidden] { display: none !important; }
   @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 13px; } }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20261026a">
+<link rel="stylesheet" href="/assets/site.css?v=20261026b">
 </head>
 <body>
 <header class="site-head">
@@ -235,7 +234,7 @@ window.render = render;
 const h = location.hash.slice(1);
 if (h && document.querySelector(`[data-tab="${h}"]`)) setTab(h); else setTab(tab);
 </script>
-<script src="/assets/share.js?v=20261026a" defer></script>
+<script src="/assets/share.js?v=20261026b" defer></script>
 <script src="/assets/next.js?v=20261026b" defer></script>
 </body>
 </html>

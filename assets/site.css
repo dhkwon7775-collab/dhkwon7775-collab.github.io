@@ -37,6 +37,13 @@
   }
 }
 
+/* 브라우저 기본 부품(고르는 칸 목록, 날짜 달력, 스크롤바)도 화면 모드에 맞게 */
+:root { color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { color-scheme: dark; } }
+
+/* 고르는 칸을 펼쳤을 때 목록 글씨: 페이지마다 검은색으로 고정돼 있던 것을 화면 모드에 맞게 */
+html select option, html select optgroup { color: var(--text); background-color: var(--card); }
+
 body {
   font-feature-settings: "tnum" 1;
   letter-spacing: -0.005em;
