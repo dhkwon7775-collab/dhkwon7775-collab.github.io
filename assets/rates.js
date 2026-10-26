@@ -6,6 +6,7 @@
    - 매년 1월: minWage(최저시급), insurance(4대보험), unemployment.dailyMax(실업급여 상한), parentalLeave(육아휴직 급여), incomeTax·yearend(세법)
    - 매년 7월: insurance.pensionMax / pensionMin (국민연금 기준소득월액 상한·하한)
    - 한국은행 기준금리 발표 때: rent.baseRate, rent.baseRateDate
+   - 첫 화면 '오늘의 숫자': minWageNext(다음 해 최저시급, 1월에 minWage로 옮기기), events(일정, 지난 것은 지우고 새 일정 추가)
    - 세법 개정 때: interestTax(이자소득세) / 시·도 조례 개정 때: brokerage(중개보수 상한요율)
    - 확인을 마치면 checkedAt(기준 확인 날짜)도 바꿔요.
 
@@ -171,7 +172,17 @@
       "monthlyMulLow": 70,
       "lowLine": 50000000,
       "vat": 0.1
-    }
+    },
+
+    "minWageNext": { "year": 2027, "value": 10700, "from": "2027-01-01" },
+
+    "events": [
+      ["2026-11-19", "수능", "2027학년도 · 입실 오전 8시 10분", "/dday/#suneung"],
+      ["2027-01-15", "연말정산 간소화 자료 공개", "홈택스 · 보통 1월 15일", "/guide/year-end-simplified-service/"],
+      ["2027-01-25", "부가세 확정신고 마감", "개인 일반·간이과세자", "/guide/vat-return-guide/"],
+      ["2027-01-31", "자동차세 1월 연납 마감", "1월에 내면 가장 많이 할인", "/guide/car-tax-annual-payment/"],
+      ["2027-05-31", "종합소득세 신고 마감", "프리랜서·사업자", "/guide/"]
+    ]
   }/*JSON-END*/;
 
   const lim = (x) => (x === null ? Infinity : x);

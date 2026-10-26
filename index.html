@@ -15,9 +15,9 @@
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<meta name="theme-color" content="#2563eb">
+<meta name="theme-color" content="#f6f4ef">
 <meta property="og:title" content="생활 계산기 모음">
-<meta property="og:description" content="연봉 실수령액, 퇴직금, 실업급여, 연차, 대출 이자 등 생활 계산을 숫자만 넣으면 바로 알려드려요.">
+<meta property="og:description" content="연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 이자, 퍼센트까지 생활 계산 20가지를 숫자만 넣으면 바로 알려드려요.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dohyun.co.kr/">
 <meta property="og:image" content="https://dohyun.co.kr/assets/og/home.png">
@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="생활 계산기 모음">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<title>생활 계산기 모음 | 연봉 실수령액·퇴직금·실업급여·연말정산 계산기</title>
-<meta name="description" content="연봉 실수령액, 퇴직금, 실업급여, 연말정산, 연차, 대출 이자까지. 생활에 필요한 계산을 숫자만 넣으면 무료로, 가입 없이 바로 알려드려요.">
+<title>생활 계산기 모음 | 연봉 실수령액·퇴직금·실업급여·이자·퍼센트 계산기</title>
+<meta name="description" content="연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 연말정산, 이자, 퍼센트, 날짜 계산까지 20가지. 2026년 기준으로 확인한 생활 계산을 숫자만 넣으면 무료로, 가입 없이 바로 알려드려요.">
 <link rel="canonical" href="https://dohyun.co.kr/">
 <link rel="alternate" hreflang="ko" href="https://dohyun.co.kr/">
 <link rel="alternate" hreflang="en" href="https://dohyun.co.kr/en/">
@@ -38,54 +38,153 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
      crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="/assets/site.css?v=20261024a">
 <style>
+  /* 첫 화면 전용 색: 아이보리 바탕 · 짙은 남색 · 샴페인 골드 (공통 디자인 위에 덮어써요) */
+  :root {
+    --bg: #f6f4ef; --card: #fffdf9; --line: #e8e3d9; --text: #1c2230; --sub: #7a7f8a; --dim: #a9acb3;
+    --navy: #22304f; --navy-soft: #e9ecf3; --gold: #b08d57; --gold-soft: #f4ece0; --seg: #f0ece4;
+    --accent: #22304f; --accent-soft: #e9ecf3; --ring-bg: #efeae0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151c; --card: #191d26; --line: #2a2f3a; --text: #eceef2; --sub: #9aa1ad; --dim: #6c7380;
+      --navy: #c9d4ee; --navy-soft: #262c39; --gold: #cfae75; --gold-soft: #2b2619; --seg: #222733;
+      --accent: #c9d4ee; --accent-soft: #262c39; --ring-bg: #262c39;
+    }
+  }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-  main { max-width: 720px; margin: 0 auto; padding: 0 16px 72px; }
+  a { color: inherit; text-decoration: none; }
+  .num { font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .site-head .in { max-width: 1180px; padding: 0 32px; }
+  .site-head .logo svg rect:first-child { fill: var(--navy); }
+  @media (prefers-color-scheme: dark) { .site-head .logo svg rect:first-child { fill: #2a3550; } }
 
-  /* 첫 화면 소개 */
-  .hero { padding: 40px 0 24px; }
-  .hero h1 { font-size: clamp(30px, 7vw, 44px); line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.04em; }
-  .hero p { color: var(--sub); font-size: 17px; margin: 0; }
+  main.home { max-width: 1180px; margin: 0 auto; padding: 36px 32px 80px; }
+  .site-head ~ main.home { padding-top: 36px; }
 
-  /* 계산기 목록 */
-  .sec { margin-top: 48px; }
-  .hero + .sec { margin-top: 4px; }
-  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
-  .sec h2 { font-size: 22px; margin: 0; letter-spacing: -0.03em; }
-  .sec-head a { font-size: 14px; font-weight: 600; color: var(--sub); text-decoration: none; }
-  .sec-head a:hover { color: var(--accent); }
-  .search { position: relative; margin-bottom: 18px; }
-  .search input {
-    width: 100%; font: inherit; font-size: 16px; padding: 13px 16px 13px 44px;
-    border: 1.5px solid var(--line); border-radius: 14px; background: var(--card); color: var(--text); outline: none;
-  }
-  .search input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
-  .search svg { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--sub); }
-  .groups { display: grid; gap: 22px; }
-  @media (min-width: 680px) { .groups { grid-template-columns: 1fr 1fr; align-items: start; } .groups .g-wide { grid-column: 1 / -1; } }
-  .group h3 { font-size: 14px; color: var(--sub); font-weight: 700; margin: 0 0 8px 4px; }
-  .list { background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
-  .list a { display: flex; align-items: center; gap: 14px; padding: 14px 16px; color: var(--text); text-decoration: none; }
-  .list a + a { border-top: 1px solid var(--line); }
-  .list a:hover { background: var(--seg); }
-  .ico { flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--seg); display: grid; place-items: center; font-size: 20px; }
-  .list .t { flex: 1; min-width: 0; }
-  .list .t b { display: block; font-size: 16px; letter-spacing: -0.02em; }
-  .list .t span { display: block; font-size: 13px; color: var(--sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .list .chev { color: var(--sub); font-size: 20px; line-height: 1; }
-  .empty { display: none; text-align: center; color: var(--sub); padding: 28px 16px; background: var(--card); border: 1px dashed var(--line); border-radius: 18px; }
-  .empty a { color: var(--accent); }
+  /* 인사말 + 검색 */
+  .greet { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 18px; }
+  .greet h1 { font-size: 30px; font-weight: 700; margin: 0; letter-spacing: -0.02em; line-height: 1.3; }
+  .greet p { margin: 6px 0 0; color: var(--sub); font-size: 15px; }
+  .search { position: relative; width: 320px; flex: none; }
+  .search input { width: 100%; font: inherit; font-size: 15px; padding: 12px 18px 12px 42px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: var(--text); outline: none; }
+  .search input:focus { border-color: var(--navy); box-shadow: 0 0 0 4px var(--navy-soft); }
+  .search svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 17px; height: 17px; color: var(--dim); }
+  .results { position: absolute; left: 0; right: 0; top: calc(100% + 8px); background: var(--card); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 16px 40px rgba(28,34,48,.12); padding: 6px; z-index: 10; display: none; }
+  .results.show { display: block; }
+  .results a { display: flex; justify-content: space-between; gap: 12px; padding: 11px 14px; border-radius: 12px; font-size: 15px; }
+  .results a:hover, .results a:focus { background: var(--seg); outline: none; }
+  .results a span { color: var(--sub); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .results p { margin: 10px 14px; color: var(--sub); font-size: 14px; }
+  .results p a { display: inline; padding: 0; text-decoration: underline; }
+
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 26px; }
+  .chips a { font-size: 14px; color: var(--sub); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; background: var(--card); }
+  .chips a:hover { color: var(--text); border-color: var(--navy); }
+
+  .grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 22px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 30px 32px; }
+  .eyebrow { font-size: 12.5px; color: var(--sub); letter-spacing: .06em; font-weight: 600; }
+  .gold-dot::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-right: 8px; transform: translateY(-2px); }
+
+  /* 연봉 실수령액 */
+  .hero { display: grid; grid-template-columns: 1fr 190px; gap: 28px; }
+  .hero .input { margin: 16px 0 2px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .hero .input b { font-size: 22px; font-weight: 600; }
+  .hero .input span { font-size: 13px; color: var(--sub); }
+  input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 28px; background: transparent; margin: 8px 0 0; cursor: pointer; }
+  input[type=range]::-webkit-slider-runnable-track { height: 4px; border-radius: 2px; background: linear-gradient(90deg, var(--navy) var(--p, 38%), var(--line) var(--p, 38%)); }
+  input[type=range]::-moz-range-track { height: 4px; border-radius: 2px; background: var(--line); }
+  input[type=range]::-moz-range-progress { height: 4px; border-radius: 2px; background: var(--navy); }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -9px; border-radius: 50%; background: var(--card); border: 2px solid var(--navy); box-shadow: 0 1px 4px rgba(0,0,0,.15); }
+  input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--card); border: 2px solid var(--navy); }
+  input[type=range]:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 4px; }
+  .ticks { display: flex; justify-content: space-between; font-size: 12px; color: var(--dim); }
+  .result { margin-top: 26px; }
+  .big { font-size: 60px; font-weight: 700; line-height: 1.05; margin: 8px 0; letter-spacing: -0.03em; color: var(--navy); }
+  .big small { font-size: 22px; font-weight: 500; color: var(--sub); margin-left: 4px; }
+  .muted { color: var(--sub); font-size: 14.5px; }
+  .rows { margin-top: 24px; display: grid; gap: 13px; }
+  .row { display: grid; grid-template-columns: 84px 1fr 84px; align-items: center; gap: 14px; font-size: 14px; color: var(--sub); }
+  .row .track { height: 4px; background: var(--navy-soft); border-radius: 2px; overflow: hidden; }
+  .row .track b { display: block; height: 100%; background: var(--navy); border-radius: 2px; transition: width .25s; }
+  .row .v { text-align: right; color: var(--text); }
+  .more { display: inline-block; margin-top: 22px; font-size: 14px; color: var(--navy); font-weight: 600; }
+  .ring { display: grid; place-items: center; align-content: center; gap: 14px; text-align: center; }
+  .ring svg { width: 180px; height: 180px; }
+  .ring svg .bg { stroke: var(--ring-bg); }
+  .ring svg .fg { stroke: var(--navy); transition: stroke-dasharray .3s; }
+  .ring svg .t1 { fill: var(--text); }
+  .ring svg .t2 { fill: var(--sub); }
+  .ring p { margin: 0; font-size: 13px; color: var(--sub); line-height: 1.5; }
+
+  /* 오늘의 숫자 */
+  .today h2 { font-size: 16px; font-weight: 600; margin: 0; display: flex; justify-content: space-between; align-items: baseline; }
+  .today h2 span { font-size: 13px; font-weight: 500; color: var(--sub); }
+  .stat { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 19px 0; border-top: 1px solid var(--line); }
+  .today h2 + .stat { border-top: 0; margin-top: 4px; }
+  .stat .k { font-size: 14px; color: var(--sub); }
+  .stat .k em { display: block; font-style: normal; font-size: 12.5px; color: var(--dim); margin-top: 3px; }
+  .stat .v { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; text-align: right; white-space: nowrap; }
+  .stat .v small { font-size: 14px; font-weight: 500; color: var(--sub); margin-left: 2px; }
+  .stat .v.gold { color: var(--gold); }
+  a.stat:hover .k { color: var(--text); }
+
+  /* 자주 쓰는 계산 */
+  .sec-head { display: flex; justify-content: space-between; align-items: baseline; margin: 46px 4px 16px; }
+  .sec-head h2 { font-size: 19px; font-weight: 700; margin: 0; }
+  .sec-head a { font-size: 14px; color: var(--sub); }
+  .quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .q { padding: 24px 26px; display: flex; flex-direction: column; gap: 6px; min-height: 148px; transition: border-color .2s, transform .2s; }
+  .q:hover { border-color: var(--navy); transform: translateY(-2px); }
+  .q .name { font-size: 15px; font-weight: 600; }
+  .q .val { margin-top: auto; font-size: 24px; font-weight: 700; color: var(--navy); letter-spacing: -0.02em; }
+
+  /* 모든 계산기 */
+  .groups { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .group { scroll-margin-top: 80px; min-width: 0; }
+  .grid > *, .quick > *, .guides > * { min-width: 0; }
+  .group h3 { font-size: 13px; color: var(--sub); font-weight: 600; letter-spacing: .06em; margin: 0 0 6px; }
+  .group a { display: block; padding: 11px 0; border-top: 1px solid var(--line); }
+  .group a .nm { display: block; font-size: 15px; font-weight: 500; }
+  .group a .ds { display: block; font-size: 12.5px; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .group a:hover .nm { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
 
   /* 가이드 */
-  .guides a { display: block; padding: 14px 18px; }
-  .guides a b { font-size: 15px; letter-spacing: -0.02em; }
+  .guides { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+  .guides a { padding: 13px 0; border-top: 1px solid var(--line); font-size: 15px; }
+  .guides a:hover { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
 
-  .foot { text-align: center; font-size: 13px; color: var(--sub); margin-top: 48px; line-height: 2; }
-  .foot a { color: inherit; }
+  .foot { text-align: center; font-size: 13px; color: var(--dim); margin-top: 56px; line-height: 2; }
   .foot p { margin: 0; }
+
+  @media (max-width: 1000px) {
+    .grid { grid-template-columns: 1fr; }
+    .quick { grid-template-columns: 1fr 1fr; }
+    .groups { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 720px) {
+    .site-head .in { padding: 0 16px; }
+    main.home, .site-head ~ main.home { padding: 22px 16px 60px; }
+    .greet { display: block; }
+    .greet h1 { font-size: 24px; }
+    .search { width: auto; margin-top: 16px; }
+    .chips { margin-bottom: 20px; }
+    .hero { grid-template-columns: 1fr; }
+    .card { padding: 24px 22px; border-radius: 20px; }
+    .hero .input { flex-direction: column; gap: 2px; }
+    .big { font-size: 44px; } .big small { font-size: 18px; }
+    .ring { grid-template-columns: 110px 1fr; text-align: left; justify-items: start; }
+    .ring svg { width: 110px; height: 110px; }
+    .stat .v { font-size: 23px; }
+    .quick { gap: 12px; }
+    .q { min-height: 128px; padding: 18px; } .q .name { font-size: 13.5px; } .q .val { font-size: 19px; }
+    .groups { gap: 20px 18px; }
+    .guides { grid-template-columns: 1fr; }
+  }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20261024a">
 </head>
 <body>
 <header class="site-head">
@@ -96,85 +195,105 @@
   </div>
 </header>
 
-<main>
-  <section class="hero">
-    <h1>숫자만 넣으면<br>바로 계산돼요</h1>
-    <p>월급, 퇴사, 세금처럼 복잡한 계산을 무료로, 가입 없이.</p>
+<main class="home">
+  <div class="greet">
+    <div>
+      <h1>오늘 필요한 계산, 차분하게.</h1>
+      <p>2026년 기준으로 확인한 생활 계산기 20개를 모았어요. 숫자만 넣으면 바로, 무료로.</p>
+    </div>
+    <div class="search" role="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="무엇을 계산할까요? 예: 퇴직금, 이자" autocomplete="off" aria-label="계산기 찾기" aria-controls="results">
+      <div class="results" id="results" role="listbox"></div>
+    </div>
+  </div>
+  <nav class="chips" aria-label="계산기 묶음"><a href="#g-pay">월급·세금</a><a href="#g-quit">휴직·퇴사</a><a href="#g-money">저축·대출·집</a><a href="#g-life">생활</a><a href="/guide/">가이드</a></nav>
+
+  <div class="grid">
+    <section class="card hero" aria-labelledby="heroTitle">
+      <div>
+        <span class="eyebrow gold-dot" id="heroTitle">연봉 실수령액</span>
+        <div class="input"><b class="num" id="salText">연봉 4,000만 원</b><span>부양가족 1명 · 식대 비과세 월 20만 원</span></div>
+        <input type="range" id="sal" min="2000" max="10000" step="100" value="4000" aria-label="연봉 (만 원)">
+        <div class="ticks num"><span>2,000만</span><span>4,000만</span><span>6,000만</span><span>8,000만</span><span>1억</span></div>
+        <div class="result">
+          <span class="eyebrow">매달 받는 돈</span>
+          <div class="big num" id="net" aria-live="polite">0<small>원</small></div>
+          <div class="muted num" id="netSub"></div>
+        </div>
+        <div class="rows num" id="rows"></div>
+        <a class="more" id="salLink" href="/salary/">부양가족·비과세까지 넣어 자세히 계산하기 →</a>
+      </div>
+      <div class="ring">
+        <svg viewBox="0 0 180 180" aria-hidden="true">
+          <circle class="bg" cx="90" cy="90" r="78" fill="none" stroke-width="6"/>
+          <circle class="fg" id="ringFg" cx="90" cy="90" r="78" fill="none" stroke-width="6" stroke-linecap="round" stroke-dasharray="0 490" transform="rotate(-90 90 90)"/>
+          <circle cx="90" cy="12" r="4" fill="var(--gold)"/>
+          <text class="t1 num" id="ringNum" x="90" y="96" text-anchor="middle" font-size="34" font-weight="700" font-family="Pretendard">0%</text>
+          <text class="t2" x="90" y="118" text-anchor="middle" font-size="12" font-family="Pretendard">실수령 비율</text>
+        </svg>
+        <p id="ringText"></p>
+      </div>
+    </section>
+
+    <section class="card today" aria-labelledby="todayTitle">
+      <h2 id="todayTitle">오늘의 숫자 <span id="todayDate"></span></h2>
+      <div id="stats"></div>
+    </section>
+  </div>
+
+  <div class="sec-head"><h2>자주 쓰는 계산</h2><a href="#tools">전체 보기 →</a></div>
+  <div class="quick" id="quick"></div>
+
+  <section id="tools">
+    <div class="sec-head"><h2>모든 계산기</h2><a href="/guide/">가이드 보기 →</a></div>
+    <div class="groups">
+      <div class="group" id="g-pay">
+        <h3>월급·세금</h3>
+        <a href="/salary/" data-k="연봉 계산기 연봉 실수령액 월급 세후 4대보험 소득세"><span class="nm">연봉 실수령액</span><span class="ds">4대보험·세금 빼고 매달 받는 돈</span></a>
+        <a href="/hourly/" data-k="시급 계산기 알바 아르바이트 시급 주휴수당 최저임금 월급"><span class="nm">알바 월급·주휴수당</span><span class="ds">2026 최저시급 10,320원 기준</span></a>
+        <a href="/yearend/" data-k="연말정산 환급 13월의 월급 세금 공제 연금저축 irp"><span class="nm">연말정산</span><span class="ds">올해 환급액 미리 계산</span></a>
+        <a href="/leave/" data-k="연차 휴가 연차수당 입사일"><span class="nm">연차</span><span class="ds">연차 개수와 연차수당</span></a>
+        <a href="/vat/" data-k="부가세 계산기 부가가치세 10% 공급가액 합계 세금계산서 vat 사업자"><span class="nm">부가세</span><span class="ds">부가세 10% 더하기·나누기</span></a>
+      </div>
+      <div class="group" id="g-quit">
+        <h3>휴직·퇴사</h3>
+        <a href="/parental/" data-k="육아휴직 급여 육휴 출산 아빠 엄마 6+6 부모육아휴직"><span class="nm">육아휴직 급여</span><span class="ds">월별 지급액, 6+6 부모육아휴직제</span></a>
+        <a href="/severance/" data-k="퇴직금 퇴직 평균임금 퇴직소득세 퇴사"><span class="nm">퇴직금</span><span class="ds">퇴직금과 퇴직소득세</span></a>
+        <a href="/unemployment/" data-k="실업급여 구직급여 실업 퇴사 고용보험"><span class="nm">실업급여</span><span class="ds">하루 금액, 받는 기간, 총액</span></a>
+      </div>
+      <div class="group" id="g-money">
+        <h3>저축·대출·집</h3>
+        <a href="/savings/" data-k="이자 계산기 예금 적금 이자 만기 수령액 세후 이자소득세 15.4 단리 복리 비과세 청년도약"><span class="nm">예금·적금 이자</span><span class="ds">세후 이자와 만기에 받는 돈</span></a>
+        <a href="/loan/" data-k="대출 이자 원리금균등 원금균등 만기일시 주택담보 신용대출 전세대출"><span class="nm">대출 이자</span><span class="ds">상환 방식별 월 상환금과 총이자 비교</span></a>
+        <a href="/subscription/" data-k="청약 가점 청약통장 무주택 부양가족 아파트 분양 84점"><span class="nm">청약 가점</span><span class="ds">무주택기간·부양가족·통장 84점 만점</span></a>
+        <a href="/brokerage/" data-k="복비 중개수수료 중개보수 부동산 공인중개사 매매 전세 월세 요율 이사"><span class="nm">중개수수료(복비)</span><span class="ds">매매·전세·월세 상한요율로 최대 금액</span></a>
+        <a href="/rent/" data-k="전월세 전환 전세 월세 전환율 보증금 임대차 갱신"><span class="nm">전월세 전환</span><span class="ds">전세↔월세 금액과 법정 전환율</span></a>
+        <a href="/area/" data-k="평수 평 제곱미터 ㎡ m2 면적 아파트 평형 전용면적"><span class="nm">평수</span><span class="ds">평 ↔ ㎡ 변환, 아파트 평형</span></a>
+      </div>
+      <div class="group" id="g-life">
+        <h3>생활</h3>
+        <a href="/percent/" data-k="퍼센트 계산기 % 비율 증감률 할인율 인상률 몇 퍼센트 백분율"><span class="nm">퍼센트</span><span class="ds">% 구하기, 비율, 증감률, 할인·인상</span></a>
+        <a href="/date/" data-k="날짜 계산기 며칠 일수 날짜 차이 평일 수 날짜 더하기 개월 뒤"><span class="nm">날짜 계산</span><span class="ds">두 날짜 사이 며칠, N일·N개월 뒤</span></a>
+        <a href="/time/" data-k="시간 계산기 근무시간 시간 차이 시간 더하기 분 변환 출퇴근"><span class="nm">시간 계산</span><span class="ds">근무시간, 시간 합계, 분↔시간 변환</span></a>
+        <a href="/age/" data-k="나이 계산기 만 나이 연 나이 생일 띠 별자리"><span class="nm">만 나이</span><span class="ds">만 나이·연 나이와 다음 생일</span></a>
+        <a href="/dday/" data-k="디데이 d-day 수능 수능디데이 기념일 100일 전역일 군대 복무"><span class="nm">D-day·전역일</span><span class="ds">수능 D-day, 100일 기념일, 전역일과 복무율</span></a>
+        <a href="/count/" data-k="글자수 세기 자기소개서 자소서 바이트 공백"><span class="nm">글자수 세기</span><span class="ds">자기소개서 글자수, 공백 포함·제외, 바이트</span></a>
+      </div>
+    </div>
   </section>
 
-
-  <section class="sec" id="tools">
-    <div class="sec-head"><h2>계산기</h2></div>
-    <div class="search">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="q" type="search" placeholder="무엇을 계산할까요? 예: 퇴직금, 주휴수당" autocomplete="off" aria-label="계산기 찾기">
-    </div>
-    <div class="groups" id="groups">
-      <div class="group">
-        <h3>월급 받을 때</h3>
-        <div class="list">
-          <a href="/salary/" data-k="연봉 계산기 연봉 실수령액 월급 세후 4대보험 소득세"><span class="ico">💰</span><span class="t"><b>연봉 실수령액</b><span>4대보험·세금 빼고 매달 받는 돈</span></span><span class="chev">›</span></a>
-          <a href="/hourly/" data-k="시급 계산기 알바 아르바이트 시급 주휴수당 최저임금 월급"><span class="ico">⏰</span><span class="t"><b>알바 월급·주휴수당</b><span>2026 최저시급 10,320원 기준</span></span><span class="chev">›</span></a>
-          <a href="/yearend/" data-k="연말정산 환급 13월의 월급 세금 공제 연금저축 irp"><span class="ico">💸</span><span class="t"><b>연말정산</b><span>올해 환급액 미리 계산</span></span><span class="chev">›</span></a>
-          <a href="/leave/" data-k="연차 휴가 연차수당 입사일"><span class="ico">🌴</span><span class="t"><b>연차</b><span>연차 개수와 연차수당</span></span><span class="chev">›</span></a>
-        </div>
-      </div>
-      <div class="group">
-        <h3>휴직·퇴사할 때</h3>
-        <div class="list">
-          <a href="/parental/" data-k="육아휴직 급여 육휴 출산 아빠 엄마 6+6 부모육아휴직"><span class="ico">👶</span><span class="t"><b>육아휴직 급여</b><span>월별 지급액, 6+6 부모육아휴직제</span></span><span class="chev">›</span></a>
-          <a href="/severance/" data-k="퇴직금 퇴직 평균임금 퇴직소득세 퇴사"><span class="ico">🧾</span><span class="t"><b>퇴직금</b><span>퇴직금과 퇴직소득세</span></span><span class="chev">›</span></a>
-          <a href="/unemployment/" data-k="실업급여 구직급여 실업 퇴사 고용보험"><span class="ico">📋</span><span class="t"><b>실업급여</b><span>하루 금액, 받는 기간, 총액</span></span><span class="chev">›</span></a>
-        </div>
-      </div>
-      <div class="group">
-        <h3>돈 모으고 빌릴 때</h3>
-        <div class="list">
-          <a href="/savings/" data-k="이자 계산기 예금 적금 이자 만기 수령액 세후 이자소득세 15.4 단리 복리 비과세 청년도약"><span class="ico">🐷</span><span class="t"><b>예금·적금 이자</b><span>세후 이자와 만기에 받는 돈</span></span><span class="chev">›</span></a>
-          <a href="/loan/" data-k="대출 이자 원리금균등 원금균등 만기일시 주택담보 신용대출 전세대출"><span class="ico">🏦</span><span class="t"><b>대출 이자</b><span>상환 방식별 월 상환금과 총이자 비교</span></span><span class="chev">›</span></a>
-        </div>
-      </div>
-      <div class="group">
-        <h3>집 구할 때</h3>
-        <div class="list">
-          <a href="/subscription/" data-k="청약 가점 청약통장 무주택 부양가족 아파트 분양 84점"><span class="ico">🏠</span><span class="t"><b>청약 가점</b><span>무주택기간·부양가족·통장 84점 만점</span></span><span class="chev">›</span></a>
-          <a href="/brokerage/" data-k="복비 중개수수료 중개보수 부동산 공인중개사 매매 전세 월세 요율 이사"><span class="ico">🤝</span><span class="t"><b>중개수수료(복비)</b><span>매매·전세·월세 상한요율로 최대 금액</span></span><span class="chev">›</span></a>
-          <a href="/rent/" data-k="전월세 전환 전세 월세 전환율 보증금 임대차 갱신"><span class="ico">🔑</span><span class="t"><b>전월세 전환</b><span>전세↔월세 금액과 법정 전환율</span></span><span class="chev">›</span></a>
-          <a href="/area/" data-k="평수 평 제곱미터 ㎡ m2 면적 아파트 평형 전용면적"><span class="ico">📐</span><span class="t"><b>평수</b><span>평 ↔ ㎡ 변환, 아파트 평형</span></span><span class="chev">›</span></a>
-        </div>
-      </div>
-      <div class="group">
-        <h3>생활 속 계산</h3>
-        <div class="list">
-          <a href="/percent/" data-k="퍼센트 계산기 % 비율 증감률 할인율 인상률 몇 퍼센트 백분율"><span class="ico">📊</span><span class="t"><b>퍼센트</b><span>% 구하기, 비율, 증감률, 할인·인상</span></span><span class="chev">›</span></a>
-          <a href="/date/" data-k="날짜 계산기 며칠 일수 날짜 차이 평일 수 날짜 더하기 개월 뒤"><span class="ico">🗓️</span><span class="t"><b>날짜 계산</b><span>두 날짜 사이 며칠, N일·N개월 뒤</span></span><span class="chev">›</span></a>
-          <a href="/time/" data-k="시간 계산기 근무시간 시간 차이 시간 더하기 분 변환 출퇴근"><span class="ico">⏱️</span><span class="t"><b>시간 계산</b><span>근무시간, 시간 합계, 분↔시간 변환</span></span><span class="chev">›</span></a>
-          <a href="/vat/" data-k="부가세 계산기 부가가치세 10% 공급가액 합계 세금계산서 vat 사업자"><span class="ico">🏷️</span><span class="t"><b>부가세</b><span>부가세 10% 더하기·나누기</span></span><span class="chev">›</span></a>
-          <a href="/age/" data-k="나이 계산기 만 나이 연 나이 생일 띠 별자리"><span class="ico">🎂</span><span class="t"><b>만 나이</b><span>만 나이·연 나이와 다음 생일</span></span><span class="chev">›</span></a>
-          <a href="/dday/" data-k="디데이 d-day 수능 수능디데이 기념일 100일 전역일 군대 복무"><span class="ico">📅</span><span class="t"><b>D-day·전역일</b><span>수능 D-day, 100일 기념일, 전역일과 복무율</span></span><span class="chev">›</span></a>
-          <a href="/count/" data-k="글자수 세기 자기소개서 자소서 바이트 공백"><span class="ico">📝</span><span class="t"><b>글자수 세기</b><span>자기소개서 글자수, 공백 포함·제외, 바이트</span></span><span class="chev">›</span></a>
-        </div>
-      </div>
-    </div>
-    <p class="empty" id="empty">찾는 계산기가 없어요. 필요한 계산기를 <a href="mailto:kdh7775@kakao.com">알려 주시면</a> 만들어 볼게요.</p>
-  </section>
-
-  <section class="sec">
-    <div class="sec-head"><h2>알아 두면 좋은 정보</h2><a href="/guide/">가이드 전체 보기</a></div>
-    <div class="list guides">
-      <a href="/guide/national-pension-guide/"><b>국민연금 수령액과 받는 나이: 2026 연금개혁으로 달라진 것</b></a>
-      <a href="/guide/how-to-calculate-percent/"><b>퍼센트 구하는 법: 비율·증감률·할인율 공식과 %와 %p 차이</b></a>
-      <a href="/guide/minimum-wage-2027/"><b>2027년 최저임금 10,700원 확정: 월급·주휴수당 계산표</b></a>
-      <a href="/guide/before-resignation-checklist/"><b>퇴사 전 꼭 챙길 돈 체크리스트: 연차수당 → 퇴직금 → 실업급여</b></a>
-      <a href="/guide/parental-leave-pay-2026/"><b>2026 육아휴직 급여 총정리: 월급별로 얼마 받을까</b></a>
-      <a href="/guide/jeonse-contract-checklist/"><b>전세 계약 체크리스트: 전세사기 피하는 9가지 확인 사항</b></a>
-      <a href="/guide/salary-table-2026/"><b>2026 연봉 실수령액 표: 연봉 2,400만 원부터 1억 5천만 원까지</b></a>
-      <a href="/guide/year-end-tax-2026/"><b>2026년 연말정산 달라지는 점과 환급 늘리는 7가지 방법</b></a>
-      <a href="/guide/pension-savings-vs-irp/"><b>연금저축 vs IRP 차이: 세액공제 한도와 고르는 법</b></a>
-      <a href="/guide/unemployment-benefit-2026/"><b>2026년 실업급여 조건·금액·신청 방법 총정리</b></a>
-      <a href="/guide/insurance-rates-2026/"><b>2026년 4대보험 요율 총정리: 국민연금 9.5%로 인상</b></a>
-      <a href="/guide/minimum-wage-2026/"><b>2026년 최저임금 10,320원: 월급·주휴수당 계산법</b></a>
-      <a href="/guide/severance-pay-guide/"><b>퇴직금 계산 방법 총정리</b></a>
+  <section>
+    <div class="sec-head"><h2>알아 두면 좋은 정보</h2><a href="/guide/">가이드 전체 보기 →</a></div>
+    <div class="guides">
+      <a href="/guide/national-pension-guide/">국민연금 수령액과 받는 나이: 2026 연금개혁으로 달라진 것</a>
+      <a href="/guide/how-to-calculate-percent/">퍼센트 구하는 법: 비율·증감률·할인율 공식과 %와 %p 차이</a>
+      <a href="/guide/minimum-wage-2027/">2027년 최저임금 10,700원 확정: 월급·주휴수당 계산표</a>
+      <a href="/guide/before-resignation-checklist/">퇴사 전 꼭 챙길 돈 체크리스트: 연차수당 → 퇴직금 → 실업급여</a>
+      <a href="/guide/parental-leave-pay-2026/">2026 육아휴직 급여 총정리: 월급별로 얼마 받을까</a>
+      <a href="/guide/jeonse-contract-checklist/">전세 계약 체크리스트: 전세사기 피하는 9가지 확인 사항</a>
+      <a href="/guide/salary-table-2026/">2026 연봉 실수령액 표: 연봉 2,400만 원부터 1억 5천만 원까지</a>
+      <a href="/guide/year-end-tax-2026/">2026년 연말정산 달라지는 점과 환급 늘리는 7가지 방법</a>
     </div>
   </section>
 
@@ -184,26 +303,138 @@
   </footer>
 </main>
 
+<script src="/assets/rates.js?v=20261026b"></script>
 <script>
 const $ = (id) => document.getElementById(id);
+const R = KR.R;
+const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
+const floor10 = (n) => Math.floor(n / 10) * 10;
+const man = (n) => { const e = Math.floor(n / 1e8), m = Math.round((n % 1e8) / 1e4); return ((e ? e + "억 " : "") + (m ? m.toLocaleString("ko-KR") + "만" : "")).trim() + " 원"; };
+// 오늘 날짜 (시험용: 주소 끝에 ?today=2027-01-20 처럼 붙이면 그날로 보여요)
+const today = (() => { const t = new URLSearchParams(location.search).get("today"); if (t && /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(t)) { const [y, m, d] = t.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d)); } const d = new Date(); return new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); })();
+const toDate = (s) => { const [y, m, d] = s.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d)); };
+const WEEK = ["일", "월", "화", "수", "목", "금", "토"];
 
-// ===== 계산기 찾기 =====
-$("q").addEventListener("input", (e) => {
-  const q = e.target.value.trim().toLowerCase().replace(/\s+/g, "");
-  let shown = 0;
-  document.querySelectorAll("#groups .group").forEach((g) => {
-    let n = 0;
-    g.querySelectorAll(".list a").forEach((a) => {
-      const hay = (a.textContent + " " + a.dataset.k).toLowerCase().replace(/\s+/g, "");
-      const ok = !q || hay.includes(q);
-      a.style.display = ok ? "" : "none";
-      if (ok) n++;
-    });
-    g.style.display = n ? "" : "none";
-    shown += n;
-  });
-  $("empty").style.display = shown ? "none" : "block";
+// ===== 연봉 실수령액 (salary/index.html 의 calc 와 같은 공식) =====
+function salaryNet(salary, nontaxMonthly = 200000, family = 1, kids = 0) {
+  const I = R.insurance;
+  const monthly = salary / 12;
+  const nontax = Math.min(nontaxMonthly, monthly);
+  const taxable = monthly - nontax;
+  const pension = taxable > 0 ? floor10(Math.min(Math.max(taxable, I.pensionMin), I.pensionMax) * I.pension) : 0;
+  const health = floor10(taxable * I.health);
+  const care = floor10(health * I.care);
+  const employ = floor10(taxable * I.employ);
+  const gross = taxable * 12;
+  const taxBase = Math.max(0, gross - KR.earnedDeduction(gross) - R.incomeTax.personal * family - pension * 12 - (health + care + employ) * 12);
+  const calculated = KR.baseTax(taxBase);
+  const yearTax = Math.max(0, calculated - KR.earnedTaxCredit(calculated, gross) - KR.childCredit(kids) - R.incomeTax.standardCredit);
+  const incomeTax = floor10(yearTax / 12);
+  const localTax = floor10(incomeTax * R.incomeTax.localRate);
+  const deductions = pension + health + care + employ + incomeTax + localTax;
+  return { monthly, pension, healthCare: health + care, employ, tax: incomeTax + localTax, deductions, net: monthly - deductions };
+}
+window.salaryNet = salaryNet;
+
+function renderSalary() {
+  const v = Number($("sal").value), salary = v * 1e4;
+  const r = salaryNet(salary);
+  $("sal").style.setProperty("--p", ((v - 2000) / 8000 * 100) + "%");
+  $("salText").textContent = `연봉 ${man(salary)}`;
+  $("net").innerHTML = `${Math.round(r.net).toLocaleString("ko-KR")}<small>원</small>`;
+  $("netSub").textContent = `세전 ${won(r.monthly)}에서 ${won(r.deductions)}이 빠져요`;
+  const items = [["국민연금", r.pension], ["건강·요양", r.healthCare], ["소득세", r.tax], ["고용보험", r.employ]];
+  const max = Math.max(...items.map(([, x]) => x)) || 1;
+  $("rows").innerHTML = items.map(([k, x], i) =>
+    `<div class="row"><span>${k}</span><div class="track"><b style="width:${x / max * 100}%;opacity:${1 - i * 0.2}"></b></div><span class="v">${x.toLocaleString("ko-KR")}</span></div>`).join("");
+  const ratio = r.net / r.monthly;
+  $("ringFg").setAttribute("stroke-dasharray", `${(ratio * 490).toFixed(1)} 490`);
+  $("ringNum").textContent = `${(ratio * 100).toFixed(1)}%`;
+  $("ringText").innerHTML = `세전 월급 100원 중<br>약 ${Math.round(ratio * 100)}원이 내 손에 남아요`;
+  $("salLink").href = `/salary/?salary=${salary}`;
+}
+$("sal").addEventListener("input", renderSalary);
+
+// ===== 오늘의 숫자 (rates.js 값과 오늘 날짜로 자동) =====
+function renderToday() {
+  $("todayDate").textContent = `${today.getUTCMonth() + 1}월 ${today.getUTCDate()}일 ${WEEK[today.getUTCDay()]}요일`;
+  const stats = [];
+  // 1) 가장 가까운 일정
+  const ev = (R.events || []).map(([d, name, note, href]) => ({ d: toDate(d), name, note, href })).filter((e) => e.d >= today).sort((a, b) => a.d - b.d)[0];
+  if (ev) {
+    const n = Math.round((ev.d - today) / 86400000);
+    const ds = `${ev.d.getUTCFullYear()}.${ev.d.getUTCMonth() + 1}.${ev.d.getUTCDate()} (${WEEK[ev.d.getUTCDay()]})`;
+    stats.push([ev.href, `${ev.name}까지`, `${ds} · ${ev.note}`, n === 0 ? "D-Day" : `D-${n}`, "", true]);
+  }
+  // 2) 최저시급: 내년 금액이 정해져 있고 아직 적용 전이면 내년 금액, 아니면 올해 금액
+  const nx = R.minWageNext;
+  if (nx && toDate(nx.from) > today) {
+    const up = nx.value - R.minWage;
+    stats.push(["/guide/minimum-wage-2027/", `${nx.year} 최저시급`, `1월 1일부터 · ${up.toLocaleString()}원(${(up / R.minWage * 100).toFixed(1)}%) 인상`, nx.value.toLocaleString("ko-KR"), "원"]);
+  } else {
+    const useNext = nx && toDate(nx.from) <= today && nx.year > R.year;   // rates.js를 아직 새해로 안 바꿨어도 맞게
+    const w = useNext ? nx.value : R.minWage, y = useNext ? nx.year : R.year;
+    stats.push(["/hourly/", `${y} 최저시급`, `주 40시간 월 ${(w * 209).toLocaleString("ko-KR")}원`, w.toLocaleString("ko-KR"), "원"]);
+  }
+  // 3) 기준금리
+  const cap = Math.min(R.rent.capMax, R.rent.baseRate + R.rent.capAdd);
+  stats.push(["/rent/", "기준금리", `${R.rent.baseRateDate} · 전월세 전환율 상한 ${cap.toFixed(1)}%`, R.rent.baseRate.toFixed(2), "%"]);
+  // 4) 실업급여 하루
+  const dmin = Math.floor(R.minWage * R.unemployment.minWageRatio * 8);
+  stats.push(["/unemployment/", "실업급여 하루 최대", `최소 ${dmin.toLocaleString("ko-KR")}원 · 세금 없음`, R.unemployment.dailyMax.toLocaleString("ko-KR"), "원"]);
+  $("stats").innerHTML = stats.map(([href, k, em, v, unit, gold]) =>
+    `<a class="stat" href="${href}"><span class="k">${k}<em>${em}</em></span><span class="v num${gold ? " gold" : ""}">${v}${unit ? `<small>${unit}</small>` : ""}</span></a>`).join("");
+}
+
+// ===== 자주 쓰는 계산 (rates.js 요율로 계산한 예시) =====
+function renderQuick() {
+  // 육아휴직: 월 350만 원 · 12개월 · 6+6
+  const PL = R.parentalLeave, wage = 3500000;
+  let pl = 0;
+  for (let m = 1; m <= 12; m++) {
+    let rate, cap;
+    if (m <= PL.sixSixCaps.length) { rate = 1; cap = PL.sixSixCaps[m - 1]; }
+    else for (const [upTo, r, c] of PL.tiers) if (upTo === null || m <= upTo) { rate = r; cap = c; break; }
+    pl += Math.max(Math.min(Math.floor(wage * rate), cap), PL.min);
+  }
+  // 적금: 월 50만 원 · 12개월 · 연 3.5% 단리, 일반과세
+  const TX = R.interestTax, it = Math.floor(500000 * 0.035 / 12 * 78);
+  const itax = floor10(it * TX.income), sv = 6000000 + it - itax - floor10(itax * TX.localRatio);
+  // 복비: 매매 5억 원
+  const B = R.brokerage, price = 5e8;
+  const [, br, bcap] = B.sale.find(([up]) => up === null || price < up);
+  const fee = bcap === null ? Math.floor(price * br) : Math.min(Math.floor(price * br), bcap);
+  const items = [
+    ["/severance/", "퇴직금", "3년 근무 · 월 350만 원", "약 1,050만 원"],
+    ["/parental/?wage=3500000&months=12&sixSix=1", "육아휴직", "12개월 · 6+6 적용 · 월 350만 원", man(pl)],
+    ["/savings/?monthly=500000&rate=3.5&months=12", "적금", "월 50만 · 1년 · 연 3.5%", won(sv)],
+    ["/brokerage/?price=500000000&_tab=sale", "복비", "매매 5억 원 · 상한요율", `최대 ${man(fee)}`],
+  ];
+  $("quick").innerHTML = items.map(([href, t, cond, v]) =>
+    `<a class="card q" href="${href}"><span class="eyebrow">${t}</span><span class="name">${cond}</span><span class="val num">${v}</span></a>`).join("");
+}
+
+// ===== 계산기 찾기 (검색창 아래에 바로 결과) =====
+const ALL = [...document.querySelectorAll(".group a")].map((a) => ({ href: a.getAttribute("href"), name: a.querySelector(".nm").textContent, desc: a.querySelector(".ds").textContent, hay: (a.textContent + " " + a.dataset.k).toLowerCase().replace(/\s+/g, "") }));
+function search() {
+  const q = $("q").value.trim().toLowerCase().replace(/\s+/g, "");
+  const box = $("results");
+  if (!q) { box.classList.remove("show"); box.innerHTML = ""; return; }
+  const hits = ALL.filter((x) => x.hay.includes(q)).slice(0, 8);
+  box.innerHTML = hits.length
+    ? hits.map((x) => `<a href="${x.href}" role="option">${x.name}<span>${x.desc}</span></a>`).join("")
+    : `<p>찾는 계산기가 없어요. <a href="mailto:kdh7775@kakao.com">알려 주시면</a> 만들어 볼게요.</p>`;
+  box.classList.add("show");
+}
+$("q").addEventListener("input", search);
+$("q").addEventListener("focus", search);
+$("q").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") { const first = $("results").querySelector("a[href]"); if (first) location.href = first.href; }
+  if (e.key === "Escape") { $("q").value = ""; search(); }
 });
+document.addEventListener("click", (e) => { if (!e.target.closest(".search")) $("results").classList.remove("show"); });
+
+renderSalary(); renderToday(); renderQuick();
 </script>
 </body>
 </html>
