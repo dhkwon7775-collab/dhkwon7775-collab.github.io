@@ -101,6 +101,26 @@
         ["/area/", "📐", "평수", "전용 84㎡는 몇 평?", null],
       ];
     },
+    "/percent/": () => [
+      ["/vat/", "🏷️", "부가세 계산", "금액에 부가세 10% 더하기·나누기", null],
+      ["/savings/", "🐷", "예금·적금 이자", "금리(%)로 만기에 받는 돈 계산", null],
+    ],
+    "/vat/": () => [
+      ["/percent/", "📊", "할인·인상 계산", "금액을 몇 % 내리거나 올리면", { a: money("amount"), b: 10, _tab: "apply" }],
+      ["/salary/", "💰", "연봉 실수령액", "월급에서 4대보험·세금 빼기", null],
+    ],
+    "/date/": () => [
+      ["/dday/", "📅", "D-day·기념일", "100일·1주년, 수능·전역일까지", null],
+      ["/age/", "🎂", "나이 계산", "생년월일로 만 나이", null],
+    ],
+    "/time/": () => {
+      const r = typeof window.calc === "object" && window.calc.workMinutes ? window.calc.workMinutes(val("from"), val("to"), dec("rest")) : null;
+      const h = r && isFinite(r.work) ? Math.round(r.work / 6) / 10 : 0;
+      return [
+        ["/hourly/", "⏰", "알바 월급·주휴수당", h ? `하루 ${h}시간 일하면 월급은?` : "시급으로 월급 계산", h ? { hours: h } : null],
+        ["/leave/", "🌴", "연차", "입사일로 연차 개수", null],
+      ];
+    },
     "/subscription/": () => [
       ["/loan/", "🏦", "주택담보대출 이자", "상환 방식별 월 상환금 비교", null],
       ["/area/", "📐", "평수", "전용 84㎡는 몇 평?", null],

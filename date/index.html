@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/date.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<title>날짜 계산기 | 두 날짜 사이 며칠·평일 수, 날짜 더하기·빼기</title>
+<meta name="description" content="날짜 계산기: 두 날짜 사이가 며칠인지(평일·주말 수, 몇 주·몇 개월), 오늘부터 며칠·몇 주·몇 개월 뒤가 언제인지 바로 계산해요. 시작일 포함 여부도 고를 수 있어요.">
+<meta property="og:title" content="날짜 계산기 (며칠 차이·날짜 더하기)">
+<meta property="og:description" content="두 날짜 사이 일수와 평일 수, N일·N개월 뒤 날짜를 바로 계산해요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/date/">
+<link rel="canonical" href="https://dohyun.co.kr/date/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"], input[type="time"], select { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 44px 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; }
+  input[type="date"], input[type="time"] { padding-right: 14px; font-size: 18px; }
+  select { font-size: 16px; padding-right: 14px; cursor: pointer; }
+  select option { color: #191f28; }
+  input:focus, select:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row2 > * { min-width: 0; }
+  input { min-width: 0; }
+  @media (max-width: 440px) { .row2.stack { grid-template-columns: 1fr; gap: 0; } }
+  .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+  .check small { display: block; font-weight: 400; font-size: 13px; color: var(--sub); }
+  .tabs { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .tabs button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 2px; background: transparent; color: var(--sub); cursor: pointer; line-height: 1.3; }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .seg { display: grid; grid-template-columns: repeat(2, 1fr); background: var(--seg); border-radius: 12px; padding: 4px; gap: 4px; }
+  .seg button { font: inherit; font-size: 14px; font-weight: 600; border: 0; border-radius: 9px; padding: 10px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; margin: 2px 0 4px; word-break: break-all; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 17px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 4px; border-top: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+  th { color: var(--sub); font-weight: 600; font-size: 12.5px; border-top: 0; }
+  th:first-child, td:first-child { text-align: left; }
+  tr.total td { font-weight: 700; border-top: 1.5px solid var(--line); }
+  h2.sec { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+  [hidden] { display: none !important; }
+  @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 13px; } }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261024a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/">가이드</a></nav>
+    <span class="lang"><a href="/date/" aria-current="true">한국어</a><a href="/en/" hreflang="en" lang="en">EN</a></span>
+  </div>
+</header>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>날짜 계산기</h1>
+  <p class="lead">두 날짜 사이가 며칠인지, 며칠 뒤가 언제인지 계산해요.</p>
+  <p class="verified">달력(양력) 기준 · 평일 수는 월~금으로 세고 공휴일은 빼지 않아요</p>
+
+  <div class="tabs" role="tablist" aria-label="계산 종류">
+    <button type="button" role="tab" data-tab="diff" aria-selected="true">두 날짜 사이</button>
+    <button type="button" role="tab" data-tab="add" aria-selected="false">날짜 더하기·빼기</button>
+  </div>
+
+  <section class="card" data-panel="diff">
+    <div class="row2 stack">
+      <div class="field"><label for="start">시작일</label><input id="start" type="date"></div>
+      <div class="field"><label for="end">종료일</label><input id="end" type="date"></div>
+    </div>
+    <div class="field">
+      <label class="check"><input type="checkbox" id="incl">
+        <span>시작일도 하루로 세기<small>기간·근무일처럼 첫날과 마지막 날을 모두 세면 체크하세요. (예: 1일~3일 = 3일)</small></span>
+      </label>
+    </div>
+  </section>
+
+  <section class="card" data-panel="add" hidden>
+    <div class="field"><label for="base">기준일</label><input id="base" type="date"></div>
+    <div class="row2">
+      <div class="field">
+        <label for="n">더할 값 (빼려면 −)</label>
+        <div class="input-wrap"><input id="n" type="text" inputmode="numeric" value="100" autocomplete="off"></div>
+      </div>
+      <div class="field">
+        <label for="unit">단위</label>
+        <select id="unit"><option value="d" selected>일</option><option value="w">주</option><option value="m">개월</option><option value="y">년</option></select>
+      </div>
+    </div>
+    <div class="quick">
+      <button type="button" data-add="30,d">30일</button><button type="button" data-add="100,d">100일</button>
+      <button type="button" data-add="1,y">1년</button><button type="button" data-add="-30,d">30일 전</button>
+    </div>
+    <div class="field" style="margin-top:14px">
+      <label class="check"><input type="checkbox" id="first1">
+        <span>기준일을 1일째로 세기<small>"사귄 날부터 100일"처럼 첫날을 1일로 세면 체크하세요. (일 단위만 적용)</small></span>
+      </label>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head" id="head"></p>
+    <p class="big" id="big">-</p>
+    <p class="sub-line" id="subLine"></p>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <section class="card faq">
+    <h2 class="sec">자주 묻는 질문</h2>
+    <details>
+      <summary>두 날짜 사이 일수는 어떻게 세나요?</summary>
+      <p>보통은 종료일 − 시작일로 세요. 10월 1일부터 10월 3일까지는 2일이에요. 계약 기간이나 휴가처럼 첫날도 세야 하면 '시작일도 하루로 세기'를 체크해서 3일로 계산하세요.</p>
+    </details>
+    <details>
+      <summary>100일은 어떻게 계산하나요?</summary>
+      <p>첫날을 1일로 세면 시작일 + 99일이 100일째예요. '기준일을 1일째로 세기'를 체크하고 100일을 더하면 돼요. 기념일은 D-day 계산기의 기념일 탭에서 한 번에 볼 수도 있어요.</p>
+    </details>
+    <details>
+      <summary>1월 31일에 1개월을 더하면?</summary>
+      <p>2월에는 31일이 없어서 그달 마지막 날(2월 28일 또는 29일)로 계산해요.</p>
+    </details>
+    <details>
+      <summary>평일 수에 공휴일도 빠지나요?</summary>
+      <p>아니요. 월~금요일을 모두 평일로 세요. 설·추석 같은 공휴일은 직접 빼 주세요.</p>
+    </details>
+  </section>
+
+  <section class="card more-calcs">
+    <h2>다른 계산기</h2>
+    <nav class="calc-grid" aria-label="다른 계산기">
+      <a href="/salary/"><span class="ico" aria-hidden="true">💰</span>연봉 실수령액</a>
+      <a href="/hourly/"><span class="ico" aria-hidden="true">⏰</span>알바 월급</a>
+      <a href="/yearend/"><span class="ico" aria-hidden="true">💸</span>연말정산</a>
+      <a href="/leave/"><span class="ico" aria-hidden="true">🌴</span>연차</a>
+      <a href="/parental/"><span class="ico" aria-hidden="true">👶</span>육아휴직 급여</a>
+      <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
+      <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/savings/"><span class="ico" aria-hidden="true">🐷</span>예금·적금 이자</a>
+      <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
+      <a href="/subscription/"><span class="ico" aria-hidden="true">🏠</span>청약 가점</a>
+      <a href="/brokerage/"><span class="ico" aria-hidden="true">🤝</span>복비</a>
+      <a href="/rent/"><span class="ico" aria-hidden="true">🔑</span>전월세 전환</a>
+      <a href="/area/"><span class="ico" aria-hidden="true">📐</span>평수</a>
+      <a href="/age/"><span class="ico" aria-hidden="true">🎂</span>만 나이</a>
+      <a href="/dday/"><span class="ico" aria-hidden="true">📅</span>D-day·전역일</a>
+      <a href="/count/"><span class="ico" aria-hidden="true">📝</span>글자수 세기</a>
+      <a href="/percent/"><span class="ico" aria-hidden="true">📊</span>퍼센트</a>
+      <a href="/time/"><span class="ico" aria-hidden="true">⏱️</span>시간 계산</a>
+      <a href="/vat/"><span class="ico" aria-hidden="true">🏷️</span>부가세</a>
+    </nav>
+  </section>
+
+  <footer>계산은 이 기기에서만 하고, 입력한 날짜는 저장하지 않아요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+// 숫자 입력: 쉼표·공백을 빼고 읽어요 (소수·음수 가능)
+const num = (s) => { const n = parseFloat(String(s).replace(/[^0-9.\-]/g, "")); return isFinite(n) ? n : NaN; };
+// 보기 좋게: 천 단위 쉼표, 소수는 최대 d자리
+const show = (n, d = 4) => isFinite(n) ? n.toLocaleString("ko-KR", { maximumFractionDigits: d }) : "-";
+let tab = document.querySelector('[data-tab][aria-selected="true"]')?.dataset.tab;
+function setTab(t) {
+  tab = t;
+  document.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === t));
+  document.querySelectorAll("[data-panel]").forEach((p) => (p.hidden = p.dataset.panel !== t));
+  if (typeof onTab === "function") onTab(t);
+  render();
+}
+document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
+
+const DAY = 86400000, WEEK = ["일", "월", "화", "수", "목", "금", "토"];
+const toDate = (s) => { if (!s) return null; const [y, m, d] = s.split("-").map(Number); return y && m && d ? new Date(Date.UTC(y, m - 1, d)) : null; };
+const iso = (d) => d.toISOString().slice(0, 10);
+const fmt = (d) => `${d.getUTCFullYear()}년 ${d.getUTCMonth() + 1}월 ${d.getUTCDate()}일 (${WEEK[d.getUTCDay()]})`;
+const today = () => { const n = new Date(); return new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate())); };
+function addMonths(d, n) {
+  const y = d.getUTCFullYear(), m = d.getUTCMonth() + n, day = d.getUTCDate();
+  const last = new Date(Date.UTC(y, m + 1, 0)).getUTCDate();
+  return new Date(Date.UTC(y, m, Math.min(day, last)));
+}
+// a~b 사이 (a 포함, b 미포함) 평일 수
+function weekdays(a, b) {
+  let n = 0;
+  for (let t = a.getTime(); t < b.getTime(); t += DAY) { const w = new Date(t).getUTCDay(); if (w !== 0 && w !== 6) n++; }
+  return n;
+}
+// 개월·일로 나누기
+function monthsDays(a, b) {
+  let m = (b.getUTCFullYear() - a.getUTCFullYear()) * 12 + b.getUTCMonth() - a.getUTCMonth();
+  if (addMonths(a, m) > b) m--;
+  return [m, Math.round((b - addMonths(a, m)) / DAY)];
+}
+function calcDiff(s, e, incl) {
+  let [a, b] = s <= e ? [s, e] : [e, s];
+  const days = Math.round((b - a) / DAY) + (incl ? 1 : 0);
+  const endEx = incl ? new Date(b.getTime() + DAY) : b;
+  const wd = weekdays(a, endEx);
+  const [mm, dd] = monthsDays(a, endEx);
+  return { days, weekdays: wd, weekend: days - wd, mm, dd, back: s > e };
+}
+function calcAdd(base, n, unit, first1) {
+  if (unit === "d") return new Date(base.getTime() + (n - (first1 && n > 0 ? 1 : 0)) * DAY);
+  if (unit === "w") return new Date(base.getTime() + n * 7 * DAY);
+  return addMonths(base, unit === "m" ? n : n * 12);
+}
+window.calc = { calcDiff, calcAdd };
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-add]");
+  if (!b) return;
+  const [n, u] = b.dataset.add.split(",");
+  $("n").value = n; $("unit").value = u; render();
+});
+(function init() {
+  const t = today();
+  $("start").value = iso(t); $("end").value = iso(new Date(Date.UTC(t.getUTCFullYear(), 11, 31)));
+  $("base").value = iso(t);
+})();
+function render() {
+  const rows = [];
+  if (tab === "diff") {
+    const s = toDate($("start").value), e = toDate($("end").value);
+    if (!s || !e) { $("big").textContent = "-"; $("subLine").textContent = "날짜를 넣어 주세요."; $("rows").innerHTML = ""; return; }
+    const r = calcDiff(s, e, $("incl").checked);
+    $("head").textContent = r.back ? "종료일이 시작일보다 앞서요. 거꾸로 세면" : ($("incl").checked ? "시작일 포함" : "두 날짜 사이");
+    $("big").textContent = `${r.days.toLocaleString()}일`;
+    $("subLine").textContent = `${fmt(s)} → ${fmt(e)}`;
+    rows.push(["평일 (월~금)", `${r.weekdays.toLocaleString()}일`], ["주말 (토·일)", `${r.weekend.toLocaleString()}일`],
+      ["주로 바꾸면", `${Math.floor(r.days / 7)}주 ${r.days % 7}일`], ["개월로 바꾸면", `${r.mm}개월 ${r.dd}일`],
+      ["시간으로 바꾸면", `${(r.days * 24).toLocaleString()}시간`]);
+  } else {
+    const base = toDate($("base").value), n = Math.trunc(num($("n").value));
+    if (!base || !isFinite(n)) { $("big").textContent = "-"; $("subLine").textContent = "기준일과 숫자를 넣어 주세요."; $("rows").innerHTML = ""; return; }
+    const unit = $("unit").value, d = calcAdd(base, n, unit, $("first1").checked);
+    const uName = { d: "일", w: "주", m: "개월", y: "년" }[unit];
+    $("head").textContent = `${fmt(base)}부터 ${Math.abs(n)}${uName} ${n < 0 ? "전" : "뒤"}`;
+    $("big").textContent = `${d.getUTCFullYear()}.${d.getUTCMonth() + 1}.${d.getUTCDate()} (${WEEK[d.getUTCDay()]})`;
+    $("subLine").textContent = unit === "d" && $("first1").checked && n > 0 ? `기준일을 1일째로 세서 ${n}일째 되는 날` : "";
+    const fromToday = Math.round((d - today()) / DAY);
+    rows.push(["오늘부터", fromToday > 0 ? `${fromToday}일 뒤 (D-${fromToday})` : fromToday === 0 ? "오늘 (D-Day)" : `${-fromToday}일 전`]);
+  }
+  $("rows").innerHTML = rows.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join("");
+}
+
+document.querySelector("main").addEventListener("input", (e) => { if (e.target.matches("input, select")) render(); });
+document.querySelector("main").addEventListener("change", (e) => { if (e.target.matches("input, select")) render(); });
+window.render = render;
+const h = location.hash.slice(1);
+if (h && document.querySelector(`[data-tab="${h}"]`)) setTab(h); else setTab(tab);
+</script>
+<script src="/assets/share.js?v=20261024a" defer></script>
+<script src="/assets/next.js?v=20261026a" defer></script>
+</body>
+</html>

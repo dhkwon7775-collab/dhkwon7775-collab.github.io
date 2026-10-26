@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#2563eb">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/time.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<title>시간 계산기 | 근무시간·시간 차이·시간 더하기·분 단위 변환</title>
+<meta name="description" content="시간 계산기: 출근·퇴근 시각으로 근무시간(휴게시간 빼기, 밤샘 근무 포함), 요일별 근무시간 합계, 분↔시간 변환을 바로 계산해요. 소수 시간(예: 7.5시간)도 같이 보여 줘요.">
+<meta property="og:title" content="시간 계산기 (근무시간·시간 합계·분 변환)">
+<meta property="og:description" content="출퇴근 시각으로 근무시간, 일주일 근무시간 합계, 분↔시간 변환을 계산해요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/time/">
+<link rel="canonical" href="https://dohyun.co.kr/time/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"], input[type="time"], select { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 44px 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; }
+  input[type="date"], input[type="time"] { padding-right: 14px; font-size: 18px; }
+  select { font-size: 16px; padding-right: 14px; cursor: pointer; }
+  select option { color: #191f28; }
+  input:focus, select:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row2 > * { min-width: 0; }
+  input { min-width: 0; }
+  @media (max-width: 440px) { .row2.stack { grid-template-columns: 1fr; gap: 0; } }
+  .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+  .check small { display: block; font-weight: 400; font-size: 13px; color: var(--sub); }
+  .tabs { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .tabs button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 2px; background: transparent; color: var(--sub); cursor: pointer; line-height: 1.3; }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .seg { display: grid; grid-template-columns: repeat(2, 1fr); background: var(--seg); border-radius: 12px; padding: 4px; gap: 4px; }
+  .seg button { font: inherit; font-size: 14px; font-weight: 600; border: 0; border-radius: 9px; padding: 10px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; margin: 2px 0 4px; word-break: break-all; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 17px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 4px; border-top: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+  th { color: var(--sub); font-weight: 600; font-size: 12.5px; border-top: 0; }
+  th:first-child, td:first-child { text-align: left; }
+  tr.total td { font-weight: 700; border-top: 1.5px solid var(--line); }
+  h2.sec { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+  [hidden] { display: none !important; }
+  @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 13px; } }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261024a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/">가이드</a></nav>
+    <span class="lang"><a href="/time/" aria-current="true">한국어</a><a href="/en/" hreflang="en" lang="en">EN</a></span>
+  </div>
+</header>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>시간 계산기</h1>
+  <p class="lead">몇 시부터 몇 시까지 몇 시간인지, 여러 시간을 더하면 모두 몇 시간인지 계산해요.</p>
+  <p class="verified">자정을 넘는 근무도 계산 · 1시간 = 60분, 소수 시간은 분 ÷ 60</p>
+
+  <div class="tabs" role="tablist" aria-label="계산 종류" style="--n:3">
+    <button type="button" role="tab" data-tab="diff" aria-selected="true">시간 차이<br>(근무시간)</button>
+    <button type="button" role="tab" data-tab="sum" aria-selected="false">시간<br>더하기</button>
+    <button type="button" role="tab" data-tab="conv" aria-selected="false">분·시간<br>변환</button>
+  </div>
+
+  <section class="card" data-panel="diff">
+    <div class="row2 stack">
+      <div class="field"><label for="from">시작 (출근)</label><input id="from" type="time" value="09:00"></div>
+      <div class="field"><label for="to">끝 (퇴근)</label><input id="to" type="time" value="18:00"></div>
+    </div>
+    <div class="field">
+      <label for="rest">휴게시간</label>
+      <div class="input-wrap"><input id="rest" type="text" inputmode="numeric" value="60" autocomplete="off"><span class="unit">분</span></div>
+      <div class="quick">
+        <button type="button" data-rest="0">없음</button><button type="button" data-rest="30">30분</button><button type="button" data-rest="60">1시간</button><button type="button" data-rest="90">1시간 30분</button>
+      </div>
+      <div class="hint">법으로 4시간 일하면 30분, 8시간 일하면 1시간 이상 쉬는 시간을 줘야 해요.</div>
+    </div>
+  </section>
+
+  <section class="card" data-panel="sum" hidden>
+    <p class="hint" style="margin:0 0 12px">요일별 근무시간처럼 여러 시간을 더해요. 비워 둔 칸은 0으로 봐요.</p>
+    <table class="sum-table">
+      <thead><tr><th>칸</th><th style="text-align:left">시간</th><th style="text-align:left">분</th></tr></thead>
+      <tbody id="sumRows"></tbody>
+    </table>
+  </section>
+
+  <section class="card" data-panel="conv" hidden>
+    <div class="row2">
+      <div class="field">
+        <label for="cv">값</label>
+        <div class="input-wrap"><input id="cv" type="text" inputmode="decimal" value="150" autocomplete="off"></div>
+      </div>
+      <div class="field">
+        <label for="cu">단위</label>
+        <select id="cu"><option value="m" selected>분</option><option value="h">시간</option><option value="s">초</option><option value="d">일</option></select>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head" id="head"></p>
+    <p class="big" id="big">-</p>
+    <p class="sub-line" id="subLine"></p>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <section class="card faq">
+    <h2 class="sec">자주 묻는 질문</h2>
+    <details>
+      <summary>근무시간은 어떻게 계산하나요?</summary>
+      <p>퇴근 시각 − 출근 시각 − 휴게시간이에요. 9시에 출근해 18시에 퇴근하고 1시간 쉬면 8시간이에요. 22시에 출근해 다음 날 6시에 퇴근하는 밤샘 근무도 자동으로 8시간으로 계산해요.</p>
+    </details>
+    <details>
+      <summary>7시간 30분은 소수로 몇 시간인가요?</summary>
+      <p>분을 60으로 나눠요. 30분 ÷ 60 = 0.5라서 7.5시간이에요. 시급 × 7.5로 하루 급여를 계산할 수 있어요.</p>
+    </details>
+    <details>
+      <summary>일주일 근무시간 합계는 어떻게 내나요?</summary>
+      <p>'시간 더하기' 탭에서 요일별로 시간과 분을 넣으면 합계와 소수 시간이 나와요. 주 15시간 이상이면 주휴수당 대상이에요.</p>
+    </details>
+    <details>
+      <summary>1.2시간은 몇 분인가요?</summary>
+      <p>0.2 × 60 = 12분이라서 1시간 12분이에요. '분·시간 변환' 탭에서 시간 단위로 1.2를 넣어 보세요.</p>
+    </details>
+  </section>
+
+  <section class="card more-calcs">
+    <h2>다른 계산기</h2>
+    <nav class="calc-grid" aria-label="다른 계산기">
+      <a href="/salary/"><span class="ico" aria-hidden="true">💰</span>연봉 실수령액</a>
+      <a href="/hourly/"><span class="ico" aria-hidden="true">⏰</span>알바 월급</a>
+      <a href="/yearend/"><span class="ico" aria-hidden="true">💸</span>연말정산</a>
+      <a href="/leave/"><span class="ico" aria-hidden="true">🌴</span>연차</a>
+      <a href="/parental/"><span class="ico" aria-hidden="true">👶</span>육아휴직 급여</a>
+      <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
+      <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/savings/"><span class="ico" aria-hidden="true">🐷</span>예금·적금 이자</a>
+      <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
+      <a href="/subscription/"><span class="ico" aria-hidden="true">🏠</span>청약 가점</a>
+      <a href="/brokerage/"><span class="ico" aria-hidden="true">🤝</span>복비</a>
+      <a href="/rent/"><span class="ico" aria-hidden="true">🔑</span>전월세 전환</a>
+      <a href="/area/"><span class="ico" aria-hidden="true">📐</span>평수</a>
+      <a href="/age/"><span class="ico" aria-hidden="true">🎂</span>만 나이</a>
+      <a href="/dday/"><span class="ico" aria-hidden="true">📅</span>D-day·전역일</a>
+      <a href="/count/"><span class="ico" aria-hidden="true">📝</span>글자수 세기</a>
+      <a href="/percent/"><span class="ico" aria-hidden="true">📊</span>퍼센트</a>
+      <a href="/date/"><span class="ico" aria-hidden="true">🗓️</span>날짜 계산</a>
+      <a href="/vat/"><span class="ico" aria-hidden="true">🏷️</span>부가세</a>
+    </nav>
+  </section>
+
+  <footer>계산은 이 기기에서만 하고, 입력한 값은 저장하지 않아요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+// 숫자 입력: 쉼표·공백을 빼고 읽어요 (소수·음수 가능)
+const num = (s) => { const n = parseFloat(String(s).replace(/[^0-9.\-]/g, "")); return isFinite(n) ? n : NaN; };
+// 보기 좋게: 천 단위 쉼표, 소수는 최대 d자리
+const show = (n, d = 4) => isFinite(n) ? n.toLocaleString("ko-KR", { maximumFractionDigits: d }) : "-";
+let tab = document.querySelector('[data-tab][aria-selected="true"]')?.dataset.tab;
+function setTab(t) {
+  tab = t;
+  document.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === t));
+  document.querySelectorAll("[data-panel]").forEach((p) => (p.hidden = p.dataset.panel !== t));
+  if (typeof onTab === "function") onTab(t);
+  render();
+}
+document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
+
+const DAYS = ["월", "화", "수", "목", "금", "토", "일"];
+$("sumRows").innerHTML = DAYS.map((d, i) => `<tr><td>${d}</td>
+  <td><input id="h${i}" type="text" inputmode="numeric" value="${i < 5 ? 8 : ""}" autocomplete="off" style="font-size:16px;padding:8px 10px" aria-label="${d}요일 시간"></td>
+  <td><input id="m${i}" type="text" inputmode="numeric" value="" autocomplete="off" style="font-size:16px;padding:8px 10px" aria-label="${d}요일 분"></td></tr>`).join("");
+const hm = (min) => { const s = min < 0 ? "−" : ""; min = Math.abs(Math.round(min)); return `${s}${Math.floor(min / 60)}시간 ${min % 60}분`; };
+const toMin = (t) => { if (!t) return NaN; const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+function workMinutes(from, to, rest) {
+  let d = toMin(to) - toMin(from);
+  const overnight = d < 0;
+  if (d < 0) d += 1440;          // 자정을 넘으면 다음 날로
+  return { total: d, work: Math.max(0, d - (rest || 0)), overnight };
+}
+window.calc = { workMinutes };
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-rest]");
+  if (b) { $("rest").value = b.dataset.rest; render(); }
+});
+function render() {
+  const rows = [];
+  if (tab === "diff") {
+    const r = workMinutes($("from").value, $("to").value, num($("rest").value) || 0);
+    if (!isFinite(r.total)) { $("big").textContent = "-"; $("subLine").textContent = "시각을 넣어 주세요."; $("rows").innerHTML = ""; return; }
+    $("head").textContent = "실제 근무시간";
+    $("big").textContent = hm(r.work);
+    $("subLine").textContent = `${$("from").value} → ${$("to").value}${r.overnight ? " (다음 날)" : ""}, 휴게 ${num($("rest").value) || 0}분 제외`;
+    rows.push(["머문 시간 (휴게 포함)", hm(r.total)], ["소수 시간", `${show(r.work / 60, 2)}시간`], ["분으로", `${r.work.toLocaleString()}분`],
+      ["주 5일이면", `${hm(r.work * 5)} (${show(r.work * 5 / 60, 2)}시간)`]);
+    if (r.work > 480) rows.push(["8시간 넘는 연장근로", hm(r.work - 480)]);
+  } else if (tab === "sum") {
+    let total = 0, cnt = 0;
+    for (let i = 0; i < 7; i++) {
+      const m = (num($("h" + i).value) || 0) * 60 + (num($("m" + i).value) || 0);
+      total += m; if (m > 0) cnt++;
+    }
+    $("head").textContent = "모두 더하면";
+    $("big").textContent = hm(total);
+    $("subLine").textContent = `${show(total / 60, 2)}시간 · ${cnt}일 근무`;
+    rows.push(["분으로", `${total.toLocaleString()}분`], ["하루 평균", cnt ? hm(total / cnt) : "-"],
+      ["주휴수당", total >= 900 ? "받을 수 있어요 (주 15시간 이상)" : "주 15시간 미만이라 대상이 아니에요"]);
+    if (total > 2400) rows.push(["주 40시간 넘는 연장근로", hm(total - 2400)]);
+  } else {
+    const v = num($("cv").value), u = $("cu").value;
+    const sec = v * { s: 1, m: 60, h: 3600, d: 86400 }[u];
+    const name = { s: "초", m: "분", h: "시간", d: "일" }[u];
+    $("head").textContent = `${show(v)}${name}은(는)`;
+    const min = sec / 60;
+    $("big").textContent = isFinite(sec) ? (Math.abs(min) >= 60 ? hm(min) : `${show(min, 2)}분`) : "-";
+    $("subLine").textContent = "";
+    rows.push(["시간 (소수)", `${show(sec / 3600, 4)}시간`], ["분", `${show(min, 2)}분`], ["초", `${show(sec, 0)}초`], ["일", `${show(sec / 86400, 4)}일`]);
+  }
+  $("rows").innerHTML = rows.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join("");
+}
+
+document.querySelector("main").addEventListener("input", (e) => { if (e.target.matches("input, select")) render(); });
+document.querySelector("main").addEventListener("change", (e) => { if (e.target.matches("input, select")) render(); });
+window.render = render;
+const h = location.hash.slice(1);
+if (h && document.querySelector(`[data-tab="${h}"]`)) setTab(h); else setTab(tab);
+</script>
+<script src="/assets/share.js?v=20261024a" defer></script>
+<script src="/assets/next.js?v=20261026a" defer></script>
+</body>
+</html>
