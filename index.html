@@ -132,20 +132,15 @@
   .stat .v.gold { color: var(--gold); }
   a.stat:hover .k { color: var(--text); }
 
-  /* 자주 쓰는 계산 */
+  /* 섹션 제목 */
   .sec-head { display: flex; justify-content: space-between; align-items: baseline; margin: 46px 4px 16px; }
   .sec-head h2 { font-size: 19px; font-weight: 700; margin: 0; }
   .sec-head a { font-size: 14px; color: var(--sub); }
-  .quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-  .q { padding: 24px 26px; display: flex; flex-direction: column; gap: 6px; min-height: 148px; transition: border-color .2s, transform .2s; }
-  .q:hover { border-color: var(--navy); transform: translateY(-2px); }
-  .q .name { font-size: 15px; font-weight: 600; }
-  .q .val { margin-top: auto; font-size: 24px; font-weight: 700; color: var(--navy); letter-spacing: -0.02em; }
 
   /* 모든 계산기 */
   .groups { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
   .group { scroll-margin-top: 80px; min-width: 0; }
-  .grid > *, .quick > *, .guides > * { min-width: 0; }
+  .grid > *, .guides > * { min-width: 0; }
   .group h3 { font-size: 13px; color: var(--sub); font-weight: 600; letter-spacing: .06em; margin: 0 0 6px; }
   .group a { display: block; padding: 11px 0; border-top: 1px solid var(--line); }
   .group a .nm { display: block; font-size: 15px; font-weight: 500; }
@@ -162,7 +157,6 @@
 
   @media (max-width: 1000px) {
     .grid { grid-template-columns: 1fr; }
-    .quick { grid-template-columns: 1fr 1fr; }
     .groups { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 720px) {
@@ -179,8 +173,6 @@
     .ring { grid-template-columns: 110px 1fr; text-align: left; justify-items: start; }
     .ring svg { width: 110px; height: 110px; }
     .stat .v { font-size: 23px; }
-    .quick { gap: 12px; }
-    .q { min-height: 128px; padding: 18px; } .q .name { font-size: 13.5px; } .q .val { font-size: 19px; }
     .groups { gap: 20px 18px; }
     .guides { grid-template-columns: 1fr; }
   }
@@ -241,9 +233,6 @@
       <div id="stats"></div>
     </section>
   </div>
-
-  <div class="sec-head"><h2>자주 쓰는 계산</h2><a href="#tools">전체 보기 →</a></div>
-  <div class="quick" id="quick"></div>
 
   <section id="tools">
     <div class="sec-head"><h2>모든 계산기</h2><a href="/guide/">가이드 보기 →</a></div>
@@ -386,34 +375,6 @@ function renderToday() {
     `<a class="stat" href="${href}"><span class="k">${k}<em>${em}</em></span><span class="v num${gold ? " gold" : ""}">${v}${unit ? `<small>${unit}</small>` : ""}</span></a>`).join("");
 }
 
-// ===== 자주 쓰는 계산 (rates.js 요율로 계산한 예시) =====
-function renderQuick() {
-  // 육아휴직: 월 350만 원 · 12개월 · 6+6
-  const PL = R.parentalLeave, wage = 3500000;
-  let pl = 0;
-  for (let m = 1; m <= 12; m++) {
-    let rate, cap;
-    if (m <= PL.sixSixCaps.length) { rate = 1; cap = PL.sixSixCaps[m - 1]; }
-    else for (const [upTo, r, c] of PL.tiers) if (upTo === null || m <= upTo) { rate = r; cap = c; break; }
-    pl += Math.max(Math.min(Math.floor(wage * rate), cap), PL.min);
-  }
-  // 적금: 월 50만 원 · 12개월 · 연 3.5% 단리, 일반과세
-  const TX = R.interestTax, it = Math.floor(500000 * 0.035 / 12 * 78);
-  const itax = floor10(it * TX.income), sv = 6000000 + it - itax - floor10(itax * TX.localRatio);
-  // 복비: 매매 5억 원
-  const B = R.brokerage, price = 5e8;
-  const [, br, bcap] = B.sale.find(([up]) => up === null || price < up);
-  const fee = bcap === null ? Math.floor(price * br) : Math.min(Math.floor(price * br), bcap);
-  const items = [
-    ["/severance/", "퇴직금", "3년 근무 · 월 350만 원", "약 1,050만 원"],
-    ["/parental/?wage=3500000&months=12&sixSix=1", "육아휴직", "12개월 · 6+6 적용 · 월 350만 원", man(pl)],
-    ["/savings/?monthly=500000&rate=3.5&months=12", "적금", "월 50만 · 1년 · 연 3.5%", won(sv)],
-    ["/brokerage/?price=500000000&_tab=sale", "복비", "매매 5억 원 · 상한요율", `최대 ${man(fee)}`],
-  ];
-  $("quick").innerHTML = items.map(([href, t, cond, v]) =>
-    `<a class="card q" href="${href}"><span class="eyebrow">${t}</span><span class="name">${cond}</span><span class="val num">${v}</span></a>`).join("");
-}
-
 // ===== 계산기 찾기 (검색창 아래에 바로 결과) =====
 const ALL = [...document.querySelectorAll(".group a")].map((a) => ({ href: a.getAttribute("href"), name: a.querySelector(".nm").textContent, desc: a.querySelector(".ds").textContent, hay: (a.textContent + " " + a.dataset.k).toLowerCase().replace(/\s+/g, "") }));
 function search() {
@@ -434,7 +395,7 @@ $("q").addEventListener("keydown", (e) => {
 });
 document.addEventListener("click", (e) => { if (!e.target.closest(".search")) $("results").classList.remove("show"); });
 
-renderSalary(); renderToday(); renderQuick();
+renderSalary(); renderToday();
 </script>
 </body>
 </html>
