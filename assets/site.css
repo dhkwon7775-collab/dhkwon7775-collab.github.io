@@ -1,33 +1,39 @@
 /* 사이트 공통 디자인: 각 페이지의 기본 스타일 뒤에 불러와서 색·글꼴·상단 메뉴를 통일해요 */
 
 :root {
-  --bg: #f2f4f7;
-  --card: #ffffff;
-  --text: #16213a;
-  --sub: #5d6778;
-  --line: #e4e8ee;
-  --accent: #2563eb;
-  --accent-strong: #1d4fd8;
-  --accent-soft: #eaf1fe;
-  --seg: #eef1f5;
-  --minus: #e0464e;
-  --plus: #0f9d6b;
-  --focus: #2563eb;
+  --bg: #f6f4ef;          /* 따뜻한 아이보리 */
+  --card: #fffdf9;
+  --text: #1c2230;        /* 짙은 남색 글자 */
+  --sub: #6c717c;
+  --line: #e6e1d6;
+  --accent: #22304f;      /* 강조색: 짙은 남색 */
+  --accent-strong: #16203a;
+  --accent-soft: #eceef3;
+  --on-accent: #ffffff;   /* 강조색 바탕 위 글자 */
+  --brand: #22304f;       /* 로고 바탕 */
+  --gold: #b08d57;
+  --seg: #f0ece4;
+  --minus: #c2453d;
+  --plus: #2f8a5b;
+  --focus: #22304f;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0e1218;
-    --card: #171c24;
-    --text: #e9edf3;
-    --sub: #98a2b3;
-    --line: #262d38;
-    --accent: #5b8cff;
-    --accent-strong: #7aa2ff;
-    --accent-soft: #1a2640;
-    --seg: #1f2530;
-    --minus: #ff7077;
-    --plus: #3fd39a;
-    --focus: #7aa2ff;
+    --bg: #12151c;
+    --card: #191d26;
+    --text: #eceef2;
+    --sub: #9aa1ad;
+    --line: #2a2f3a;
+    --accent: #c9d4ee;
+    --accent-strong: #e1e7f6;
+    --accent-soft: #262c39;
+    --on-accent: #12151c;
+    --brand: #2f3b5c;
+    --gold: #cfae75;
+    --seg: #222733;
+    --minus: #ff7b74;
+    --plus: #4fcf95;
+    --focus: #c9d4ee;
   }
 }
 
@@ -72,6 +78,8 @@ body {
   white-space: nowrap;
 }
 .site-head .logo svg { width: 26px; height: 26px; display: block; }
+.site-head .logo svg rect:first-child { fill: var(--brand); }
+.site-head .logo { padding: 9px 0; }  /* 누르는 범위를 넓게 (높이 44px) */
 .site-head nav { display: flex; gap: 4px; }
 .site-head nav a {
   color: var(--sub);
@@ -86,14 +94,16 @@ body {
 
 /* 언어 바꾸기 (한국어 | EN) */
 .site-head .lang { display: flex; align-items: center; margin-left: 4px; padding: 2px; border: 1px solid var(--line); border-radius: 999px; }
-.site-head .lang a { padding: 4px 9px; font-size: 13px; font-weight: 700; border-radius: 999px; color: var(--sub); text-decoration: none; }
+.site-head .lang a { padding: 8px 11px; font-size: 13px; font-weight: 700; border-radius: 999px; color: var(--sub); text-decoration: none; }
 .site-head .lang a[aria-current="true"] { background: var(--seg); color: var(--text); }
 .site-head .lang a:hover { background: var(--seg); color: var(--text); }
 @media (max-width: 400px) {
-  .site-head .in { gap: 8px; }
+  .site-head .in { gap: 6px; }
   .site-head .logo { font-size: 15px; gap: 6px; }
-  .site-head nav a { padding: 8px 6px; font-size: 14px; }
-  .site-head .lang a { padding: 4px 7px; }
+  .site-head nav { gap: 0; }
+  .site-head nav a { padding: 8px 5px; font-size: 13.5px; }
+  .site-head .lang { margin-left: 0; }
+  .site-head .lang a { padding: 8px 7px; font-size: 12.5px; }
 }
 
 /* 계산기 페이지에서 상단 메뉴가 있으면 이전 '← 모음' 링크는 숨김 */
@@ -191,7 +201,7 @@ main .card > h2 { font-size: 17px; letter-spacing: -0.02em; margin: 0 0 12px; }
   background: var(--seg) !important;
   color: var(--text) !important;
   border-radius: 999px !important;
-  padding: 7px 13px !important;
+  padding: 9px 14px !important;
   font-weight: 600;
   transition: background .15s, color .15s;
 }
@@ -281,6 +291,17 @@ main .card details > summary { font-size: 15.5px; letter-spacing: -0.01em; }
 .link-list a + a { border-top: 1px solid var(--line); }
 .link-list a::after { content: "›"; color: var(--sub); font-size: 20px; line-height: 1; }
 .link-list a:hover { color: var(--accent); }
+
+/* 강조색 바탕 버튼의 글자색 (어두운 모드에서도 읽히게) */
+.cta, a.home, .tools button.primary { color: var(--on-accent) !important; }
+
+/* 결과 숫자 칸: 좁은 휴대폰에서 넘치지 않게 */
+.stat { min-width: 0; }
+.stat b { overflow-wrap: anywhere; }
+@media (max-width: 380px) { .stat b { font-size: 14.5px; } }
+
+/* 표: 좁은 화면에서는 긴 낱말도 줄을 바꿔 화면 안에 들어오게 */
+@media (max-width: 480px) { main th, main td { overflow-wrap: anywhere; } }
 
 /* 페이지 아래 안내 문구 */
 main > footer { line-height: 1.9; }
