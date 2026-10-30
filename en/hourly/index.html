@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f4ef">
+<title>Korea Hourly Wage Calculator 2026 | Part-time Pay & Weekly Holiday Pay (Juhyu Sudang)</title>
+<meta name="description" content="Calculate part-time pay in Korea: weekly holiday allowance (주휴수당), weekly and monthly pay from your hourly wage, hours and days. 2026 minimum wage ₩10,320, 2027 ₩10,700.">
+<meta property="og:title" content="Korea Hourly Wage Calculator 2026 | Part-time Pay & Weekly Holiday Pay (Juhyu Sudang)">
+<meta property="og:description" content="Calculate part-time pay in Korea: weekly holiday allowance (주휴수당), weekly and monthly pay from your hourly wage, hours and days. 2026 minimum wage ₩10,320, 2027 ₩10,700.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/en/hourly/">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/en-hourly.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Korea Calculators">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://dohyun.co.kr/en/hourly/">
+<link rel="alternate" hreflang="ko" href="https://dohyun.co.kr/hourly/">
+<link rel="alternate" hreflang="en" href="https://dohyun.co.kr/en/hourly/">
+<link rel="alternate" hreflang="x-default" href="https://dohyun.co.kr/hourly/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Segoe UI", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"] { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; color-scheme: light dark; }
+  .input-wrap input[type="text"] { padding-right: 56px; }
+  .input-wrap.pre input[type="text"] { padding-left: 34px; padding-right: 14px; }
+  input:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .pre .unit { left: 14px; right: auto; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 420px) { .row2 { grid-template-columns: 1fr; } }
+  .stepper { display: flex; align-items: center; gap: 10px; }
+  .stepper output { font-size: 18px; font-weight: 700; min-width: 40px; text-align: center; }
+  .modes { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .modes button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .modes button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  details.more { border-top: 1px solid var(--line); padding-top: 16px; margin-top: 4px; }
+  details.more summary { font-weight: 600; font-size: 14px; color: var(--accent); }
+  details.more .field:first-of-type { margin-top: 16px; }
+  [hidden] { display: none !important; }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; letter-spacing: -0.03em; margin: 2px 0 4px; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 18px; }
+  .warn, .flag { border-radius: 12px; padding: 12px 14px; font-size: 14px; margin: 0 0 14px; }
+  .warn { background: color-mix(in srgb, #f59f00 14%, transparent); color: #b25e09; display: none; }
+  .flag.ok { background: color-mix(in srgb, var(--plus) 12%, transparent); color: var(--plus); }
+  .flag.over { background: color-mix(in srgb, var(--minus) 12%, transparent); color: var(--minus); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 19px; letter-spacing: -0.02em; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  .bar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; margin: 4px 0 18px; background: var(--line); }
+  .bar span { display: block; height: 100%; }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  td, th { padding: 9px 0; border-top: 1px solid var(--line); text-align: left; }
+  td:last-child, th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  td.m { color: var(--minus); }
+  tr.total td { font-weight: 700; }
+  tr.group td { color: var(--sub); font-size: 13px; padding-top: 16px; border-top: 0; font-weight: 600; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; line-height: 1.9; }
+  footer a { color: inherit; }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261026b">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/en/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>Korea Calc</a>
+    <nav><a href="/en/#tools">Calculators</a><a href="/en/guide/">Guides</a></nav>
+    <span class="lang"><a href="/hourly/" hreflang="ko" lang="ko">한국어</a><a href="/en/hourly/" aria-current="true">EN</a></span>
+  </div>
+</header>
+<main>
+  <h1>Korea Hourly Wage Calculator</h1>
+  <p class="lead">Enter your hourly wage and schedule to see your weekly holiday pay, weekly pay and monthly pay — the way Korean employers calculate it.</p>
+  <p class="verified">Checked October 2026 · 2026 minimum wage ₩10,320/hr, 2027 ₩10,700/hr · holiday pay for 15+ hours a week</p>
+
+  <section class="card">
+    <div class="field"><label for="wage">Hourly wage</label><div class="input-wrap pre"><span class="unit">₩</span><input id="wage" type="text" inputmode="numeric" value="10,320" autocomplete="off"></div></div>
+    <div class="quick" style="margin:-8px 0 18px">
+      <button type="button" data-set="10320">2026 minimum</button><button type="button" data-set="10700">2027 minimum</button>
+      <button type="button" data-set="11000">₩11,000</button><button type="button" data-set="12000">₩12,000</button><button type="button" data-set="15000">₩15,000</button>
+    </div>
+    <div class="row2">
+      <div class="field"><label for="hours">Hours a day</label><div class="input-wrap"><input id="hours" type="text" inputmode="decimal" value="8" autocomplete="off"><span class="unit">hrs</span></div></div>
+      <div class="field"><span class="label">Days a week</span><div class="stepper" data-target="days" data-min="1" data-max="7"><button type="button" data-d="-1" aria-label="Decrease">−</button><output id="days">5</output><button type="button" data-d="1" aria-label="Increase">+</button></div></div>
+    </div>
+    <div class="field">
+      <span class="label">Deductions</span>
+      <div class="modes" style="--n:3;margin:0" role="group" aria-label="Deductions">
+        <button type="button" data-deduct="none" aria-selected="false">None</button>
+        <button type="button" data-deduct="biz" aria-selected="true">3.3% tax</button>
+        <button type="button" data-deduct="ins" aria-selected="false">4 insurances</button>
+      </div>
+      <div class="hint">Many part-time jobs withhold 3.3% (freelance-style). Regular employees pay the four social insurances instead.</div>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="warn" id="warn"></p>
+    <p class="result-head">Monthly pay after deductions</p>
+    <p class="big" id="net">₩0</p>
+    <p class="sub-line" id="subLine"></p>
+    <p class="flag" id="flag" hidden></p>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <section class="card guide-links"><h2>Related guide</h2><div class="link-list"><a href="/en/guide/korea-minimum-wage/">Korea minimum wage 2026 & 2027: hourly, monthly and weekly holiday pay</a></div></section>
+  <section class="card faq">
+    <h2>FAQ</h2>
+    <details><summary>What is weekly holiday pay (주휴수당)?</summary><p>Korean law gives workers one paid day off per week if they work 15 or more hours and show up on all scheduled days. Part-timers receive it as extra pay: weekly hours ÷ 40 × 8 hours × hourly wage.</p></details><details><summary>Why does a 40-hour week equal 209 hours a month?</summary><p>40 working hours plus 8 paid holiday hours is 48 hours a week. An average month has about 4.345 weeks, so 48 × 4.345 ≈ 209 hours.</p></details><details><summary>Should 3.3% or the four insurances be deducted?</summary><p>If you are hired as an employee working 15+ hours a week for a month or more, social insurance usually applies. Some employers treat part-timers as freelancers and withhold 3.3% instead; ask your employer which applies to you.</p></details><details><summary>Do foreign students get the same pay?</summary><p>Yes. The minimum wage and weekly holiday pay apply to everyone, including D-2/D-4 students working part-time with permission from immigration.</p></details>
+  </section>
+  <footer>Results are estimates for reference only. Check with your employer or the relevant Korean agency for official figures.<br>
+  <a href="/about/" lang="ko">About (Korean)</a> · <a href="/privacy/" lang="ko">Privacy policy (Korean)</a> · <a href="mailto:kdh7775@kakao.com">Contact</a></footer>
+</main>
+<script src="/assets/rates.js?v=20261026b"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+const won = (n) => "\u20a9" + Math.round(n).toLocaleString("en-US");
+const parse = (s) => Number(String(s).replace(/[^0-9]/g, "")) || 0;
+const floor10 = (n) => Math.floor(n / 10) * 10;
+// 40,000,000 → "₩40 million"
+function words(n) {
+  if (n >= 1e9) return "\u20a9" + +(n / 1e9).toFixed(2) + " billion";
+  if (n >= 1e6) return "\u20a9" + +(n / 1e6).toFixed(2) + " million";
+  return won(n);
+}
+function money(id, cb) {
+  $(id).addEventListener("input", (e) => {
+    const n = parse(e.target.value);
+    e.target.value = n ? n.toLocaleString("en-US") : "";
+    cb();
+  });
+}
+function steppers(cb) {
+  document.querySelectorAll(".stepper").forEach((s) => {
+    const out = $(s.dataset.target);
+    s.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+      out.value = Math.min(Number(s.dataset.max), Math.max(Number(s.dataset.min), Number(out.value) + Number(b.dataset.d)));
+      cb();
+    }));
+  });
+}
+function tabs(cb) {
+  document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => {
+    document.querySelectorAll("[data-tab]").forEach((x) => x.setAttribute("aria-selected", x === b));
+    cb(b.dataset.tab);
+  }));
+}
+
+
+const INS = KR.R.insurance, H = KR.R.hourly, MIN = KR.R.minWage, NEXT = KR.R.minWageNext;
+const WEEKS_PER_MONTH = 365 / 7 / 12; // about 4.345 weeks
+let deduct = "biz";
+// same calculation as the Korean hourly calculator (/hourly/)
+function calc(wage, dailyHours, days) {
+  const weekHours = dailyHours * days;
+  const eligible = weekHours >= 15;
+  const holidayHours = eligible ? (Math.min(weekHours, 40) / 40) * 8 : 0;
+  const weekBase = Math.round(weekHours * wage);
+  const weekHoliday = Math.round(holidayHours * wage);
+  const monthHours = Math.round((weekHours + holidayHours) * WEEKS_PER_MONTH);
+  const monthGross = Math.round(monthHours * wage);
+  let items = [];
+  if (deduct === "biz") {
+    const income = floor10(monthGross * H.bizTax);
+    items = [[`Business income tax (${+(H.bizTax * 100).toFixed(2)}%)`, income], [`Local income tax (${+(H.bizTax * H.bizLocal * 100).toFixed(2)}%)`, floor10(income * H.bizLocal)]];
+  } else if (deduct === "ins") {
+    const health = floor10(monthGross * INS.health);
+    items = [["National pension", floor10(monthGross * INS.pension)], ["Health insurance", health], ["Long-term care", floor10(health * INS.care)], ["Employment insurance", floor10(monthGross * INS.employ)]];
+  }
+  const totalDeduct = items.reduce((s, [, v]) => s + v, 0);
+  return { weekHours, eligible, holidayHours, weekBase, weekHoliday, monthHours, monthGross, items, totalDeduct, net: monthGross - totalDeduct };
+}
+window.calc = calc;
+const hrs = (n) => +n.toFixed(2) + " h";
+function render() {
+  const wage = parse($("wage").value);
+  const hours = Math.min(24, Math.max(0, Number(String($("hours").value).replace(/[^0-9.]/g, "")) || 0));
+  const days = Number($("days").value);
+  const r = calc(wage, hours, days);
+  const warn = $("warn");
+  warn.style.display = wage && wage < MIN ? "block" : "none";
+  warn.textContent = `This is below the ${KR.R.year} minimum wage of ${won(MIN)} an hour.`;
+  $("net").textContent = won(r.net);
+  $("subLine").textContent = `${won(wage)}/hr · ${hrs(r.weekHours)} a week · ${r.monthHours} paid hours a month`;
+  const flag = $("flag");
+  flag.hidden = false;
+  flag.className = "flag " + (r.eligible ? "ok" : "over");
+  flag.textContent = r.eligible ? `You get weekly holiday pay: ${hrs(r.holidayHours)} paid each week.` : `No weekly holiday pay: it needs 15+ hours a week (you work ${hrs(r.weekHours)}).`;
+  const ded = r.items.map(([k, v]) => `<tr><td>${k}</td><td class="m">−${won(v)}</td></tr>`).join("");
+  $("rows").innerHTML = `
+    <tr class="group"><td colspan="2">Each week</td></tr>
+    <tr><td>Pay for hours worked (${hrs(r.weekHours)})</td><td>${won(r.weekBase)}</td></tr>
+    <tr><td>Weekly holiday pay (${hrs(r.holidayHours)})</td><td>${won(r.weekHoliday)}</td></tr>
+    <tr class="total"><td>Weekly pay</td><td>${won(r.weekBase + r.weekHoliday)}</td></tr>
+    <tr class="group"><td colspan="2">Each month (average 4.345 weeks)</td></tr>
+    <tr><td>Paid hours (${r.monthHours} h × ${won(wage)})</td><td>${won(r.monthGross)}</td></tr>
+    ${ded}
+    <tr class="total"><td>Monthly pay after deductions</td><td>${won(r.net)}</td></tr>`;
+}
+money("wage", render);
+$("hours").addEventListener("input", (e) => { e.target.value = e.target.value.replace(/[^0-9.]/g, "").replace(/(\..*)\./g, "$1"); render(); });
+steppers(render);
+document.querySelectorAll("[data-set]").forEach((b) => b.addEventListener("click", () => { $("wage").value = Number(b.dataset.set).toLocaleString("en-US"); render(); }));
+document.querySelectorAll("[data-deduct]").forEach((b) => b.addEventListener("click", () => {
+  deduct = b.dataset.deduct;
+  document.querySelectorAll("[data-deduct]").forEach((x) => x.setAttribute("aria-selected", x === b));
+  render();
+}));
+window.render = render;
+render();
+
+</script>
+<script src="/assets/share.js?v=20261026b" defer></script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f4ef">
+<title>Korea National Pension Refund Calculator | Estimate Your Lump-sum Refund When Leaving</title>
+<meta name="description" content="Estimate how much National Pension you can get back when you leave Korea: both your and your employer's contributions, by month and year. Check whether your visa qualifies.">
+<meta property="og:title" content="Korea National Pension Refund Calculator | Estimate Your Lump-sum Refund When Leaving">
+<meta property="og:description" content="Estimate how much National Pension you can get back when you leave Korea: both your and your employer's contributions, by month and year. Check whether your visa qualifies.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/en/pension-refund/">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/en-pension.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Korea Calculators">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://dohyun.co.kr/en/pension-refund/">
+<link rel="alternate" hreflang="ko" href="https://dohyun.co.kr/guide/national-pension-guide/">
+<link rel="alternate" hreflang="en" href="https://dohyun.co.kr/en/pension-refund/">
+<link rel="alternate" hreflang="x-default" href="https://dohyun.co.kr/guide/national-pension-guide/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Segoe UI", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"] { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; color-scheme: light dark; }
+  .input-wrap input[type="text"] { padding-right: 56px; }
+  .input-wrap.pre input[type="text"] { padding-left: 34px; padding-right: 14px; }
+  input:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .pre .unit { left: 14px; right: auto; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 420px) { .row2 { grid-template-columns: 1fr; } }
+  .stepper { display: flex; align-items: center; gap: 10px; }
+  .stepper output { font-size: 18px; font-weight: 700; min-width: 40px; text-align: center; }
+  .modes { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .modes button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .modes button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  details.more { border-top: 1px solid var(--line); padding-top: 16px; margin-top: 4px; }
+  details.more summary { font-weight: 600; font-size: 14px; color: var(--accent); }
+  details.more .field:first-of-type { margin-top: 16px; }
+  [hidden] { display: none !important; }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; letter-spacing: -0.03em; margin: 2px 0 4px; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 18px; }
+  .warn, .flag { border-radius: 12px; padding: 12px 14px; font-size: 14px; margin: 0 0 14px; }
+  .warn { background: color-mix(in srgb, #f59f00 14%, transparent); color: #b25e09; display: none; }
+  .flag.ok { background: color-mix(in srgb, var(--plus) 12%, transparent); color: var(--plus); }
+  .flag.over { background: color-mix(in srgb, var(--minus) 12%, transparent); color: var(--minus); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 19px; letter-spacing: -0.02em; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  .bar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; margin: 4px 0 18px; background: var(--line); }
+  .bar span { display: block; height: 100%; }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  td, th { padding: 9px 0; border-top: 1px solid var(--line); text-align: left; }
+  td:last-child, th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  td.m { color: var(--minus); }
+  tr.total td { font-weight: 700; }
+  tr.group td { color: var(--sub); font-size: 13px; padding-top: 16px; border-top: 0; font-weight: 600; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; line-height: 1.9; }
+  footer a { color: inherit; }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261026b">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/en/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>Korea Calc</a>
+    <nav><a href="/en/#tools">Calculators</a><a href="/en/guide/">Guides</a></nav>
+    <span class="lang"><a href="/guide/national-pension-guide/" hreflang="ko" lang="ko">한국어</a><a href="/en/pension-refund/" aria-current="true">EN</a></span>
+  </div>
+</header>
+<main>
+  <h1>National Pension Refund Estimator</h1>
+  <p class="lead">Foreign workers leaving Korea can often get their pension contributions back — including the employer's half. Estimate the amount before you go.</p>
+  <p class="verified">Checked October 2026 · contribution 9.5% of income in 2026 (half from you, half from your employer), rising 0.5%p a year to 13% in 2033</p>
+
+  <section class="card">
+    <div class="field"><label for="income">Monthly income before tax</label><div class="input-wrap pre"><span class="unit">₩</span><input id="income" type="text" inputmode="numeric" value="3,000,000" autocomplete="off"></div><div class="hint">Your monthly pay as reported for the pension (base pay plus fixed allowances).</div></div>
+    <div class="row2">
+      <div class="field"><label for="start">Started work in Korea</label><input id="start" type="date"></div>
+      <div class="field"><label for="end">Leaving (or last day)</label><input id="end" type="date"></div>
+    </div>
+    <div class="field">
+      <label for="visa">Your visa when you joined</label>
+      <select id="visa" style="width:100%;font:inherit;font-size:16px;padding:11px 14px;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--text)">
+        <option value="eps" selected>E-9, H-2 or E-8 (training employment)</option>
+        <option value="other">Other (E-7, E-2, D-, F-, etc.)</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="warn" id="warn"></p>
+    <p class="result-head">Estimated refund (before interest)</p>
+    <p class="big" id="total">₩0</p>
+    <p class="sub-line" id="subLine"></p>
+    <p class="flag" id="flag" hidden></p>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <section class="card guide-links"><h2>Related guide</h2><div class="link-list"><a href="/en/guide/national-pension-refund-foreigners/">Pension refund for foreigners leaving Korea: who qualifies and how to claim</a></div></section>
+  <section class="card faq">
+    <h2>FAQ</h2>
+    <details><summary>Why is the refund bigger than what I paid?</summary><p>The lump-sum refund includes both your half and your employer's half of the contributions, plus interest. Your payslip only shows your half.</p></details><details><summary>When can I claim?</summary><p>When you leave Korea for good. You can apply at an NPS branch up to one month before departure with your passport, alien registration card and flight ticket, and collect it at Incheon Airport, or claim from abroad within 5 years.</p></details><details><summary>Is this exact?</summary><p>No — it is an estimate. Your actual reported income, months without contributions, past income caps and the interest rate change the final amount. NPS (call 1355) can tell you the exact figure.</p></details>
+  </section>
+  <footer>Results are estimates for reference only. Check with your employer or the relevant Korean agency for official figures.<br>
+  <a href="/about/" lang="ko">About (Korean)</a> · <a href="/privacy/" lang="ko">Privacy policy (Korean)</a> · <a href="mailto:kdh7775@kakao.com">Contact</a></footer>
+</main>
+<script src="/assets/rates.js?v=20261026b"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+const won = (n) => "\u20a9" + Math.round(n).toLocaleString("en-US");
+const parse = (s) => Number(String(s).replace(/[^0-9]/g, "")) || 0;
+const floor10 = (n) => Math.floor(n / 10) * 10;
+// 40,000,000 → "₩40 million"
+function words(n) {
+  if (n >= 1e9) return "\u20a9" + +(n / 1e9).toFixed(2) + " billion";
+  if (n >= 1e6) return "\u20a9" + +(n / 1e6).toFixed(2) + " million";
+  return won(n);
+}
+function money(id, cb) {
+  $(id).addEventListener("input", (e) => {
+    const n = parse(e.target.value);
+    e.target.value = n ? n.toLocaleString("en-US") : "";
+    cb();
+  });
+}
+function steppers(cb) {
+  document.querySelectorAll(".stepper").forEach((s) => {
+    const out = $(s.dataset.target);
+    s.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+      out.value = Math.min(Number(s.dataset.max), Math.max(Number(s.dataset.min), Number(out.value) + Number(b.dataset.d)));
+      cb();
+    }));
+  });
+}
+function tabs(cb) {
+  document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => {
+    document.querySelectorAll("[data-tab]").forEach((x) => x.setAttribute("aria-selected", x === b));
+    cb(b.dataset.tab);
+  }));
+}
+
+
+const I = KR.R.insurance;
+// Total pension rate (employee + employer) by calendar year: 9% until 2025, then +0.5%p a year to 13% (2033)
+const rateFor = (y) => (y <= 2025 ? 0.09 : Math.min(0.13, 0.095 + 0.005 * (y - 2026)));
+function toDate(s) { if (!s) return null; const [y, m, d] = s.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d)); }
+const iso = (d) => d.toISOString().slice(0, 10);
+// months of coverage: each calendar month from the start month through the month before leaving
+function calc(income, start, end) {
+  const base = Math.min(Math.max(income, I.pensionMin), I.pensionMax);
+  const byYear = {};
+  let y = start.getUTCFullYear(), m = start.getUTCMonth(), months = 0, total = 0;
+  const endKey = end.getUTCFullYear() * 12 + end.getUTCMonth() + (end.getUTCDate() > 1 ? 1 : 0);
+  while (y * 12 + m < endKey && months < 600) {
+    const c = Math.floor(base * rateFor(y) / 10) * 10;
+    byYear[y] = byYear[y] || { months: 0, amount: 0, rate: rateFor(y) };
+    byYear[y].months++; byYear[y].amount += c;
+    total += c; months++;
+    if (++m === 12) { m = 0; y++; }
+  }
+  return { base, months, total, yours: total / 2, byYear };
+}
+window.calc = calc;
+function render() {
+  const income = parse($("income").value), start = toDate($("start").value), end = toDate($("end").value);
+  const warn = $("warn"), flag = $("flag");
+  if (!start || !end || end <= start) { warn.style.display = "block"; warn.textContent = "The leaving date must be after the start date."; $("total").textContent = "₩0"; $("rows").innerHTML = ""; flag.hidden = true; return; }
+  warn.style.display = "none";
+  const r = calc(income, start, end);
+  $("total").textContent = won(r.total);
+  $("subLine").textContent = `${r.months} months of contributions · you paid ${won(r.yours)}, your employer paid ${won(r.yours)}`;
+  flag.hidden = false;
+  if ($("visa").value === "eps") { flag.className = "flag ok"; flag.textContent = "E-9, H-2 and E-8 (training) holders can get the refund whatever their nationality."; }
+  else { flag.className = "flag over"; flag.textContent = "It depends on your nationality: you qualify if your country has refund reciprocity or a refund-type agreement with Korea. Check the NPS list or call 1355."; }
+  const years = Object.keys(r.byYear).sort().map((yy) => { const b = r.byYear[yy]; return `<tr><td>${yy} · ${b.months} months × ${+(b.rate * 100).toFixed(1)}%</td><td>${won(b.amount)}</td></tr>`; }).join("");
+  $("rows").innerHTML = `
+    <tr><td>Income used (capped ${won(I.pensionMin)}–${won(I.pensionMax)})</td><td>${won(r.base)}</td></tr>
+    <tr class="group"><td colspan="2">Contributions by year (you + employer)</td></tr>
+    ${years}
+    <tr class="total"><td>Total contributions</td><td>${won(r.total)}</td></tr>
+    <tr><td colspan="2" style="text-align:left;color:var(--sub);font-size:13px">NPS also adds interest (at about the 3-year bank deposit rate), so the actual refund is a little higher.</td></tr>`;
+}
+(function () {
+  const n = new Date(), t = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()));
+  $("end").value = iso(t);
+  $("start").value = iso(new Date(Date.UTC(t.getUTCFullYear() - 2, t.getUTCMonth(), 1)));
+})();
+money("income", render);
+["start", "end"].forEach((id) => $(id).addEventListener("input", render));
+$("visa").addEventListener("change", render);
+window.render = render;
+render();
+
+</script>
+<script src="/assets/share.js?v=20261026b" defer></script>
+</body>
+</html>
