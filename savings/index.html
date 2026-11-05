@@ -82,7 +82,7 @@
   footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
   @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20261026b">
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
 </head>
 <body>
 <header class="site-head">
@@ -187,6 +187,25 @@
     </table>
     <p class="hint" id="taxNote" style="margin-top:10px"></p>
   </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>예금·적금 이자는 이렇게 계산돼요</h2>
+<h3>계산 공식</h3>
+<div class="tbl"><table><thead><tr><th>상품</th><th>이자 (세전)</th></tr></thead><tbody><tr><td>예금 단리</td><td>원금 × 연 금리 × 개월 ÷ 12</td></tr><tr><td>예금 월복리</td><td>원금 × {(1 + 연 금리 ÷ 12)^개월 − 1}</td></tr><tr><td>적금 단리</td><td>월 납입액 × 연 금리 ÷ 12 × (1 + 2 + … + 개월)</td></tr></tbody></table></div>
+<p>여기서 이자소득세 14%와 지방소득세 1.4%(합계 15.4%)를 떼면 실제로 받는 이자예요. 세금은 10원 미만을 버려요.</p>
+<h3>예시</h3>
+<div class="tbl"><table><thead><tr><th>조건</th><th>세전 이자</th><th>세금</th><th>만기 수령액</th></tr></thead><tbody><tr><td>적금 월 50만 원 · 1년 · 연 3.5%</td><td>113,750원</td><td>17,510원</td><td>6,096,240원</td></tr><tr><td>예금 1,000만 원 · 3년 · 연 5%</td><td>1,500,000원</td><td>231,000원</td><td>11,269,000원</td></tr><tr><td>예금 1,000만 원 · 1년 · 연 3.5% 월복리</td><td>355,669원</td><td>54,760원</td><td>10,300,909원</td></tr></tbody></table></div>
+<h3>알아 둘 점</h3>
+<ul>
+  <li><b>적금 금리는 예금 금리의 약 절반 효과예요.</b> 1년 적금 연 3.5%는 같은 원금을 예금에 넣었을 때 연 약 1.9%와 같아요.</li>
+  <li>1~2년 정도면 단리와 월복리 차이는 크지 않아요. 금리 자체를 먼저 비교하세요.</li>
+  <li>새마을금고·신협 등 조합 예탁금은 조건을 갖추면 세금이 1.4%만 붙어요.</li>
+  <li>중간에 해지하면 약속한 금리보다 훨씬 낮은 중도해지 금리를 받아요.</li>
+</ul>
+<p class="src">기준: 소득세법 이자소득 원천징수 세율(14%), 지방세법(소득세의 10%)</p>
+  </section>
+  <!-- explain:end -->
 
   <section class="card guide-links">
     <h2>함께 읽으면 좋은 가이드</h2>
@@ -367,7 +386,7 @@ document.querySelectorAll(".stepper").forEach((s) => {
 });
 render();
 </script>
-<script src="/assets/share.js?v=20261026b" defer></script>
+<script src="/assets/share.js?v=20261105a" defer></script>
 <script src="/assets/next.js?v=20261026b" defer></script>
 </body>
 </html>

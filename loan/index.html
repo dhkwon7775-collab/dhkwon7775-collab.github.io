@@ -141,7 +141,7 @@
   .others a span { color: var(--sub); font-weight: 400; font-size: 14px; }
   footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20261026b">
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
 </head>
 <body>
 <header class="site-head">
@@ -249,6 +249,34 @@
       </div>
     </details>
   </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>대출 상환 방식별 이자는 이렇게 달라요</h2>
+<h3>세 가지 상환 방식</h3>
+<ul>
+  <li><b>원리금균등:</b> 매달 같은 금액(원금 + 이자)을 내요. 처음엔 이자 비중이 크고 갈수록 원금 비중이 커져요.</li>
+  <li><b>원금균등:</b> 원금을 똑같이 나눠 갚고 이자는 남은 원금에 붙어요. 처음 부담이 크지만 총이자가 가장 적어요.</li>
+  <li><b>만기일시:</b> 매달 이자만 내고 원금은 만기에 한 번에 갚아요. 총이자가 가장 많아요.</li>
+</ul>
+<h3>예시: 1억 원 · 연 4% · 30년</h3>
+<div class="tbl"><table><thead><tr><th>방식</th><th>첫 달 상환금</th><th>총이자</th></tr></thead><tbody><tr><td>원리금균등</td><td>477,415원 (매달 같음)</td><td>71,869,506원</td></tr><tr><td>원금균등</td><td>611,111원 (점점 줄어듦)</td><td>60,166,667원</td></tr><tr><td>만기일시</td><td>333,333원 (이자만)</td><td>120,000,000원</td></tr></tbody></table></div>
+<p>같은 1억 원이라도 상환 방식에 따라 총이자가 최대 6천만 원 가까이 차이 나요.</p>
+<h3>알아 둘 점</h3>
+<ul>
+  <li>매달 금리 = 연 금리 ÷ 12로 계산해요. 은행에 따라 일 단위로 계산해 몇백 원 차이가 날 수 있어요.</li>
+  <li>주택담보대출은 보통 원리금균등, 전세대출과 신용대출은 만기일시가 많아요.</li>
+  <li>중도상환수수료(보통 3년 안에 갚을 때)가 있는지 꼭 확인하세요.</li>
+</ul>
+<h3>이럴 때 써 보세요</h3>
+<ul>
+  <li><b>전세대출 이자:</b> 2억 원을 연 4%로 빌려 만기일시로 갚으면 매달 이자 666,667원, 2년 동안 총 1,600만 원이에요.</li>
+  <li><b>신용대출 상환 계획:</b> 3,000만 원 · 연 6% · 3년 원리금균등이면 매달 912,658원, 총이자는 2,855,692원이에요.</li>
+  <li><b>금리 비교:</b> 같은 조건에서 금리만 바꿔 넣어 보면 0.5%p 차이가 총이자로 얼마인지 바로 보여요.</li>
+</ul>
+<p class="src">기준: 은행권 원리금균등·원금균등·만기일시 상환 계산 방식</p>
+  </section>
+  <!-- explain:end -->
 
   <section class="card guide-links">
     <h2>함께 읽으면 좋은 가이드</h2>
@@ -458,7 +486,7 @@ document.querySelectorAll("[data-method]").forEach((b) =>
 
 render();
 </script>
-<script src="/assets/share.js?v=20261026b" defer></script>
+<script src="/assets/share.js?v=20261105a" defer></script>
 <script src="/assets/next.js?v=20261026b" defer></script>
 </body>
 </html>

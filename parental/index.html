@@ -77,7 +77,7 @@
   .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
   footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20261026b">
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
 </head>
 <body>
 <header class="site-head">
@@ -145,6 +145,29 @@
     </table>
     <p class="hint" id="ruleNote" style="margin-top:10px"></p>
   </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>육아휴직 급여는 이렇게 계산돼요</h2>
+<h3>계산 순서</h3>
+<ol>
+  <li><b>통상임금 확인:</b> 기본급과 매달 고정으로 받는 수당을 더한 금액</li>
+  <li><b>달마다 지급률·상한 적용:</b> 1~3개월은 100%(최대 250만 원), 4~6개월은 100%(최대 200만 원), 7개월부터 80%(최대 160만 원)</li>
+  <li><b>하한 확인:</b> 계산한 금액이 70만 원보다 적으면 70만 원</li>
+  <li><b>6+6 특례:</b> 부모가 모두 쓰면 각자 첫 6개월은 100%, 상한이 200만 원부터 매달 50만 원씩 올라 450만 원까지</li>
+</ol>
+<h3>예시: 월 통상임금 350만 원, 1년 휴직</h3>
+<div class="tbl"><table><thead><tr><th>기간</th><th>한 달</th><th>합계</th></tr></thead><tbody><tr><td>1~3개월</td><td>250만 원 (상한)</td><td>750만 원</td></tr><tr><td>4~6개월</td><td>200만 원 (상한)</td><td>600만 원</td></tr><tr><td>7~12개월</td><td>160만 원 (상한)</td><td>960만 원</td></tr><tr><td><b>1년 합계</b></td><td></td><td><b>2,310만 원</b></td></tr></tbody></table></div>
+<p>같은 사람이 6+6을 쓰면 첫 6개월이 200·250·300·350·350·350만 원이 되어 1년 합계가 <b>2,760만 원</b>, 450만 원 더 받아요.</p>
+<h3>알아 둘 점</h3>
+<ul>
+  <li>월급이 250만 원을 넘으면 매달 상한에 걸려서, 일반 기준 1년 총액은 누구나 2,310만 원이에요.</li>
+  <li>육아휴직 급여는 세금과 4대보험을 떼지 않아요.</li>
+  <li>휴직 중 다른 곳에서 일하거나 주 15시간 이상 근무하면 그 달 급여가 줄거나 없어질 수 있어요.</li>
+</ul>
+<p class="src">기준: 고용보험법 시행령 2026년 육아휴직 급여 기준 (고용노동부)</p>
+  </section>
+  <!-- explain:end -->
 
   <section class="card guide-links">
     <h2>함께 읽으면 좋은 가이드</h2>
@@ -289,7 +312,7 @@ document.querySelectorAll(".stepper").forEach((s) => {
 });
 render();
 </script>
-<script src="/assets/share.js?v=20261026b" defer></script>
+<script src="/assets/share.js?v=20261105a" defer></script>
 <script src="/assets/next.js?v=20261026b" defer></script>
 </body>
 </html>

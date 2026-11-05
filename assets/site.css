@@ -310,6 +310,19 @@ main .card details > summary { font-size: 15.5px; letter-spacing: -0.01em; }
 /* 표: 좁은 화면에서는 긴 낱말도 줄을 바꿔 화면 안에 들어오게 */
 @media (max-width: 480px) { main th, main td { overflow-wrap: anywhere; } }
 
+/* 계산 방법·예시 설명 카드 (_tools/add_explain.py) */
+main .card.explain h3 { font-size: 15.5px; margin: 22px 0 8px; letter-spacing: -0.01em; }
+main .card.explain h2 + h3 { margin-top: 6px; }
+main .card.explain p, main .card.explain li { font-size: 15px; line-height: 1.75; color: var(--text); }
+main .card.explain p { margin: 0 0 10px; }
+main .card.explain ul, main .card.explain ol { margin: 0 0 10px; padding-left: 20px; }
+main .card.explain li { margin: 3px 0; }
+main .card.explain .tbl { overflow-x: auto; margin: 4px 0 12px; }
+main .card.explain table { width: 100%; border-collapse: collapse; font-size: 14px; }
+main .card.explain th, main .card.explain td { padding: 8px 6px; border-top: 1px solid var(--line); text-align: left; vertical-align: top; font-variant-numeric: tabular-nums; }
+main .card.explain th { border-top: 0; color: var(--sub); font-weight: 600; font-size: 12.5px; background: var(--seg); }
+main .card.explain .src { font-size: 13px; color: var(--sub); margin: 14px 0 0; }
+
 /* 페이지 아래 안내 문구 */
 main > footer { line-height: 1.9; }
 

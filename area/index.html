@@ -74,7 +74,7 @@
   .others a span { color: var(--sub); font-weight: 400; font-size: 14px; }
   footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20261026b">
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
 </head>
 <body>
 <header class="site-head">
@@ -143,6 +143,34 @@
       <tbody id="quickTable"></tbody>
     </table>
   </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>평수와 ㎡는 이렇게 바꿔요</h2>
+<h3>계산 공식</h3>
+<p>1평 = 400/121㎡ = <b>약 3.3058㎡</b>예요. 그래서 <b>㎡ ÷ 3.3058 = 평</b>, <b>평 × 3.3058 = ㎡</b>로 바꿔요. 빠르게 어림할 때는 ㎡에 0.3을 곱하면 돼요.</p>
+<h3>아파트 평형 예시 (전용면적 기준)</h3>
+<div class="tbl"><table><thead><tr><th>전용면적</th><th>평으로</th><th>흔히 부르는 평형</th></tr></thead><tbody><tr><td>59㎡</td><td>약 17.8평</td><td>24~25평형</td></tr><tr><td>74㎡</td><td>약 22.4평</td><td>29~30평형</td></tr><tr><td>84㎡</td><td>약 25.4평</td><td>32~34평형 (국민평형)</td></tr><tr><td>114㎡</td><td>약 34.5평</td><td>43~45평형</td></tr></tbody></table></div>
+<h3>전용면적과 공급면적</h3>
+<ul>
+  <li><b>전용면적:</b> 현관 안쪽, 우리 집만 쓰는 공간이에요. 등기부등본과 공식 서류에 쓰여요.</li>
+  <li><b>공급면적:</b> 전용면적에 계단·복도 같은 주거 공용면적을 더한 면적이에요. 흔히 말하는 "34평"은 공급면적 기준이에요.</li>
+  <li><b>발코니 확장 면적</b>은 서비스 면적이라 어느 쪽에도 들어가지 않아요.</li>
+</ul>
+<h3>알아 둘 점</h3>
+<ul>
+  <li>오피스텔은 계약면적(전용 + 모든 공용면적)으로 광고하는 경우가 많아서 같은 평수라도 실제로는 훨씬 좁아요.</li>
+  <li>공식 서류에는 ㎡만 써야 하지만, 실생활에서는 여전히 평을 많이 써요.</li>
+</ul>
+<h3>이럴 때 써 보세요</h3>
+<ul>
+  <li><b>매물 비교:</b> 광고에 "34평"이라고 적혀 있어도 등기부에는 전용 84㎡처럼 ㎡로 나와요. 두 숫자를 바꿔 보며 같은 집인지 확인해요.</li>
+  <li><b>원룸·오피스텔:</b> 전용 20㎡는 약 6평이에요. 침대·책상을 놓으면 남는 공간이 얼마인지 어림할 수 있어요.</li>
+  <li><b>평당 가격:</b> 매매가 6억 원인 전용 84㎡(약 25.4평)는 전용 평당 약 2,360만 원이에요.</li>
+</ul>
+<p class="src">기준: 계량에 관한 법률(법정 단위 ㎡), 1평 = 400/121㎡</p>
+  </section>
+  <!-- explain:end -->
 
   <section class="card faq">
     <h2 class="sec">자주 묻는 질문</h2>
@@ -246,7 +274,7 @@ document.querySelectorAll("[data-py]").forEach((b) => b.addEventListener("click"
 
 render();
 </script>
-<script src="/assets/share.js?v=20261026b" defer></script>
+<script src="/assets/share.js?v=20261105a" defer></script>
 <script src="/assets/next.js?v=20261026b" defer></script>
 </body>
 </html>

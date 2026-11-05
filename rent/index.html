@@ -79,7 +79,7 @@
   .others a span { color: var(--sub); font-weight: 400; font-size: 14px; }
   footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20261026b">
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
 </head>
 <body>
 <header class="site-head">
@@ -141,6 +141,27 @@
     <p class="flag" id="flag" hidden></p>
     <table><tbody id="rows"></tbody></table>
   </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>전월세 전환은 이렇게 계산돼요</h2>
+<h3>계산 공식</h3>
+<div class="tbl"><table><thead><tr><th>바꾸는 방향</th><th>계산</th></tr></thead><tbody><tr><td>전세 → 월세</td><td>월세 = (전세금 − 새 보증금) × 전환율 ÷ 12</td></tr><tr><td>월세 → 전세</td><td>전세금 = 보증금 + 월세 × 12 ÷ 전환율</td></tr><tr><td>전환율 확인</td><td>전환율 = 월세 × 12 ÷ (전세금 − 보증금)</td></tr></tbody></table></div>
+<p>계약 기간 중이나 계약을 갱신하면서 바꿀 때는 법정 전환율 상한이 있어요. <b>기준금리 + 2%p</b>와 10% 중 낮은 쪽이에요. 기준금리가 3.00%면 상한은 <b>5.0%</b>예요.</p>
+<h3>예시 (전환율 5%)</h3>
+<ul>
+  <li>전세 3억 원을 보증금 1억 원 + 월세로 바꾸면: 2억 원 × 5% ÷ 12 = <b>월 약 83만 원</b></li>
+  <li>보증금 5천만 원 + 월세 80만 원을 전세로 바꾸면: 5천만 원 + 960만 원 ÷ 5% = <b>2억 4,200만 원</b></li>
+</ul>
+<h3>알아 둘 점</h3>
+<ul>
+  <li>법정 상한은 <b>기존 계약을 바꿀 때만</b> 적용돼요. 새로 계약할 때는 시장 시세대로 정해요.</li>
+  <li>월세가 전세대출 이자보다 비싼지 같이 비교해 보세요. 전세대출 금리가 4%면 2억 원의 이자는 월 약 67만 원이에요.</li>
+  <li>월세는 연말정산 월세 세액공제(최대 17%)를 받을 수 있어요.</li>
+</ul>
+<p class="src">기준: 주택임대차보호법 제7조의2, 같은 법 시행령 제9조 (한국은행 기준금리)</p>
+  </section>
+  <!-- explain:end -->
 
   <section class="card guide-links">
     <h2>함께 읽으면 좋은 가이드</h2>
@@ -313,7 +334,7 @@ document.querySelectorAll("[data-rate]").forEach((b) => b.addEventListener("clic
 $("convRate").value = String(LEGAL);
 render();
 </script>
-<script src="/assets/share.js?v=20261026b" defer></script>
+<script src="/assets/share.js?v=20261105a" defer></script>
 <script src="/assets/next.js?v=20261026b" defer></script>
 </body>
 </html>

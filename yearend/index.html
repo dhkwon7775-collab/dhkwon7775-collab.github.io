@@ -129,7 +129,7 @@
   .others a span { color: var(--sub); font-weight: 400; font-size: 14px; }
   footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20261026b">
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
 </head>
 <body>
 <header class="site-head">
@@ -252,6 +252,29 @@
       <table><tbody id="rows"></tbody></table>
     </details>
   </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>연말정산 환급액은 이렇게 정해져요</h2>
+<h3>계산 순서</h3>
+<ol>
+  <li><b>총급여:</b> 1년 동안 받은 급여에서 비과세(식대 등)를 뺀 금액</li>
+  <li><b>근로소득금액:</b> 총급여 − 근로소득공제 (급여가 많을수록 공제 비율이 줄어요)</li>
+  <li><b>과세표준:</b> 근로소득금액 − 인적공제(1명당 150만 원) − 4대보험 − 신용카드 등 소득공제 − 주택자금 공제</li>
+  <li><b>결정세액:</b> 과세표준 × 세율(6~45%) − 세액공제(근로소득·자녀·연금저축·보험·의료비·교육비·기부금·월세)</li>
+  <li><b>환급 또는 추가 납부:</b> 매달 미리 낸 세금이 결정세액보다 많으면 돌려받고, 적으면 더 내요.</li>
+</ol>
+<h3>공제가 큰 항목 (2026년 귀속)</h3>
+<div class="tbl"><table><thead><tr><th>항목</th><th>공제 방식</th></tr></thead><tbody><tr><td>신용카드 등</td><td>총급여의 25% 넘게 쓴 금액의 15%(신용카드)·30%(체크·현금영수증)·40%(전통시장·대중교통) 소득공제</td></tr><tr><td>연금저축·IRP</td><td>연 900만 원(연금저축 600만 원)까지 낸 돈의 15%, 총급여 5,500만 원 넘으면 12% 세액공제</td></tr><tr><td>월세</td><td>연 1,000만 원까지 17%, 총급여 5,500만 원 넘으면 15% 세액공제 (총급여 8,000만 원 이하 무주택자)</td></tr><tr><td>의료비</td><td>총급여의 3%를 넘게 쓴 금액의 15% 세액공제</td></tr><tr><td>보장성 보험료</td><td>연 100만 원까지 12% 세액공제</td></tr></tbody></table></div>
+<h3>알아 둘 점</h3>
+<ul>
+  <li>카드는 총급여의 25%까지는 공제가 없어요. 그 이상 쓸 때는 체크카드·현금영수증이 공제율이 2배예요.</li>
+  <li>연금저축은 세액공제라 효과가 확실해요. 총급여 5,500만 원 이하면 600만 원을 넣었을 때 90만 원(지방소득세까지 99만 원)을 돌려받아요.</li>
+  <li>이 계산기는 예상치예요. 1월 15일 홈택스 간소화 자료가 열리면 실제 금액을 넣어 다시 확인하세요.</li>
+</ul>
+<p class="src">기준: 소득세법·조세특례제한법 2026년 귀속 공제 기준 (국세청 연말정산 안내)</p>
+  </section>
+  <!-- explain:end -->
 
   <section class="card guide-links">
     <h2>함께 읽으면 좋은 가이드</h2>
@@ -506,7 +529,7 @@ document.querySelectorAll(".stepper").forEach((s) => {
 
 render();
 </script>
-<script src="/assets/share.js?v=20261026b" defer></script>
+<script src="/assets/share.js?v=20261105a" defer></script>
 <script src="/assets/next.js?v=20261026b" defer></script>
 </body>
 </html>

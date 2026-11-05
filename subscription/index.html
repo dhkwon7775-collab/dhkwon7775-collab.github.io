@@ -83,7 +83,7 @@
   .others a span { color: var(--sub); font-weight: 400; font-size: 14px; }
   footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20261026b">
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
 </head>
 <body>
 <header class="site-head">
@@ -193,6 +193,25 @@
     </table>
     <p class="hint" style="margin-top:10px">무주택기간은 1년마다 2점, 부양가족은 1명마다 5점, 청약통장은 6개월 미만 1점·1년 미만 2점에서 1년마다 1점씩 올라 15년 이상 17점이에요.</p>
   </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>청약 가점은 이렇게 매겨져요</h2>
+<h3>84점 만점 구성</h3>
+<div class="tbl"><table><thead><tr><th>항목</th><th>만점</th><th>점수 매기는 법</th></tr></thead><tbody><tr><td>무주택 기간</td><td>32점</td><td>1년 미만 2점, 이후 1년마다 2점씩, 15년 이상 32점</td></tr><tr><td>부양가족 수</td><td>35점</td><td>0명 5점, 1명마다 5점씩, 6명 이상 35점</td></tr><tr><td>청약통장 가입 기간</td><td>17점</td><td>6개월 미만 1점, 6개월~1년 2점, 이후 1년마다 1점씩, 15년 이상 17점</td></tr></tbody></table></div>
+<h3>예시</h3>
+<p>무주택 7년(16점) + 부양가족 3명(20점) + 통장 8년(10점) = <b>46점</b>이에요.</p>
+<p>무주택 기간과 통장 기간은 시간이 지나면 저절로 오르니, 1년 뒤에는 무주택 18점 + 통장 11점이 되어 같은 가족 구성이라도 <b>49점</b>이 돼요.</p>
+<h3>알아 둘 점</h3>
+<ul>
+  <li>무주택 기간은 만 30세부터 세요. 그 전에 결혼했다면 혼인신고일부터 세요.</li>
+  <li>부양가족은 본인을 빼고 세요. 부모님은 3년 이상 같은 주민등록에 있어야 인정돼요.</li>
+  <li>배우자의 청약통장 기간은 절반(최대 3점)까지 더할 수 있어요.</li>
+  <li>인기 지역 아파트는 60~70점대가 당첨선인 경우가 많아요. 점수가 낮다면 추첨제나 특별공급도 함께 살펴보세요.</li>
+</ul>
+<p class="src">기준: 주택공급에 관한 규칙 별표1 (가점제 산정 기준)</p>
+  </section>
+  <!-- explain:end -->
 
   <section class="card faq">
     <h2 class="sec">자주 묻는 질문</h2>
@@ -357,7 +376,7 @@ document.querySelectorAll(".stepper").forEach((s) => {
 });
 render();
 </script>
-<script src="/assets/share.js?v=20261026b" defer></script>
+<script src="/assets/share.js?v=20261105a" defer></script>
 <script src="/assets/next.js?v=20261026b" defer></script>
 </body>
 </html>

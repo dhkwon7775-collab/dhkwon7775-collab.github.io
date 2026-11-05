@@ -128,7 +128,7 @@
   .others a span { color: var(--sub); font-weight: 400; font-size: 14px; }
   footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20261026b">
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
 </head>
 <body>
 <header class="site-head">
@@ -203,6 +203,29 @@
       <tbody id="rows"></tbody>
     </table>
   </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>퇴직금은 이렇게 계산돼요</h2>
+<h3>계산 순서</h3>
+<ol>
+  <li><b>1일 평균임금:</b> 퇴사 전 3개월 동안 받은 임금 ÷ 그 3개월의 날짜 수 (상여금·연차수당은 1년 치의 3/12을 더해요)</li>
+  <li><b>퇴직금:</b> 1일 평균임금 × 30일 × (재직 일수 ÷ 365)</li>
+  <li><b>퇴직소득세:</b> 근속 연수에 따라 크게 공제한 뒤 계산해요. 지방소득세는 그 10%예요.</li>
+</ol>
+<h3>예시</h3>
+<div class="tbl"><table><thead><tr><th>근속</th><th>월급</th><th>세전 퇴직금</th><th>세후</th></tr></thead><tbody><tr><td>1년</td><td>300만 원</td><td>2,934,782원</td><td>2,901,312원</td></tr><tr><td>3년</td><td>300만 원</td><td>8,812,388원</td><td>8,711,758원</td></tr><tr><td>5년</td><td>350만 원</td><td>17,128,945원</td><td>16,896,755원</td></tr><tr><td>10년</td><td>400만 원</td><td>39,151,876원</td><td>38,690,276원</td></tr></tbody></table></div>
+<p>퇴직소득세는 일반 소득세보다 훨씬 적어요. 10년 근무로 퇴직금이 약 3,900만 원이어도 세금은 46만 원 정도예요.</p>
+<h3>알아 둘 점</h3>
+<ul>
+  <li><b>1년에서 하루라도 모자라면 0원</b>이에요. 2025년 11월 1일 입사자는 2026년 10월 31일까지 일해야 받아요.</li>
+  <li>알바·계약직도 주 15시간 이상, 1년 이상 일했다면 받아요.</li>
+  <li>퇴사 후 14일 안에 받아야 하고, 55세 미만은 보통 IRP 계좌로 받아요.</li>
+  <li>퇴사 직전 3개월에 임금이 줄었다면(무급휴직 등) 그 기간을 빼고 계산하는 경우가 있어 회사와 확인하세요.</li>
+</ul>
+<p class="src">기준: 근로자퇴직급여 보장법 제8조, 근로기준법 제2조(평균임금), 소득세법 퇴직소득세</p>
+  </section>
+  <!-- explain:end -->
 
   <section class="card guide-links">
     <h2>함께 읽으면 좋은 가이드</h2>
@@ -403,7 +426,7 @@ document.querySelectorAll("[data-set]").forEach((b) =>
 
 render();
 </script>
-<script src="/assets/share.js?v=20261026b" defer></script>
+<script src="/assets/share.js?v=20261105a" defer></script>
 <script src="/assets/next.js?v=20261026b" defer></script>
 </body>
 </html>

@@ -124,7 +124,7 @@
   .others a span { color: var(--sub); font-weight: 400; font-size: 14px; }
   footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20261026b">
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
 </head>
 <body>
 <header class="site-head">
@@ -190,6 +190,30 @@
     <div class="grid" id="grid"></div>
     <p class="hint" style="margin-top:12px">1년 미만은 한 달 개근할 때마다 1일(최대 11일), 1년이 되면 15일이 생기고 2년마다 1일씩 늘어 최대 25일이에요.</p>
   </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>연차는 이렇게 생겨요</h2>
+<h3>연차 계산 규칙</h3>
+<ol>
+  <li><b>입사 첫해:</b> 한 달 개근할 때마다 1일, 최대 11일</li>
+  <li><b>1년을 채우면:</b> 그해 80% 이상 출근했다면 15일</li>
+  <li><b>3년차부터:</b> 2년마다 1일씩 늘어서 최대 25일</li>
+  <li><b>연차수당:</b> 1년 안에 못 쓴 연차 × 하루 통상임금</li>
+</ol>
+<h3>근속 연수별 연차</h3>
+<div class="tbl"><table><thead><tr><th>근속</th><th>그해 연차</th></tr></thead><tbody><tr><td>1년 미만</td><td>매달 1일 (최대 11일)</td></tr><tr><td>1년 ~ 2년</td><td>15일</td></tr><tr><td>3년 ~ 4년</td><td>16일</td></tr><tr><td>5년 ~ 6년</td><td>17일</td></tr><tr><td>11년 ~ 12년</td><td>20일</td></tr><tr><td>21년 이상</td><td>25일 (최대)</td></tr></tbody></table></div>
+<h3>연차수당 예시</h3>
+<p>월 통상임금 300만 원(주 40시간)이면 시간당 통상임금은 300만 원 ÷ 209시간 = 약 14,354원이고, 하루치는 8시간을 곱한 <b>약 114,833원</b>이에요. 연차 5일을 못 쓰고 넘기면 <b>약 57만 4천 원</b>을 받아요.</p>
+<h3>알아 둘 점</h3>
+<ul>
+  <li>직원 5명 미만인 사업장은 연차 규정이 적용되지 않아요.</li>
+  <li>1년을 채운 날 바로 퇴사하면 15일이 생기지 않아요. 1년을 채우고 다음 날까지 재직해야 해요.</li>
+  <li>회사가 법에 맞게 '연차 사용 촉진'을 했다면 못 쓴 연차의 수당을 주지 않아도 돼요.</li>
+</ul>
+<p class="src">기준: 근로기준법 제60조(연차 유급휴가)·제61조(사용 촉진)</p>
+  </section>
+  <!-- explain:end -->
 
   <section class="card guide-links">
     <h2>함께 읽으면 좋은 가이드</h2>
@@ -393,7 +417,7 @@ $("used").addEventListener("input", (e) => {
 
 render();
 </script>
-<script src="/assets/share.js?v=20261026b" defer></script>
+<script src="/assets/share.js?v=20261105a" defer></script>
 <script src="/assets/next.js?v=20261026b" defer></script>
 </body>
 </html>
