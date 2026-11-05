@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f4ef">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/unit.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<title>단위 변환 계산기 | 길이·무게·온도·부피·속도, 자·근·되 같은 전통 단위까지</title>
+<meta name="description" content="단위 변환 계산기: cm·인치·피트·마일, kg·파운드·온스·근·돈, 섭씨·화씨, L·mL·갤런·컵·되·홉, km/h·m/s·mph를 한 번에 바꿔요. 숫자 하나만 넣으면 모든 단위로 보여 줘요.">
+<meta property="og:title" content="단위 변환 계산기 (길이·무게·온도·부피·속도)">
+<meta property="og:description" content="cm·인치, kg·파운드, 섭씨·화씨, L·갤런, 자·근·되까지 한 번에 바꿔요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/unit/">
+<link rel="canonical" href="https://dohyun.co.kr/unit/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"], input[type="time"], select { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 44px 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; }
+  input[type="date"], input[type="time"] { padding-right: 14px; font-size: 18px; }
+  select { font-size: 16px; padding-right: 14px; cursor: pointer; }
+  input:focus, select:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row2 > * { min-width: 0; }
+  input { min-width: 0; }
+  @media (max-width: 440px) { .row2.stack { grid-template-columns: 1fr; gap: 0; } }
+  .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+  .check small { display: block; font-weight: 400; font-size: 13px; color: var(--sub); }
+  .tabs { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .tabs button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 2px; background: transparent; color: var(--sub); cursor: pointer; line-height: 1.3; }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .seg { display: grid; grid-template-columns: repeat(2, 1fr); background: var(--seg); border-radius: 12px; padding: 4px; gap: 4px; }
+  .seg button { font: inherit; font-size: 14px; font-weight: 600; border: 0; border-radius: 9px; padding: 10px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; margin: 2px 0 4px; word-break: break-all; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 17px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 4px; border-top: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+  th { color: var(--sub); font-weight: 600; font-size: 12.5px; border-top: 0; }
+  th:first-child, td:first-child { text-align: left; }
+  tr.total td { font-weight: 700; border-top: 1.5px solid var(--line); }
+  h2.sec { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+  [hidden] { display: none !important; }
+  @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 13px; } }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/">가이드</a></nav>
+    <span class="lang"><a href="/unit/" aria-current="true">한국어</a><a href="/en/" hreflang="en" lang="en">EN</a></span>
+  </div>
+</header>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>단위 변환 계산기</h1>
+  <p class="lead">숫자와 단위를 고르면 같은 종류의 모든 단위로 한 번에 바꿔 보여 줘요.</p>
+  <p class="verified">국제단위계(SI) 기준 환산값 · 1인치 = 2.54cm, 1파운드 = 0.45359237kg, 1자 = 30.303cm</p>
+
+  <div class="tabs" role="tablist" aria-label="단위 종류" style="--n:5">
+    <button type="button" role="tab" data-tab="len" aria-selected="true">길이</button>
+    <button type="button" role="tab" data-tab="mass" aria-selected="false">무게</button>
+    <button type="button" role="tab" data-tab="temp" aria-selected="false">온도</button>
+    <button type="button" role="tab" data-tab="vol" aria-selected="false">부피</button>
+    <button type="button" role="tab" data-tab="speed" aria-selected="false">속도</button>
+  </div>
+
+  <section class="card">
+    <div class="row2">
+      <div class="field"><label for="v">값</label><div class="input-wrap"><input id="v" type="text" inputmode="decimal" value="170" autocomplete="off"></div></div>
+      <div class="field"><label for="from">단위</label><select id="from"></select></div>
+    </div>
+    <div class="quick" id="uQuick"></div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head" id="head"></p>
+    <p class="big" id="big">-</p>
+    <p class="sub-line" id="subLine"></p>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>단위는 이렇게 바꿔요</h2>
+<h3>자주 쓰는 환산값</h3>
+<div class="tbl"><table><thead><tr><th>종류</th><th>환산</th><th>예시</th></tr></thead><tbody><tr><td>길이</td><td>1인치 = 2.54cm, 1피트 = 30.48cm, 1마일 = 1.609km</td><td>바지 32인치 = 81.28cm, 키 6피트 = 182.88cm</td></tr><tr><td>무게</td><td>1파운드 = 0.4536kg, 1kg = 2.2046파운드, 1온스 = 28.35g</td><td>150파운드 = 68.04kg</td></tr><tr><td>온도</td><td>화씨 = 섭씨 × 9 ÷ 5 + 32</td><td>섭씨 36.5도 = 화씨 97.7도</td></tr><tr><td>부피</td><td>1갤런(미국) = 3.785L, 1컵(미국) = 236.6mL</td><td>10L ≈ 2.64갤런</td></tr><tr><td>속도</td><td>1km/h = 1 ÷ 3.6 m/s, 1마일/시 = 1.609km/h</td><td>100km/h = 27.8m/s, 60mph = 96.6km/h</td></tr></tbody></table></div>
+<h3>우리 전통 단위</h3>
+<div class="tbl"><table><thead><tr><th>단위</th><th>환산</th><th>어디에 쓰나</th></tr></thead><tbody><tr><td>자 (尺)</td><td>약 30.3cm (10/33m)</td><td>옷감, 목재, 키 ('여섯 자')</td></tr><tr><td>리 (里)</td><td>약 392.7m</td><td>'십 리' 같은 거리 표현</td></tr><tr><td>근</td><td>600g (고기), 375g (채소·과일)</td><td>정육점·시장</td></tr><tr><td>돈</td><td>3.75g</td><td>금·은 무게 ('금 한 돈')</td></tr><tr><td>냥</td><td>37.5g (10돈)</td><td>금·한약재</td></tr><tr><td>홉 · 되 · 말</td><td>약 180mL · 1.8L · 18L</td><td>곡식, 막걸리 ('쌀 한 되')</td></tr></tbody></table></div>
+<h3>알아 둘 점</h3>
+<ul>
+  <li>온도는 0점이 서로 달라서 곱셈만으로 바꿀 수 없어요. 섭씨 0도는 화씨 32도, 섭씨 100도는 화씨 212도예요. 섭씨와 화씨가 같아지는 온도는 영하 40도예요.</li>
+  <li>갤런·컵·온스는 미국과 영국 값이 달라요. 이 계산기는 미국 기준이에요.</li>
+  <li>근·되 같은 전통 단위는 법정 단위가 아니라서 가게나 품목마다 다를 수 있어요. 거래할 때는 g·L로 확인하세요.</li>
+</ul>
+<p class="src">기준: 국제단위계(SI), 국제 야드·파운드 협정(1959), 계량에 관한 법률</p>
+  </section>
+  <!-- explain:end -->
+
+  <section class="card faq">
+    <h2 class="sec">자주 묻는 질문</h2>
+    <details>
+      <summary>1인치는 몇 cm인가요?</summary>
+      <p>정확히 2.54cm예요. 바지 허리 32인치는 81.28cm, 모니터 27인치는 대각선 길이 68.58cm예요.</p>
+    </details>
+    <details>
+      <summary>1근은 몇 g인가요?</summary>
+      <p>고기는 보통 1근 = 600g, 채소·과일은 375g으로 쓰는 경우가 많아요. 법정 단위는 아니라서 가게마다 다를 수 있어요. 이 계산기는 600g 기준이에요.</p>
+    </details>
+    <details>
+      <summary>섭씨를 화씨로 바꾸는 공식은?</summary>
+      <p>화씨 = 섭씨 × 9 ÷ 5 + 32예요. 섭씨 36.5도는 화씨 97.7도, 섭씨 0도는 화씨 32도예요.</p>
+    </details>
+    <details>
+      <summary>1갤런은 몇 리터인가요?</summary>
+      <p>미국 갤런은 약 3.785L, 영국 갤런은 약 4.546L예요. 이 계산기는 미국 갤런 기준이에요.</p>
+    </details>
+  </section>
+
+  <section class="card more-calcs">
+    <h2>다른 계산기</h2>
+    <nav class="calc-grid" aria-label="다른 계산기">
+      <a href="/salary/"><span class="ico" aria-hidden="true">💰</span>연봉 실수령액</a>
+      <a href="/hourly/"><span class="ico" aria-hidden="true">⏰</span>알바 월급</a>
+      <a href="/yearend/"><span class="ico" aria-hidden="true">💸</span>연말정산</a>
+      <a href="/leave/"><span class="ico" aria-hidden="true">🌴</span>연차</a>
+      <a href="/parental/"><span class="ico" aria-hidden="true">👶</span>육아휴직 급여</a>
+      <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
+      <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/savings/"><span class="ico" aria-hidden="true">🐷</span>예금·적금 이자</a>
+      <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
+      <a href="/subscription/"><span class="ico" aria-hidden="true">🏠</span>청약 가점</a>
+      <a href="/brokerage/"><span class="ico" aria-hidden="true">🤝</span>복비</a>
+      <a href="/rent/"><span class="ico" aria-hidden="true">🔑</span>전월세 전환</a>
+      <a href="/area/"><span class="ico" aria-hidden="true">📐</span>평수</a>
+      <a href="/age/"><span class="ico" aria-hidden="true">🎂</span>만 나이</a>
+      <a href="/dday/"><span class="ico" aria-hidden="true">📅</span>D-day·전역일</a>
+      <a href="/count/"><span class="ico" aria-hidden="true">📝</span>글자수 세기</a>
+      <a href="/percent/"><span class="ico" aria-hidden="true">📊</span>퍼센트</a>
+      <a href="/date/"><span class="ico" aria-hidden="true">🗓️</span>날짜 계산</a>
+      <a href="/time/"><span class="ico" aria-hidden="true">⏱️</span>시간 계산</a>
+      <a href="/vat/"><span class="ico" aria-hidden="true">🏷️</span>부가세</a>
+      <a href="/gpa/"><span class="ico" aria-hidden="true">🎓</span>학점 계산</a>
+      <a href="/bmi/"><span class="ico" aria-hidden="true">⚖️</span>BMI·적정 체중</a>
+    </nav>
+  </section>
+
+  <footer>환산값은 소수점 아래에서 반올림해 보여 줘요. 전통 단위(자·근·되 등)는 관습적인 값이라 지역·품목에 따라 다를 수 있어요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+// 숫자 입력: 쉼표·공백을 빼고 읽어요 (소수·음수 가능)
+const num = (s) => { const n = parseFloat(String(s).replace(/[^0-9.\-]/g, "")); return isFinite(n) ? n : NaN; };
+// 보기 좋게: 천 단위 쉼표, 소수는 최대 d자리
+const show = (n, d = 4) => isFinite(n) ? n.toLocaleString("ko-KR", { maximumFractionDigits: d }) : "-";
+let tab = document.querySelector('[data-tab][aria-selected="true"]')?.dataset.tab;
+function setTab(t) {
+  tab = t;
+  document.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === t));
+  document.querySelectorAll("[data-panel]").forEach((p) => (p.hidden = p.dataset.panel !== t));
+  if (typeof onTab === "function") onTab(t);
+  render();
+}
+document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
+
+// 각 단위를 기준 단위(길이 m, 무게 kg, 부피 L, 속도 m/s)로 바꾸는 배수
+const U = {
+  len: { base: "m", units: [["mm", "밀리미터 (mm)", 0.001], ["cm", "센티미터 (cm)", 0.01], ["m", "미터 (m)", 1], ["km", "킬로미터 (km)", 1000], ["in", "인치 (in)", 0.0254], ["ft", "피트 (ft)", 0.3048], ["yd", "야드 (yd)", 0.9144], ["mi", "마일 (mi)", 1609.344], ["ja", "자 (尺)", 10 / 33], ["ri", "리 (里, 약 393m)", 3927 / 10]], quick: [["170", "cm"], ["32", "in"], ["6", "ft"], ["10", "km"], ["1", "mi"]] },
+  mass: { base: "kg", units: [["g", "그램 (g)", 0.001], ["kg", "킬로그램 (kg)", 1], ["t", "톤 (t)", 1000], ["oz", "온스 (oz)", 0.028349523125], ["lb", "파운드 (lb)", 0.45359237], ["geun", "근 (고기 600g)", 0.6], ["don", "돈 (3.75g)", 0.00375], ["nyang", "냥 (37.5g)", 0.0375], ["gwan", "관 (3.75kg)", 3.75]], quick: [["68", "kg"], ["150", "lb"], ["1", "geun"], ["1", "don"], ["16", "oz"]] },
+  vol: { base: "L", units: [["mL", "밀리리터 (mL)", 0.001], ["L", "리터 (L)", 1], ["m3", "세제곱미터 (㎥)", 1000], ["cup", "컵 (미국, 약 236.6mL)", 0.2365882365], ["floz", "액량 온스 (미국 fl oz)", 0.0295735295625], ["gal", "갤런 (미국)", 3.785411784], ["hop", "홉 (약 180mL)", 0.18039], ["doe", "되 (약 1.8L)", 1.8039], ["mal", "말 (약 18L)", 18.039]], quick: [["500", "mL"], ["2", "L"], ["1", "gal"], ["1", "doe"], ["1", "cup"]] },
+  speed: { base: "m/s", units: [["ms", "m/s", 1], ["kmh", "km/h", 1 / 3.6], ["mph", "mph (마일/시)", 0.44704], ["kn", "노트 (kn)", 1852 / 3600]], quick: [["100", "kmh"], ["60", "mph"], ["10", "ms"]] },
+  temp: { base: "°C", units: [["c", "섭씨 (°C)"], ["f", "화씨 (°F)"], ["k", "켈빈 (K)"]], quick: [["36.5", "c"], ["100", "f"], ["0", "c"], ["-40", "c"]] },
+};
+const TABN = { len: "길이", mass: "무게", temp: "온도", vol: "부피", speed: "속도" };
+const fmt = (n) => !isFinite(n) ? "-" : Math.abs(n) >= 1e6 || (Math.abs(n) < 1e-4 && n !== 0) ? n.toExponential(4) : (+n.toPrecision(7)).toLocaleString("ko-KR", { maximumFractionDigits: 6 });
+const toC = (v, u) => (u === "c" ? v : u === "f" ? (v - 32) * 5 / 9 : v - 273.15);
+const fromC = (c, u) => (u === "c" ? c : u === "f" ? c * 9 / 5 + 32 : c + 273.15);
+function convert(kind, v, from) {
+  if (kind === "temp") { const c = toC(v, from); return U.temp.units.map(([k, name]) => [k, name, fromC(c, k)]); }
+  const f = U[kind].units.find(([k]) => k === from)[2], base = v * f;
+  return U[kind].units.map(([k, name, m]) => [k, name, base / m]);
+}
+window.calc = convert;
+function onTab(t) {
+  const keep = $("from").value;
+  $("from").innerHTML = U[t].units.map(([k, name]) => `<option value="${k}">${name}</option>`).join("");
+  if (window._restoring && U[t].units.some(([k]) => k === keep)) $("from").value = keep;
+  else if (!window._restoring) { $("v").value = U[t].quick[0][0]; $("from").value = U[t].quick[0][1]; }
+  $("uQuick").innerHTML = U[t].quick.map(([v, k]) => `<button type="button" data-q="${v}|${k}">${v} ${U[t].units.find(([x]) => x === k)[1].split(" (")[0]}</button>`).join("");
+}
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-q]");
+  if (b) { const [v, k] = b.dataset.q.split("|"); $("v").value = v; $("from").value = k; render(); }
+});
+function render() {
+  const v = num($("v").value), from = $("from").value;
+  if (!isFinite(v) || !from) { $("big").textContent = "-"; $("rows").innerHTML = ""; return; }
+  const list = convert(tab, v, from);
+  const fromName = U[tab].units.find(([k]) => k === from)[1].split(" (")[0];
+  $("head").textContent = `${TABN[tab]} · ${fmt(v)} ${fromName}은(는)`;
+  const pick = tab === "temp" ? (from === "c" ? "f" : "c") : { len: from === "cm" ? "in" : "cm", mass: from === "kg" ? "lb" : "kg", vol: from === "L" ? "gal" : "L", speed: from === "kmh" ? "mph" : "kmh" }[tab];
+  const main = list.find(([k]) => k === pick);
+  $("big").textContent = `${fmt(main[2])} ${main[1].split(" (")[0]}`;
+  $("subLine").textContent = "아래 표에서 모든 단위를 확인하세요.";
+  $("rows").innerHTML = list.filter(([k]) => k !== from).map(([, name, val]) => `<tr><td>${name}</td><td>${fmt(val)}</td></tr>`).join("");
+}
+window._restoring = new URLSearchParams(location.search).has("v");
+
+document.querySelector("main").addEventListener("input", (e) => { if (e.target.matches("input, select")) render(); });
+document.querySelector("main").addEventListener("change", (e) => { if (e.target.matches("input, select")) render(); });
+window.render = render;
+const h = location.hash.slice(1);
+if (h && document.querySelector(`[data-tab="${h}"]`)) setTab(h); else setTab(tab);
+</script>
+<script src="/assets/share.js?v=20261105a" defer></script>
+<script src="/assets/next.js?v=20261105c" defer></script>
+</body>
+</html>

@@ -8,6 +8,14 @@
     <lastBuildDate>Thu, 05 Nov 2026 09:00:00 +0900</lastBuildDate>
     <atom:link href="https://dohyun.co.kr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>연말정산 막판 체크리스트: 12월 31일 전에 해야 환급이 늘어나는 7가지</title>
+      <link>https://dohyun.co.kr/guide/year-end-tax-december-checklist/</link>
+      <guid isPermaLink="true">https://dohyun.co.kr/guide/year-end-tax-december-checklist/</guid>
+      <description>연말정산 환급은 12월 31일까지 쓴 돈과 낸 돈으로 정해져요. 카드 사용액 25% 문턱 확인, 체크카드로 바꿀 타이밍, 연금저축·IRP 납입, 주택청약, 의료비·월세 영수증, 부양가족 확인까지 지금 할 일을 순서대로 정리했어요.</description>
+      <category>가이드</category>
+      <pubDate>Thu, 05 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>학점 계산법 총정리: 평점 평균 구하는 법, 4.5↔4.3 변환, 목표 학점 맞추기</title>
       <link>https://dohyun.co.kr/guide/gpa-calculation-guide/</link>
       <guid isPermaLink="true">https://dohyun.co.kr/guide/gpa-calculation-guide/</guid>
@@ -28,6 +36,14 @@
       <link>https://dohyun.co.kr/vat/</link>
       <guid isPermaLink="true">https://dohyun.co.kr/vat/</guid>
       <description>부가세 계산기: 공급가액에 부가세 10%를 더한 합계, 부가세 포함 금액에서 공급가액과 부가세를 거꾸로 나누는 계산을 바로 해요. 세금계산서 쓸 때, 견적 낼 때 쓰세요.</description>
+      <category>계산기</category>
+      <pubDate>Thu, 05 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>단위 변환 계산기 | 길이·무게·온도·부피·속도, 자·근·되 같은 전통 단위까지</title>
+      <link>https://dohyun.co.kr/unit/</link>
+      <guid isPermaLink="true">https://dohyun.co.kr/unit/</guid>
+      <description>단위 변환 계산기: cm·인치·피트·마일, kg·파운드·온스·근·돈, 섭씨·화씨, L·mL·갤런·컵·되·홉, km/h·m/s·mph를 한 번에 바꿔요. 숫자 하나만 넣으면 모든 단위로 보여 줘요.</description>
       <category>계산기</category>
       <pubDate>Thu, 05 Nov 2026 09:00:00 +0900</pubDate>
     </item>
@@ -168,6 +184,14 @@
       <pubDate>Thu, 05 Nov 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
+      <title>BMI 계산기 · 적정 체중 계산기 | 비만도·정상 체중 범위·표준 체중</title>
+      <link>https://dohyun.co.kr/bmi/</link>
+      <guid isPermaLink="true">https://dohyun.co.kr/bmi/</guid>
+      <description>BMI 계산기: 키와 몸무게를 넣으면 체질량지수(BMI)와 비만도(대한비만학회 기준), 정상 체중 범위, 표준 체중, 목표까지 남은 체중을 바로 계산해요. WHO 기준도 함께 보여 줘요.</description>
+      <category>계산기</category>
+      <pubDate>Thu, 05 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
       <title>평수 계산기 | 평 ↔ 제곱미터(㎡) 변환, 아파트 평형 계산</title>
       <link>https://dohyun.co.kr/area/</link>
       <guid isPermaLink="true">https://dohyun.co.kr/area/</guid>
@@ -187,7 +211,7 @@
       <title>생활 계산기 모음 | 연봉 실수령액·퇴직금·실업급여·이자·퍼센트 계산기</title>
       <link>https://dohyun.co.kr/</link>
       <guid isPermaLink="true">https://dohyun.co.kr/</guid>
-      <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 연말정산, 이자, 퍼센트, 날짜 계산까지 21가지. 2026년 기준으로 확인한 생활 계산을 숫자만 넣으면 무료로, 가입 없이 바로 알려드려요.</description>
+      <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 연말정산, 이자, 퍼센트, 날짜 계산까지 23가지. 2026년 기준으로 확인한 생활 계산을 숫자만 넣으면 무료로, 가입 없이 바로 알려드려요.</description>
       <category>계산기</category>
       <pubDate>Thu, 05 Nov 2026 09:00:00 +0900</pubDate>
     </item>
