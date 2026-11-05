@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dohyun.co.kr/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://dohyun.co.kr/salary/</loc>
@@ -267,5 +267,13 @@
   <url>
     <loc>https://dohyun.co.kr/en/pension-refund/</loc>
     <lastmod>2026-10-30</lastmod>
+  </url>
+  <url>
+    <loc>https://dohyun.co.kr/gpa/</loc>
+    <lastmod>2026-11-05</lastmod>
+  </url>
+  <url>
+    <loc>https://dohyun.co.kr/guide/gpa-calculation-guide/</loc>
+    <lastmod>2026-11-05</lastmod>
   </url>
 </urlset>

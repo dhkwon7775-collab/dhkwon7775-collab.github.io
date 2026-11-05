@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f4ef">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<title>학점 계산법 총정리: 평점 평균 구하는 법, 4.5↔4.3 변환, 목표 학점 맞추기</title>
+<meta name="description" content="평점 평균 계산 공식과 예시, P/NP·F 학점 처리, 누적 평점 계산, 4.5 만점과 4.3 만점·100점 환산, 졸업까지 목표 학점을 맞추려면 남은 학기에 몇 점이 필요한지까지 정리했어요.">
+<meta property="og:title" content="학점 계산법 총정리: 평점 평균 구하는 법, 4.5↔4.3 변환, 목표 학점 맞추기">
+<meta property="og:description" content="평점 평균 계산 공식과 예시, P/NP·F 학점 처리, 누적 평점 계산, 4.5 만점과 4.3 만점·100점 환산, 졸업까지 목표 학점을 맞추려면 남은 학기에 몇 점이 필요한지까지 정리했어요.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dohyun.co.kr/guide/gpa-calculation-guide/">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/gpa.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://dohyun.co.kr/guide/gpa-calculation-guide/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "학점 계산법 총정리: 평점 평균 구하는 법, 4.5↔4.3 변환, 목표 학점 맞추기", "description": "평점 평균 계산 공식과 예시, P/NP·F 학점 처리, 누적 평점 계산, 4.5 만점과 4.3 만점·100점 환산, 졸업까지 목표 학점을 맞추려면 남은 학기에 몇 점이 필요한지까지 정리했어요.", "datePublished": "2026-11-05", "dateModified": "2026-11-05", "image": "https://dohyun.co.kr/assets/og/gpa.png", "mainEntityOfPage": "https://dohyun.co.kr/guide/gpa-calculation-guide/", "author": {"@type": "Organization", "name": "생활 계산기 모음"}, "publisher": {"@type": "Organization", "name": "생활 계산기 모음"}}</script>
+<style>
+  :root { --bg:#f5f6f8; --card:#fff; --text:#191f28; --sub:#6b7684; --line:#e5e8eb; --accent:#3182f6; --accent-soft:#e8f3ff; --seg:#f2f4f6; --warn-bg:#fff4e5; --warn:#b25e09; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#101113; --card:#1b1d21; --text:#f2f4f6; --sub:#9aa3ad; --line:#2c2f35; --accent:#4c9bff; --accent-soft:#1a2a40; --seg:#24272c; --warn-bg:#3a2a12; --warn:#ffb35c; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:"Pretendard",-apple-system,"Malgun Gothic",sans-serif; line-height:1.8; -webkit-font-smoothing:antialiased; }
+  main { max-width:720px; margin:0 auto; padding:32px 16px 64px; }
+  .crumb { font-size:14px; color:var(--sub); text-decoration:none; }
+  h1 { font-size:28px; line-height:1.35; margin:10px 0 8px; letter-spacing:-0.02em; }
+  .meta { color:var(--sub); font-size:14px; margin:0 0 24px; }
+  article { background:var(--card); border-radius:20px; padding:28px 22px; }
+  article h2 { font-size:21px; margin:36px 0 12px; letter-spacing:-0.01em; }
+  article h2:first-of-type { margin-top:8px; }
+  article h3 { font-size:17px; margin:24px 0 8px; }
+  article p, article li { font-size:16px; }
+  article p { margin:0 0 14px; }
+  article ul, article ol { margin:0 0 14px; padding-left:22px; }
+  article li { margin:4px 0; }
+  .summary { background:var(--accent-soft); border-radius:14px; padding:16px 18px; margin:0 0 8px; }
+  .summary b { color:var(--accent); }
+  .summary ul { margin:6px 0 0; }
+  .note { background:var(--warn-bg); color:var(--warn); border-radius:12px; padding:12px 14px; font-size:14px; margin:14px 0; }
+  table { width:100%; border-collapse:collapse; font-size:15px; margin:8px 0 16px; }
+  th, td { border-bottom:1px solid var(--line); padding:10px 8px; text-align:left; vertical-align:top; }
+  th { background:var(--seg); font-weight:600; font-size:14px; }
+  td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .table-wrap { overflow-x:auto; }
+  .cta { display:block; background:var(--accent); color:#fff; text-decoration:none; border-radius:16px; padding:18px 20px; margin:24px 0; }
+  .cta b { display:block; font-size:18px; }
+  .cta span { font-size:14px; opacity:.9; }
+  .faq details { border-top:1px solid var(--line); padding:12px 0; }
+  .faq summary { cursor:pointer; font-weight:600; }
+  .faq details p { color:var(--sub); font-size:15px; margin:8px 0 0; }
+  .card { background:var(--card); border-radius:20px; padding:22px 20px; margin-top:16px; }
+  .card h2 { font-size:18px; margin:0 0 8px; }
+  .list a { display:block; padding:12px 0; border-top:1px solid var(--line); color:var(--text); text-decoration:none; font-weight:600; }
+  .list a:first-of-type { border-top:0; }
+  .list a span { display:block; color:var(--sub); font-weight:400; font-size:14px; }
+  .sources { font-size:13px; color:var(--sub); }
+  .sources a { color:var(--sub); }
+  footer { text-align:center; font-size:12px; color:var(--sub); margin-top:24px; }
+  footer a { color:inherit; }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/" aria-current="page">가이드</a></nav>
+    <span class="lang"><a href="/guide/gpa-calculation-guide/" aria-current="true">한국어</a><a href="/en/" hreflang="en" lang="en">EN</a></span>
+  </div>
+</header>
+
+<main>
+  <a class="crumb" href="/guide/">← 가이드 목록</a>
+  <h1>학점 계산법 총정리: 평점 평균 구하는 법, 4.5↔4.3 변환, 목표 학점 맞추기</h1>
+  <p class="meta">생활 계산기 모음 · 2026.11.05 작성</p>
+  <article>
+
+<div class="summary">
+  <b>한눈에 보기</b>
+  <ul>
+    <li>평점 평균 = (학점 × 성적 점수)의 합 ÷ 성적이 매겨진 학점의 합</li>
+    <li><b>P/NP</b> 과목은 평점에서 빠지고, <b>F</b>는 0점으로 평균을 끌어내려요.</li>
+    <li>4.5 만점 3.8은 4.3 만점으로 약 <b>3.63</b>, 100점 만점으로 약 <b>84.4점</b>이에요 (비례 환산).</li>
+    <li>학점이 많이 쌓일수록 한 학기 성적으로 누적 평점을 올리기 어려워져요. 저학년 때 관리가 중요해요.</li>
+  </ul>
+</div>
+
+<h2>평점 평균, 직접 계산해 보기</h2>
+<p>과목마다 <b>학점 × 성적 점수</b>를 구해서 모두 더한 뒤, 성적이 매겨진 학점의 합으로 나눠요.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>과목</th><th class="num">학점</th><th class="num">성적 (4.5 만점)</th><th class="num">학점 × 점수</th></tr></thead>
+  <tbody>
+    <tr><td>경영학원론</td><td class="num">3</td><td class="num">A0 (4.0)</td><td class="num">12.0</td></tr>
+    <tr><td>회계원리</td><td class="num">3</td><td class="num">B+ (3.5)</td><td class="num">10.5</td></tr>
+    <tr><td>영어회화</td><td class="num">2</td><td class="num">A+ (4.5)</td><td class="num">9.0</td></tr>
+    <tr><td>통계학</td><td class="num">3</td><td class="num">C+ (2.5)</td><td class="num">7.5</td></tr>
+    <tr><td>사회봉사</td><td class="num">1</td><td class="num">P</td><td class="num">평점 제외</td></tr>
+    <tr><td><b>합계</b></td><td class="num"><b>11 (+1)</b></td><td class="num"></td><td class="num"><b>39.0</b></td></tr>
+  </tbody>
+</table></div>
+<p>39 ÷ 11 = <b>3.55</b>예요. 단순히 성적 점수만 평균 내면 (4.0 + 3.5 + 4.5 + 2.5) ÷ 4 = 3.63으로 다르게 나와요. <b>학점이 큰 과목일수록 평균에 더 큰 영향</b>을 줘요.</p>
+<a class="cta" href="/gpa/"><b>학점 계산기 →</b><span>과목별 성적만 넣으면 평점·누적·목표 학점을 바로 계산</span></a>
+
+<h2>P/NP와 F는 어떻게 들어가나요?</h2>
+<ul>
+  <li><b>P(패스):</b> 졸업에 필요한 이수 학점에는 들어가지만 평점 계산에서는 빠져요. 채플, 사회봉사, 일부 교양이 대표적이에요.</li>
+  <li><b>NP(논패스):</b> 이수 학점에도, 평점에도 들어가지 않아요.</li>
+  <li><b>F:</b> 0점으로 평점에 들어가서 평균을 크게 끌어내려요. 위 예시에서 사회봉사 대신 3학점 F가 하나 더 있으면 39 ÷ 14 = 2.79까지 떨어져요.</li>
+</ul>
+
+<h2>누적 평점은 왜 잘 안 오를까?</h2>
+<p>누적 평점은 <b>지금까지 들은 모든 학점의 가중 평균</b>이라서, 학점이 쌓일수록 한 학기 성적의 영향이 작아져요.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>지금까지</th><th class="num">이번 학기 4.5 (18학점) 받으면</th></tr></thead>
+  <tbody>
+    <tr><td>3.0 · 36학점 (2학년)</td><td class="num">3.50</td></tr>
+    <tr><td>3.0 · 72학점 (3학년)</td><td class="num">3.30</td></tr>
+    <tr><td>3.0 · 108학점 (4학년)</td><td class="num">3.21</td></tr>
+  </tbody>
+</table></div>
+<p>같은 만점을 받아도 2학년 때는 0.5 오르지만, 4학년 때는 0.21밖에 오르지 않아요. 평점을 올리고 싶다면 <b>일찍 관리하는 게 가장 효과적</b>이에요.</p>
+
+<h2>목표 학점까지 남은 학기에 몇 점이 필요할까?</h2>
+<p><b>필요한 평균 = (목표 평점 × 졸업 학점 − 지금까지의 학점×평점 합) ÷ 남은 학점</b></p>
+<p>예: 지금까지 72학점 평균 3.72, 졸업 130학점에 목표 3.8이면 (3.8 × 130 − 3.72 × 72) ÷ 58 = <b>약 3.90</b>이 필요해요. 결과가 만점(4.5)보다 크면 남은 학기만으로는 목표에 닿을 수 없어요.</p>
+
+<h2>4.5 ↔ 4.3 ↔ 100점 환산</h2>
+<div class="table-wrap"><table>
+  <thead><tr><th>4.5 만점</th><th class="num">4.3 만점 (비례)</th><th class="num">100점 (비례)</th></tr></thead>
+  <tbody>
+    <tr><td>4.0</td><td class="num">3.82</td><td class="num">88.9</td></tr>
+    <tr><td>3.8</td><td class="num">3.63</td><td class="num">84.4</td></tr>
+    <tr><td>3.5</td><td class="num">3.34</td><td class="num">77.8</td></tr>
+    <tr><td>3.0</td><td class="num">2.87</td><td class="num">66.7</td></tr>
+  </tbody>
+</table></div>
+<div class="note">비례 환산은 가장 흔한 방법일 뿐이에요. 학교 성적표의 백분위 점수나 지원하는 회사·대학원이 정한 환산표가 있으면 그 기준을 따라야 해요.</div>
+
+<h2>학점 관리 팁</h2>
+<ol>
+  <li><b>학점이 큰 과목에 집중하세요.</b> 3학점 과목의 한 등급은 1학점 과목의 세 배만큼 평균에 영향을 줘요.</li>
+  <li><b>재수강 규정을 확인하세요.</b> 재수강하면 이전 성적이 지워지는 학교가 많지만, 받을 수 있는 최고 성적에 제한이 있기도 해요.</li>
+  <li><b>성적 이의신청 기간을 놓치지 마세요.</b> 성적 공개 후 보통 일주일 안팎이라 짧아요.</li>
+  <li><b>장학금 기준을 미리 보세요.</b> 직전 학기 평점과 이수 학점(보통 12학점 이상)을 함께 보는 경우가 많아요.</li>
+</ol>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>A0와 A는 같은 점수인가요?</summary><p>네. 4.5 만점에서는 A0(에이제로)를 A라고도 부르고 4.0이에요. 4.3 만점 학교는 A+ 4.3, A 4.0, A- 3.7처럼 '-' 등급이 있어요.</p></details><details><summary>계절학기 성적도 누적 평점에 들어가나요?</summary><p>대부분의 학교에서 들어가요. 계절학기 학점과 성적도 학기 성적과 똑같이 누적 평점 계산에 포함돼요.</p></details><details><summary>취업할 때 학점은 몇 점이면 되나요?</summary><p>회사마다 다르지만 서류 전형에서 '최소 기준'으로 보는 경우가 많아요. 4.5 만점 3.0 이상을 지원 자격으로 두는 곳이 흔하니, 지원하려는 회사 공고를 확인하세요.</p></details></div>
+    
+  </article>
+  <section class="card list"><h2>함께 보면 좋은 가이드</h2><a href="/guide/national-pension-guide/">국민연금 수령액·받는 나이 총정리<span>국민연금은 1969년생부터 65세에 받아요. 출생연도별 받는 나이, 내 월급에서 나가는 보험료(2026년…</span></a><a href="/guide/car-tax-annual-payment/">자동차세 연납 할인 총정리<span>자동차세를 1월에 1년치 미리 내면 약 4.6%를 아낄 수 있어요(2026년 기준). 배기량별 자동차세(…</span></a><a href="/guide/vat-return-guide/">부가세 신고 총정리<span>개인사업자 부가가치세 신고 기한(1월 25일·7월 25일), 일반과세자와 간이과세자 세금 계산법을 예시로…</span></a><a href="/guide/how-to-calculate-percent/">퍼센트 구하는 법 총정리<span>퍼센트(%) 구하는 공식을 예시로 쉽게 정리했어요. 전체의 몇 %, 몇 퍼센트인지 구하기, 증감률, 할인…</span></a><a href="/guide/minimum-wage-2027/">2027년 최저임금 10,700원 총정리<span>2027년 최저임금은 시급 10,700원으로 2026년보다 380원(3.7%) 올라요. 주 40시간 월급…</span></a><a href="/guide/jeonse-contract-checklist/">전세 계약 체크리스트 9가지<span>전세 계약 전 등기부등본에서 볼 곳, 깡통전세 계산법, 집주인 세금 체납 확인, 확정일자·전입신고 순서,…</span></a><a href="/guide/" style="color:var(--sub);font-weight:500">가이드 전체 보기 (24개) →</a></section>
+  <footer>글의 내용은 작성일 기준이며, 법령 개정에 따라 달라질 수 있어요.<br><a href="/about/">사이트 소개</a> · <a href="/privacy/">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com">문의</a></footer>
+</main>
+</body>
+</html>
