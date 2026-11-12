@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f4ef">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/prepayment.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<title>중도상환수수료 계산기 | 대출 중도상환 수수료·대출 갈아타기 이득 계산 (2026)</title>
+<meta name="description" content="중도상환수수료 계산기: 갚을 금액, 수수료율, 대출일과 상환일을 넣으면 중도상환수수료를 바로 계산해요. 2025년 1월 개편 후 요율(주담대 평균 0.6%대), 3년 면제 기준, 대출 갈아타기 이득까지 함께 봐요.">
+<meta property="og:title" content="중도상환수수료 계산기">
+<meta property="og:description" content="대출을 미리 갚을 때 수수료와 갈아타기 이득을 계산해요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/prepayment/">
+<link rel="canonical" href="https://dohyun.co.kr/prepayment/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"], input[type="time"], select { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 44px 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; }
+  input[type="date"], input[type="time"] { padding-right: 14px; font-size: 18px; }
+  select { font-size: 16px; padding-right: 14px; cursor: pointer; }
+  input:focus, select:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row2 > * { min-width: 0; }
+  input { min-width: 0; }
+  @media (max-width: 440px) { .row2.stack { grid-template-columns: 1fr; gap: 0; } }
+  .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+  .check small { display: block; font-weight: 400; font-size: 13px; color: var(--sub); }
+  .tabs { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .tabs button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 2px; background: transparent; color: var(--sub); cursor: pointer; line-height: 1.3; }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .seg { display: grid; grid-template-columns: repeat(2, 1fr); background: var(--seg); border-radius: 12px; padding: 4px; gap: 4px; }
+  .seg button { font: inherit; font-size: 14px; font-weight: 600; border: 0; border-radius: 9px; padding: 10px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; margin: 2px 0 4px; word-break: break-all; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 17px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 4px; border-top: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+  th { color: var(--sub); font-weight: 600; font-size: 12.5px; border-top: 0; }
+  th:first-child, td:first-child { text-align: left; }
+  tr.total td { font-weight: 700; border-top: 1.5px solid var(--line); }
+  h2.sec { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+  [hidden] { display: none !important; }
+  @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 13px; } }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/">가이드</a></nav>
+    <span class="lang"><a href="/prepayment/" aria-current="true">한국어</a><a href="/en/" hreflang="en" lang="en">EN</a></span>
+  </div>
+</header>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>중도상환수수료 계산기</h1>
+  <p class="lead">대출을 미리 갚을 때 내는 수수료를 계산하고, 갈아타면 실제로 이득인지 비교해요.</p>
+  <p class="verified">금융소비자보호법 기준 (대출 후 3년까지만 부과) · 수수료 = 상환금액 × 수수료율 × 남은 기간 ÷ 부과 기간</p>
+
+  <section class="card">
+    <div class="field">
+      <label for="amount">미리 갚을 금액</label>
+      <div class="input-wrap"><input id="amount" type="text" inputmode="numeric" value="100,000,000" autocomplete="off"><span class="unit">원</span></div>
+      <div class="hint" id="amountKo"></div>
+    </div>
+    <div class="field">
+      <label for="rate">중도상환수수료율</label>
+      <div class="input-wrap"><input id="rate" type="text" inputmode="decimal" value="0.65" autocomplete="off"><span class="unit">%</span></div>
+      <div class="quick">
+        <button type="button" data-rate="0.6">0.6%</button><button type="button" data-rate="0.65">0.65%</button><button type="button" data-rate="1.0">1.0%</button><button type="button" data-rate="1.2">1.2%</button><button type="button" data-rate="1.4">1.4%</button>
+      </div>
+      <div class="hint">2025년 1월 13일 이후 새로 받은 은행 주택담보대출은 0.6%대가 많고, 그 전 계약은 1.2~1.4%가 많아요. 정확한 요율은 대출 약정서에 있어요.</div>
+    </div>
+    <div class="row2 stack">
+      <div class="field"><label for="start">대출 받은 날</label><input id="start" type="date"></div>
+      <div class="field"><label for="pay">갚을 날</label><input id="pay" type="date"></div>
+    </div>
+    <div class="field">
+      <span class="label">수수료 부과 기간</span>
+      <div class="seg" role="group" aria-label="수수료 부과 기간">
+        <button type="button" data-years="1" aria-pressed="false">1년</button>
+        <button type="button" data-years="2" aria-pressed="false">2년</button>
+        <button type="button" data-years="3" aria-pressed="true">3년</button>
+      </div>
+      <div class="hint">대부분 3년이에요. 대출 기간이 3년보다 짧으면 대출 기간을 고르세요.</div>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head">중도상환수수료</p>
+    <p class="big" id="big">-</p>
+    <p class="sub-line" id="subLine"></p>
+    <div class="stats">
+      <div class="stat"><span>지난 기간</span><b id="sPassed">-</b></div>
+      <div class="stat"><span>남은 부과 기간</span><b id="sLeft">-</b></div>
+      <div class="stat"><span>면제되는 날</span><b id="sFree">-</b></div>
+    </div>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <section class="card">
+    <h2 class="sec">갈아타면 이득일까?</h2>
+    <div class="row2">
+      <div class="field"><label for="r1">지금 대출 금리</label><div class="input-wrap"><input id="r1" type="text" inputmode="decimal" value="4.5" autocomplete="off"><span class="unit">%</span></div></div>
+      <div class="field"><label for="r2">새 대출 금리</label><div class="input-wrap"><input id="r2" type="text" inputmode="decimal" value="3.9" autocomplete="off"><span class="unit">%</span></div></div>
+    </div>
+    <div class="row2">
+      <div class="field"><label for="months">남은 대출 기간</label><div class="input-wrap"><input id="months" type="text" inputmode="numeric" value="240" autocomplete="off"><span class="unit">개월</span></div></div>
+      <div class="field"><label for="cost">새 대출 부대비용</label><div class="input-wrap"><input id="cost" type="text" inputmode="numeric" value="0" autocomplete="off"><span class="unit">원</span></div></div>
+    </div>
+    <div class="hint">원리금균등상환 기준으로 남은 기간 이자를 비교해요. 부대비용은 인지세·근저당 설정비처럼 내가 내는 돈이에요.</div>
+    <p class="result-head" style="margin-top:18px">갈아탈 때 순이득</p>
+    <p class="big" id="sw">-</p>
+    <p class="sub-line" id="swLine"></p>
+    <table><tbody id="swRows"></tbody></table>
+  </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>중도상환수수료는 이렇게 계산돼요</h2>
+<h3>계산 공식</h3>
+<ul>
+  <li><b>중도상환수수료</b> = 상환금액 × 수수료율 × (남은 부과 기간 ÷ 전체 부과 기간)</li>
+  <li><b>부과 기간</b>은 보통 대출 후 3년이에요. 날짜가 지날수록 수수료가 매일 조금씩 줄어요.</li>
+  <li>3년이 지나면 수수료는 <b>0원</b>이에요.</li>
+</ul>
+<h3>예시 (1억 원을 미리 갚을 때)</h3>
+<div class="tbl"><table><thead><tr><th>수수료율</th><th>대출 후 지난 기간</th><th>수수료</th></tr></thead><tbody><tr><td>0.65% (2025년 개편 후 주담대 평균)</td><td>1년 (남은 2년)</td><td>약 43만 원</td></tr><tr><td>1.4% (개편 전 고정금리 주담대)</td><td>1년 (남은 2년)</td><td>약 93만 원</td></tr><tr><td>0.65%</td><td>2년 6개월 (남은 6개월)</td><td>약 11만 원</td></tr><tr><td>어떤 요율이든</td><td>3년 이상</td><td>0원</td></tr></tbody></table></div>
+<p>1억 × 0.65% × 731일 ÷ 1,096일 = 433,531원이에요. 같은 대출을 1년 반 뒤에 갚으면 약 11만 원으로 줄어요.</p>
+<h3>갈아타기 판단법</h3>
+<ul>
+  <li><b>순이득 = 남은 기간 이자 절약 − 중도상환수수료 − 새 대출 부대비용</b></li>
+  <li>남은 기간이 길고 금리 차이가 클수록 갈아타는 쪽이 유리해요. 1억 원, 남은 20년, 4.5% → 3.9%면 이자가 약 766만 원 줄어요.</li>
+  <li>남은 기간이 짧거나 금리 차이가 작으면 수수료와 부대비용 때문에 손해일 수 있어요.</li>
+</ul>
+<h3>알아 둘 점</h3>
+<ul>
+  <li>2025년 1월 13일부터 금융사는 <b>실제 드는 비용만</b> 수수료로 받을 수 있어요. 5대 은행 주담대 평균은 고정금리 약 1.4% → 0.65%, 변동금리 약 1.2% → 0.65%로 내렸어요. 원칙적으로 그 이후 새 대출부터 적용돼요.</li>
+  <li>많은 대출이 <b>1년에 원금의 10%</b> 정도는 수수료 없이 갚게 해 줘요. 약정서의 '중도상환 면제 한도'를 확인하세요.</li>
+  <li>금융사마다 일할 계산 방식(대출 기간이 3년보다 짧을 때 등)이 조금씩 달라요. 정확한 금액은 은행 앱이나 창구에서 확인하세요.</li>
+</ul>
+<p class="src">근거: 금융소비자보호법 제20조(중도상환수수료 부과 제한), 금융위원회 '중도상환수수료 부과체계 개선' (2025년 1월 13일 시행)</p>
+  </section>
+  <!-- explain:end -->
+
+  <section class="card guide-links">
+    <h2>함께 읽으면 좋은 가이드</h2>
+    <div class="link-list">
+      <a href="/guide/loan-repayment-guide/">대출 상환 방식 비교</a>
+    </div>
+  </section>
+
+  <section class="card faq">
+    <h2 class="sec">자주 묻는 질문</h2>
+    <details>
+      <summary>중도상환수수료는 어떻게 계산하나요?</summary>
+      <p>상환금액 × 수수료율 × (남은 부과 기간 ÷ 전체 부과 기간)이에요. 1억 원을 수수료율 0.65%, 3년 중 1년이 지난 뒤 갚으면 1억 × 0.65% × 2/3 ≈ 43만 3천 원이에요.</p>
+    </details>
+    <details>
+      <summary>3년이 지나면 수수료가 없나요?</summary>
+      <p>네. 금융소비자보호법에 따라 대출 후 3년이 지나면 중도상환수수료를 받을 수 없어요. 대출 기간이 3년보다 짧으면 그 기간이 기준이에요.</p>
+    </details>
+    <details>
+      <summary>2025년에 수수료가 내렸다던데 기존 대출도 내리나요?</summary>
+      <p>2025년 1월 13일부터 은행이 실제 드는 비용만 수수료로 받도록 바뀌어, 5대 은행 주담대 평균이 고정금리 약 1.4% → 0.65%, 변동금리 약 1.2% → 0.65%로 내렸어요. 원칙적으로 그 이후 새로 받은 대출부터 적용돼요.</p>
+    </details>
+    <details>
+      <summary>수수료 없이 갚을 수 있는 방법이 있나요?</summary>
+      <p>많은 대출이 1년에 원금의 10% 정도는 수수료 없이 갚게 해 줘요(중도상환 면제 한도). 또 정책대출 일부와 3년 지난 대출은 수수료가 없어요. 약정서나 은행 앱에서 확인해 보세요.</p>
+    </details>
+  </section>
+
+  <section class="card more-calcs">
+    <h2>다른 계산기</h2>
+    <nav class="calc-grid" aria-label="다른 계산기">
+      <a href="/salary/"><span class="ico" aria-hidden="true">💰</span>연봉 실수령액</a>
+      <a href="/hourly/"><span class="ico" aria-hidden="true">⏰</span>알바 월급</a>
+      <a href="/overtime/"><span class="ico" aria-hidden="true">🌙</span>야간·연장수당</a>
+      <a href="/yearend/"><span class="ico" aria-hidden="true">💸</span>연말정산</a>
+      <a href="/leave/"><span class="ico" aria-hidden="true">🌴</span>연차</a>
+      <a href="/parental/"><span class="ico" aria-hidden="true">👶</span>육아휴직 급여</a>
+      <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
+      <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/savings/"><span class="ico" aria-hidden="true">🐷</span>예금·적금 이자</a>
+      <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
+      <a href="/subscription/"><span class="ico" aria-hidden="true">🏠</span>청약 가점</a>
+      <a href="/brokerage/"><span class="ico" aria-hidden="true">🤝</span>복비</a>
+      <a href="/rent/"><span class="ico" aria-hidden="true">🔑</span>전월세 전환</a>
+      <a href="/area/"><span class="ico" aria-hidden="true">📐</span>평수</a>
+      <a href="/age/"><span class="ico" aria-hidden="true">🎂</span>만 나이</a>
+      <a href="/dday/"><span class="ico" aria-hidden="true">📅</span>D-day·전역일</a>
+      <a href="/count/"><span class="ico" aria-hidden="true">📝</span>글자수 세기</a>
+      <a href="/percent/"><span class="ico" aria-hidden="true">📊</span>퍼센트</a>
+      <a href="/date/"><span class="ico" aria-hidden="true">🗓️</span>날짜 계산</a>
+      <a href="/time/"><span class="ico" aria-hidden="true">⏱️</span>시간 계산</a>
+      <a href="/vat/"><span class="ico" aria-hidden="true">🏷️</span>부가세</a>
+      <a href="/gpa/"><span class="ico" aria-hidden="true">🎓</span>학점 계산</a>
+      <a href="/bmi/"><span class="ico" aria-hidden="true">⚖️</span>BMI·적정 체중</a>
+      <a href="/unit/"><span class="ico" aria-hidden="true">📏</span>단위 변환</a>
+    </nav>
+  </section>
+
+  <footer>계산 결과는 참고용이에요. 실제 수수료는 금융사 약정(면제 한도, 일할 계산 방식)에 따라 다를 수 있어요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+// 숫자 입력: 쉼표·공백을 빼고 읽어요 (소수·음수 가능)
+const num = (s) => { const n = parseFloat(String(s).replace(/[^0-9.\-]/g, "")); return isFinite(n) ? n : NaN; };
+// 보기 좋게: 천 단위 쉼표, 소수는 최대 d자리
+const show = (n, d = 4) => isFinite(n) ? n.toLocaleString("ko-KR", { maximumFractionDigits: d }) : "-";
+let tab = document.querySelector('[data-tab][aria-selected="true"]')?.dataset.tab;
+function setTab(t) {
+  tab = t;
+  document.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === t));
+  document.querySelectorAll("[data-panel]").forEach((p) => (p.hidden = p.dataset.panel !== t));
+  if (typeof onTab === "function") onTab(t);
+  render();
+}
+document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
+
+let years = 3;
+const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
+const korMoney = (n) => { const e = Math.floor(n / 1e8), m = Math.floor((n % 1e8) / 1e4); return !e && !m ? won(n) : ((e ? e + "억 " : "") + (m ? m.toLocaleString("ko-KR") + "만 " : "")).trim() + " 원"; };
+const DAY = 86400000;
+const parseD = (s) => { const [y, m, d] = String(s).split("-").map(Number); return y ? Date.UTC(y, m - 1, d) : NaN; };
+const fmt = (t) => { const d = new Date(t); return `${d.getUTCFullYear()}. ${d.getUTCMonth() + 1}. ${d.getUTCDate()}.`; };
+const iso = (t) => new Date(t).toISOString().slice(0, 10);
+const addYears = (t, n) => { const d = new Date(t); d.setUTCFullYear(d.getUTCFullYear() + n); return d.getTime(); };
+// 수수료 = 금액 × 요율 × 남은 일수 ÷ 부과 기간 일수 (원 미만 버림)
+function fee(amount, ratePct, start, pay, yrs) {
+  const end = addYears(start, yrs);
+  const total = Math.round((end - start) / DAY), passed = Math.max(0, Math.round((pay - start) / DAY));
+  const left = Math.max(0, total - passed);
+  return { fee: Math.floor(amount * ratePct / 100 * left / total), total, passed, left, end };
+}
+// 원리금균등: 남은 기간 동안 내는 이자 합계
+function interest(p, ratePct, n) {
+  const r = ratePct / 1200;
+  if (!(n > 0) || !(p > 0)) return 0;
+  const m = r ? p * r / (1 - Math.pow(1 + r, -n)) : p / n;
+  return { monthly: m, total: m * n - p };
+}
+window.calc = fee; window.interest = interest;
+const today = new Date(); const t0 = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+$("pay").value = iso(t0); $("start").value = iso(addYears(t0, -1));
+["amount", "cost"].forEach((id) => $(id).addEventListener("input", (e) => { const n = Math.floor(num(e.target.value)); e.target.value = isFinite(n) && n ? n.toLocaleString("ko-KR") : (id === "cost" ? "0" : ""); }));
+document.addEventListener("click", (e) => {
+  const r = e.target.closest("[data-rate]");
+  if (r) { $("rate").value = r.dataset.rate; render(); }
+  const y = e.target.closest("[data-years]");
+  if (y) { years = Number(y.dataset.years); document.querySelectorAll("[data-years]").forEach((x) => x.setAttribute("aria-pressed", x === y)); render(); }
+});
+const span = (d) => d >= 365 ? `${Math.floor(d / 365)}년 ${d % 365}일` : `${d}일`;
+function render() {
+  const amt = Math.max(0, Math.floor(num($("amount").value) || 0)), rate = num($("rate").value) || 0;
+  const s = parseD($("start").value), p = parseD($("pay").value);
+  $("amountKo").textContent = amt ? korMoney(amt) : "";
+  if (!amt || !isFinite(s) || !isFinite(p)) { $("big").textContent = "-"; $("subLine").textContent = "금액과 날짜를 넣어 주세요."; $("rows").innerHTML = ""; $("sw").textContent = "-"; return; }
+  if (p < s) { $("big").textContent = "-"; $("subLine").textContent = "갚을 날이 대출 받은 날보다 앞이에요."; $("rows").innerHTML = ""; return; }
+  const f = fee(amt, rate, s, p, years);
+  $("big").textContent = won(f.fee);
+  $("subLine").textContent = f.left ? `${won(amt)} × ${rate}% × ${f.left}일 ÷ ${f.total}일` : `대출 후 ${years}년이 지나 수수료가 없어요`;
+  $("sPassed").textContent = span(f.passed);
+  $("sLeft").textContent = span(f.left);
+  $("sFree").textContent = fmt(f.end);
+  const rows = [];
+  for (const mo of [0, 6, 12, 18, 24, 30]) {
+    const d = new Date(p); d.setUTCMonth(d.getUTCMonth() + mo); const t = d.getTime();
+    if (t >= f.end) break;
+    rows.push(`<tr><td>${mo ? mo + "개월 뒤 (" + fmt(t) + ")" : "갚을 날 (" + fmt(t) + ")"}</td><td>${won(fee(amt, rate, s, t, years).fee)}</td></tr>`);
+  }
+  rows.push(`<tr><td>${fmt(f.end)} 이후</td><td>0원 (면제)</td></tr>`);
+  $("rows").innerHTML = `<tr><th>언제 갚으면</th><th>수수료</th></tr>` + rows.join("");
+  // 갈아타기
+  const n = Math.floor(num($("months").value) || 0), r1 = num($("r1").value) || 0, r2 = num($("r2").value) || 0;
+  const cost = Math.max(0, Math.floor(num($("cost").value) || 0));
+  if (!(n > 0)) { $("sw").textContent = "-"; $("swLine").textContent = "남은 기간을 넣어 주세요."; $("swRows").innerHTML = ""; return; }
+  const a = interest(amt, r1, n), b = interest(amt, r2, n);
+  const save = a.total - b.total, net = save - f.fee - cost;
+  $("sw").textContent = (net >= 0 ? "+" : "−") + won(Math.abs(net));
+  $("swLine").textContent = net >= 0 ? "갈아타는 쪽이 유리해요" : "지금 대출을 유지하는 쪽이 유리해요";
+  $("swRows").innerHTML = `
+    <tr><td>지금 대출 월 상환액 (${r1}%)</td><td>${won(a.monthly)}</td></tr>
+    <tr><td>새 대출 월 상환액 (${r2}%)</td><td>${won(b.monthly)}</td></tr>
+    <tr><td>남은 ${n}개월 이자 절약</td><td>${won(save)}</td></tr>
+    <tr><td>중도상환수수료</td><td>−${won(f.fee)}</td></tr>
+    <tr><td>새 대출 부대비용</td><td>−${won(cost)}</td></tr>
+    <tr class="total"><td>순이득</td><td>${net >= 0 ? "" : "−"}${won(Math.abs(net))}</td></tr>`;
+}
+
+document.querySelector("main").addEventListener("input", (e) => { if (e.target.matches("input, select")) render(); });
+document.querySelector("main").addEventListener("change", (e) => { if (e.target.matches("input, select")) render(); });
+window.render = render;
+const h = location.hash.slice(1);
+if (h && document.querySelector(`[data-tab="${h}"]`)) setTab(h); else setTab(tab);
+</script>
+<script src="/assets/share.js?v=20261105a" defer></script>
+<script src="/assets/next.js?v=20261112a" defer></script>
+</body>
+</html>

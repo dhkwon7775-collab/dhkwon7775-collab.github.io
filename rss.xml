@@ -5,8 +5,24 @@
     <link>https://dohyun.co.kr/</link>
     <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 이자, 퍼센트 등 생활 계산기와 쉽게 정리한 생활 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Thu, 05 Nov 2026 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 09:00:00 +0900</lastBuildDate>
     <atom:link href="https://dohyun.co.kr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>중도상환수수료 계산기 | 대출 중도상환 수수료·대출 갈아타기 이득 계산 (2026)</title>
+      <link>https://dohyun.co.kr/prepayment/</link>
+      <guid isPermaLink="true">https://dohyun.co.kr/prepayment/</guid>
+      <description>중도상환수수료 계산기: 갚을 금액, 수수료율, 대출일과 상환일을 넣으면 중도상환수수료를 바로 계산해요. 2025년 1월 개편 후 요율(주담대 평균 0.6%대), 3년 면제 기준, 대출 갈아타기 이득까지 함께 봐요.</description>
+      <category>계산기</category>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>야간수당 계산기 · 연장근로수당 · 휴일수당 계산기 (2026) | 1.5배 가산수당</title>
+      <link>https://dohyun.co.kr/overtime/</link>
+      <guid isPermaLink="true">https://dohyun.co.kr/overtime/</guid>
+      <description>야간수당 계산기: 시급과 출퇴근 시간을 넣으면 연장근로수당(1.5배), 야간근로수당(밤 10시~아침 6시 50% 가산), 휴일근로수당(8시간 초과 2배)을 바로 계산해요. 2026년 최저시급 10,320원, 5인 미만 사업장도 구분해요.</description>
+      <category>계산기</category>
+      <pubDate>Thu, 12 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>연말정산 막판 체크리스트: 12월 31일 전에 해야 환급이 늘어나는 7가지</title>
       <link>https://dohyun.co.kr/guide/year-end-tax-december-checklist/</link>
@@ -211,7 +227,7 @@
       <title>생활 계산기 모음 | 연봉 실수령액·퇴직금·실업급여·이자·퍼센트 계산기</title>
       <link>https://dohyun.co.kr/</link>
       <guid isPermaLink="true">https://dohyun.co.kr/</guid>
-      <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 연말정산, 이자, 퍼센트, 날짜 계산까지 23가지. 2026년 기준으로 확인한 생활 계산을 숫자만 넣으면 무료로, 가입 없이 바로 알려드려요.</description>
+      <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 연말정산, 이자, 퍼센트, 날짜 계산까지 25가지. 2026년 기준으로 확인한 생활 계산을 숫자만 넣으면 무료로, 가입 없이 바로 알려드려요.</description>
       <category>계산기</category>
       <pubDate>Thu, 05 Nov 2026 09:00:00 +0900</pubDate>
     </item>
