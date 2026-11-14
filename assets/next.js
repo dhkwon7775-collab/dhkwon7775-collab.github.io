@@ -117,6 +117,24 @@
       ["/loan/", "🏦", "대출 이자", "상환 방식별 월 상환금과 총이자", null],
       ["/savings/", "🐷", "예금·적금 이자", "갚는 대신 저축하면 얼마인지", null],
     ],
+    "/bonus/": () => {
+      const s = money("salary"), b = money("bonus"), nt = money("nontax");
+      return [
+        ["/yearend/", "💸", "성과급 받은 해 연말정산", `총급여 ${man(Math.max(0, s + b - nt * 12))}으로 환급액 계산`, { gross: Math.max(0, s + b - nt * 12), family: val("family") }],
+        ["/salary/", "💰", "평소 월급 실수령액", `연봉 ${man(s)}의 매달 실수령액`, { salary: s, nontax: nt, family: val("family") }],
+      ];
+    },
+    "/car-tax/": () => [
+      ["/date/", "🗓️", "연납 마감까지 며칠", "1월 31일까지 남은 날 계산", null],
+      ["/percent/", "📊", "할인율 계산", "내 자동차세에서 몇 % 아끼는지", null],
+    ],
+    "/dsr/": () => {
+      const want = money("want");
+      return [
+        ["/loan/", "🏦", "대출 이자", want ? `${man(want)}을 연 ${dec("rate")}%, ${dec("years")}년으로 빌리면` : "상환 방식별 월 상환금과 총이자", want ? { amount: want, rate: dec("rate"), term: dec("years") } : null],
+        ["/prepayment/", "🔁", "갈아타기 이득", "지금 대출을 갈아타면 수수료 빼고 얼마 이득인지", null],
+      ];
+    },
     "/bmi/": () => [
       ["/unit/", "📏", "단위 변환", "파운드↔kg, 피트·인치↔cm", null],
       ["/age/", "🎂", "나이 계산", "생년월일로 만 나이", null],

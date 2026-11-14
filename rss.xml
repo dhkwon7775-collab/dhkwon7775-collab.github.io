@@ -5,8 +5,40 @@
     <link>https://dohyun.co.kr/</link>
     <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 이자, 퍼센트 등 생활 계산기와 쉽게 정리한 생활 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Thu, 12 Nov 2026 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 09:00:00 +0900</lastBuildDate>
     <atom:link href="https://dohyun.co.kr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>자동차세 연납 할인 총정리: 1월에 한 번에 내면 얼마 아낄까, 배기량별 자동차세</title>
+      <link>https://dohyun.co.kr/guide/car-tax-annual-payment/</link>
+      <guid isPermaLink="true">https://dohyun.co.kr/guide/car-tax-annual-payment/</guid>
+      <description>자동차세를 1월에 1년치 미리 내면 약 4.6%를 아낄 수 있어요(2026년 기준). 배기량별 자동차세(모닝·아반떼·쏘나타·그랜저), 연납 할인 금액, 신청 방법(위택스), 차령에 따른 감면까지 정리했어요.</description>
+      <category>가이드</category>
+      <pubDate>Sat, 14 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>DSR 계산기 (2026) | 스트레스 DSR 대출 한도·주담대 최대 금액 계산</title>
+      <link>https://dohyun.co.kr/dsr/</link>
+      <guid isPermaLink="true">https://dohyun.co.kr/dsr/</guid>
+      <description>DSR 계산기: 연소득, 지금 있는 대출, 새 대출 금리와 기간을 넣으면 DSR 40%(2금융권 50%) 안에서 빌릴 수 있는 최대 금액을 계산해요. 수도권·지방 스트레스 금리 적용 전후 한도 비교, 원하는 금액의 DSR 비율까지.</description>
+      <category>계산기</category>
+      <pubDate>Sat, 14 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>자동차세 계산기 (2027 연납) | 배기량·연식별 자동차세, 1월 연납 할인 금액</title>
+      <link>https://dohyun.co.kr/car-tax/</link>
+      <guid isPermaLink="true">https://dohyun.co.kr/car-tax/</guid>
+      <description>자동차세 계산기: 배기량(cc)과 차를 등록한 해를 넣으면 1년 자동차세(지방교육세 포함), 차령 경감, 1월·3월·6월·9월 연납 할인 금액을 바로 계산해요. 경차·아반떼·쏘나타·그랜저·전기차 예시까지.</description>
+      <category>계산기</category>
+      <pubDate>Sat, 14 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>성과급 세금 계산기 (2026) | 상여금 실수령액·연말정산까지 한 번에</title>
+      <link>https://dohyun.co.kr/bonus/</link>
+      <guid isPermaLink="true">https://dohyun.co.kr/bonus/</guid>
+      <description>성과급 세금 계산기: 연봉과 성과급(상여금)을 넣으면 받는 달에 떼는 소득세·지방소득세·고용보험과 실수령액을 바로 계산해요. 지급대상기간 원천징수 방식, 연말정산 때 더 내거나 돌려받을 돈, 다음 해 4월 건강보험 정산까지 보여 줘요.</description>
+      <category>계산기</category>
+      <pubDate>Sat, 14 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>중도상환수수료 계산기 | 대출 중도상환 수수료·대출 갈아타기 이득 계산 (2026)</title>
       <link>https://dohyun.co.kr/prepayment/</link>
@@ -227,7 +259,7 @@
       <title>생활 계산기 모음 | 연봉 실수령액·퇴직금·실업급여·이자·퍼센트 계산기</title>
       <link>https://dohyun.co.kr/</link>
       <guid isPermaLink="true">https://dohyun.co.kr/</guid>
-      <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 연말정산, 이자, 퍼센트, 날짜 계산까지 25가지. 2026년 기준으로 확인한 생활 계산을 숫자만 넣으면 무료로, 가입 없이 바로 알려드려요.</description>
+      <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 연말정산, 이자, 퍼센트, 날짜 계산까지 28가지. 2026년 기준으로 확인한 생활 계산을 숫자만 넣으면 무료로, 가입 없이 바로 알려드려요.</description>
       <category>계산기</category>
       <pubDate>Thu, 05 Nov 2026 09:00:00 +0900</pubDate>
     </item>
@@ -260,14 +292,6 @@
       <link>https://dohyun.co.kr/guide/how-to-calculate-percent/</link>
       <guid isPermaLink="true">https://dohyun.co.kr/guide/how-to-calculate-percent/</guid>
       <description>퍼센트(%) 구하는 공식을 예시로 쉽게 정리했어요. 전체의 몇 %, 몇 퍼센트인지 구하기, 증감률, 할인가와 원래 가격 거꾸로 구하기, 20% 할인 두 번은 몇 %인지, %와 %p 차이까지 알려 드려요.</description>
-      <category>가이드</category>
-      <pubDate>Mon, 26 Oct 2026 09:00:00 +0900</pubDate>
-    </item>
-    <item>
-      <title>자동차세 연납 할인 총정리: 1월에 한 번에 내면 얼마 아낄까, 배기량별 자동차세</title>
-      <link>https://dohyun.co.kr/guide/car-tax-annual-payment/</link>
-      <guid isPermaLink="true">https://dohyun.co.kr/guide/car-tax-annual-payment/</guid>
-      <description>자동차세를 1월에 1년치 미리 내면 약 4.6%를 아낄 수 있어요(2026년 기준). 배기량별 자동차세(모닝·아반떼·쏘나타·그랜저), 연납 할인 금액, 신청 방법(위택스), 차령에 따른 감면까지 정리했어요.</description>
       <category>가이드</category>
       <pubDate>Mon, 26 Oct 2026 09:00:00 +0900</pubDate>
     </item>

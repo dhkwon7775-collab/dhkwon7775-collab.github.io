@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f4ef">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/car-tax.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<title>자동차세 계산기 (2027 연납) | 배기량·연식별 자동차세, 1월 연납 할인 금액</title>
+<meta name="description" content="자동차세 계산기: 배기량(cc)과 차를 등록한 해를 넣으면 1년 자동차세(지방교육세 포함), 차령 경감, 1월·3월·6월·9월 연납 할인 금액을 바로 계산해요. 경차·아반떼·쏘나타·그랜저·전기차 예시까지.">
+<meta property="og:title" content="자동차세 계산기 (연납 할인)">
+<meta property="og:description" content="배기량·연식으로 1년 자동차세와 1월 연납 할인을 계산해요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/car-tax/">
+<link rel="canonical" href="https://dohyun.co.kr/car-tax/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"], input[type="time"], select { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 44px 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; }
+  input[type="date"], input[type="time"] { padding-right: 14px; font-size: 18px; }
+  select { font-size: 16px; padding-right: 14px; cursor: pointer; }
+  input:focus, select:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row2 > * { min-width: 0; }
+  input { min-width: 0; }
+  @media (max-width: 440px) { .row2.stack { grid-template-columns: 1fr; gap: 0; } }
+  .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+  .check small { display: block; font-weight: 400; font-size: 13px; color: var(--sub); }
+  .tabs { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .tabs button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 2px; background: transparent; color: var(--sub); cursor: pointer; line-height: 1.3; }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .seg { display: grid; grid-template-columns: repeat(2, 1fr); background: var(--seg); border-radius: 12px; padding: 4px; gap: 4px; }
+  .seg button { font: inherit; font-size: 14px; font-weight: 600; border: 0; border-radius: 9px; padding: 10px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; margin: 2px 0 4px; word-break: break-all; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 17px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 4px; border-top: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+  th { color: var(--sub); font-weight: 600; font-size: 12.5px; border-top: 0; }
+  th:first-child, td:first-child { text-align: left; }
+  tr.total td { font-weight: 700; border-top: 1.5px solid var(--line); }
+  h2.sec { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+  [hidden] { display: none !important; }
+  @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 13px; } }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/">가이드</a></nav>
+    <span class="lang"><a href="/car-tax/" aria-current="true">한국어</a><a href="/en/" hreflang="en" lang="en">EN</a></span>
+  </div>
+</header>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>자동차세 계산기 · 연납 할인</h1>
+  <p class="lead">배기량과 차를 등록한 해만 넣으면 1년 자동차세와, 1월에 한 번에 낼 때 아끼는 돈을 계산해요.</p>
+  <p class="verified">지방세법 제127조(세율)·제128조(연납) 기준 · 비영업용 승용차 · 지방교육세 30% 포함 · 연납 공제율 2026년 5%</p>
+
+  <section class="card">
+    <div class="field">
+      <span class="label">차 종류</span>
+      <div class="seg" role="group" aria-label="차 종류">
+        <button type="button" data-kind="gas" aria-pressed="true">휘발유·경유·LPG·하이브리드</button>
+        <button type="button" data-kind="ev" aria-pressed="false">전기차·수소차</button>
+      </div>
+    </div>
+    <div class="field" id="ccField">
+      <label for="cc">배기량</label>
+      <div class="input-wrap"><input id="cc" type="text" inputmode="numeric" value="1,999" autocomplete="off"><span class="unit">cc</span></div>
+      <div class="quick">
+        <button type="button" data-cc="998">경차 998</button><button type="button" data-cc="1598">아반떼 1,598</button><button type="button" data-cc="1999">쏘나타 1,999</button><button type="button" data-cc="2497">그랜저 2,497</button><button type="button" data-cc="3470">대형 3,470</button>
+      </div>
+      <div class="hint">자동차등록증의 '배기량' 칸에 있어요. 하이브리드도 엔진 배기량으로 계산해요.</div>
+    </div>
+    <div class="row2">
+      <div class="field"><label for="reg">처음 등록한 해</label><select id="reg"></select></div>
+      <div class="field"><label for="year">낼 해</label><select id="year"><option>2026</option><option selected>2027</option><option>2028</option></select></div>
+    </div>
+    <div class="field">
+      <label for="rate">연납 공제율</label>
+      <div class="input-wrap"><input id="rate" type="text" inputmode="decimal" value="5" autocomplete="off"><span class="unit">%</span></div>
+      <div class="hint">2025·2026년은 5%였어요. 2027년 공제율은 보통 12월 말~1월 초에 발표돼요.</div>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head">1월에 연납하면 낼 돈</p>
+    <p class="big" id="big">-</p>
+    <p class="sub-line" id="subLine"></p>
+    <div class="stats">
+      <div class="stat"><span>1년 자동차세</span><b id="sYear">-</b></div>
+      <div class="stat"><span>1월 연납 할인</span><b id="sSave">-</b></div>
+      <div class="stat"><span>차령 경감</span><b id="sCut">-</b></div>
+    </div>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>자동차세는 이렇게 계산돼요</h2>
+<h3>계산 공식 (비영업용 승용차)</h3>
+<ul>
+  <li><b>자동차세</b> = 배기량(cc) × cc당 세액 (1,000cc 이하 80원, 1,600cc 이하 140원, 1,600cc 초과 200원). 전기·수소차는 10만 원 정액이에요.</li>
+  <li><b>지방교육세</b> = 자동차세 × 30%</li>
+  <li><b>차령 경감:</b> 3년차부터 1년에 5%씩 줄어 12년차부터 50%</li>
+  <li><b>연납 할인</b> = 1년 세금 × 공제율(5%) × 남은 일수 ÷ 365 (1월은 334일 → 약 4.58%)</li>
+</ul>
+<h3>예시 (신차~2년차, 공제율 5%)</h3>
+<div class="tbl"><table><thead><tr><th>차</th><th>1년 자동차세</th><th>1월 연납 할인</th></tr></thead><tbody><tr><td>경차 998cc</td><td>103,790원</td><td>4,740원</td></tr><tr><td>아반떼 1,598cc</td><td>290,830원</td><td>13,300원</td></tr><tr><td>쏘나타·K5 1,999cc</td><td>519,740원</td><td>23,770원</td></tr><tr><td>그랜저 2,497cc</td><td>649,220원</td><td>29,700원</td></tr><tr><td>대형 3,470cc</td><td>902,200원</td><td>41,270원</td></tr><tr><td>전기차</td><td>130,000원</td><td>5,940원</td></tr></tbody></table></div>
+<p>같은 1,999cc라도 5년차면 15% 줄어 <b>441,770원</b>, 12년차 이상이면 50% 줄어 <b>259,870원</b>이에요.</p>
+<h3>알아 둘 점</h3>
+<ul>
+  <li>자동차세는 원래 6월(1~6월분)과 12월(7~12월분)에 반씩 내요. 연납은 1·3·6·9월에 신청할 수 있어요.</li>
+  <li>2027년 연납 공제율은 보통 12월 말~1월 초에 발표돼요. 2025·2026년은 5%였어요.</li>
+  <li>연납한 뒤 차를 팔거나 폐차하면 남은 기간만큼 돌려받아요.</li>
+  <li>영업용 차, 화물차, 승합차는 세율이 달라요. 위택스에서 내 차의 고지 금액을 확인하세요.</li>
+</ul>
+<p class="src">근거: 지방세법 제127조(과세표준과 세율), 제128조(납기와 징수방법), 지방세법 시행령 제125조·제126조(차령 경감·연세액 공제), 지방세법 제151조(지방교육세)</p>
+  </section>
+  <!-- explain:end -->
+
+  <section class="card guide-links">
+    <h2>함께 읽으면 좋은 가이드</h2>
+    <div class="link-list">
+      <a href="/guide/car-tax-annual-payment/">자동차세 연납 할인 총정리</a>
+    </div>
+  </section>
+
+  <section class="card faq">
+    <h2 class="sec">자주 묻는 질문</h2>
+    <details>
+      <summary>자동차세 연납은 언제 신청해요?</summary>
+      <p>1월·3월·6월·9월에 신청할 수 있고, 1월(보통 16일~31일)에 내면 할인이 가장 커요. 위택스(서울은 이택스)나 시·군·구청 세무과에서 신청해요. 한 번 연납하면 다음 해부터 1월에 연납 고지서가 자동으로 와요.</p>
+    </details>
+    <details>
+      <summary>연납 할인은 얼마나 돼요?</summary>
+      <p>공제율 5% 기준으로 1월에 내면 1년 세금의 약 4.58%를 깎아 줘요. 할인은 낸 날 이후 남은 기간(1월은 2월~12월, 334일)에만 붙어서, 3월은 약 3.77%, 6월은 약 2.52%, 9월은 약 1.26%로 줄어요.</p>
+    </details>
+    <details>
+      <summary>오래된 차는 자동차세가 줄어요?</summary>
+      <p>네. 비영업용 승용차는 3년차부터 1년에 5%씩 줄어 12년차부터 50%까지 깎여요. 계산기에 처음 등록한 해를 넣으면 반영돼요. 등록한 달에 따라 1년 차이가 날 수 있어요.</p>
+    </details>
+    <details>
+      <summary>연납하고 차를 팔면 어떻게 돼요?</summary>
+      <p>판 날 이후 기간만큼 자동차세를 날짜로 나눠 돌려줘요. 따로 신청하지 않아도 보통 환급 안내가 와요.</p>
+    </details>
+  </section>
+
+  <section class="card more-calcs">
+    <h2>다른 계산기</h2>
+    <nav class="calc-grid" aria-label="다른 계산기">
+      <a href="/salary/"><span class="ico" aria-hidden="true">💰</span>연봉 실수령액</a>
+      <a href="/hourly/"><span class="ico" aria-hidden="true">⏰</span>알바 월급</a>
+      <a href="/overtime/"><span class="ico" aria-hidden="true">🌙</span>야간·연장수당</a>
+      <a href="/bonus/"><span class="ico" aria-hidden="true">🎁</span>성과급 세금</a>
+      <a href="/yearend/"><span class="ico" aria-hidden="true">💸</span>연말정산</a>
+      <a href="/leave/"><span class="ico" aria-hidden="true">🌴</span>연차</a>
+      <a href="/parental/"><span class="ico" aria-hidden="true">👶</span>육아휴직 급여</a>
+      <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
+      <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/savings/"><span class="ico" aria-hidden="true">🐷</span>예금·적금 이자</a>
+      <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
+      <a href="/prepayment/"><span class="ico" aria-hidden="true">🔁</span>중도상환수수료</a>
+      <a href="/dsr/"><span class="ico" aria-hidden="true">📈</span>DSR 대출 한도</a>
+      <a href="/subscription/"><span class="ico" aria-hidden="true">🏠</span>청약 가점</a>
+      <a href="/brokerage/"><span class="ico" aria-hidden="true">🤝</span>복비</a>
+      <a href="/rent/"><span class="ico" aria-hidden="true">🔑</span>전월세 전환</a>
+      <a href="/area/"><span class="ico" aria-hidden="true">📐</span>평수</a>
+      <a href="/age/"><span class="ico" aria-hidden="true">🎂</span>만 나이</a>
+      <a href="/dday/"><span class="ico" aria-hidden="true">📅</span>D-day·전역일</a>
+      <a href="/count/"><span class="ico" aria-hidden="true">📝</span>글자수 세기</a>
+      <a href="/percent/"><span class="ico" aria-hidden="true">📊</span>퍼센트</a>
+      <a href="/date/"><span class="ico" aria-hidden="true">🗓️</span>날짜 계산</a>
+      <a href="/time/"><span class="ico" aria-hidden="true">⏱️</span>시간 계산</a>
+      <a href="/vat/"><span class="ico" aria-hidden="true">🏷️</span>부가세</a>
+      <a href="/gpa/"><span class="ico" aria-hidden="true">🎓</span>학점 계산</a>
+      <a href="/bmi/"><span class="ico" aria-hidden="true">⚖️</span>BMI·적정 체중</a>
+      <a href="/unit/"><span class="ico" aria-hidden="true">📏</span>단위 변환</a>
+    </nav>
+  </section>
+
+  <footer>계산 결과는 참고용이에요. 실제 고지 금액은 10원 미만 처리와 등록 시기에 따라 조금 다를 수 있으니 위택스에서 확인하세요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+// 숫자 입력: 쉼표·공백을 빼고 읽어요 (소수·음수 가능)
+const num = (s) => { const n = parseFloat(String(s).replace(/[^0-9.\-]/g, "")); return isFinite(n) ? n : NaN; };
+// 보기 좋게: 천 단위 쉼표, 소수는 최대 d자리
+const show = (n, d = 4) => isFinite(n) ? n.toLocaleString("ko-KR", { maximumFractionDigits: d }) : "-";
+let tab = document.querySelector('[data-tab][aria-selected="true"]')?.dataset.tab;
+function setTab(t) {
+  tab = t;
+  document.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === t));
+  document.querySelectorAll("[data-panel]").forEach((p) => (p.hidden = p.dataset.panel !== t));
+  if (typeof onTab === "function") onTab(t);
+  render();
+}
+document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
+
+const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
+const korMoney = (n) => { const e = Math.floor(n / 1e8), m = Math.floor((n % 1e8) / 1e4); return !e && !m ? won(n) : ((e ? e + "억 " : "") + (m ? m.toLocaleString("ko-KR") + "만 " : "")).trim() + " 원"; };
+const moneyInput = (id, empty = "") => $(id).addEventListener("input", (e) => { const n = Math.floor(num(e.target.value)); e.target.value = isFinite(n) && n ? n.toLocaleString("ko-KR") : empty; });
+const intOf = (id) => Math.max(0, Math.floor(num($(id).value) || 0));
+
+let kind = "gas";
+// 연납 기한 다음 날부터 12월 31일까지 일수 (1·3·6·9월)
+const PERIODS = [["1월 연납", 334], ["3월 연납", 275], ["6월 연납", 184], ["9월 연납", 92]];
+function carTax({ cc, kind, reg, year, rate }) {
+  const base = kind === "ev" ? 100000 : cc * (cc <= 1000 ? 80 : cc <= 1600 ? 140 : 200);
+  const age = Math.max(1, year - reg + 1);
+  const cutPct = kind === "ev" ? 0 : Math.min(50, Math.max(0, (age - 2) * 5));
+  const cut = cutPct / 100;
+  const tax = Math.floor(base * (100 - cutPct) / 100 / 10) * 10;
+  const edu = Math.floor(tax * 0.3 / 10) * 10;
+  const total = tax + edu;
+  const save = (days) => Math.floor(total * rate / 100 * days / 365 / 10) * 10;
+  return { base, age, cut, tax, edu, total, periods: PERIODS.map(([k, d]) => ({ k, save: save(d), pay: total - save(d) })) };
+}
+window.calc = carTax;
+const yNow = new Date().getFullYear();
+$("reg").innerHTML = Array.from({ length: 16 }, (_, i) => yNow + 1 - i).map((y, i) => `<option value="${y}"${y === yNow - 3 ? " selected" : ""}>${i === 15 ? y + "년 이전" : y + "년"}</option>`).join("");
+moneyInput("cc");
+document.addEventListener("click", (e) => {
+  const c = e.target.closest("[data-cc]"); if (c) { $("cc").value = Number(c.dataset.cc).toLocaleString("ko-KR"); render(); }
+  const k = e.target.closest("[data-kind]");
+  if (k) { kind = k.dataset.kind; document.querySelectorAll("[data-kind]").forEach((x) => x.setAttribute("aria-pressed", x === k)); $("ccField").hidden = kind === "ev"; render(); }
+});
+function render() {
+  const cc = intOf("cc"), rate = Math.max(0, num($("rate").value) || 0);
+  if (kind !== "ev" && !cc) { $("big").textContent = "-"; $("subLine").textContent = "배기량을 넣어 주세요."; $("rows").innerHTML = ""; return; }
+  const r = carTax({ cc, kind, reg: Number($("reg").value), year: Number($("year").value), rate });
+  const jan = r.periods[0];
+  $("big").textContent = won(jan.pay);
+  $("subLine").textContent = `1년 ${won(r.total)}에서 ${won(jan.save)} 할인 · ${r.age}년차 차`;
+  $("sYear").textContent = won(r.total); $("sSave").textContent = won(jan.save);
+  $("sCut").textContent = r.cut ? Math.round(r.cut * 100) + "%" : "없음";
+  const rateTxt = kind === "ev" ? "전기·수소차 정액 100,000원" : `${cc.toLocaleString("ko-KR")}cc × ${cc <= 1000 ? 80 : cc <= 1600 ? 140 : 200}원`;
+  $("rows").innerHTML = `<tr><td>자동차세 (${rateTxt}${r.cut ? `, 차령 경감 ${Math.round(r.cut * 100)}%` : ""})</td><td>${won(r.tax)}</td></tr>
+    <tr><td>지방교육세 (30%)</td><td>${won(r.edu)}</td></tr>
+    <tr class="total"><td>1년 자동차세</td><td>${won(r.total)}</td></tr>
+    <tr><td>6월·12월 나눠 내면</td><td>${won(r.total / 2)}씩</td></tr>
+    <tr><th>언제 연납하면</th><th>낼 돈 (할인)</th></tr>`
+    + r.periods.map((p) => `<tr><td>${p.k}</td><td>${won(p.pay)} (−${won(p.save)})</td></tr>`).join("");
+}
+
+document.querySelector("main").addEventListener("input", (e) => { if (e.target.matches("input, select")) render(); });
+document.querySelector("main").addEventListener("change", (e) => { if (e.target.matches("input, select")) render(); });
+window.render = render;
+const h = location.hash.slice(1);
+if (h && document.querySelector(`[data-tab="${h}"]`)) setTab(h); else setTab(tab);
+</script>
+<script src="/assets/share.js?v=20261105a" defer></script>
+<script src="/assets/next.js?v=20261114a" defer></script>
+</body>
+</html>

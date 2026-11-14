@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f4ef">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/bonus.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<title>성과급 세금 계산기 (2026) | 상여금 실수령액·연말정산까지 한 번에</title>
+<meta name="description" content="성과급 세금 계산기: 연봉과 성과급(상여금)을 넣으면 받는 달에 떼는 소득세·지방소득세·고용보험과 실수령액을 바로 계산해요. 지급대상기간 원천징수 방식, 연말정산 때 더 내거나 돌려받을 돈, 다음 해 4월 건강보험 정산까지 보여 줘요.">
+<meta property="og:title" content="성과급 세금 계산기 (상여금 실수령액)">
+<meta property="og:description" content="성과급 받는 달 떼는 세금과 실수령액, 연말정산까지 계산해요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/bonus/">
+<link rel="canonical" href="https://dohyun.co.kr/bonus/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"], input[type="time"], select { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 44px 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; }
+  input[type="date"], input[type="time"] { padding-right: 14px; font-size: 18px; }
+  select { font-size: 16px; padding-right: 14px; cursor: pointer; }
+  input:focus, select:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row2 > * { min-width: 0; }
+  input { min-width: 0; }
+  @media (max-width: 440px) { .row2.stack { grid-template-columns: 1fr; gap: 0; } }
+  .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+  .check small { display: block; font-weight: 400; font-size: 13px; color: var(--sub); }
+  .tabs { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .tabs button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 2px; background: transparent; color: var(--sub); cursor: pointer; line-height: 1.3; }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .seg { display: grid; grid-template-columns: repeat(2, 1fr); background: var(--seg); border-radius: 12px; padding: 4px; gap: 4px; }
+  .seg button { font: inherit; font-size: 14px; font-weight: 600; border: 0; border-radius: 9px; padding: 10px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; margin: 2px 0 4px; word-break: break-all; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 17px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 4px; border-top: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+  th { color: var(--sub); font-weight: 600; font-size: 12.5px; border-top: 0; }
+  th:first-child, td:first-child { text-align: left; }
+  tr.total td { font-weight: 700; border-top: 1.5px solid var(--line); }
+  h2.sec { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+  [hidden] { display: none !important; }
+  @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 13px; } }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/">가이드</a></nav>
+    <span class="lang"><a href="/bonus/" aria-current="true">한국어</a><a href="/en/" hreflang="en" lang="en">EN</a></span>
+  </div>
+</header>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>성과급·상여금 세금 계산기</h1>
+  <p class="lead">성과급을 받는 달에 얼마가 빠지는지, 1년 전체로 보면 세금이 실제로 얼마나 늘어나는지 계산해요.</p>
+  <p class="verified">소득세법 시행령 제194조(상여 원천징수) · 2026년 세율·4대보험 요율 · 간이세액표는 연봉 계산기와 같은 방식으로 근사</p>
+<script src="/assets/rates.js?v=20261026b"></script>
+  <section class="card">
+    <div class="field">
+      <label for="salary">연봉 (성과급 빼고)</label>
+      <div class="input-wrap"><input id="salary" type="text" inputmode="numeric" value="50,000,000" autocomplete="off"><span class="unit">원</span></div>
+      <div class="hint" id="salaryKo"></div>
+    </div>
+    <div class="field">
+      <label for="bonus">성과급·상여금</label>
+      <div class="input-wrap"><input id="bonus" type="text" inputmode="numeric" value="10,000,000" autocomplete="off"><span class="unit">원</span></div>
+      <div class="hint" id="bonusKo"></div>
+      <div class="quick">
+        <button type="button" data-bonus="1000000">100만</button><button type="button" data-bonus="3000000">300만</button><button type="button" data-bonus="5000000">500만</button><button type="button" data-bonus="10000000">1,000만</button><button type="button" data-bonus="30000000">3,000만</button>
+      </div>
+    </div>
+    <div class="field">
+      <label for="months">지급대상기간</label>
+      <div class="input-wrap"><input id="months" type="text" inputmode="numeric" value="12" autocomplete="off"><span class="unit">개월</span></div>
+      <div class="quick">
+        <button type="button" data-months="1">1개월</button><button type="button" data-months="3">3개월 (분기)</button><button type="button" data-months="6">6개월 (반기)</button><button type="button" data-months="12">12개월 (연간)</button>
+      </div>
+      <div class="hint">1년 성과를 보고 주는 성과급이면 12개월이에요. 기간이 따로 없으면 그해 1월부터 받는 달까지 개월 수예요 (1월에 받으면 1개월).</div>
+    </div>
+    <div class="row2">
+      <div class="field"><label for="nontax">비과세 식대 (월)</label><div class="input-wrap"><input id="nontax" type="text" inputmode="numeric" value="200,000" autocomplete="off"><span class="unit">원</span></div></div>
+      <div class="field"><label for="family">부양가족 (본인 포함)</label><select id="family"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+    </div>
+    <div class="field">
+      <label for="kids">8~20세 자녀 수</label>
+      <select id="kids"><option>0</option><option>1</option><option>2</option><option>3</option></select>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head">성과급 받는 달, 통장에 들어오는 돈</p>
+    <p class="big" id="big">-</p>
+    <p class="sub-line" id="subLine"></p>
+    <div class="stats">
+      <div class="stat"><span>소득세+지방세</span><b id="sTax">-</b></div>
+      <div class="stat"><span>고용보험</span><b id="sEmp">-</b></div>
+      <div class="stat"><span>떼는 비율</span><b id="sRate">-</b></div>
+    </div>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <h2 class="sec">1년 전체로 보면 (연말정산까지)</h2>
+    <p class="result-head">성과급에서 최종적으로 남는 돈</p>
+    <p class="big" id="big2">-</p>
+    <p class="sub-line" id="subLine2"></p>
+    <table><tbody id="rows2"></tbody></table>
+    <p class="hint">받는 달에 떼는 세금은 '미리 내는 세금'이에요. 진짜 세금은 다음 해 2월 연말정산에서 1년 소득 전체로 다시 계산돼요. 카드 사용액·보험료 같은 다른 공제는 넣지 않은 값이에요.</p>
+  </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>성과급 세금은 이렇게 계산돼요</h2>
+<h3>받는 달에 떼는 돈</h3>
+<ol>
+  <li><b>소득세:</b> 지급대상기간이 있으면 (월급 + 성과급 ÷ 기간 개월 수)에 해당하는 간이세액표 세액 × 개월 수에서, 그 기간에 이미 뗀 세금을 빼요. 기간이 길수록 덜 떼요.</li>
+  <li><b>지방소득세:</b> 소득세의 10%</li>
+  <li><b>고용보험:</b> 성과급의 0.9%</li>
+  <li><b>국민연금·건강보험:</b> 받는 달에는 그대로예요. 건강보험은 다음 해 4월 정산 때 성과급만큼 더 내요.</li>
+</ol>
+<h3>예시 (본인 1명, 식대 비과세 월 20만 원, 연간 성과급 12개월)</h3>
+<div class="tbl"><table><thead><tr><th>연봉 + 성과급</th><th>받는 달 실수령</th><th>연말정산까지 최종</th></tr></thead><tbody><tr><td>3,000만 + 300만 원</td><td>2,805,370원</td><td>2,672,730원</td></tr><tr><td>4,000만 + 500만 원</td><td>4,289,990원</td><td>4,047,380원</td></tr><tr><td>5,000만 + 1,000만 원</td><td>8,502,880원</td><td>8,017,750원</td></tr><tr><td>8,000만 + 2,000만 원</td><td>15,084,900원</td><td>14,252,820원</td></tr></tbody></table></div>
+<p>같은 1,000만 원이라도 지급대상기간을 1개월로 보고 떼면 받는 달 실수령이 <b>7,146,330원</b>으로 줄어요. 대신 다음 해 2월 연말정산에서 약 <b>128만 원</b>을 돌려받아 최종 금액은 같아요.</p>
+<h3>알아 둘 점</h3>
+<ul>
+  <li>받는 달에 떼는 세금은 '미리 내는 세금'이에요. 최종 세금은 1년 총급여로 연말정산에서 정해져요.</li>
+  <li>성과급 때문에 과세표준이 5,000만 원(세율 15% → 24%)이나 8,800만 원(24% → 35%)을 넘으면, 넘은 부분에 높은 세율이 붙어 연말정산에서 더 낼 수 있어요.</li>
+  <li>성과급을 받은 해에 연금저축·IRP에 넣으면 최대 900만 원까지 12~15% 세액공제를 받아요.</li>
+  <li>우리사주·주식으로 받는 성과급(RSU 등)은 계산 방식이 달라요.</li>
+</ul>
+<p class="src">근거: 소득세법 시행령 제194조(상여 등에 대한 징수세액), 소득세법 제55조(세율), 고용보험법 · 2026년 4대보험 요율</p>
+  </section>
+  <!-- explain:end -->
+
+  <section class="card guide-links">
+    <h2>함께 읽으면 좋은 가이드</h2>
+    <div class="link-list">
+      <a href="/guide/year-end-tax-december-checklist/">연말정산 12월 막판 체크리스트</a>
+      <a href="/guide/pension-savings-vs-irp/">연금저축 vs IRP 비교</a>
+    </div>
+  </section>
+
+  <section class="card faq">
+    <h2 class="sec">자주 묻는 질문</h2>
+    <details>
+      <summary>성과급을 받으면 세금을 왜 이렇게 많이 떼요?</summary>
+      <p>받는 달 월급과 성과급을 합쳐 '그 달 월급이 크게 올랐다'고 보고 간이세액표로 세금을 떼기 때문이에요. 지급대상기간이 있으면 성과급을 그 개월 수로 나눠 매달 월급에 더한 뒤 계산해서, 기간이 길수록 덜 떼요. 많이 뗀 부분은 연말정산에서 돌려받아요.</p>
+    </details>
+    <details>
+      <summary>성과급에도 4대보험이 붙나요?</summary>
+      <p>고용보험(0.9%)은 받는 달에 바로 떼요. 건강보험은 받는 달에는 그대로이고, 다음 해 4월 건강보험 정산 때 성과급만큼 더 내요. 국민연금은 전년도 소득으로 정한 금액을 내서 올해는 바뀌지 않지만, 다음 해 7월부터 보험료 기준이 오를 수 있어요.</p>
+    </details>
+    <details>
+      <summary>연말정산에서 더 낼 수도 있나요?</summary>
+      <p>네. 성과급 때문에 1년 소득이 높은 세율 구간(예: 15% → 24%)으로 넘어가면, 받을 때 뗀 세금보다 실제 세금이 많아 2월에 더 낼 수 있어요. 계산기 아래 '1년 전체로 보면'에서 미리 확인하세요.</p>
+    </details>
+    <details>
+      <summary>성과급을 연금저축·IRP에 넣으면 세금이 줄어요?</summary>
+      <p>연금저축·IRP에 1년 최대 900만 원까지 넣으면 넣은 돈의 12~15%(총급여 5,500만 원 이하 15%)를 연말정산에서 돌려받아요. 성과급을 받은 해 12월 31일까지 넣어야 그해 공제에 들어가요.</p>
+    </details>
+  </section>
+
+  <section class="card more-calcs">
+    <h2>다른 계산기</h2>
+    <nav class="calc-grid" aria-label="다른 계산기">
+      <a href="/salary/"><span class="ico" aria-hidden="true">💰</span>연봉 실수령액</a>
+      <a href="/hourly/"><span class="ico" aria-hidden="true">⏰</span>알바 월급</a>
+      <a href="/overtime/"><span class="ico" aria-hidden="true">🌙</span>야간·연장수당</a>
+      <a href="/yearend/"><span class="ico" aria-hidden="true">💸</span>연말정산</a>
+      <a href="/leave/"><span class="ico" aria-hidden="true">🌴</span>연차</a>
+      <a href="/parental/"><span class="ico" aria-hidden="true">👶</span>육아휴직 급여</a>
+      <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
+      <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/savings/"><span class="ico" aria-hidden="true">🐷</span>예금·적금 이자</a>
+      <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
+      <a href="/prepayment/"><span class="ico" aria-hidden="true">🔁</span>중도상환수수료</a>
+      <a href="/dsr/"><span class="ico" aria-hidden="true">📈</span>DSR 대출 한도</a>
+      <a href="/subscription/"><span class="ico" aria-hidden="true">🏠</span>청약 가점</a>
+      <a href="/brokerage/"><span class="ico" aria-hidden="true">🤝</span>복비</a>
+      <a href="/rent/"><span class="ico" aria-hidden="true">🔑</span>전월세 전환</a>
+      <a href="/area/"><span class="ico" aria-hidden="true">📐</span>평수</a>
+      <a href="/age/"><span class="ico" aria-hidden="true">🎂</span>만 나이</a>
+      <a href="/dday/"><span class="ico" aria-hidden="true">📅</span>D-day·전역일</a>
+      <a href="/count/"><span class="ico" aria-hidden="true">📝</span>글자수 세기</a>
+      <a href="/percent/"><span class="ico" aria-hidden="true">📊</span>퍼센트</a>
+      <a href="/date/"><span class="ico" aria-hidden="true">🗓️</span>날짜 계산</a>
+      <a href="/time/"><span class="ico" aria-hidden="true">⏱️</span>시간 계산</a>
+      <a href="/vat/"><span class="ico" aria-hidden="true">🏷️</span>부가세</a>
+      <a href="/car-tax/"><span class="ico" aria-hidden="true">🚗</span>자동차세·연납</a>
+      <a href="/gpa/"><span class="ico" aria-hidden="true">🎓</span>학점 계산</a>
+      <a href="/bmi/"><span class="ico" aria-hidden="true">⚖️</span>BMI·적정 체중</a>
+      <a href="/unit/"><span class="ico" aria-hidden="true">📏</span>단위 변환</a>
+    </nav>
+  </section>
+
+  <footer>계산 결과는 참고용이에요. 실제 원천징수액은 국세청 간이세액표와 회사의 급여 처리 방식에 따라 조금 다를 수 있어요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+// 숫자 입력: 쉼표·공백을 빼고 읽어요 (소수·음수 가능)
+const num = (s) => { const n = parseFloat(String(s).replace(/[^0-9.\-]/g, "")); return isFinite(n) ? n : NaN; };
+// 보기 좋게: 천 단위 쉼표, 소수는 최대 d자리
+const show = (n, d = 4) => isFinite(n) ? n.toLocaleString("ko-KR", { maximumFractionDigits: d }) : "-";
+let tab = document.querySelector('[data-tab][aria-selected="true"]')?.dataset.tab;
+function setTab(t) {
+  tab = t;
+  document.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === t));
+  document.querySelectorAll("[data-panel]").forEach((p) => (p.hidden = p.dataset.panel !== t));
+  if (typeof onTab === "function") onTab(t);
+  render();
+}
+document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
+
+const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
+const korMoney = (n) => { const e = Math.floor(n / 1e8), m = Math.floor((n % 1e8) / 1e4); return !e && !m ? won(n) : ((e ? e + "억 " : "") + (m ? m.toLocaleString("ko-KR") + "만 " : "")).trim() + " 원"; };
+const moneyInput = (id, empty = "") => $(id).addEventListener("input", (e) => { const n = Math.floor(num(e.target.value)); e.target.value = isFinite(n) && n ? n.toLocaleString("ko-KR") : empty; });
+const intOf = (id) => Math.max(0, Math.floor(num($(id).value) || 0));
+
+const I = KR.R.insurance, T = KR.R.incomeTax;
+const f10 = (n) => Math.floor(n / 10) * 10;
+// 1년 총급여 → 결정세액 (소득세)
+function yearTax(gross, pensionY, insY, family, kids) {
+  const base = Math.max(0, gross - KR.earnedDeduction(gross) - T.personal * family - pensionY - insY);
+  const c = KR.baseTax(base);
+  return Math.max(0, c - KR.earnedTaxCredit(c, gross) - KR.childCredit(kids) - T.standardCredit);
+}
+const pensionOf = (m) => m > 0 ? f10(Math.min(Math.max(m, I.pensionMin), I.pensionMax) * I.pension) : 0;
+// 과세 월급 m 일 때 매달 떼는 소득세 (간이세액표 근사, 연봉 계산기와 같은 방식)
+function monthTax(m, family, kids) {
+  const health = f10(m * I.health), care = f10(health * I.care), employ = f10(m * I.employ);
+  return f10(yearTax(m * 12, pensionOf(m) * 12, (health + care + employ) * 12, family, kids) / 12);
+}
+function bonusCalc({ salary, nontax, bonus, months, family, kids }) {
+  const m = Math.max(0, salary / 12 - nontax);
+  const n = Math.min(12, Math.max(1, Math.floor(months) || 1));
+  // 지급대상기간 방식: (월급 + 성과급 ÷ 기간) 세액 × 기간 − 이미 뗀 세액
+  const withheld = Math.max(0, monthTax(m + bonus / n, family, kids) * n - monthTax(m, family, kids) * n);
+  const local = f10(withheld * T.localRate);
+  const employ = f10(bonus * I.employ);
+  const net = bonus - withheld - local - employ;
+  // 1년 전체: 성과급이 있을 때와 없을 때 결정세액 차이
+  const pensionY = pensionOf(m) * 12, insRate = I.health * (1 + I.care) + I.employ;
+  const g0 = m * 12, g1 = g0 + bonus;
+  const finalTax = f10(yearTax(g1, pensionY, g1 * insRate, family, kids) - yearTax(g0, pensionY, g0 * insRate, family, kids));
+  const finalLocal = f10(finalTax * T.localRate);
+  const health = f10(bonus * I.health), care = f10(health * I.care);
+  const settle = (finalTax + finalLocal) - (withheld + local);
+  const finalNet = bonus - finalTax - finalLocal - employ - health - care;
+  return { n, withheld, local, employ, net, finalTax, finalLocal, settle, health, care, finalNet };
+}
+window.calc = bonusCalc;
+["salary", "bonus", "nontax"].forEach((id) => moneyInput(id, id === "nontax" ? "0" : ""));
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-bonus]"); if (b) { $("bonus").value = Number(b.dataset.bonus).toLocaleString("ko-KR"); render(); }
+  const m = e.target.closest("[data-months]"); if (m) { $("months").value = m.dataset.months; render(); }
+});
+const pct = (x) => (Math.round(x * 1000) / 10).toLocaleString("ko-KR") + "%";
+function render() {
+  const salary = intOf("salary"), bonus = intOf("bonus"), nontax = intOf("nontax");
+  $("salaryKo").textContent = salary ? korMoney(salary) : ""; $("bonusKo").textContent = bonus ? korMoney(bonus) : "";
+  if (!bonus) { $("big").textContent = "-"; $("subLine").textContent = "성과급 금액을 넣어 주세요."; $("rows").innerHTML = ""; $("big2").textContent = "-"; $("rows2").innerHTML = ""; return; }
+  const r = bonusCalc({ salary, nontax, bonus, months: num($("months").value), family: Number($("family").value), kids: Number($("kids").value) });
+  const cut = r.withheld + r.local + r.employ;
+  $("big").textContent = won(r.net);
+  $("subLine").textContent = `성과급 ${won(bonus)} 중 ${won(cut)}을 떼요 (지급대상기간 ${r.n}개월 기준)`;
+  $("sTax").textContent = won(r.withheld + r.local); $("sEmp").textContent = won(r.employ); $("sRate").textContent = pct(cut / bonus);
+  $("rows").innerHTML = `<tr><td>성과급</td><td>${won(bonus)}</td></tr>
+    <tr><td>소득세 (받는 달 원천징수)</td><td>−${won(r.withheld)}</td></tr>
+    <tr><td>지방소득세 (소득세의 10%)</td><td>−${won(r.local)}</td></tr>
+    <tr><td>고용보험 (0.9%)</td><td>−${won(r.employ)}</td></tr>
+    <tr><td>국민연금·건강보험</td><td>받는 달엔 그대로</td></tr>
+    <tr class="total"><td>통장에 들어오는 성과급</td><td>${won(r.net)}</td></tr>`;
+  $("big2").textContent = won(r.finalNet);
+  const s = r.settle;
+  $("subLine2").textContent = s > 0 ? `연말정산 때 약 ${won(s)}을 더 내야 해요` : s < 0 ? `연말정산 때 약 ${won(-s)}을 돌려받아요` : "받을 때 뗀 세금과 실제 세금이 거의 같아요";
+  $("rows2").innerHTML = `<tr><td>성과급 때문에 늘어나는 1년 세금 (소득세+지방세)</td><td>${won(r.finalTax + r.finalLocal)}</td></tr>
+    <tr><td>받는 달에 미리 뗀 세금</td><td>${won(r.withheld + r.local)}</td></tr>
+    <tr><td>연말정산 (다음 해 2월)</td><td>${s > 0 ? "더 냄 " + won(s) : s < 0 ? "환급 " + won(-s) : "0원"}</td></tr>
+    <tr><td>건강보험 정산 (다음 해 4월, 장기요양 포함)</td><td>−${won(r.health + r.care)}</td></tr>
+    <tr><td>고용보험</td><td>−${won(r.employ)}</td></tr>
+    <tr class="total"><td>최종적으로 남는 돈</td><td>${won(r.finalNet)} (${pct(r.finalNet / bonus)})</td></tr>`;
+}
+
+document.querySelector("main").addEventListener("input", (e) => { if (e.target.matches("input, select")) render(); });
+document.querySelector("main").addEventListener("change", (e) => { if (e.target.matches("input, select")) render(); });
+window.render = render;
+const h = location.hash.slice(1);
+if (h && document.querySelector(`[data-tab="${h}"]`)) setTab(h); else setTab(tab);
+</script>
+<script src="/assets/share.js?v=20261105a" defer></script>
+<script src="/assets/next.js?v=20261114a" defer></script>
+</body>
+</html>
