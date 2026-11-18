@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f4ef">
+<title>Korea Real Estate Agent Fee Calculator | Brokerage Commission for Rent, Jeonse & Buying (2026)</title>
+<meta name="description" content="How much is the real estate agent fee in Korea? Enter the price, jeonse deposit or monthly rent (wolse) to see the maximum brokerage commission under the legal rate caps, including the deposit + rent × 100 rule and VAT.">
+<meta property="og:title" content="Korea Real Estate Agent Fee Calculator | Brokerage Commission for Rent, Jeonse & Buying (2026)">
+<meta property="og:description" content="How much is the real estate agent fee in Korea? Enter the price, jeonse deposit or monthly rent (wolse) to see the maximum brokerage commission under the legal rate caps, including the deposit + rent × 100 rule and VAT.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/en/brokerage/">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/en-brokerage.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Korea Calculators">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://dohyun.co.kr/en/brokerage/">
+<link rel="alternate" hreflang="ko" href="https://dohyun.co.kr/brokerage/">
+<link rel="alternate" hreflang="en" href="https://dohyun.co.kr/en/brokerage/">
+<link rel="alternate" hreflang="x-default" href="https://dohyun.co.kr/brokerage/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Segoe UI", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"] { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; color-scheme: light dark; }
+  .input-wrap input[type="text"] { padding-right: 56px; }
+  .input-wrap.pre input[type="text"] { padding-left: 34px; padding-right: 14px; }
+  input:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .pre .unit { left: 14px; right: auto; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 420px) { .row2 { grid-template-columns: 1fr; } }
+  .stepper { display: flex; align-items: center; gap: 10px; }
+  .stepper output { font-size: 18px; font-weight: 700; min-width: 40px; text-align: center; }
+  .modes { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .modes button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .modes button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  details.more { border-top: 1px solid var(--line); padding-top: 16px; margin-top: 4px; }
+  details.more summary { font-weight: 600; font-size: 14px; color: var(--accent); }
+  details.more .field:first-of-type { margin-top: 16px; }
+  [hidden] { display: none !important; }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; letter-spacing: -0.03em; margin: 2px 0 4px; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 18px; }
+  .warn, .flag { border-radius: 12px; padding: 12px 14px; font-size: 14px; margin: 0 0 14px; }
+  .warn { background: color-mix(in srgb, #f59f00 14%, transparent); color: #b25e09; display: none; }
+  .flag.ok { background: color-mix(in srgb, var(--plus) 12%, transparent); color: var(--plus); }
+  .flag.over { background: color-mix(in srgb, var(--minus) 12%, transparent); color: var(--minus); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 19px; letter-spacing: -0.02em; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  .bar { display: flex; height: 10px; border-radius: 5px; overflow: hidden; margin: 4px 0 18px; background: var(--line); }
+  .bar span { display: block; height: 100%; }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  td, th { padding: 9px 0; border-top: 1px solid var(--line); text-align: left; }
+  td:last-child, th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  td.m { color: var(--minus); }
+  tr.total td { font-weight: 700; }
+  tr.group td { color: var(--sub); font-size: 13px; padding-top: 16px; border-top: 0; font-weight: 600; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; line-height: 1.9; }
+  footer a { color: inherit; }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/en/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>Korea Calc</a>
+    <nav><a href="/en/#tools">Calculators</a><a href="/en/guide/">Guides</a></nav>
+    <span class="lang"><a href="/brokerage/" hreflang="ko" lang="ko">한국어</a><a href="/en/brokerage/" aria-current="true">EN</a></span>
+  </div>
+</header>
+<main>
+  <h1>Korea Real Estate Agent Fee Calculator</h1>
+  <p class="lead">Enter your deal to see the most a licensed agent (부동산 중개사무소) can charge you — for buying, jeonse or monthly rent.</p>
+  <p class="verified">Checked October 2026 · housing rate caps 0.4–0.7% (buying), 0.3–0.6% (leases) · monthly rent converted as deposit + rent × 100 (× 70 under ₩50M)</p>
+<style>select{width:100%;font:inherit;font-size:16px;font-weight:600;padding:12px 14px;border:2px solid var(--line);border-radius:12px;background:transparent;color:var(--text);color-scheme:light dark}.check{display:flex;gap:10px;align-items:flex-start;font-size:15px;font-weight:600;cursor:pointer}.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--accent);flex:none}.check small{display:block;font-weight:400;font-size:13px;color:var(--sub)}tr.on td{font-weight:700;color:var(--accent)}</style>
+  <div class="modes" role="tablist" aria-label="Type of deal" style="--n:3">
+    <button type="button" role="tab" data-tab="sale" aria-selected="false">Buying</button>
+    <button type="button" role="tab" data-tab="jeonse" aria-selected="false">Jeonse</button>
+    <button type="button" role="tab" data-tab="monthly" aria-selected="true">Monthly rent</button>
+  </div>
+  <section class="card">
+    <div id="fPrice" hidden>
+      <div class="field"><label for="price" id="priceLabel">Price</label><div class="input-wrap pre"><span class="unit">₩</span><input id="price" type="text" inputmode="numeric" value="300,000,000" autocomplete="off"></div><div class="hint" id="priceWords"></div><div class="quick" id="priceQuick"></div></div>
+    </div>
+    <div id="fMonthly">
+      <div class="field"><label for="deposit">Deposit (bojeunggeum)</label><div class="input-wrap pre"><span class="unit">₩</span><input id="deposit" type="text" inputmode="numeric" value="10,000,000" autocomplete="off"></div><div class="hint" id="depositWords"></div></div>
+      <div class="field"><label for="rent">Monthly rent</label><div class="input-wrap pre"><span class="unit">₩</span><input id="rent" type="text" inputmode="numeric" value="700,000" autocomplete="off"></div>
+        <div class="quick"><button type="button" data-rent="500000">₩500k</button><button type="button" data-rent="700000">₩700k</button><button type="button" data-rent="1000000">₩1M</button><button type="button" data-rent="1500000">₩1.5M</button></div></div>
+    </div>
+    <div class="field">
+      <label for="kind">Type of property</label>
+      <select id="kind">
+        <option value="house" selected>Housing (apartment, villa, house)</option>
+        <option value="officetel">Officetel (85 m² or less, with kitchen & bathroom)</option>
+        <option value="other">Other (shop, land, larger officetel)</option>
+      </select>
+    </div>
+    <div class="field"><label class="check"><input type="checkbox" id="vat"><span>Include 10% VAT<small>Agents registered as general taxpayers may add 10% VAT on top of the fee.</small></span></label></div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head">Maximum agent fee you pay</p>
+    <p class="big" id="total">-</p>
+    <p class="sub-line" id="subLine"></p>
+    <div class="stats">
+      <div class="stat"><span id="baseLabel">Deal amount</span><b id="sBase">-</b></div>
+      <div class="stat"><span>Rate cap</span><b id="sRate">-</b></div>
+      <div class="stat"><span>Fee ceiling</span><b id="sCap">-</b></div>
+    </div>
+    <p class="hint" id="tip"></p>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <section class="card">
+    <h2 style="font-size:19px;margin:0 0 12px" id="tableTitle">Rate caps for housing</h2>
+    <table><thead><tr><th>Deal amount</th><th>Max rate</th><th>Ceiling</th></tr></thead><tbody id="rateRows"></tbody></table>
+    <p class="hint" style="margin-top:10px">These are maximums — you can negotiate a lower fee. Most provinces (including Seoul and Gyeonggi) use the same caps, but agree on the fee before signing.</p>
+  </section>
+
+  <section class="card guide-links"><h2>Related guide</h2><div class="link-list"><a href="/en/guide/jeonse-explained/">Jeonse explained: Korea's big-deposit lease</a></div></section>
+  <section class="card faq">
+    <h2>FAQ</h2>
+    <details><summary>How much is the real estate agent fee for renting in Korea?</summary><p>For monthly rent the deal amount is deposit + monthly rent × 100 (× 70 if that comes to under ₩50 million), and a rate cap of 0.3–0.6% applies. A ₩10 million deposit with ₩700,000 rent counts as ₩80 million: 0.4% would be ₩320,000, but the ceiling for ₩50–100 million is ₩300,000, so the most the tenant and the landlord each pay is ₩300,000.</p></details><details><summary>Who pays the agent fee in Korea?</summary><p>Both sides pay their own agent fee: the tenant and the landlord for a lease, the buyer and the seller for a purchase. If one agent handles both sides, each still pays up to the cap.</p></details><details><summary>Can I negotiate the agent fee?</summary><p>Yes. The legal rates are maximums. It is common to agree on the fee (and whether VAT is added) before signing the contract — ask for it in writing.</p></details><details><summary>When do I pay the agent fee?</summary><p>Usually on the move-in or balance payment day (잔금일), once the deal is completed. Ask for a receipt (cash receipt or tax invoice).</p></details>
+  </section>
+  <footer>Results are estimates for reference only. Check with your employer or the relevant Korean agency for official figures.<br>
+  <a href="/about/" lang="ko">About (Korean)</a> · <a href="/privacy/" lang="ko">Privacy policy (Korean)</a> · <a href="mailto:kdh7775@kakao.com">Contact</a></footer>
+</main>
+<script src="/assets/rates.js?v=20261026b"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+const won = (n) => "\u20a9" + Math.round(n).toLocaleString("en-US");
+const parse = (s) => Number(String(s).replace(/[^0-9]/g, "")) || 0;
+const floor10 = (n) => Math.floor(n / 10) * 10;
+// 40,000,000 → "₩40 million"
+function words(n) {
+  if (n >= 1e9) return "\u20a9" + +(n / 1e9).toFixed(2) + " billion";
+  if (n >= 1e6) return "\u20a9" + +(n / 1e6).toFixed(2) + " million";
+  return won(n);
+}
+function money(id, cb) {
+  $(id).addEventListener("input", (e) => {
+    const n = parse(e.target.value);
+    e.target.value = n ? n.toLocaleString("en-US") : "";
+    cb();
+  });
+}
+function steppers(cb) {
+  document.querySelectorAll(".stepper").forEach((s) => {
+    const out = $(s.dataset.target);
+    s.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+      out.value = Math.min(Number(s.dataset.max), Math.max(Number(s.dataset.min), Number(out.value) + Number(b.dataset.d)));
+      cb();
+    }));
+  });
+}
+function tabs(cb) {
+  document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => {
+    document.querySelectorAll("[data-tab]").forEach((x) => x.setAttribute("aria-selected", x === b));
+    cb(b.dataset.tab);
+  }));
+}
+
+
+const B = KR.R.brokerage;
+const pctTxt = (v) => +(v * 100).toFixed(2);
+let tab = "monthly";
+function baseAmount(t, price, deposit, rent) {
+  if (t !== "monthly") return { base: price, how: "" };
+  const hi = deposit + rent * B.monthlyMul;
+  if (hi >= B.lowLine) return { base: hi, how: `deposit + rent × ${B.monthlyMul}` };
+  return { base: deposit + rent * B.monthlyMulLow, how: `deposit + rent × ${B.monthlyMulLow} (× ${B.monthlyMul} came to under ${words(B.lowLine)})` };
+}
+function rateFor(t, kind, base) {
+  const isSale = t === "sale";
+  if (kind === "officetel") return { rate: isSale ? B.officetel.sale : B.officetel.lease, cap: null, idx: -1 };
+  if (kind === "other") return { rate: B.other, cap: null, idx: -1 };
+  const table = isSale ? B.sale : B.lease;
+  for (let i = 0; i < table.length; i++) { const [upTo, rate, cap] = table[i]; if (upTo === null || base < upTo) return { rate, cap, idx: i }; }
+}
+// same as the Korean /brokerage/ calculator
+function calc(t, kind, price, deposit, rent, withVat) {
+  const { base, how } = baseAmount(t, price, deposit, rent);
+  const { rate, cap, idx } = rateFor(t, kind, base);
+  const raw = Math.floor(base * rate);
+  const fee = cap === null ? raw : Math.min(raw, cap);
+  const vat = withVat ? Math.floor(fee * B.vat) : 0;
+  return { base, how, rate, cap, idx, raw, fee, vat, total: fee + vat };
+}
+window.calc = calc;
+const short = (n) => n >= 1e9 ? "₩" + +(n / 1e9).toFixed(2) + "B" : n >= 1e6 ? "₩" + +(n / 1e6).toFixed(1) + "M" : won(n);
+function rangeText(table, i) {
+  const lo = i === 0 ? 0 : table[i - 1][0], hi = table[i][0];
+  if (i === 0) return `Under ${short(hi)}`;
+  if (hi === null) return `${short(lo)} or more`;
+  return `${short(lo)} – under ${short(hi)}`;
+}
+const QUICK = { sale: [300e6, 500e6, 900e6, 1200e6, 1500e6], jeonse: [100e6, 200e6, 300e6, 500e6] };
+const DEFAULT = { sale: 500000000, jeonse: 200000000 };
+let priceTab = "";
+function onTab(t) {
+  tab = t;
+  $("fPrice").hidden = t === "monthly"; $("fMonthly").hidden = t !== "monthly";
+  if (t !== "monthly") {
+    $("priceLabel").textContent = t === "sale" ? "Purchase price" : "Jeonse deposit";
+    if (priceTab !== t) $("price").value = DEFAULT[t].toLocaleString("en-US");
+    priceTab = t;
+    $("priceQuick").innerHTML = QUICK[t].map((v) => `<button type="button" data-price="${v}">${short(v)}</button>`).join("");
+  }
+  render();
+}
+function render() {
+  const price = parse($("price").value), deposit = parse($("deposit").value), rent = parse($("rent").value);
+  const kind = $("kind").value, withVat = $("vat").checked;
+  const x = calc(tab, kind, price, deposit, rent, withVat);
+  $("total").textContent = won(x.total);
+  $("subLine").textContent = `${words(x.base)} × ${pctTxt(x.rate)}%` + (x.cap !== null && x.raw > x.cap ? ` = ${won(x.raw)} → ceiling ${won(x.cap)}` : "") + (withVat ? " · VAT included" : " · VAT not included");
+  $("baseLabel").textContent = tab === "monthly" ? "Converted amount" : "Deal amount";
+  $("sBase").textContent = words(x.base);
+  $("sRate").textContent = pctTxt(x.rate) + "%" + (kind === "other" ? " max" : "");
+  $("sCap").textContent = x.cap === null ? "None" : won(x.cap);
+  $("priceWords").textContent = words(price); $("depositWords").textContent = words(deposit);
+  $("tip").textContent = kind === "other" ? "For shops and land the fee is agreed with the agent, up to 0.9%." : `This is the most ${tab === "sale" ? "the buyer and the seller" : "the tenant and the landlord"} each pay. You can agree on a lower fee.`;
+  let rows = tab === "monthly" ? `<tr><td>Conversion</td><td>${x.how}</td></tr><tr><td>Converted amount</td><td>${won(x.base)}</td></tr>` : `<tr><td>Deal amount</td><td>${won(x.base)}</td></tr>`;
+  rows += `<tr><td>Amount × ${pctTxt(x.rate)}%</td><td>${won(x.raw)}</td></tr>`;
+  if (x.cap !== null) rows += `<tr><td>Fee ceiling</td><td>${won(x.cap)}</td></tr>`;
+  rows += `<tr><td>Agent fee</td><td>${won(x.fee)}</td></tr>`;
+  if (withVat) rows += `<tr><td>VAT (10%)</td><td>${won(x.vat)}</td></tr>`;
+  rows += `<tr class="total"><td>Maximum you pay</td><td>${won(x.total)}</td></tr>`;
+  $("rows").innerHTML = rows;
+  const table = tab === "sale" ? B.sale : B.lease;
+  $("tableTitle").textContent = `Rate caps for housing (${tab === "sale" ? "buying" : "jeonse & monthly rent"})`;
+  $("rateRows").innerHTML = table.map((r, i) => `<tr class="${kind === "house" && i === x.idx ? "on" : ""}"><td>${rangeText(table, i)}</td><td>${pctTxt(r[1])}%</td><td>${r[2] === null ? "None" : won(r[2])}</td></tr>`).join("")
+    + `<tr class="${kind === "officetel" ? "on" : ""}"><td>Officetel (85 m² or less)</td><td>${pctTxt(tab === "sale" ? B.officetel.sale : B.officetel.lease)}%</td><td>None</td></tr>`
+    + `<tr class="${kind === "other" ? "on" : ""}"><td>Shops, land, etc.</td><td>up to ${pctTxt(B.other)}%</td><td>None</td></tr>`;
+}
+tabs(onTab);
+["price", "deposit", "rent"].forEach((id) => money(id, render));
+$("kind").addEventListener("change", render); $("vat").addEventListener("change", render);
+document.addEventListener("click", (e) => {
+  const p = e.target.closest("[data-price]"); if (p) { $("price").value = Number(p.dataset.price).toLocaleString("en-US"); render(); }
+  const r = e.target.closest("[data-rent]"); if (r) { $("rent").value = Number(r.dataset.rent).toLocaleString("en-US"); render(); }
+});
+window.render = render;
+const h = location.hash.slice(1);
+onTab(["sale", "jeonse", "monthly"].includes(h) ? h : "monthly");
+if (h) document.querySelectorAll("[data-tab]").forEach((x) => x.setAttribute("aria-selected", x.dataset.tab === tab));
+
+</script>
+<script src="/assets/share.js?v=20261105a" defer></script>
+</body>
+</html>
