@@ -5,8 +5,32 @@
     <link>https://dohyun.co.kr/</link>
     <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 이자, 퍼센트 등 생활 계산기와 쉽게 정리한 생활 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Sat, 14 Nov 2026 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 09:00:00 +0900</lastBuildDate>
     <atom:link href="https://dohyun.co.kr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>연봉 인상률 계산기 (2026) | 연봉 오르면 실수령액 얼마나 늘까</title>
+      <link>https://dohyun.co.kr/raise/</link>
+      <guid isPermaLink="true">https://dohyun.co.kr/raise/</guid>
+      <description>연봉 인상률 계산기: 지금 연봉과 인상률(%) 또는 새 연봉을 넣으면 오른 연봉, 월 실수령액이 실제로 얼마나 늘어나는지, 세금·4대보험으로 빠지는 몫과 실수령 인상률까지 바로 계산해요. 3%·5%·10% 인상 비교표도 함께 보여 줘요.</description>
+      <category>계산기</category>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>전기요금 계산기 (2026) | 누진제 구간별 전기세, 전기장판·히터 한 달 요금</title>
+      <link>https://dohyun.co.kr/electricity/</link>
+      <guid isPermaLink="true">https://dohyun.co.kr/electricity/</guid>
+      <description>전기요금 계산기: 한 달 사용량(kWh)을 넣으면 주택용 누진제 구간별 전기요금, 기후환경요금·연료비조정요금·부가세·전력기금까지 넣은 실제 청구 금액을 계산해요. 전기장판·히터·에어컨 소비전력으로 한 달에 늘어나는 요금도 바로 확인해요.</description>
+      <category>계산기</category>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>취득세 계산기 (2026) | 아파트·주택 취득세율, 생애최초 감면, 다주택 중과</title>
+      <link>https://dohyun.co.kr/acquisition-tax/</link>
+      <guid isPermaLink="true">https://dohyun.co.kr/acquisition-tax/</guid>
+      <description>취득세 계산기: 집값과 주택 수, 조정대상지역 여부, 전용면적을 넣으면 취득세·지방교육세·농어촌특별세를 합친 금액을 바로 계산해요. 6억·9억 구간 세율, 생애최초 감면(최대 200만 원), 2주택·3주택 중과(8%·12%)까지 반영해요.</description>
+      <category>계산기</category>
+      <pubDate>Thu, 19 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>자동차세 연납 할인 총정리: 1월에 한 번에 내면 얼마 아낄까, 배기량별 자동차세</title>
       <link>https://dohyun.co.kr/guide/car-tax-annual-payment/</link>
@@ -259,7 +283,7 @@
       <title>생활 계산기 모음 | 연봉 실수령액·퇴직금·실업급여·이자·퍼센트 계산기</title>
       <link>https://dohyun.co.kr/</link>
       <guid isPermaLink="true">https://dohyun.co.kr/</guid>
-      <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 연말정산, 이자, 퍼센트, 날짜 계산까지 28가지. 2026년 기준으로 확인한 생활 계산을 숫자만 넣으면 무료로, 가입 없이 바로 알려드려요.</description>
+      <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 연말정산, 이자, 퍼센트, 날짜 계산까지 31가지. 2026년 기준으로 확인한 생활 계산을 숫자만 넣으면 무료로, 가입 없이 바로 알려드려요.</description>
       <category>계산기</category>
       <pubDate>Thu, 05 Nov 2026 09:00:00 +0900</pubDate>
     </item>

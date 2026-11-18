@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f4ef">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/acquisition-tax.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<title>취득세 계산기 (2026) | 아파트·주택 취득세율, 생애최초 감면, 다주택 중과</title>
+<meta name="description" content="취득세 계산기: 집값과 주택 수, 조정대상지역 여부, 전용면적을 넣으면 취득세·지방교육세·농어촌특별세를 합친 금액을 바로 계산해요. 6억·9억 구간 세율, 생애최초 감면(최대 200만 원), 2주택·3주택 중과(8%·12%)까지 반영해요.">
+<meta property="og:title" content="취득세 계산기 (주택)">
+<meta property="og:description" content="집값으로 취득세·지방교육세·농특세 합계를 계산해요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/acquisition-tax/">
+<link rel="canonical" href="https://dohyun.co.kr/acquisition-tax/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"], input[type="time"], select { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 44px 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; }
+  input[type="date"], input[type="time"] { padding-right: 14px; font-size: 18px; }
+  select { font-size: 16px; padding-right: 14px; cursor: pointer; }
+  input:focus, select:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row2 > * { min-width: 0; }
+  input { min-width: 0; }
+  @media (max-width: 440px) { .row2.stack { grid-template-columns: 1fr; gap: 0; } }
+  .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+  .check small { display: block; font-weight: 400; font-size: 13px; color: var(--sub); }
+  .tabs { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .tabs button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 2px; background: transparent; color: var(--sub); cursor: pointer; line-height: 1.3; }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .seg { display: grid; grid-template-columns: repeat(2, 1fr); background: var(--seg); border-radius: 12px; padding: 4px; gap: 4px; }
+  .seg button { font: inherit; font-size: 14px; font-weight: 600; border: 0; border-radius: 9px; padding: 10px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; margin: 2px 0 4px; word-break: break-all; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 17px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 4px; border-top: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+  th { color: var(--sub); font-weight: 600; font-size: 12.5px; border-top: 0; }
+  th:first-child, td:first-child { text-align: left; }
+  tr.total td { font-weight: 700; border-top: 1.5px solid var(--line); }
+  h2.sec { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+  [hidden] { display: none !important; }
+  @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 13px; } }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/">가이드</a></nav>
+    <span class="lang"><a href="/acquisition-tax/" aria-current="true">한국어</a><a href="/en/" hreflang="en" lang="en">EN</a></span>
+  </div>
+</header>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>주택 취득세 계산기</h1>
+  <p class="lead">집을 살 때 내는 취득세와 함께 붙는 지방교육세·농어촌특별세를 합쳐서 계산해요.</p>
+  <p class="verified">지방세법 제11조·제13조의2 기준 (2026년 11월 확인) · 1주택 1~3%, 다주택 8·12% 중과 · 생애최초 최대 200만 원 감면</p>
+
+  <section class="card">
+    <div class="field">
+      <label for="price">집값 (취득가액)</label>
+      <div class="input-wrap"><input id="price" type="text" inputmode="numeric" value="500,000,000" autocomplete="off"><span class="unit">원</span></div>
+      <div class="hint" id="priceKo"></div>
+      <div class="quick"><button type="button" data-price="300000000">3억</button><button type="button" data-price="500000000">5억</button><button type="button" data-price="700000000">7억</button><button type="button" data-price="900000000">9억</button><button type="button" data-price="1200000000">12억</button></div>
+    </div>
+    <div class="field">
+      <label for="count">이 집을 사면 몇 주택이 돼요?</label>
+      <select id="count"><option value="1" selected>1주택 (무주택에서 처음 사거나 갈아타기)</option><option value="t">일시적 2주택 (3년 안에 기존 집을 팔 예정)</option><option value="2">2주택</option><option value="3">3주택</option><option value="4">4주택 이상</option></select>
+    </div>
+    <div class="field">
+      <label class="check"><input type="checkbox" id="reg"><span>조정대상지역에 있는 집이에요<small>서울 전체와 경기 일부 지역이 조정대상지역이에요(2025년 10·15 대책). 다주택일 때만 세율이 달라져요.</small></span></label>
+    </div>
+    <div class="field">
+      <label class="check"><input type="checkbox" id="big85"><span>전용면적 85㎡ 초과<small>국민주택규모(85㎡)를 넘으면 농어촌특별세가 붙어요.</small></span></label>
+    </div>
+    <div class="field">
+      <label class="check"><input type="checkbox" id="first"><span>생애최초 주택 구입<small>본인·배우자 모두 집을 가진 적이 없고, 12억 원 이하 주택이면 취득세를 최대 200만 원 깎아 줘요.</small></span></label>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head">내야 할 세금 합계</p>
+    <p class="big" id="big">-</p>
+    <p class="sub-line" id="subLine"></p>
+    <div class="stats">
+      <div class="stat"><span>취득세율</span><b id="sRate">-</b></div>
+      <div class="stat"><span>합계 세율</span><b id="sAll">-</b></div>
+      <div class="stat"><span>감면</span><b id="sCut">-</b></div>
+    </div>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>주택 취득세는 이렇게 계산돼요</h2>
+<h3>세율 (유상 매매, 개인)</h3>
+<ul>
+  <li><b>1주택:</b> 6억 원 이하 1%, 9억 원 초과 3%, 6억~9억 원은 (집값 × 2/3억 − 3)%로 1~3% 사이</li>
+  <li><b>지방교육세:</b> 취득세율의 10% (0.1~0.3%)</li>
+  <li><b>농어촌특별세:</b> 전용 85㎡ 초과일 때 0.2%</li>
+  <li><b>다주택 중과:</b> 조정대상지역 2주택 8%, 3주택 이상 12% / 그 밖의 지역 3주택 8%, 4주택 이상 12%</li>
+</ul>
+<h3>예시</h3>
+<div class="tbl"><table><thead><tr><th>집</th><th>조건</th><th>세금 합계</th></tr></thead><tbody><tr><td>5억 원, 85㎡ 이하</td><td>1주택</td><td>5,500,000원</td></tr><tr><td>5억 원, 85㎡ 이하</td><td>1주택 · 생애최초</td><td>3,500,000원</td></tr><tr><td>8억 원, 85㎡ 이하</td><td>1주택 (세율 2.3333%)</td><td>20,532,800원</td></tr><tr><td>8억 원, 85㎡ 초과</td><td>1주택</td><td>22,132,800원</td></tr><tr><td>12억 원, 85㎡ 초과</td><td>1주택</td><td>42,000,000원</td></tr><tr><td>7억 원, 85㎡ 이하</td><td>조정대상지역 2주택 (8%)</td><td>58,800,000원</td></tr></tbody></table></div>
+<h3>알아 둘 점</h3>
+<ul>
+  <li><b>생애최초 감면:</b> 본인·배우자 모두 집을 가진 적 없고 12억 원 이하면 취득세를 최대 200만 원 깎아 줘요. 3개월 안에 전입하고 3년 안에 팔거나 임대하지 않아야 해요.</li>
+  <li><b>일시적 2주택:</b> 이사 때문에 집이 잠시 2채가 되면 3년 안에 기존 집을 파는 조건으로 1주택 세율이에요.</li>
+  <li>취득일(잔금일)부터 <b>60일 안에</b> 신고·납부해야 해요. 늦으면 가산세가 붙어요.</li>
+  <li>상속·증여·분양권·오피스텔·법인은 세율이 달라요. 2026년 지방세제 개편안(청년 생애최초 감면 확대 등)은 국회를 통과한 뒤 반영할게요.</li>
+</ul>
+<p class="src">근거: 지방세법 제11조(부동산 취득의 세율)·제13조의2(법인의 주택 취득 등 중과)·제151조(지방교육세), 농어촌특별세법 제5조, 지방세특례제한법 제36조의3(생애최초 주택 구입 감면)</p>
+  </section>
+  <!-- explain:end -->
+
+  <section class="card guide-links">
+    <h2>함께 읽으면 좋은 가이드</h2>
+    <div class="link-list">
+      <a href="/guide/jeonse-contract-checklist/">전세 계약 체크리스트</a>
+      <a href="/guide/loan-repayment-guide/">대출 상환 방식 비교</a>
+    </div>
+  </section>
+
+  <section class="card faq">
+    <h2 class="sec">자주 묻는 질문</h2>
+    <details>
+      <summary>아파트 취득세는 얼마예요?</summary>
+      <p>1주택이면 6억 원 이하 1%, 9억 원 초과 3%이고, 그 사이는 집값에 따라 1~3%로 올라가요. 지방교육세(취득세율의 10%)와 85㎡ 초과면 농어촌특별세 0.2%가 더 붙어요. 5억 원 아파트(85㎡ 이하)는 취득세 500만 원 + 지방교육세 50만 원 = 550만 원이에요.</p>
+    </details>
+    <details>
+      <summary>생애최초 감면은 어떻게 받아요?</summary>
+      <p>본인과 배우자가 집을 가진 적이 없고 12억 원 이하 주택을 사면 취득세를 최대 200만 원까지 깎아 줘요. 잔금을 치르고 취득세를 신고할 때 구청에 함께 신청해요. 3개월 안에 전입하지 않는 등 요건을 어기면 감면받은 세금을 다시 내야 해요.</p>
+    </details>
+    <details>
+      <summary>2주택이면 취득세가 얼마나 올라요?</summary>
+      <p>조정대상지역에서 2주택이 되면 8%, 3주택 이상이면 12%예요. 조정대상지역이 아니면 2주택까지는 1주택과 같고, 3주택 8%, 4주택 이상 12%예요. 이사 때문에 잠시 2주택이 되는 경우(일시적 2주택)는 3년 안에 기존 집을 팔면 1주택 세율이에요.</p>
+    </details>
+    <details>
+      <summary>취득세는 언제까지 내요?</summary>
+      <p>잔금을 치른 날(취득일)부터 60일 안에 신고하고 내야 해요. 늦으면 가산세가 붙어요. 보통 법무사가 등기할 때 같이 처리해요.</p>
+    </details>
+  </section>
+
+  <section class="card more-calcs">
+    <h2>다른 계산기</h2>
+    <nav class="calc-grid" aria-label="다른 계산기">
+      <a href="/salary/"><span class="ico" aria-hidden="true">💰</span>연봉 실수령액</a>
+      <a href="/raise/"><span class="ico" aria-hidden="true">📈</span>연봉 인상률</a>
+      <a href="/hourly/"><span class="ico" aria-hidden="true">⏰</span>알바 월급</a>
+      <a href="/overtime/"><span class="ico" aria-hidden="true">🌙</span>야간·연장수당</a>
+      <a href="/bonus/"><span class="ico" aria-hidden="true">🎁</span>성과급 세금</a>
+      <a href="/yearend/"><span class="ico" aria-hidden="true">💸</span>연말정산</a>
+      <a href="/leave/"><span class="ico" aria-hidden="true">🌴</span>연차</a>
+      <a href="/parental/"><span class="ico" aria-hidden="true">👶</span>육아휴직 급여</a>
+      <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
+      <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/savings/"><span class="ico" aria-hidden="true">🐷</span>예금·적금 이자</a>
+      <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
+      <a href="/prepayment/"><span class="ico" aria-hidden="true">🔁</span>중도상환수수료</a>
+      <a href="/dsr/"><span class="ico" aria-hidden="true">📈</span>DSR 대출 한도</a>
+      <a href="/subscription/"><span class="ico" aria-hidden="true">🏠</span>청약 가점</a>
+      <a href="/brokerage/"><span class="ico" aria-hidden="true">🤝</span>복비</a>
+      <a href="/rent/"><span class="ico" aria-hidden="true">🔑</span>전월세 전환</a>
+      <a href="/area/"><span class="ico" aria-hidden="true">📐</span>평수</a>
+      <a href="/age/"><span class="ico" aria-hidden="true">🎂</span>만 나이</a>
+      <a href="/dday/"><span class="ico" aria-hidden="true">📅</span>D-day·전역일</a>
+      <a href="/count/"><span class="ico" aria-hidden="true">📝</span>글자수 세기</a>
+      <a href="/percent/"><span class="ico" aria-hidden="true">📊</span>퍼센트</a>
+      <a href="/date/"><span class="ico" aria-hidden="true">🗓️</span>날짜 계산</a>
+      <a href="/time/"><span class="ico" aria-hidden="true">⏱️</span>시간 계산</a>
+      <a href="/vat/"><span class="ico" aria-hidden="true">🏷️</span>부가세</a>
+      <a href="/car-tax/"><span class="ico" aria-hidden="true">🚗</span>자동차세·연납</a>
+      <a href="/gpa/"><span class="ico" aria-hidden="true">🎓</span>학점 계산</a>
+      <a href="/bmi/"><span class="ico" aria-hidden="true">⚖️</span>BMI·적정 체중</a>
+      <a href="/unit/"><span class="ico" aria-hidden="true">📏</span>단위 변환</a>
+      <a href="/electricity/"><span class="ico" aria-hidden="true">💡</span>전기요금</a>
+    </nav>
+  </section>
+
+  <footer>계산 결과는 참고용이에요. 실제 세액은 취득 원인(상속·증여·분양권), 감면 요건, 지역 지정에 따라 달라요. 위택스나 구청에서 확인하세요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+// 숫자 입력: 쉼표·공백을 빼고 읽어요 (소수·음수 가능)
+const num = (s) => { const n = parseFloat(String(s).replace(/[^0-9.\-]/g, "")); return isFinite(n) ? n : NaN; };
+// 보기 좋게: 천 단위 쉼표, 소수는 최대 d자리
+const show = (n, d = 4) => isFinite(n) ? n.toLocaleString("ko-KR", { maximumFractionDigits: d }) : "-";
+let tab = document.querySelector('[data-tab][aria-selected="true"]')?.dataset.tab;
+function setTab(t) {
+  tab = t;
+  document.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === t));
+  document.querySelectorAll("[data-panel]").forEach((p) => (p.hidden = p.dataset.panel !== t));
+  if (typeof onTab === "function") onTab(t);
+  render();
+}
+document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
+
+const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
+const korMoney = (n) => { const e = Math.floor(n / 1e8), m = Math.floor((n % 1e8) / 1e4); return !e && !m ? won(n) : ((e ? e + "억 " : "") + (m ? m.toLocaleString("ko-KR") + "만 " : "")).trim() + " 원"; };
+const r4 = (x) => Math.round(x * 1e6) / 1e6;
+// 1주택 세율: 6억 이하 1%, 9억 초과 3%, 그 사이 (가액 × 2/3억 − 3)% (소수점 다섯째 자리에서 반올림)
+function baseRate(price) {
+  if (price <= 6e8) return 0.01;
+  if (price > 9e8) return 0.03;
+  return Math.round((price * 2 / 3e8 - 3) * 1e4) / 1e4 / 100;
+}
+function acqTax({ price, count, reg, big85, first }) {
+  let rate, eduRate, farmRate, heavy = false;
+  const n = count === "t" ? 1 : Number(count);
+  const heavyRate = reg ? (n >= 3 ? 0.12 : n === 2 ? 0.08 : 0) : (n >= 4 ? 0.12 : n === 3 ? 0.08 : 0);
+  if (heavyRate) { heavy = true; rate = heavyRate; eduRate = 0.004; farmRate = big85 ? (heavyRate === 0.12 ? 0.01 : 0.006) : 0; }
+  else { rate = baseRate(price); eduRate = r4(rate / 10); farmRate = big85 ? 0.002 : 0; }
+  const acq = Math.floor(price * rate);
+  const cut = first && n === 1 && !heavy && price <= 12e8 ? Math.min(acq, 2000000) : 0;
+  const edu = Math.floor(price * eduRate), farm = Math.floor(price * farmRate);
+  const total = acq - cut + edu + farm;
+  return { rate, eduRate, farmRate, heavy, acq, cut, edu, farm, total };
+}
+window.calc = acqTax;
+$("price").addEventListener("input", (e) => { const n = Math.floor(num(e.target.value)); e.target.value = isFinite(n) && n ? n.toLocaleString("ko-KR") : ""; });
+document.addEventListener("click", (e) => { const p = e.target.closest("[data-price]"); if (p) { $("price").value = Number(p.dataset.price).toLocaleString("ko-KR"); render(); } });
+const pct = (x) => +(x * 100).toFixed(4) + "%";
+function render() {
+  const price = Math.max(0, Math.floor(num($("price").value) || 0));
+  $("priceKo").textContent = price ? korMoney(price) : "";
+  if (!price) { $("big").textContent = "-"; $("subLine").textContent = "집값을 넣어 주세요."; $("rows").innerHTML = ""; return; }
+  const r = acqTax({ price, count: $("count").value, reg: $("reg").checked, big85: $("big85").checked, first: $("first").checked });
+  $("big").textContent = won(r.total);
+  $("subLine").textContent = `${korMoney(price)} × 합계 약 ${pct(r.total / price)}` + (r.heavy ? " · 다주택 중과" : "");
+  $("sRate").textContent = pct(r.rate); $("sAll").textContent = pct(r.total / price); $("sCut").textContent = r.cut ? won(r.cut) : "없음";
+  $("rows").innerHTML = `<tr><td>취득세 (${pct(r.rate)})</td><td>${won(r.acq)}</td></tr>`
+    + (r.cut ? `<tr><td>생애최초 감면</td><td>−${won(r.cut)}</td></tr>` : ($("first").checked ? `<tr><td>생애최초 감면</td><td>대상 아님${price > 12e8 ? " (12억 초과)" : ""}</td></tr>` : ""))
+    + `<tr><td>지방교육세 (${pct(r.eduRate)})</td><td>${won(r.edu)}</td></tr>
+    <tr><td>농어촌특별세 (${r.farmRate ? pct(r.farmRate) : "85㎡ 이하 비과세"})</td><td>${won(r.farm)}</td></tr>
+    <tr class="total"><td>합계</td><td>${won(r.total)}</td></tr>`;
+}
+
+document.querySelector("main").addEventListener("input", (e) => { if (e.target.matches("input, select")) render(); });
+document.querySelector("main").addEventListener("change", (e) => { if (e.target.matches("input, select")) render(); });
+window.render = render;
+const h = location.hash.slice(1);
+if (h && document.querySelector(`[data-tab="${h}"]`)) setTab(h); else setTab(tab);
+</script>
+<script src="/assets/share.js?v=20261105a" defer></script>
+<script src="/assets/next.js?v=20261119a" defer></script>
+</body>
+</html>

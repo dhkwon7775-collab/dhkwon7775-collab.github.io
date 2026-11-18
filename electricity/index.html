@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f4ef">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/electricity.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<title>전기요금 계산기 (2026) | 누진제 구간별 전기세, 전기장판·히터 한 달 요금</title>
+<meta name="description" content="전기요금 계산기: 한 달 사용량(kWh)을 넣으면 주택용 누진제 구간별 전기요금, 기후환경요금·연료비조정요금·부가세·전력기금까지 넣은 실제 청구 금액을 계산해요. 전기장판·히터·에어컨 소비전력으로 한 달에 늘어나는 요금도 바로 확인해요.">
+<meta property="og:title" content="전기요금 계산기 (누진제)">
+<meta property="og:description" content="사용량으로 이번 달 전기요금과 가전제품 전기세를 계산해요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/electricity/">
+<link rel="canonical" href="https://dohyun.co.kr/electricity/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"], input[type="time"], select { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 44px 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; }
+  input[type="date"], input[type="time"] { padding-right: 14px; font-size: 18px; }
+  select { font-size: 16px; padding-right: 14px; cursor: pointer; }
+  input:focus, select:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row2 > * { min-width: 0; }
+  input { min-width: 0; }
+  @media (max-width: 440px) { .row2.stack { grid-template-columns: 1fr; gap: 0; } }
+  .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+  .check small { display: block; font-weight: 400; font-size: 13px; color: var(--sub); }
+  .tabs { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .tabs button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 2px; background: transparent; color: var(--sub); cursor: pointer; line-height: 1.3; }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .seg { display: grid; grid-template-columns: repeat(2, 1fr); background: var(--seg); border-radius: 12px; padding: 4px; gap: 4px; }
+  .seg button { font: inherit; font-size: 14px; font-weight: 600; border: 0; border-radius: 9px; padding: 10px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; margin: 2px 0 4px; word-break: break-all; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 17px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 4px; border-top: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+  th { color: var(--sub); font-weight: 600; font-size: 12.5px; border-top: 0; }
+  th:first-child, td:first-child { text-align: left; }
+  tr.total td { font-weight: 700; border-top: 1.5px solid var(--line); }
+  h2.sec { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+  [hidden] { display: none !important; }
+  @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 13px; } }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/">가이드</a></nav>
+    <span class="lang"><a href="/electricity/" aria-current="true">한국어</a><a href="/en/" hreflang="en" lang="en">EN</a></span>
+  </div>
+</header>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>전기요금 계산기 (주택용 누진제)</h1>
+  <p class="lead">한 달에 쓴 전기(kWh)를 넣으면 고지서에 찍히는 금액을 계산하고, 가전제품을 더 쓰면 얼마나 늘어나는지 보여 줘요.</p>
+  <p class="verified">한국전력 주택용 저압 요금 기준 (2026년 11월 확인) · 기후환경요금 9원·연료비조정 +5원/kWh · 부가세 10%·전력기금 2.7%</p>
+
+  <section class="card">
+    <div class="field">
+      <label for="kwh">한 달 사용량</label>
+      <div class="input-wrap"><input id="kwh" type="text" inputmode="numeric" value="300" autocomplete="off"><span class="unit">kWh</span></div>
+      <div class="quick">
+        <button type="button" data-kwh="150">1인 150</button><button type="button" data-kwh="250">2인 250</button><button type="button" data-kwh="350">4인 350</button><button type="button" data-kwh="450">450</button><button type="button" data-kwh="600">600</button>
+      </div>
+      <div class="hint">고지서나 한전ON 앱의 '사용량'에 있어요.</div>
+    </div>
+    <div class="field">
+      <span class="label">계절</span>
+      <div class="seg" style="grid-template-columns:repeat(3,1fr)" role="group" aria-label="계절">
+        <button type="button" data-season="winter" aria-pressed="true">겨울<br><small>12~2월</small></button>
+        <button type="button" data-season="other" aria-pressed="false">봄·가을<br><small>3~6, 9~11월</small></button>
+        <button type="button" data-season="summer" aria-pressed="false">여름<br><small>7~8월</small></button>
+      </div>
+      <div class="hint">여름(7~8월)은 누진 구간이 넓어져요(300·450kWh). 여름·겨울에 1,000kWh를 넘으면 넘은 만큼 더 비싼 요금이 붙어요.</div>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head">이번 달 전기요금 (청구 금액)</p>
+    <p class="big" id="big">-</p>
+    <p class="sub-line" id="subLine"></p>
+    <div class="stats">
+      <div class="stat"><span>누진 구간</span><b id="sTier">-</b></div>
+      <div class="stat"><span>1kWh당 평균</span><b id="sAvg">-</b></div>
+      <div class="stat"><span>다음 구간까지</span><b id="sNext">-</b></div>
+    </div>
+    <table><tbody id="rows"></tbody></table>
+  </section>
+
+  <section class="card">
+    <h2 class="sec">가전제품을 더 쓰면 얼마나 늘까?</h2>
+    <div class="field">
+      <label for="watt">소비전력</label>
+      <div class="input-wrap"><input id="watt" type="text" inputmode="numeric" value="200" autocomplete="off"><span class="unit">W</span></div>
+      <div class="quick">
+        <button type="button" data-watt="150" data-hours="8">전기장판 150W</button><button type="button" data-watt="1000" data-hours="4">전기히터 1,000W</button><button type="button" data-watt="2000" data-hours="3">온풍기 2,000W</button><button type="button" data-watt="1500" data-hours="6">에어컨 1,500W</button><button type="button" data-watt="40" data-hours="24">제습기 40W</button>
+      </div>
+      <div class="hint">제품 뒷면이나 설명서의 '정격 소비전력'이에요. 온도 조절로 꺼졌다 켜지면 실제는 더 적게 나와요.</div>
+    </div>
+    <div class="row2">
+      <div class="field"><label for="hours">하루 사용 시간</label><div class="input-wrap"><input id="hours" type="text" inputmode="decimal" value="8" autocomplete="off"><span class="unit">시간</span></div></div>
+      <div class="field"><label for="days">한 달 사용 일수</label><div class="input-wrap"><input id="days" type="text" inputmode="numeric" value="30" autocomplete="off"><span class="unit">일</span></div></div>
+    </div>
+    <p class="result-head" style="margin-top:6px">이 제품 때문에 늘어나는 한 달 요금</p>
+    <p class="big" id="addBig">-</p>
+    <p class="sub-line" id="addLine"></p>
+  </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>전기요금은 이렇게 계산돼요</h2>
+<h3>계산 순서 (주택용 저압)</h3>
+<ol>
+  <li><b>기본요금:</b> 사용량 구간에 따라 910원·1,600원·7,300원</li>
+  <li><b>전력량요금 (누진):</b> 200kWh까지 120원, 201~400kWh 214.6원, 400kWh 초과 307.3원 (여름 7~8월은 300·450kWh 기준)</li>
+  <li><b>기후환경요금</b> 1kWh당 9원, <b>연료비조정요금</b> 1kWh당 +5원(2026년 4분기)</li>
+  <li><b>부가가치세</b> 10%, <b>전력산업기반기금</b> 2.7%를 더하고 10원 미만은 버려요.</li>
+</ol>
+<h3>예시 (할인 없음)</h3>
+<div class="tbl"><table><thead><tr><th>한 달 사용량</th><th>봄·가을·겨울</th><th>여름 (7~8월)</th></tr></thead><tbody><tr><td>150kWh (1인 가구)</td><td>23,670원</td><td>23,670원</td></tr><tr><td>300kWh</td><td>57,760원</td><td>46,320원</td></tr><tr><td>350kWh (4인 가구)</td><td>70,640원</td><td>59,980원</td></tr><tr><td>450kWh</td><td>108,050원</td><td>85,740원</td></tr><tr><td>500kWh</td><td>126,160원</td><td>110,280원</td></tr></tbody></table></div>
+<p>같은 50kWh라도 300kWh 집에서는 약 1만 3천 원, 400kWh를 넘는 집에서는 약 1만 8천 원이 늘어요. 3구간(1kWh당 307.3원)에 들어가면 요금이 빠르게 늘어요.</p>
+<h3>알아 둘 점</h3>
+<ul>
+  <li>여름(7~8월)과 겨울(12~2월)에 1,000kWh를 넘게 쓰면 넘은 부분에 1kWh당 736.2원(슈퍼유저 요금)이 붙어요.</li>
+  <li>연료비조정단가는 3개월마다 바뀌어요. 한전 발표에 따라 1kWh당 −5~+5원 범위에서 달라져요.</li>
+  <li>기초생활수급자·장애인·다자녀·대가족 등은 복지 할인을 받을 수 있어요. 한전ON에서 신청해요.</li>
+  <li>전기장판(150W)은 하루 8시간 써도 한 달 36kWh 정도라 전기히터(1,000W 이상)보다 훨씬 적게 나와요.</li>
+</ul>
+<p class="src">근거: 한국전력공사 기본공급약관 시행세칙(주택용 전력 저압), 2026년 4분기 연료비조정단가, 전기사업법 제51조(전력산업기반기금 2.7%)</p>
+  </section>
+  <!-- explain:end -->
+
+  <section class="card faq">
+    <h2 class="sec">자주 묻는 질문</h2>
+    <details>
+      <summary>전기요금 누진제 구간은 어떻게 돼요?</summary>
+      <p>봄·가을·겨울은 200kWh까지 1kWh당 120원, 201~400kWh는 214.6원, 400kWh 초과는 307.3원이에요. 여름(7~8월)은 구간이 300·450kWh로 넓어져요. 기본요금도 구간에 따라 910원·1,600원·7,300원으로 올라요.</p>
+    </details>
+    <details>
+      <summary>4인 가족 전기요금은 보통 얼마예요?</summary>
+      <p>한 달 350kWh를 쓰면 봄·가을·겨울 기준 약 7만 원이에요. 여름에 같은 양을 쓰면 구간이 넓어서 약 6만 원으로 줄어요. 에어컨을 많이 틀어 450kWh를 넘기면 요금이 빠르게 늘어요.</p>
+    </details>
+    <details>
+      <summary>전기장판을 하루 8시간 켜면 얼마예요?</summary>
+      <p>150W 전기장판을 하루 8시간, 30일 쓰면 36kWh예요. 한 달 300kWh를 쓰는 집이면 약 9천 원이 늘어요. 이미 400kWh를 넘는 집은 비싼 3구간 요금이 붙어 더 많이 늘어요.</p>
+    </details>
+    <details>
+      <summary>아파트 관리비로 내는 전기요금도 같은가요?</summary>
+      <p>아파트는 단지 계약 방식(단일계약·종합계약)에 따라 계산이 달라질 수 있고, 공용 전기요금이 따로 붙어요. 이 계산기는 한전과 직접 계약한 주택용 저압 기준이에요.</p>
+    </details>
+  </section>
+
+  <section class="card more-calcs">
+    <h2>다른 계산기</h2>
+    <nav class="calc-grid" aria-label="다른 계산기">
+      <a href="/salary/"><span class="ico" aria-hidden="true">💰</span>연봉 실수령액</a>
+      <a href="/raise/"><span class="ico" aria-hidden="true">📈</span>연봉 인상률</a>
+      <a href="/hourly/"><span class="ico" aria-hidden="true">⏰</span>알바 월급</a>
+      <a href="/overtime/"><span class="ico" aria-hidden="true">🌙</span>야간·연장수당</a>
+      <a href="/bonus/"><span class="ico" aria-hidden="true">🎁</span>성과급 세금</a>
+      <a href="/yearend/"><span class="ico" aria-hidden="true">💸</span>연말정산</a>
+      <a href="/leave/"><span class="ico" aria-hidden="true">🌴</span>연차</a>
+      <a href="/parental/"><span class="ico" aria-hidden="true">👶</span>육아휴직 급여</a>
+      <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
+      <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/savings/"><span class="ico" aria-hidden="true">🐷</span>예금·적금 이자</a>
+      <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
+      <a href="/prepayment/"><span class="ico" aria-hidden="true">🔁</span>중도상환수수료</a>
+      <a href="/dsr/"><span class="ico" aria-hidden="true">📈</span>DSR 대출 한도</a>
+      <a href="/acquisition-tax/"><span class="ico" aria-hidden="true">🏢</span>취득세</a>
+      <a href="/subscription/"><span class="ico" aria-hidden="true">🏠</span>청약 가점</a>
+      <a href="/brokerage/"><span class="ico" aria-hidden="true">🤝</span>복비</a>
+      <a href="/rent/"><span class="ico" aria-hidden="true">🔑</span>전월세 전환</a>
+      <a href="/area/"><span class="ico" aria-hidden="true">📐</span>평수</a>
+      <a href="/age/"><span class="ico" aria-hidden="true">🎂</span>만 나이</a>
+      <a href="/dday/"><span class="ico" aria-hidden="true">📅</span>D-day·전역일</a>
+      <a href="/count/"><span class="ico" aria-hidden="true">📝</span>글자수 세기</a>
+      <a href="/percent/"><span class="ico" aria-hidden="true">📊</span>퍼센트</a>
+      <a href="/date/"><span class="ico" aria-hidden="true">🗓️</span>날짜 계산</a>
+      <a href="/time/"><span class="ico" aria-hidden="true">⏱️</span>시간 계산</a>
+      <a href="/vat/"><span class="ico" aria-hidden="true">🏷️</span>부가세</a>
+      <a href="/car-tax/"><span class="ico" aria-hidden="true">🚗</span>자동차세·연납</a>
+      <a href="/gpa/"><span class="ico" aria-hidden="true">🎓</span>학점 계산</a>
+      <a href="/bmi/"><span class="ico" aria-hidden="true">⚖️</span>BMI·적정 체중</a>
+      <a href="/unit/"><span class="ico" aria-hidden="true">📏</span>단위 변환</a>
+    </nav>
+  </section>
+
+  <footer>계산 결과는 참고용이에요. 복지·대가족 할인, TV 수신료, 아파트 공용 전기요금은 빠져 있어요. 정확한 금액은 한전ON에서 확인하세요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+// 숫자 입력: 쉼표·공백을 빼고 읽어요 (소수·음수 가능)
+const num = (s) => { const n = parseFloat(String(s).replace(/[^0-9.\-]/g, "")); return isFinite(n) ? n : NaN; };
+// 보기 좋게: 천 단위 쉼표, 소수는 최대 d자리
+const show = (n, d = 4) => isFinite(n) ? n.toLocaleString("ko-KR", { maximumFractionDigits: d }) : "-";
+let tab = document.querySelector('[data-tab][aria-selected="true"]')?.dataset.tab;
+function setTab(t) {
+  tab = t;
+  document.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === t));
+  document.querySelectorAll("[data-panel]").forEach((p) => (p.hidden = p.dataset.panel !== t));
+  if (typeof onTab === "function") onTab(t);
+  render();
+}
+document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
+
+// 한전 주택용 저압 (2026년 11월 확인) — 연료비조정단가는 분기마다 바뀌어요
+const ELEC = {
+  basic: [910, 1600, 7300],             // 기본요금 (구간별, 원/월)
+  energy: [120.0, 214.6, 307.3],        // 전력량요금 (원/kWh)
+  tiers: { other: [200, 400], summer: [300, 450] },  // 구간 경계 (kWh)
+  superUser: 736.2, superLine: 1000,    // 하계(7~8월)·동계(12~2월) 1,000kWh 초과분
+  climate: 9.0,                         // 기후환경요금 (원/kWh)
+  fuel: 5.0,                            // 연료비조정요금 (원/kWh, 2026년 4분기)
+  vat: 0.1, fund: 0.027,                // 부가가치세 10%, 전력산업기반기금 2.7%
+};
+
+let season = "winter";
+const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
+// 사용량 → 청구 금액 (10원 미만 버림)
+function bill(kwh, season) {
+  kwh = Math.max(0, Math.floor(kwh));
+  const [t1, t2] = season === "summer" ? ELEC.tiers.summer : ELEC.tiers.other;
+  const tier = kwh <= t1 ? 0 : kwh <= t2 ? 1 : 2;
+  const basic = ELEC.basic[tier];
+  const parts = [Math.min(kwh, t1), Math.max(0, Math.min(kwh, t2) - t1), Math.max(0, kwh - t2)];
+  let energy = parts.reduce((s, k, i) => s + k * ELEC.energy[i], 0);
+  const superOn = season !== "other" && kwh > ELEC.superLine;
+  if (superOn) energy += (kwh - ELEC.superLine) * (ELEC.superUser - ELEC.energy[2]);
+  energy = Math.floor(energy);
+  const climate = Math.floor(kwh * ELEC.climate), fuel = Math.floor(kwh * ELEC.fuel);
+  const sum = basic + energy + climate + fuel;
+  const vat = Math.round(sum * ELEC.vat), fund = Math.floor(sum * ELEC.fund / 10) * 10;
+  const total = Math.floor((sum + vat + fund) / 10) * 10;
+  return { kwh, tier, basic, parts, energy, climate, fuel, sum, vat, fund, total, superOn, t1, t2 };
+}
+window.calc = bill;
+document.addEventListener("click", (e) => {
+  const k = e.target.closest("[data-kwh]"); if (k) { $("kwh").value = k.dataset.kwh; render(); }
+  const s = e.target.closest("[data-season]");
+  if (s) { season = s.dataset.season; document.querySelectorAll("[data-season]").forEach((x) => x.setAttribute("aria-pressed", x === s)); render(); }
+  const w = e.target.closest("[data-watt]"); if (w) { $("watt").value = Number(w.dataset.watt).toLocaleString("ko-KR"); $("hours").value = w.dataset.hours; render(); }
+});
+$("watt").addEventListener("input", (e) => { const n = Math.floor(num(e.target.value)); e.target.value = isFinite(n) && n ? n.toLocaleString("ko-KR") : ""; });
+function render() {
+  const kwh = Math.max(0, Math.floor(num($("kwh").value) || 0));
+  const r = bill(kwh, season);
+  $("big").textContent = won(r.total);
+  $("subLine").textContent = `${kwh.toLocaleString("ko-KR")}kWh · ${{ winter: "겨울", other: "봄·가을", summer: "여름" }[season]} 요금`;
+  $("sTier").textContent = `${r.tier + 1}구간`;
+  $("sAvg").textContent = kwh ? won(r.total / kwh) : "-";
+  $("sNext").textContent = r.tier < 2 ? `${(r.tier === 0 ? r.t1 : r.t2) - kwh + 1}kWh` : "마지막 구간";
+  const rng = [`1~${r.t1}kWh`, `${r.t1 + 1}~${r.t2}kWh`, `${r.t2 + 1}kWh~`];
+  $("rows").innerHTML = `<tr><td>기본요금 (${r.tier + 1}구간)</td><td>${won(r.basic)}</td></tr>`
+    + r.parts.map((k, i) => k ? `<tr><td>전력량 ${rng[i]} · ${k}kWh × ${ELEC.energy[i]}원</td><td>${won(k * ELEC.energy[i])}</td></tr>` : "").join("")
+    + (r.superOn ? `<tr><td>1,000kWh 초과분 슈퍼유저 요금 (${ELEC.superUser}원)</td><td>포함</td></tr>` : "")
+    + `<tr><td>기후환경요금 (${ELEC.climate}원/kWh)</td><td>${won(r.climate)}</td></tr>
+    <tr><td>연료비조정요금 (+${ELEC.fuel}원/kWh)</td><td>${won(r.fuel)}</td></tr>
+    <tr><td>부가가치세 (10%)</td><td>${won(r.vat)}</td></tr>
+    <tr><td>전력산업기반기금 (2.7%)</td><td>${won(r.fund)}</td></tr>
+    <tr class="total"><td>청구 금액</td><td>${won(r.total)}</td></tr>`;
+  const watt = Math.max(0, num($("watt").value) || 0), hours = Math.min(24, Math.max(0, num($("hours").value) || 0)), days = Math.min(31, Math.max(0, Math.floor(num($("days").value) || 0)));
+  const add = Math.round(watt * hours * days / 1000);
+  const b2 = bill(kwh + add, season);
+  $("addBig").textContent = add ? "+" + won(b2.total - r.total) : "-";
+  $("addLine").textContent = add ? `${watt.toLocaleString("ko-KR")}W × ${hours}시간 × ${days}일 = ${add}kWh → 이번 달 ${(kwh + add).toLocaleString("ko-KR")}kWh, 총 ${won(b2.total)}${b2.tier > r.tier ? ` (${b2.tier + 1}구간으로 올라가요)` : ""}` : "소비전력과 사용 시간을 넣어 주세요.";
+}
+
+document.querySelector("main").addEventListener("input", (e) => { if (e.target.matches("input, select")) render(); });
+document.querySelector("main").addEventListener("change", (e) => { if (e.target.matches("input, select")) render(); });
+window.render = render;
+const h = location.hash.slice(1);
+if (h && document.querySelector(`[data-tab="${h}"]`)) setTab(h); else setTab(tab);
+</script>
+<script src="/assets/share.js?v=20261105a" defer></script>
+<script src="/assets/next.js?v=20261119a" defer></script>
+</body>
+</html>
