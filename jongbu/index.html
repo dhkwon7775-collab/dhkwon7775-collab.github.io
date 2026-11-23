@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<!-- Google Analytics (방문자 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPKJ0SGGB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (!location.hostname.endsWith('dohyun.co.kr')) window['ga-disable-G-KPKJ0SGGB8'] = true;
+  gtag('config', 'G-KPKJ0SGGB8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f6f4ef">
+<meta property="og:image" content="https://dohyun.co.kr/assets/og/jongbu.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="생활 계산기 모음">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<title>종부세 계산기 (2026) | 종합부동산세 1주택 12억 공제, 고령자·장기보유 공제</title>
+<meta name="description" content="종부세 계산기: 주택 공시가격 합계와 주택 수를 넣으면 2026년 종합부동산세와 농어촌특별세를 바로 계산해요. 1세대 1주택 12억 원 공제, 공정시장가액비율 60%, 고령자·장기보유 세액공제(최대 80%), 3주택 이상 중과세율까지 반영해요.">
+<meta property="og:title" content="종부세 계산기 (종합부동산세)">
+<meta property="og:description" content="공시가격으로 올해 종부세와 농특세를 계산해요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dohyun.co.kr/jongbu/">
+<link rel="canonical" href="https://dohyun.co.kr/jongbu/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3091749426201866"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Pretendard", -apple-system, "Malgun Gothic", sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 16px 64px; }
+  .crumb { font-size: 14px; color: var(--sub); text-decoration: none; }
+  h1 { font-size: 26px; margin: 8px 0 4px; }
+  .lead { color: var(--sub); margin: 0 0 24px; font-size: 15px; }
+  .card { background: var(--card); border-radius: 20px; padding: 24px 20px; margin-bottom: 16px; }
+  label, .label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  .input-wrap { position: relative; }
+  input[type="text"], input[type="date"], input[type="time"], select { width: 100%; font: inherit; font-size: 20px; font-weight: 700; padding: 11px 44px 11px 14px; border: 2px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); outline: none; font-variant-numeric: tabular-nums; }
+  input[type="date"], input[type="time"] { padding-right: 14px; font-size: 18px; }
+  select { font-size: 16px; padding-right: 14px; cursor: pointer; }
+  input:focus, select:focus { border-color: var(--accent); }
+  .unit { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--sub); font-weight: 600; }
+  .hint { font-size: 13px; color: var(--sub); margin-top: 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .quick button { font: inherit; font-size: 13px; cursor: pointer; border: 0; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row2 > * { min-width: 0; }
+  input { min-width: 0; }
+  @media (max-width: 440px) { .row2.stack { grid-template-columns: 1fr; gap: 0; } }
+  .check { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; font-weight: 600; cursor: pointer; }
+  .check input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+  .check small { display: block; font-weight: 400; font-size: 13px; color: var(--sub); }
+  .tabs { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); background: var(--seg); border-radius: 14px; padding: 4px; gap: 4px; margin-bottom: 16px; }
+  .tabs button { font: inherit; font-size: 14px; font-weight: 700; border: 0; border-radius: 10px; padding: 11px 2px; background: transparent; color: var(--sub); cursor: pointer; line-height: 1.3; }
+  .tabs button[aria-selected="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .seg { display: grid; grid-template-columns: repeat(2, 1fr); background: var(--seg); border-radius: 12px; padding: 4px; gap: 4px; }
+  .seg button { font: inherit; font-size: 14px; font-weight: 600; border: 0; border-radius: 9px; padding: 10px 4px; background: transparent; color: var(--sub); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--card); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  .result-head { font-size: 14px; color: var(--sub); margin: 0; }
+  .big { font-size: 38px; font-weight: 800; margin: 2px 0 4px; word-break: break-all; }
+  .sub-line { color: var(--sub); font-size: 14px; margin: 0 0 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .stat { background: var(--seg); border-radius: 12px; padding: 12px 10px; }
+  .stat b { display: block; font-size: 17px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 12px; color: var(--sub); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 8px 4px; border-top: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+  th { color: var(--sub); font-weight: 600; font-size: 12.5px; border-top: 0; }
+  th:first-child, td:first-child { text-align: left; }
+  tr.total td { font-weight: 700; border-top: 1.5px solid var(--line); }
+  h2.sec { font-size: 19px; margin: 0 0 12px; }
+  .faq details { border-top: 1px solid var(--line); padding: 12px 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details p { color: var(--sub); font-size: 14px; margin: 8px 0 0; }
+  footer { text-align: center; font-size: 12px; color: var(--sub); margin-top: 24px; }
+  [hidden] { display: none !important; }
+  @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 13px; } }
+</style>
+<link rel="stylesheet" href="/assets/site.css?v=20261105a">
+</head>
+<body>
+<header class="site-head">
+  <div class="in">
+    <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#2563eb"/><rect x="14" y="14" width="36" height="10" rx="2.5" fill="#fff"/><g fill="#fff"><rect x="14" y="29" width="10" height="9" rx="2.2"/><rect x="27" y="29" width="10" height="9" rx="2.2"/><rect x="40" y="29" width="10" height="9" rx="2.2"/><rect x="14" y="41" width="10" height="9" rx="2.2"/><rect x="27" y="41" width="10" height="9" rx="2.2"/><rect x="40" y="41" width="10" height="9" rx="2.2"/></g></svg>생활 계산기</a>
+    <nav><a href="/#tools">계산기</a><a href="/guide/">가이드</a></nav>
+    <span class="lang"><a href="/jongbu/" aria-current="true">한국어</a><a href="/en/" hreflang="en" lang="en">EN</a></span>
+  </div>
+</header>
+<main>
+  <a class="crumb" href="../">← 생활 계산기 모음</a>
+  <h1>종합부동산세(종부세) 계산기</h1>
+  <p class="lead">주택 공시가격 합계를 넣으면 12월에 낼 종합부동산세를 계산해요.</p>
+  <p class="verified">종합부동산세법 기준 (2026년 6월 1일 과세분) · 공정시장가액비율 60% · 기본공제 9억(1세대 1주택 12억) · 농어촌특별세 20%</p>
+
+  <section class="card">
+    <div class="field">
+      <label for="price">주택 공시가격 합계</label>
+      <div class="input-wrap"><input id="price" type="text" inputmode="numeric" value="1,500,000,000" autocomplete="off"><span class="unit">원</span></div>
+      <div class="hint" id="priceKo"></div>
+      <div class="quick"><button type="button" data-price="1300000000">13억</button><button type="button" data-price="1500000000">15억</button><button type="button" data-price="2000000000">20억</button><button type="button" data-price="3000000000">30억</button></div>
+      <div class="hint">시세가 아니라 '공동주택 공시가격'이에요. 부동산 공시가격 알리미(realtyprice.kr)에서 확인해요. 본인 명의 주택을 모두 더해요.</div>
+    </div>
+    <div class="field">
+      <span class="label">주택 수</span>
+      <div class="seg" style="grid-template-columns:repeat(3,1fr)" role="group" aria-label="주택 수">
+        <button type="button" data-count="1" aria-pressed="true">1세대 1주택</button>
+        <button type="button" data-count="2" aria-pressed="false">2주택</button>
+        <button type="button" data-count="3" aria-pressed="false">3주택 이상</button>
+      </div>
+    </div>
+    <div id="oneOnly">
+      <div class="row2">
+        <div class="field"><label for="age">나이 (6월 1일 기준)</label><select id="age"><option value="0">60세 미만</option><option value="0.2">60~64세</option><option value="0.3">65~69세</option><option value="0.4">70세 이상</option></select></div>
+        <div class="field"><label for="hold">보유 기간</label><select id="hold"><option value="0">5년 미만</option><option value="0.2">5~9년</option><option value="0.4">10~14년</option><option value="0.5">15년 이상</option></select></div>
+      </div>
+      <div class="hint" style="margin:-8px 0 0">1세대 1주택자만 받는 공제예요. 두 공제를 합쳐 최대 80%까지 깎아 줘요.</div>
+    </div>
+  </section>
+
+  <section class="card" aria-live="polite">
+    <p class="result-head">올해 낼 종부세 (농특세 포함)</p>
+    <p class="big" id="big">-</p>
+    <p class="sub-line" id="subLine"></p>
+    <div class="stats">
+      <div class="stat"><span>과세표준</span><b id="sBase">-</b></div>
+      <div class="stat"><span>세율 구간</span><b id="sRate">-</b></div>
+      <div class="stat"><span>세액공제</span><b id="sCredit">-</b></div>
+    </div>
+    <table><tbody id="rows"></tbody></table>
+    <p class="hint">재산세 중복분은 재산세 세율 0.4% 구간 기준으로 어림했어요. 작년보다 세금이 크게 늘면 150% 세부담 상한이 적용될 수 있어요.</p>
+  </section>
+
+  <!-- explain:start -->
+  <section class="card explain" id="how">
+    <h2>종부세는 이렇게 계산돼요</h2>
+<h3>계산 순서 (주택분, 2026년 과세분)</h3>
+<ol>
+  <li><b>과세표준</b> = (공시가격 합계 − 기본공제) × 공정시장가액비율 60%. 기본공제는 9억 원, 1세대 1주택은 12억 원이에요.</li>
+  <li><b>세율</b>: 과세표준 3억 원까지 0.5%, 6억 0.7%, 12억 1.0%, 25억 1.3%, 50억 1.5%, 94억 2.0%, 그 위 2.7% (3주택 이상은 12억 초과부터 2~5%)</li>
+  <li><b>재산세 중복분 공제</b>: 같은 금액에 이미 낸 재산세를 빼요.</li>
+  <li><b>1세대 1주택 세액공제</b>: 고령자(60세 20%, 65세 30%, 70세 40%) + 장기보유(5년 20%, 10년 40%, 15년 50%), 합쳐서 최대 80%</li>
+  <li><b>농어촌특별세</b>: 종부세의 20%를 더 내요.</li>
+</ol>
+<h3>예시 (세액공제 없음, 농특세 포함)</h3>
+<div class="tbl"><table><thead><tr><th>주택</th><th>과세표준</th><th>낼 세금 (어림)</th></tr></thead><tbody><tr><td>1주택 공시가격 13억 원</td><td>6,000만 원</td><td>187,200원</td></tr><tr><td>1주택 15억 원</td><td>1억 8,000만 원</td><td>561,600원</td></tr><tr><td>1주택 20억 원</td><td>4억 8,000만 원</td><td>1,929,600원</td></tr><tr><td>1주택 20억 원 · 공제 50%</td><td>4억 8,000만 원</td><td>964,800원</td></tr><tr><td>2주택 합계 15억 원</td><td>3억 6,000만 원</td><td>1,267,200원</td></tr><tr><td>3주택 합계 30억 원</td><td>12억 6,000만 원</td><td>9,331,200원</td></tr></tbody></table></div>
+<p>같은 15억 원이라도 1주택이면 약 56만 원, 2주택이면 약 127만 원이에요. 공제가 12억 → 9억 원으로 줄고, 1주택 세액공제도 받을 수 없기 때문이에요.</p>
+<h3>알아 둘 점</h3>
+<ul>
+  <li>6월 1일에 가진 주택으로 계산하고, 11월 말 고지서를 받아 <b>12월 1~15일</b>에 내요. 250만 원이 넘으면 일부를 6개월 안에 나눠 낼 수 있어요.</li>
+  <li>작년보다 세금이 크게 늘면 <b>세부담 상한</b>(전년도 재산세+종부세의 150%)이 적용될 수 있어요.</li>
+  <li>공정시장가액비율 인상·실거주 1주택 공제 확대 같은 개편이 논의되고 있어요. 확정되면 계산기를 고칠게요.</li>
+</ul>
+<p class="src">근거: 종합부동산세법 제8조(과세표준)·제9조(세율 및 세액), 같은 법 시행령 제2조의4(공정시장가액비율 60%)·제4조의2(재산세 공제), 농어촌특별세법 제5조</p>
+  </section>
+  <!-- explain:end -->
+
+  <section class="card guide-links">
+    <h2>함께 읽으면 좋은 가이드</h2>
+    <div class="link-list">
+      <a href="/guide/changes-2027/">2027년 달라지는 것 총정리</a>
+    </div>
+  </section>
+
+  <section class="card faq">
+    <h2 class="sec">자주 묻는 질문</h2>
+    <details>
+      <summary>종부세는 누가 내요?</summary>
+      <p>6월 1일 기준으로 본인 명의 주택의 공시가격 합계가 9억 원(1세대 1주택이면 12억 원)을 넘는 사람이 내요. 고지서는 11월 말에 오고 12월 1일부터 15일까지 내요.</p>
+    </details>
+    <details>
+      <summary>1세대 1주택 공시가격 15억이면 종부세가 얼마예요?</summary>
+      <p>공제 12억 원을 뺀 3억 원에 공정시장가액비율 60%를 곱한 1억 8천만 원이 과세표준이에요. 세율 0.5%를 적용하고 재산세 중복분을 빼면 약 47만 원, 농어촌특별세를 더해 약 56만 원이에요. 60세 이상이거나 5년 넘게 가지고 있으면 더 줄어요.</p>
+    </details>
+    <details>
+      <summary>종부세를 나눠 낼 수 있어요?</summary>
+      <p>세액이 250만 원을 넘으면 일부를 6개월 안에 나눠 낼 수 있어요(분납). 500만 원 이하면 250만 원을 넘는 금액, 500만 원 초과면 절반까지 나눠 낼 수 있어요.</p>
+    </details>
+    <details>
+      <summary>부부 공동명의면 어떻게 계산해요?</summary>
+      <p>각자 지분만큼의 공시가격에서 9억 원씩 공제받아요. 1세대 1주택 공동명의는 신청하면 단독명의처럼 12억 원 공제와 고령자·장기보유 공제를 받을 수도 있어요. 둘 중 유리한 쪽을 고르세요.</p>
+    </details>
+  </section>
+
+  <section class="card more-calcs">
+    <h2>다른 계산기</h2>
+    <nav class="calc-grid" aria-label="다른 계산기">
+      <a href="/salary/"><span class="ico" aria-hidden="true">💰</span>연봉 실수령액</a>
+      <a href="/raise/"><span class="ico" aria-hidden="true">📈</span>연봉 인상률</a>
+      <a href="/hourly/"><span class="ico" aria-hidden="true">⏰</span>알바 월급</a>
+      <a href="/overtime/"><span class="ico" aria-hidden="true">🌙</span>야간·연장수당</a>
+      <a href="/bonus/"><span class="ico" aria-hidden="true">🎁</span>성과급 세금</a>
+      <a href="/yearend/"><span class="ico" aria-hidden="true">💸</span>연말정산</a>
+      <a href="/leave/"><span class="ico" aria-hidden="true">🌴</span>연차</a>
+      <a href="/parental/"><span class="ico" aria-hidden="true">👶</span>육아휴직 급여</a>
+      <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
+      <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/savings/"><span class="ico" aria-hidden="true">🐷</span>예금·적금 이자</a>
+      <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
+      <a href="/prepayment/"><span class="ico" aria-hidden="true">🔁</span>중도상환수수료</a>
+      <a href="/dsr/"><span class="ico" aria-hidden="true">📈</span>DSR 대출 한도</a>
+      <a href="/acquisition-tax/"><span class="ico" aria-hidden="true">🏢</span>취득세</a>
+      <a href="/subscription/"><span class="ico" aria-hidden="true">🏠</span>청약 가점</a>
+      <a href="/brokerage/"><span class="ico" aria-hidden="true">🤝</span>복비</a>
+      <a href="/rent/"><span class="ico" aria-hidden="true">🔑</span>전월세 전환</a>
+      <a href="/area/"><span class="ico" aria-hidden="true">📐</span>평수</a>
+      <a href="/age/"><span class="ico" aria-hidden="true">🎂</span>만 나이</a>
+      <a href="/tti/"><span class="ico" aria-hidden="true">🐑</span>띠·띠별 나이</a>
+      <a href="/dday/"><span class="ico" aria-hidden="true">📅</span>D-day·전역일</a>
+      <a href="/count/"><span class="ico" aria-hidden="true">📝</span>글자수 세기</a>
+      <a href="/percent/"><span class="ico" aria-hidden="true">📊</span>퍼센트</a>
+      <a href="/date/"><span class="ico" aria-hidden="true">🗓️</span>날짜 계산</a>
+      <a href="/time/"><span class="ico" aria-hidden="true">⏱️</span>시간 계산</a>
+      <a href="/vat/"><span class="ico" aria-hidden="true">🏷️</span>부가세</a>
+      <a href="/car-tax/"><span class="ico" aria-hidden="true">🚗</span>자동차세·연납</a>
+      <a href="/gpa/"><span class="ico" aria-hidden="true">🎓</span>학점 계산</a>
+      <a href="/bmi/"><span class="ico" aria-hidden="true">⚖️</span>BMI·적정 체중</a>
+      <a href="/unit/"><span class="ico" aria-hidden="true">📏</span>단위 변환</a>
+      <a href="/electricity/"><span class="ico" aria-hidden="true">💡</span>전기요금</a>
+    </nav>
+  </section>
+
+  <footer>계산 결과는 참고용이에요. 실제 세액은 재산세 실제 납부액, 세부담 상한, 합산배제 주택 등에 따라 달라요. 정확한 금액은 홈택스에서 확인하세요.<br><a href="/about/" style="color:inherit">사이트 소개</a> · <a href="/privacy/" style="color:inherit">개인정보처리방침</a> · <a href="mailto:kdh7775@kakao.com" style="color:inherit">문의</a></footer>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+// 숫자 입력: 쉼표·공백을 빼고 읽어요 (소수·음수 가능)
+const num = (s) => { const n = parseFloat(String(s).replace(/[^0-9.\-]/g, "")); return isFinite(n) ? n : NaN; };
+// 보기 좋게: 천 단위 쉼표, 소수는 최대 d자리
+const show = (n, d = 4) => isFinite(n) ? n.toLocaleString("ko-KR", { maximumFractionDigits: d }) : "-";
+let tab = document.querySelector('[data-tab][aria-selected="true"]')?.dataset.tab;
+function setTab(t) {
+  tab = t;
+  document.querySelectorAll("[data-tab]").forEach((b) => b.setAttribute("aria-selected", b.dataset.tab === t));
+  document.querySelectorAll("[data-panel]").forEach((p) => (p.hidden = p.dataset.panel !== t));
+  if (typeof onTab === "function") onTab(t);
+  render();
+}
+document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
+
+let count = "1";
+const won = (n) => Math.round(n).toLocaleString("ko-KR") + "원";
+const korMoney = (n) => { const e = Math.floor(n / 1e8), m = Math.floor((n % 1e8) / 1e4); return !e && !m ? won(n) : ((e ? e + "억 " : "") + (m ? m.toLocaleString("ko-KR") + "만 " : "")).trim() + " 원"; };
+// 2026년 주택분 종부세 세율 [과세표준 상한, 세율]
+const BR = [[3e8, 0.005], [6e8, 0.007], [12e8, 0.01], [25e8, 0.013], [50e8, 0.015], [94e8, 0.02], [Infinity, 0.027]];
+const BR3 = [[3e8, 0.005], [6e8, 0.007], [12e8, 0.01], [25e8, 0.02], [50e8, 0.03], [94e8, 0.04], [Infinity, 0.05]];
+function progressive(base, table) {
+  let tax = 0, lo = 0, rate = 0;
+  for (const [hi, r] of table) { if (base > lo) { tax += (Math.min(base, hi) - lo) * r; rate = r; } lo = hi; }
+  return { tax, rate };
+}
+function jongbu({ price, count, age, hold }) {
+  const one = count === "1";
+  const ded = one ? 12e8 : 9e8;
+  const base = Math.floor(Math.max(0, price - ded) * 0.6 / 1000) * 1000;
+  const p = progressive(base, count === "3" ? BR3 : BR);
+  const tax = Math.floor(p.tax);
+  const prop = Math.min(tax, Math.floor(base * 0.6 * 0.004));   // 재산세 중복분 (어림)
+  const t1 = tax - prop;
+  const creditRate = one ? Math.min(0.8, age + hold) : 0;
+  const credit = Math.floor(t1 * creditRate);
+  const jb = t1 - credit, farm = Math.floor(jb * 0.2);
+  return { ded, base, rate: p.rate, tax, prop, creditRate, credit, jb, farm, total: jb + farm };
+}
+window.calc = jongbu;
+$("price").addEventListener("input", (e) => { const n = Math.floor(num(e.target.value)); e.target.value = isFinite(n) && n ? n.toLocaleString("ko-KR") : ""; });
+document.addEventListener("click", (e) => {
+  const p = e.target.closest("[data-price]"); if (p) { $("price").value = Number(p.dataset.price).toLocaleString("ko-KR"); render(); }
+  const c = e.target.closest("[data-count]");
+  if (c) { count = c.dataset.count; document.querySelectorAll("[data-count]").forEach((x) => x.setAttribute("aria-pressed", x === c)); $("oneOnly").hidden = count !== "1"; render(); }
+});
+const pct = (x) => +(x * 100).toFixed(2) + "%";
+function render() {
+  const price = Math.max(0, Math.floor(num($("price").value) || 0));
+  $("priceKo").textContent = price ? korMoney(price) : "";
+  const r = jongbu({ price, count, age: Number($("age").value), hold: Number($("hold").value) });
+  if (!r.base) { $("big").textContent = "0원"; $("subLine").textContent = `공시가격 합계가 ${korMoney(r.ded)} 이하라 종부세 대상이 아니에요`; $("sBase").textContent = "0원"; $("sRate").textContent = "-"; $("sCredit").textContent = "-"; $("rows").innerHTML = ""; return; }
+  $("big").textContent = won(r.total);
+  $("subLine").textContent = `종부세 ${won(r.jb)} + 농어촌특별세 ${won(r.farm)} · 12월 15일까지 납부`;
+  $("sBase").textContent = korMoney(r.base); $("sRate").textContent = pct(r.rate); $("sCredit").textContent = r.creditRate ? Math.round(r.creditRate * 100) + "%" : "없음";
+  $("rows").innerHTML = `<tr><td>공시가격 합계</td><td>${won(price)}</td></tr>
+    <tr><td>기본공제 (${count === "1" ? "1세대 1주택" : "일반"})</td><td>−${won(r.ded)}</td></tr>
+    <tr><td>× 공정시장가액비율 60% = 과세표준</td><td>${won(r.base)}</td></tr>
+    <tr><td>종부세 (누진세율${count === "3" ? ", 3주택 이상 중과" : ""})</td><td>${won(r.tax)}</td></tr>
+    <tr><td>재산세 중복분 공제 (어림)</td><td>−${won(r.prop)}</td></tr>
+    ${r.creditRate ? `<tr><td>고령자·장기보유 공제 (${Math.round(r.creditRate * 100)}%)</td><td>−${won(r.credit)}</td></tr>` : ""}
+    <tr><td>납부할 종부세</td><td>${won(r.jb)}</td></tr>
+    <tr><td>농어촌특별세 (20%)</td><td>${won(r.farm)}</td></tr>
+    <tr class="total"><td>합계</td><td>${won(r.total)}</td></tr>`;
+}
+
+document.querySelector("main").addEventListener("input", (e) => { if (e.target.matches("input, select")) render(); });
+document.querySelector("main").addEventListener("change", (e) => { if (e.target.matches("input, select")) render(); });
+window.render = render;
+const h = location.hash.slice(1);
+if (h && document.querySelector(`[data-tab="${h}"]`)) setTab(h); else setTab(tab);
+</script>
+<script src="/assets/share.js?v=20261105a" defer></script>
+<script src="/assets/next.js?v=20261124a" defer></script>
+</body>
+</html>
