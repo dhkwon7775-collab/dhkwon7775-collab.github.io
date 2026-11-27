@@ -86,6 +86,11 @@
   @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 13px; } }
 </style>
 <link rel="stylesheet" href="/assets/site.css?v=20261105a">
+<!-- schema:start -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "학점 계산기", "url": "https://dohyun.co.kr/gpa/", "description": "학점 계산기: 과목별 학점과 성적(A+~F, P/NP)을 넣으면 평점 평균을 계산해요. 4.5 만점과 4.3 만점, 누적 평점, 목표 학점까지 남은 학기에 필요한 평점, 4.5↔4.3↔100점 환산까지 한 번에.", "inLanguage": "ko", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "생활 계산기", "item": "https://dohyun.co.kr/"}, {"@type": "ListItem", "position": 2, "name": "학점 계산기", "item": "https://dohyun.co.kr/gpa/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "학점(평점) 평균은 어떻게 계산하나요?", "acceptedAnswer": {"@type": "Answer", "text": "과목마다 '학점 × 성적 점수'를 더한 뒤, 성적이 매겨진 학점의 합으로 나눠요. 3학점 A+(4.5)와 2학점 B+(3.5)면 (13.5 + 7) ÷ 5 = 4.1이에요. P/NP 과목은 이수 학점에는 들어가지만 평점 계산에서는 빠져요."}}, {"@type": "Question", "name": "4.5 만점을 4.3 만점으로 바꾸려면?", "acceptedAnswer": {"@type": "Answer", "text": "가장 흔한 방법은 비례 환산이에요. 4.5 만점 3.8은 3.8 ÷ 4.5 × 4.3 ≈ 3.63이에요. 다만 학교·회사마다 환산표가 따로 있는 경우가 많으니 제출처 기준을 먼저 확인하세요."}}, {"@type": "Question", "name": "F 학점도 평균에 들어가나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. F는 0점으로 학점 수만큼 평균을 끌어내려요. 재수강으로 성적이 바뀌면 이전 성적을 빼고 다시 계산하는 학교가 많아요."}}, {"@type": "Question", "name": "100점 만점으로는 몇 점인가요?", "acceptedAnswer": {"@type": "Answer", "text": "학교마다 공식이 달라요. 이 계산기는 '평점 ÷ 만점 × 100'으로 단순 비례 환산한 값을 보여 줘요. 학교 공식 백분위가 있으면 그 값을 쓰세요."}}]}</script>
+<!-- schema:end -->
 </head>
 <body>
 <header class="site-head">
