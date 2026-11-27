@@ -16,7 +16,8 @@
     ...main.querySelectorAll(".stepper output[id]"),
   ];
   // 상환 방식·공제 방식·탭처럼 눌린 버튼으로 고르는 값
-  const CHOICE_ATTRS = ["method", "deduct", "age", "tab"];
+  const SKIP_DATA = ["set", "d", "target"];
+  const kebab = (k) => k.replace(/[A-Z]/g, (c) => "-" + c.toLowerCase());
 
   function collect() {
     const p = new URLSearchParams();
@@ -24,10 +25,10 @@
       if (el.type === "checkbox") p.set(el.id, el.checked ? "1" : "0");
       else if (el.value !== "") p.set(el.id, String(el.value).replace(/,/g, ""));
     }
-    for (const a of CHOICE_ATTRS) {
-      const on = main.querySelector(`[data-${a}][aria-pressed="true"], [data-${a}][aria-selected="true"]`) ||
-        document.querySelector(`[data-${a}][aria-selected="true"]`);
-      if (on) p.set("_" + a, on.dataset[a]);
+    // 눌려 있는 선택 버튼(계절·주택 수·탭 등)을 모두 담아요: _속성이름=값
+    for (const b of main.querySelectorAll('button[aria-pressed="true"], button[aria-selected="true"]')) {
+      const k = Object.keys(b.dataset).find((x) => !SKIP_DATA.includes(x));
+      if (k && !p.has("_" + k)) p.set("_" + k, b.dataset[k]);
     }
     return p;
   }
@@ -40,12 +41,10 @@
       if (p.has(el.id)) el.value = p.get(el.id);
     }
     // 2) 버튼으로 고르는 값
-    for (const a of CHOICE_ATTRS) {
-      const v = p.get("_" + a);
-      if (v) {
-        const b = document.querySelector(`[data-${a}="${CSS.escape(v)}"]`);
-        if (b) b.click();
-      }
+    for (const [k, v] of p) {
+      if (!k.startsWith("_") || !/^_[a-zA-Z]+$/.test(k)) continue;
+      const b = main.querySelector(`button[data-${kebab(k.slice(1))}="${CSS.escape(v)}"]`);
+      if (b) b.click();
     }
     // 3) 입력칸 (입력 이벤트로 다시 계산)
     for (const el of main.querySelectorAll("input[id]:not([type=search]), select[id]")) {
@@ -55,11 +54,17 @@
         el.checked = v === "1";
         el.dispatchEvent(new Event("change", { bubbles: true }));
       } else {
-        el.value = /^\d+$/.test(v) && el.inputMode === "numeric" ? Number(v).toLocaleString(EN ? "en-US" : "ko-KR") : v;
+        el.value = /^\d+$/.test(v) && Number(v) >= 10000 && el.inputMode === "numeric" ? Number(v).toLocaleString(EN ? "en-US" : "ko-KR") : v;
         el.dispatchEvent(new Event(el.tagName === "SELECT" ? "change" : "input", { bubbles: true }));
       }
     }
     if (typeof window.render === "function") window.render();
+    // 공유받은 링크로 들어왔다는 안내 (내 숫자로 바꿔 보도록)
+    const note = document.createElement("p");
+    note.className = "shared-note";
+    note.textContent = EN ? "This is a result someone shared with you. Change the numbers above to calculate your own." : "공유받은 계산 결과예요. 위 숫자를 내 상황으로 바꿔서 다시 계산해 보세요.";
+    note.style.cssText = "margin:0 0 12px;padding:10px 12px;border-radius:10px;background:var(--seg);color:var(--sub);font-size:13.5px;line-height:1.5";
+    result.insertBefore(note, result.firstChild);
   }
 
   function summary() {

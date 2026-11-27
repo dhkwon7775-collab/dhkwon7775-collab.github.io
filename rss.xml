@@ -5,8 +5,16 @@
     <link>https://dohyun.co.kr/</link>
     <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 이자, 퍼센트 등 생활 계산기와 쉽게 정리한 생활 가이드</description>
     <language>ko</language>
-    <lastBuildDate>Tue, 24 Nov 2026 09:00:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 09:00:00 +0900</lastBuildDate>
     <atom:link href="https://dohyun.co.kr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>국민연금 수령액 계산기 (2026 개혁 반영) | 예상 연금액·받는 나이·조기·연기 수령</title>
+      <link>https://dohyun.co.kr/pension/</link>
+      <guid isPermaLink="true">https://dohyun.co.kr/pension/</guid>
+      <description>국민연금 수령액 계산기: 태어난 해, 가입 기간, 평균 월소득을 넣으면 매달 받을 예상 연금액(현재 가치)과 받기 시작하는 나이를 계산해요. 2026년 연금개혁(소득대체율 43%, 보험료율 인상) 반영, 조기수령·연기수령 비교표까지.</description>
+      <category>계산기</category>
+      <pubDate>Fri, 27 Nov 2026 09:00:00 +0900</pubDate>
+    </item>
     <item>
       <title>2027년 달라지는 것 총정리: 최저임금 10,700원, 국민연금 10%, 4대보험·공휴일·육아 지원</title>
       <link>https://dohyun.co.kr/guide/changes-2027/</link>
@@ -307,7 +315,7 @@
       <title>생활 계산기 모음 | 연봉 실수령액·퇴직금·실업급여·이자·퍼센트 계산기</title>
       <link>https://dohyun.co.kr/</link>
       <guid isPermaLink="true">https://dohyun.co.kr/</guid>
-      <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 연말정산, 이자, 퍼센트, 날짜 계산까지 33가지. 2026년 기준으로 확인한 생활 계산을 숫자만 넣으면 무료로, 가입 없이 바로 알려드려요.</description>
+      <description>연봉 실수령액, 퇴직금, 실업급여, 육아휴직, 연말정산, 이자, 퍼센트, 날짜 계산까지 34가지. 2026년 기준으로 확인한 생활 계산을 숫자만 넣으면 무료로, 가입 없이 바로 알려드려요.</description>
       <category>계산기</category>
       <pubDate>Thu, 05 Nov 2026 09:00:00 +0900</pubDate>
     </item>

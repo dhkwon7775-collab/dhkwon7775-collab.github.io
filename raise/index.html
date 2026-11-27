@@ -85,7 +85,7 @@
   [hidden] { display: none !important; }
   @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 13px; } }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20261105a">
+<link rel="stylesheet" href="/assets/site.css?v=20261127a">
 <!-- schema:start -->
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "연봉 인상률 계산기", "url": "https://dohyun.co.kr/raise/", "description": "연봉 인상률 계산기: 지금 연봉과 인상률(%) 또는 새 연봉을 넣으면 오른 연봉, 월 실수령액이 실제로 얼마나 늘어나는지, 세금·4대보험으로 빠지는 몫과 실수령 인상률까지 바로 계산해요. 3%·5%·10% 인상 비교표도 함께 보여 줘요.", "inLanguage": "ko", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "생활 계산기", "item": "https://dohyun.co.kr/"}, {"@type": "ListItem", "position": 2, "name": "연봉 인상률 계산기", "item": "https://dohyun.co.kr/raise/"}]}</script>
@@ -212,6 +212,7 @@
       <a href="/parental/"><span class="ico" aria-hidden="true">👶</span>육아휴직 급여</a>
       <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
       <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/pension/"><span class="ico" aria-hidden="true">👵</span>국민연금 수령액</a>
       <a href="/savings/"><span class="ico" aria-hidden="true">🐷</span>예금·적금 이자</a>
       <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
       <a href="/prepayment/"><span class="ico" aria-hidden="true">🔁</span>중도상환수수료</a>
@@ -304,7 +305,7 @@ window.render = render;
 const h = location.hash.slice(1);
 if (h && document.querySelector(`[data-tab="${h}"]`)) setTab(h); else setTab(tab);
 </script>
-<script src="/assets/share.js?v=20261105a" defer></script>
-<script src="/assets/next.js?v=20261124a" defer></script>
+<script src="/assets/share.js?v=20261127a" defer></script>
+<script src="/assets/next.js?v=20261127a" defer></script>
 </body>
 </html>

@@ -88,7 +88,7 @@
   [hidden] { display: none !important; }
   @media (max-width: 400px) { .stat b { font-size: 15px; } .big { font-size: 32px; } .tabs button { font-size: 13px; } }
 </style>
-<link rel="stylesheet" href="/assets/site.css?v=20261105a">
+<link rel="stylesheet" href="/assets/site.css?v=20261127a">
 <!-- schema:start -->
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "야간·연장·휴일수당 계산기", "url": "https://dohyun.co.kr/overtime/", "description": "야간수당 계산기: 시급과 출퇴근 시간을 넣으면 연장근로수당(1.5배), 야간근로수당(밤 10시~아침 6시 50% 가산), 휴일근로수당(8시간 초과 2배)을 바로 계산해요. 2026년 최저시급 10,320원, 5인 미만 사업장도 구분해요.", "inLanguage": "ko", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "KRW"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "생활 계산기", "item": "https://dohyun.co.kr/"}, {"@type": "ListItem", "position": 2, "name": "야간·연장·휴일수당 계산기", "item": "https://dohyun.co.kr/overtime/"}]}</script>
@@ -243,6 +243,7 @@
       <a href="/parental/"><span class="ico" aria-hidden="true">👶</span>육아휴직 급여</a>
       <a href="/severance/"><span class="ico" aria-hidden="true">🧾</span>퇴직금</a>
       <a href="/unemployment/"><span class="ico" aria-hidden="true">📋</span>실업급여</a>
+      <a href="/pension/"><span class="ico" aria-hidden="true">👵</span>국민연금 수령액</a>
       <a href="/savings/"><span class="ico" aria-hidden="true">🐷</span>예금·적금 이자</a>
       <a href="/loan/"><span class="ico" aria-hidden="true">🏦</span>대출 이자</a>
       <a href="/prepayment/"><span class="ico" aria-hidden="true">🔁</span>중도상환수수료</a>
@@ -360,7 +361,7 @@ window.render = render;
 const h = location.hash.slice(1);
 if (h && document.querySelector(`[data-tab="${h}"]`)) setTab(h); else setTab(tab);
 </script>
-<script src="/assets/share.js?v=20261105a" defer></script>
-<script src="/assets/next.js?v=20261124a" defer></script>
+<script src="/assets/share.js?v=20261127a" defer></script>
+<script src="/assets/next.js?v=20261127a" defer></script>
 </body>
 </html>
