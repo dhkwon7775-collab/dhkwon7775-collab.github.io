@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://dohyun.co.kr/sitemap.xml
+
+#DaumWebMasterTool:f1ab5e61a55266f732237bd51e458755d9179409ab14badbfaf27b07e956880b:bBY3xhlFAprgQb834vQqzA==
